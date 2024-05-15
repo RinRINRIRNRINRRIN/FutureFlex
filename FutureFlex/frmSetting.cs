@@ -1,7 +1,9 @@
-﻿using System;
-using System.IO.Ports;
-using System.Windows.Forms;
+﻿using Bunifu.UI.WinForms;
+using System;
 using System.Configuration;
+using System.IO.Ports;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace FutureFlex
 {
@@ -9,14 +11,15 @@ namespace FutureFlex
     {
         SerialPort sa = new SerialPort();
 
-        string appCOM = ConfigurationManager.AppSettings["COM_WGH"];
-        string appBaudrate = ConfigurationManager.AppSettings["BAUDRATE"];
-        string appParity = ConfigurationManager.AppSettings["Parity"];
-        string appStopBits = ConfigurationManager.AppSettings["StopBits"];
-        string appDataBits = ConfigurationManager.AppSettings["DataBits"];
+        string WGH_COM = ConfigurationManager.AppSettings["WGH_COM"];
+        string WGH_BUADRATE = ConfigurationManager.AppSettings["WGH_BUADRATE"];
+
+        string SCN_COM = ConfigurationManager.AppSettings["SCN_COM"];
+        string SCN_BUADRATE = ConfigurationManager.AppSettings["SCN_BUADRATE"];
+
 
         Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
+        BunifuSnackbar sk = new BunifuSnackbar();
         public frmSetting()
         {
             InitializeComponent();
@@ -30,66 +33,94 @@ namespace FutureFlex
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
-            gbDate.Visible = false;
-            gbPassword.Visible = true;         
+            gbWGH.Visible = false;
         }
 
         private void cbbCOMPORT_DropDown(object sender, EventArgs e)
         {
-            cbbCOMPORT.Items.Clear();
+            cbbWGHCOM.Items.Clear();
             string[] comprt = SerialPort.GetPortNames();
-            cbbCOMPORT.Items.AddRange(comprt);        
+            cbbWGHCOM.Items.AddRange(comprt);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            config.AppSettings.Settings["COM_WGH"].Value = cbbCOMPORT.Text;
-            config.AppSettings.Settings["BAUDRATE"].Value = cbbBAUTRATE.Text;
+            config.AppSettings.Settings["COM_WGH"].Value = cbbWGHCOM.Text;
+            config.AppSettings.Settings["BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
 
-
-        private void cbbCOMPORT_SelectedIndexChanged(object sender, EventArgs e)
+        private void GET_SERIALPORT(object sender, EventArgs e)
         {
+            ComboBox cbb = sender as ComboBox;
 
+            string[] a = SerialPort.GetPortNames();
+
+            cbb.Items.Clear();
+            for (int i = 0; i < a.Length; i++)
+            {
+                cbb.Items.Add(a[i]);
+            }
         }
 
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        private void GET_BUADRATE(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (txtPassword.Text == "tsc1932")
-                {
-                    txtPassword.Clear();
-                    txtPassword.PlaceholderText = "กรุณาใส่รหัสผ่านใหม่";
-                }
-                else if (txtPassword.Text == ConfigurationManager.AppSettings["PassAdmin"])
-                {
-                    gbDate.Visible = true;
-                    gbPassword.Visible = false;
+            ComboBox cbb = sender as ComboBox;
 
-                    cbbCOMPORT.Text = appCOM;
-                    cbbBAUTRATE.Text = appBaudrate;
-                    cbbParity.Text = appParity;
-                    cbbDATABITS.Text = appDataBits;
-                    cbbSTOPBITS.Text = appStopBits;
-                }
-                else if (txtPassword.PlaceholderText == "กรุณาใส่รหัสผ่านใหม่")
+            cbb.Items.Clear();
+            cbb.Items.Add(9600);
+            cbb.Items.Add(115200);
+        }
+
+        private void CLEAR_COMBOBOX(object sender, EventArgs e)
+        {
+            ComboBox cbb = sender as ComboBox;
+
+            if (cbb.Text == "")
+            {
+                cbb.Items.Clear();
+                switch (cbb.Tag)
                 {
-                    config.AppSettings.Settings["PassAdmin"].Value = txtPassword.Text;
-                    config.Save(ConfigurationSaveMode.Modified);
-                    ConfigurationManager.RefreshSection("appSettings");
-                    MessageBox.Show("รหัสผ่านถูกเปลี่ยนเรียนร้อย", "information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("รหัสผ่านแอดมินไม่ถูกต้องกรุณาผ่านใหม่", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtPassword.Clear();
-                    txtPassword.Focus();
+                    case "COM":
+                        cbb.Items.Add("--COM--");
+                        cbb.SelectedIndex = 0;
+                        break;
+                    case "BUADRATE":
+                        cbb.Items.Add("--BUADRATE--");
+                        cbb.SelectedIndex = 0;
+                        break;
                 }
             }
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            // ตรวจสอบค่าว่าง
+            foreach (var item in gbSCN.Controls.OfType<ComboBox>())
+            {
+                if (item.Text.Contains("--"))
+                {
+                    sk.Show(this, "กรุณาเลือก COM หรือ BUADRATE ก่อนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    return;
+                }
+            }
+
+            foreach (var item in gbWGH.Controls.OfType<ComboBox>())
+            {
+                if (item.Text.Contains("--"))
+                {
+                    sk.Show(this, "กรุณาเลือก COM หรือ BUADRATE ก่อนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    return;
+                }
+            }
+
+            config.AppSettings.Settings["WGH_COM"].Value = cbbWGHCOM.Text;
+            config.AppSettings.Settings["WGH_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
+            config.AppSettings.Settings["SCN_COM"].Value = cbbWGHBAUTRATE.Text;
+            config.AppSettings.Settings["SCN_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }
