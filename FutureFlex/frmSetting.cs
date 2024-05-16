@@ -25,31 +25,17 @@ namespace FutureFlex
             InitializeComponent();
         }
 
-        private void comboBox15_DropDown(object sender, EventArgs e)
-        {
-            sender.GetHashCode();
-            Console.WriteLine(sender);
-        }
 
         private void frmSetting_Load(object sender, EventArgs e)
         {
+            // ดึงค่า COM BUADRATE มาแสดงที่ Combobox
+            cbbSCNBUADRATE.Text = SCN_BUADRATE;
+            cbbSCNCOM.Text = SCN_COM;
+            cbbWGHBAUTRATE.Text = WGH_BUADRATE;
+            cbbWGHCOM.Text = WGH_COM;
             gbWGH.Visible = false;
         }
 
-        private void cbbCOMPORT_DropDown(object sender, EventArgs e)
-        {
-            cbbWGHCOM.Items.Clear();
-            string[] comprt = SerialPort.GetPortNames();
-            cbbWGHCOM.Items.AddRange(comprt);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            config.AppSettings.Settings["COM_WGH"].Value = cbbWGHCOM.Text;
-            config.AppSettings.Settings["BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
-            config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection("appSettings");
-        }
 
         private void GET_SERIALPORT(object sender, EventArgs e)
         {
