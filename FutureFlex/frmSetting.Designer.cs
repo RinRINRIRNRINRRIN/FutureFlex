@@ -149,7 +149,6 @@ namespace FutureFlex
             this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistory.Enabled = false;
             this.btnHistory.FillColor = System.Drawing.Color.GhostWhite;
             this.btnHistory.Font = new System.Drawing.Font("Athiti", 12F);
             this.btnHistory.ForeColor = System.Drawing.Color.Navy;

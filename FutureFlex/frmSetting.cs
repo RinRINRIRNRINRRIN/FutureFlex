@@ -12,10 +12,10 @@ namespace FutureFlex
         SerialPort sa = new SerialPort();
 
         string WGH_COM = ConfigurationManager.AppSettings["WGH_COM"];
-        string WGH_BUADRATE = ConfigurationManager.AppSettings["WGH_BUADRATE"];
+        string WGH_BUADRATE = ConfigurationManager.AppSettings["WGH_BAUDRATE"];
 
         string SCN_COM = ConfigurationManager.AppSettings["SCN_COM"];
-        string SCN_BUADRATE = ConfigurationManager.AppSettings["SCN_BUADRATE"];
+        string SCN_BUADRATE = ConfigurationManager.AppSettings["SCN_BAUDRATE"];
 
 
         Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -29,11 +29,15 @@ namespace FutureFlex
         private void frmSetting_Load(object sender, EventArgs e)
         {
             // ดึงค่า COM BUADRATE มาแสดงที่ Combobox
-            cbbSCNBUADRATE.Text = SCN_BUADRATE;
-            cbbSCNCOM.Text = SCN_COM;
-            cbbWGHBAUTRATE.Text = WGH_BUADRATE;
-            cbbWGHCOM.Text = WGH_COM;
-            gbWGH.Visible = false;
+            cbbSCNBUADRATE.Items.Add(SCN_BUADRATE);
+            cbbSCNCOM.Items.Add(SCN_COM);
+            cbbWGHBAUTRATE.Items.Add(WGH_BUADRATE);
+            cbbWGHCOM.Items.Add(WGH_COM);
+
+            cbbWGHCOM.SelectedIndex = 0;
+            cbbWGHBAUTRATE.SelectedIndex = 0;
+            cbbSCNCOM.SelectedIndex = 0;
+            cbbSCNBUADRATE.SelectedIndex = 0;
         }
 
 
@@ -107,6 +111,9 @@ namespace FutureFlex
             config.AppSettings.Settings["SCN_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
+
+            MessageBox.Show("บันทึกการตั้งค่าสำเร็จระบบจะปิดโปรแกรม กรุณาเปิดการใช้งานใหม่อีกครั้ง", "Setting Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Application.Exit();
         }
     }
 }
