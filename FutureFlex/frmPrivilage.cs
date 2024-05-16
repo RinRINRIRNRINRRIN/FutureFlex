@@ -1,5 +1,6 @@
 ﻿using Bunifu.UI.WinForms;
 using FutureFlex.SQL;
+using Guna.UI2.WinForms;
 using System;
 using System.Data;
 using System.Linq;
@@ -13,6 +14,23 @@ namespace FutureFlex
         public frmPrivilage()
         {
             InitializeComponent();
+        }
+
+
+        void CLEAR_CHECKBOX()
+        {
+            // เครียค่าให้ว่าง
+
+
+            foreach (Guna2CheckBox cb in pnControl.Controls.OfType<Guna2CheckBox>())
+            {
+                cb.Checked = false;
+            }
+
+            foreach (BunifuToggleSwitch tgs in pnControl.Controls.OfType<BunifuToggleSwitch>())
+            {
+                tgs.Checked = false;
+            }
         }
 
         BunifuSnackbar sk = new BunifuSnackbar();
@@ -52,18 +70,12 @@ namespace FutureFlex
                 // ตรวจสอบหากผู้ใช้เลือก sa 
                 if (a[0].Trim() == "sa")
                 {
+                    // เครียค่าให้ว่าง
                     cbbEmployList.Items.Clear();
                     cbbEmployList.Items.Add("--เลือกผู้ใช้งานที่ต้องการกำหนดสิทธิ์--");
                     cbbEmployList.SelectedIndex = 0;
 
-                    foreach (BunifuGroupBox gb in pnControl.Controls.OfType<BunifuGroupBox>())
-                    {
-                        foreach (BunifuToggleSwitch tgs in gb.Controls.OfType<BunifuToggleSwitch>())
-                        {
-                            tgs.Checked = false;
-                        }
-                    }
-
+                    CLEAR_CHECKBOX();
                     sk.Show(this, "ไม่สามารถแก้ไขสิทธิ์สูงสุด SA ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     return;
                 }
@@ -81,7 +93,7 @@ namespace FutureFlex
                             if (weight.edit == "True") { tgsWghEdit.Checked = true; }
                             break;
                         case "reprintJIT":
-                            tgsReprintUse.Checked = true;
+                            cbReprintJIT.Checked = true;
                             break;
                         case "history":
                             //menuPrivilage.Add("history");
@@ -90,14 +102,21 @@ namespace FutureFlex
                             //history.edit = edit;
                             break;
                         case "account":
-                            tgsPriUse.Checked = true;
+                            cbPrivilage.Checked = true;
                             break;
                         case "setting":
-                            tgsSetUse.Checked = true;
+                            cbSetting.Checked = true;
                             break;
                     }
                 }
+                return;
             }
+            else
+            {
+                // ถ้าผู้ใช้ไม่เลือกอะไรเลย
+                CLEAR_CHECKBOX();
+            }
+            //  CLEAR_CHECKBOX();
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
@@ -116,17 +135,17 @@ namespace FutureFlex
                     tbPrivilage.INSERT(user[0].Trim(), "weight", tgsWghDel.Checked.ToString(), tgsWghEdit.Checked.ToString());
                 }
                 // เปิดสิทธิ์หน้าแก้ไข
-                if (tgsSetUse.Checked)
+                if (cbSetting.Checked)
                 {
                     tbPrivilage.INSERT(user[0].Trim(), "setting", "False", "False");
                 }
                 // เปิดสิทธิ์หน้ากำหนดสิทธื
-                if (tgsPriUse.Checked)
+                if (cbPrivilage.Checked)
                 {
                     tbPrivilage.INSERT(user[0].Trim(), "account", "False", "False");
                 }
                 // เปิดสิทธิ์ Reprint
-                if (tgsReprintUse.Checked)
+                if (cbReprintJIT.Checked)
                 {
                     tbPrivilage.INSERT(user[0].Trim(), "reprintJIT", "False", "False");
                 }
