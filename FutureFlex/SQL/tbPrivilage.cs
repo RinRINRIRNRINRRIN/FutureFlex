@@ -11,20 +11,28 @@ namespace FutureFlex.SQL
         public static List<string> menuPrivilage { get; set; } = new List<string>();
         public static class weight
         {
-            public static string edit = "false";
-            public static string del = "false";
+            public static string edit = "False";
+            public static string del = "False";
         }
 
         public static class history
         {
-            public static string edit = "false";
-            public static string del = "false";
+            public static string edit = "False";
+            public static string del = "False";
         }
 
         public static class dev
         {
-            public static string edit = "false";
-            public static string del = "false";
+            public static string edit = "False";
+            public static string del = "False";
+        }
+
+        public static class account
+        {
+            public static string add = "False";
+            public static string edit = "False";
+            public static string del = "False";
+            public static string privilage = "False";
         }
 
 
@@ -36,6 +44,12 @@ namespace FutureFlex.SQL
 
 
         #region SELECT
+
+        /// <summary>
+        /// สำหรับเช็ค สิทธืทุกเมนูเมื่อ login
+        /// </summary>
+        /// <param name="employeeID">username</param>
+        /// <returns></returns>
         public static bool CheckPrivilage(string employeeID)
         {
             try
@@ -45,15 +59,19 @@ namespace FutureFlex.SQL
                 if (employeeID == "sa")
                 {
                     menuPrivilage.Add("weight");
-                    weight.del = "true";
-                    weight.edit = "true";
+                    weight.del = "True";
+                    weight.edit = "True";
 
                     menuPrivilage.Add("reprintJIT");
                     menuPrivilage.Add("history");
-                    history.del = "true";
-                    history.edit = "true";
+                    history.del = "True";
+                    history.edit = "True";
 
-                    menuPrivilage.Add("privilage");
+                    menuPrivilage.Add("account");
+                    account.add = "True";
+                    account.del = "True";
+                    account.edit = "True";
+                    account.privilage = "True";
                     menuPrivilage.Add("setting");
                     menuPrivilage.Add("dev");
 
@@ -103,19 +121,43 @@ namespace FutureFlex.SQL
             return true;
         }
 
-        #endregion
 
-        #region INSERT
-        public static bool INSERT(string employeeID, string menuName, string pri_del, string pri_edit)
+
+        /// <summary>
+        /// สำหรับเช็ค สิทธิ์เฉพาะเมนู สำหรับหน้ากำหนดสิทธื
+        /// </summary>
+        /// <param name="employeeID">username</param>
+        /// <param name="menuName">เมนู</param>
+        /// <returns></returns>
+        public static DataTable CheckPrivilageMenu(string employeeID, string menuName)
         {
             try
             {
-                sqlstr = "INSERT INTO tbPrivilage (pri_employeeID,pri_menu,pri_del,pri_edit)" +
-                    "VALUES(@pri_employeeID,@pri_menu,@pri_del,@pri_edit)";
+                sqlstr = $"SELECT * FROM tbPrivilage WHERE pri_employeeID  = '{employeeID}' and pri_menu = '{menuName}'";
+                da = new SqlDataAdapter(sqlstr, server.con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception)
+            {
+                return tb;
+            }
+            return tb;
+        }
+        #endregion
+
+        #region INSERT
+        public static bool INSERT(string employeeID, string menuName, string pri_add, string pri_del, string pri_edit)
+        {
+            try
+            {
+                sqlstr = "INSERT INTO tbPrivilage (pri_employeeID,pri_menu,pri_add,pri_del,pri_edit)" +
+                    "VALUES(@pri_employeeID,@pri_menu,@pri_add,@pri_del,@pri_edit)";
 
                 cmd = new SqlCommand(sqlstr, server.con);
                 cmd.Parameters.Add(new SqlParameter("@pri_employeeID", employeeID));
                 cmd.Parameters.Add(new SqlParameter("@pri_menu", menuName));
+                cmd.Parameters.Add(new SqlParameter("@pri_add", pri_add));
                 cmd.Parameters.Add(new SqlParameter("@pri_del", pri_del));
                 cmd.Parameters.Add(new SqlParameter("@pri_edit", pri_edit));
                 cmd.ExecuteNonQuery();

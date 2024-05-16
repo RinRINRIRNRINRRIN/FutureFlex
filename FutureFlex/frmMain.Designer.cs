@@ -236,7 +236,7 @@ namespace FutureFlex
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(160, 39);
             this.btnAccount.TabIndex = 5;
-            this.btnAccount.Tag = "privilage";
+            this.btnAccount.Tag = "account";
             this.btnAccount.Text = "จัดการบัญชีผู้ใช้";
             this.btnAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAccount.Click += new System.EventHandler(this.MenuSelect);

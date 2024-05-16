@@ -15,6 +15,8 @@ namespace FutureFlex.SQL
         static DataTable tb;
         public static string emp_username { get; set; }
         public static string emp_name { get; set; }
+        public static string emp_password { get; set; }
+        public static string ERR { get; set; }
 
         #region "SELECTDATA"
         /// <summary>
@@ -32,10 +34,34 @@ namespace FutureFlex.SQL
             }
             catch (Exception ex)
             {
+
                 Log.Error($"tbEmployee SELECTDATA {ex.Message}");
                 return tb;
             }
 
+            return tb;
+        }
+
+
+        /// <summary>
+        /// สำหรับเกียวกับ ค้นหาข้อมูล
+        /// </summary>
+        /// <param name="column">Column ที่ต้องการจะค้นหา</param>
+        /// <param name="value">Value ที่ต้องการ</param>
+        /// <returns></returns>
+        public static DataTable SEARCH_DATA(string column, string value)
+        {
+            try
+            {
+                sqlstr = $"SELECT * FROM tbEmployee WHERE {column} LIKE '%{value}%'";
+                da = new SqlDataAdapter(sqlstr, server.con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (Exception)
+            {
+                return tb;
+            }
             return tb;
         }
 
@@ -58,6 +84,7 @@ namespace FutureFlex.SQL
                         {
                             emp_username = Convert.ToString(rw["emp_username"]);
                             emp_name = Convert.ToString(rw["emp_name"]);
+                            emp_password = Convert.ToString(rw["emp_password"]);
                         }
                     }
 
@@ -88,8 +115,18 @@ namespace FutureFlex.SQL
         /// <param name="emp_password"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public bool INSERTDATA(string emp_name, string emp_username, string emp_password)
+        public static bool INSERTDATA(string emp_name, string emp_username, string emp_password)
         {
+
+            DataTable tb = SEARCH_DATA("emp_username", emp_username);
+
+            // ตรวจสอบว่ามี username ซ้ำหรือไม่
+            if (tb.Rows.Count != 0)
+            {
+                ERR = "พบข้อมูล username ในระบบมีอยู่แล้ว";
+                return false;
+            }
+
             sqlstr = "INSERT INTO tbEmployee" +
                 " (emp_username,emp_password,emp_name,emp_status)" +
                 " VALUES (@emp_username,@emp_password,@emp_name,@emp_status)";
@@ -104,7 +141,7 @@ namespace FutureFlex.SQL
             }
             catch (Exception ex)
             {
-
+                ERR = ex.Message;
                 return false;
             }
 
@@ -121,7 +158,7 @@ namespace FutureFlex.SQL
         /// <param name="emp_password"></param>
         /// <param name="old_userame"></param>
         /// <returns></returns>
-        public bool UPDATE_ALL_DATA(string emp_name, string emp_username, string emp_password, string old_username)
+        public static bool UPDATE(string emp_name, string emp_username, string emp_password, string old_username)
         {
             try
             {
@@ -151,9 +188,23 @@ namespace FutureFlex.SQL
         #endregion
 
         #region "DELETEDATA"
-        #endregion
 
-        #region "GETDATA"
+        public static bool DELETE(string emp_username)
+        {
+            try
+            {
+                sqlstr = "DELETE FROM tbEmployee WHERE emp_username = @emp_username";
+                cmd = new SqlCommand(sqlstr, server.con);
+                cmd.Parameters.Add(new SqlParameter("@emp_username", emp_username));
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                ERR = ex.Message;
+                return false;
+            }
+            return true;
+        }
 
 
         #endregion

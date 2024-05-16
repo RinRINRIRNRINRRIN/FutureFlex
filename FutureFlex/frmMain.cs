@@ -140,7 +140,7 @@ namespace FutureFlex
                 case "history":
                     break;
                 case "account":
-                    frmPrivilage frmPrivilage = new frmPrivilage();
+                    frmAccount frmPrivilage = new frmAccount();
                     ShowFormCenterScreen(frmPrivilage);
                     break;
                 case "setting":
