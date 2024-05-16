@@ -69,7 +69,7 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sqlstr = "SELECT * FROM tbEmployee WHERE emp_username = '" + username + "' AND emp_username = '" + password + "'";
+                sqlstr = "SELECT * FROM tbEmployee WHERE emp_username = '" + username + "' AND emp_password = '" + password + "'";
                 da = new SqlDataAdapter(sqlstr, server.con);
                 tb = new DataTable();
                 da.Fill(tb);

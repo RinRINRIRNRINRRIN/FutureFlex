@@ -36,10 +36,24 @@ namespace FutureFlex
 
         private void frmPrivilage_Load(object sender, EventArgs e)
         {
+            // เช็คสิทธิ์การใช้งานโปรแกรม
+            if (tbPrivilage.account.add == "True") { btnAddAccount.Visible = true; }
+            if (tbPrivilage.account.del == "True") { dgvEmployee.Columns["cl_del"].Visible = true; }
+            if (tbPrivilage.account.edit == "True") { dgvEmployee.Columns["cl_edit"].Visible = true; }
+            for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+            {
+                string a = tbPrivilage.menuPrivilage[i];
+                if (a == "privilage")
+                {
+                    dgvEmployee.Columns["cl_privilage"].Visible = true;
+                }
+            }
+
+
+
             dgvEmployee.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12, System.Drawing.FontStyle.Regular);
             dgvEmployee.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12, System.Drawing.FontStyle.Regular);
             dgvEmployee.DefaultCellStyle.ForeColor = Color.Black;
-            dgvEmployee.Columns["cl_emp_state"].Visible = false;
             dgvEmployee.RowTemplate.Height = 30;
             cbbType.SelectedIndex = 0;
 

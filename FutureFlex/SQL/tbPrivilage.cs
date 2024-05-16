@@ -73,6 +73,7 @@ namespace FutureFlex.SQL
                     account.edit = "True";
                     account.privilage = "True";
                     menuPrivilage.Add("setting");
+                    menuPrivilage.Add("privilage");
                     menuPrivilage.Add("dev");
 
                     return true;
@@ -87,6 +88,7 @@ namespace FutureFlex.SQL
                 foreach (DataRow rw in tb.Rows)
                 {
                     string menu = rw["pri_menu"].ToString();
+                    string add = rw["pri_add"].ToString();
                     string del = rw["pri_del"].ToString();
                     string edit = rw["pri_edit"].ToString();
                     switch (menu)
@@ -106,9 +108,14 @@ namespace FutureFlex.SQL
                             break;
                         case "account":
                             menuPrivilage.Add("account");
+                            account.add = add;
+                            account.del = del;
                             break;
                         case "setting":
                             menuPrivilage.Add("setting");
+                            break;
+                        case "privilage":
+                            menuPrivilage.Add("privilage");
                             break;
                     }
                 }
