@@ -89,28 +89,9 @@ namespace FutureFlex
             frm.Show();
         }
 
-
-        //void CheckPrivilage()
-        //{
-        //    for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
-        //    {
-        //        string menu = tbPrivilage.menuPrivilage[i];
-
-        //        foreach (var btn in this.Controls.OfType<Guna2Button>())
-        //        {
-        //            if (menu == btn.Tag)
-        //            {
-        //                btn.Enabled = true;
-        //            }
-        //        }
-        //    }
-        //}
-
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
-            // กำหนดสิทธิ์การใช้งาน เมนู
-            // CheckPrivilage();
 
             // แสดงข้อมูลที่ยังไม่ได้เพิ่มไปที่ odoo
             Task.Run(ShowNotify);

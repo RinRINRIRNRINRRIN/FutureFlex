@@ -15,7 +15,6 @@ namespace FutureFlex.SQL
             public static string del = "false";
         }
 
-
         public static class history
         {
             public static string edit = "false";
@@ -54,7 +53,7 @@ namespace FutureFlex.SQL
                     history.del = "true";
                     history.edit = "true";
 
-                    menuPrivilage.Add("account");
+                    menuPrivilage.Add("privilage");
                     menuPrivilage.Add("setting");
                     menuPrivilage.Add("dev");
 

@@ -40,6 +40,7 @@ namespace FutureFlex
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsShowEmp_name = new System.Windows.Forms.ToolStripStatusLabel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -49,7 +50,6 @@ namespace FutureFlex
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnWeight = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnReprintJIT = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.statusStrip1.SuspendLayout();
@@ -154,6 +154,19 @@ namespace FutureFlex
             this.guna2DragControl1.TargetControl = this.label1;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Navy;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Athiti Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1240, 42);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "   Future Flex Ver 1.0";
+            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -199,7 +212,6 @@ namespace FutureFlex
             // 
             this.notify1.Alignment = Guna.UI2.WinForms.Enums.CustomContentAlignment.TopRight;
             this.notify1.FillColor = System.Drawing.Color.Red;
-            this.notify1.Location = new System.Drawing.Point(105, 0);
             this.notify1.Size = new System.Drawing.Size(20, 20);
             // 
             // btnAccount
@@ -224,7 +236,7 @@ namespace FutureFlex
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(160, 39);
             this.btnAccount.TabIndex = 5;
-            this.btnAccount.Tag = "account";
+            this.btnAccount.Tag = "privilage";
             this.btnAccount.Text = "จัดการบัญชีผู้ใช้";
             this.btnAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAccount.Click += new System.EventHandler(this.MenuSelect);
@@ -305,19 +317,6 @@ namespace FutureFlex
             this.btnWeight.Text = "ชั่งรายการสินค้า";
             this.btnWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnWeight.Click += new System.EventHandler(this.MenuSelect);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Navy;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Athiti Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1240, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "   Future Flex Ver 1.0";
             // 
             // btnReprintJIT
             // 

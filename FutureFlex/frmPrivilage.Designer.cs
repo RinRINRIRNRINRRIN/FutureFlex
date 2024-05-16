@@ -32,10 +32,10 @@
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrivilage));
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrivilage));
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnControl = new System.Windows.Forms.Panel();
@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tgsWghDel = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnAddAccount = new Bunifu.UI.WinForms.BunifuImageButton();
             this.guna2GroupBox1.SuspendLayout();
             this.pnControl.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Navy;
             this.guna2GroupBox1.BorderRadius = 6;
+            this.guna2GroupBox1.Controls.Add(this.btnAddAccount);
             this.guna2GroupBox1.Controls.Add(this.guna2ControlBox1);
             this.guna2GroupBox1.Controls.Add(this.pnControl);
             this.guna2GroupBox1.Controls.Add(this.label2);
@@ -193,7 +195,7 @@
             this.cbbEmployList.ItemHeight = 30;
             this.cbbEmployList.Location = new System.Drawing.Point(12, 82);
             this.cbbEmployList.Name = "cbbEmployList";
-            this.cbbEmployList.Size = new System.Drawing.Size(428, 36);
+            this.cbbEmployList.Size = new System.Drawing.Size(376, 36);
             this.cbbEmployList.TabIndex = 5;
             this.cbbEmployList.DropDown += new System.EventHandler(this.cbbEmployList_DropDown);
             this.cbbEmployList.SelectedIndexChanged += new System.EventHandler(this.cbbEmployList_SelectedIndexChanged);
@@ -375,6 +377,40 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "แก้ไข";
             // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.ActiveImage = null;
+            this.btnAddAccount.AllowAnimations = true;
+            this.btnAddAccount.AllowBuffering = false;
+            this.btnAddAccount.AllowToggling = false;
+            this.btnAddAccount.AllowZooming = true;
+            this.btnAddAccount.AllowZoomingOnFocus = false;
+            this.btnAddAccount.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddAccount.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAddAccount.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnAddAccount.ErrorImage")));
+            this.btnAddAccount.FadeWhenInactive = false;
+            this.btnAddAccount.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnAddAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAccount.Image")));
+            this.btnAddAccount.ImageActive = null;
+            this.btnAddAccount.ImageLocation = null;
+            this.btnAddAccount.ImageMargin = 15;
+            this.btnAddAccount.ImageSize = new System.Drawing.Size(31, 29);
+            this.btnAddAccount.ImageZoomSize = new System.Drawing.Size(46, 44);
+            this.btnAddAccount.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnAddAccount.InitialImage")));
+            this.btnAddAccount.Location = new System.Drawing.Point(394, 77);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Rotation = 0;
+            this.btnAddAccount.ShowActiveImage = true;
+            this.btnAddAccount.ShowCursorChanges = true;
+            this.btnAddAccount.ShowImageBorders = true;
+            this.btnAddAccount.ShowSizeMarkers = false;
+            this.btnAddAccount.Size = new System.Drawing.Size(46, 44);
+            this.btnAddAccount.TabIndex = 17;
+            this.btnAddAccount.ToolTipText = "";
+            this.btnAddAccount.WaitOnLoad = false;
+            this.btnAddAccount.Zoom = 15;
+            this.btnAddAccount.ZoomSpeed = 10;
+            // 
             // frmPrivilage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
@@ -414,5 +450,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private Bunifu.UI.WinForms.BunifuToggleSwitch tgsWghDel;
+        private Bunifu.UI.WinForms.BunifuImageButton btnAddAccount;
     }
 }

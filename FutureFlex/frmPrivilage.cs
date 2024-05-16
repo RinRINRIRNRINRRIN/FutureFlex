@@ -101,7 +101,7 @@ namespace FutureFlex
                             //history.del = del;
                             //history.edit = edit;
                             break;
-                        case "account":
+                        case "privilage":
                             cbPrivilage.Checked = true;
                             break;
                         case "setting":
@@ -142,7 +142,7 @@ namespace FutureFlex
                 // เปิดสิทธิ์หน้ากำหนดสิทธื
                 if (cbPrivilage.Checked)
                 {
-                    tbPrivilage.INSERT(user[0].Trim(), "account", "False", "False");
+                    tbPrivilage.INSERT(user[0].Trim(), "privilage", "False", "False");
                 }
                 // เปิดสิทธิ์ Reprint
                 if (cbReprintJIT.Checked)
