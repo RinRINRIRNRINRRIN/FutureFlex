@@ -51,10 +51,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
             this.gbPrivilage = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tgsAccEdit = new Bunifu.UI.WinForms.BunifuToggleSwitch();
@@ -79,6 +79,13 @@
             this.pnDetail = new System.Windows.Forms.Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_privilage = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_emp_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_emp_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_emp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_emp_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddAccount = new Bunifu.UI.WinForms.BunifuImageButton();
             this.cbbType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.gbEmployee = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -96,13 +103,6 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gnTran = new Guna.UI2.WinForms.Guna2Transition();
-            this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_privilage = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_emp_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_emp_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_emp_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_emp_state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbMain.SuspendLayout();
             this.gbPrivilage.SuspendLayout();
             this.pnDetail.SuspendLayout();
@@ -781,6 +781,81 @@
             this.dgvEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellContentClick);
             // 
+            // cl_del
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.cl_del.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cl_del.HeaderText = "";
+            this.cl_del.Name = "cl_del";
+            this.cl_del.ReadOnly = true;
+            this.cl_del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cl_del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cl_del.Text = "ลบ";
+            this.cl_del.UseColumnTextForButtonValue = true;
+            this.cl_del.Visible = false;
+            this.cl_del.Width = 90;
+            // 
+            // cl_edit
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Olive;
+            this.cl_edit.DefaultCellStyle = dataGridViewCellStyle4;
+            this.cl_edit.HeaderText = "";
+            this.cl_edit.Name = "cl_edit";
+            this.cl_edit.ReadOnly = true;
+            this.cl_edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cl_edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cl_edit.Text = "แก้ไข";
+            this.cl_edit.UseColumnTextForButtonValue = true;
+            this.cl_edit.Visible = false;
+            this.cl_edit.Width = 90;
+            // 
+            // cl_privilage
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Navy;
+            this.cl_privilage.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cl_privilage.HeaderText = "";
+            this.cl_privilage.Name = "cl_privilage";
+            this.cl_privilage.ReadOnly = true;
+            this.cl_privilage.Text = "กำหนดสิทธิ์";
+            this.cl_privilage.UseColumnTextForButtonValue = true;
+            this.cl_privilage.Visible = false;
+            this.cl_privilage.Width = 110;
+            // 
+            // cl_emp_username
+            // 
+            this.cl_emp_username.DataPropertyName = "emp_username";
+            this.cl_emp_username.HeaderText = "ผู้ใช้งาน";
+            this.cl_emp_username.Name = "cl_emp_username";
+            this.cl_emp_username.ReadOnly = true;
+            this.cl_emp_username.Width = 150;
+            // 
+            // cl_emp_password
+            // 
+            this.cl_emp_password.DataPropertyName = "emp_password";
+            this.cl_emp_password.HeaderText = "รหัสผ่าน";
+            this.cl_emp_password.Name = "cl_emp_password";
+            this.cl_emp_password.ReadOnly = true;
+            this.cl_emp_password.Width = 150;
+            // 
+            // cl_emp_name
+            // 
+            this.cl_emp_name.DataPropertyName = "emp_name";
+            this.cl_emp_name.HeaderText = "ชื่อจริง - นามสกุล";
+            this.cl_emp_name.Name = "cl_emp_name";
+            this.cl_emp_name.ReadOnly = true;
+            this.cl_emp_name.Width = 250;
+            // 
+            // cl_emp_state
+            // 
+            this.cl_emp_state.DataPropertyName = "emp_status";
+            this.cl_emp_state.HeaderText = "emp_state";
+            this.cl_emp_state.Name = "cl_emp_state";
+            this.cl_emp_state.ReadOnly = true;
+            this.cl_emp_state.Visible = false;
+            // 
             // btnAddAccount
             // 
             this.btnAddAccount.ActiveImage = null;
@@ -1082,7 +1157,7 @@
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gnTran.SetDecoration(this.guna2ControlBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.SteelBlue;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(1439, 7);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
@@ -1115,81 +1190,6 @@
             animation1.TimeCoeff = 0F;
             animation1.TransparencyCoeff = 0F;
             this.gnTran.DefaultAnimation = animation1;
-            // 
-            // cl_del
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.cl_del.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cl_del.HeaderText = "";
-            this.cl_del.Name = "cl_del";
-            this.cl_del.ReadOnly = true;
-            this.cl_del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cl_del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cl_del.Text = "ลบ";
-            this.cl_del.UseColumnTextForButtonValue = true;
-            this.cl_del.Visible = false;
-            this.cl_del.Width = 90;
-            // 
-            // cl_edit
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Olive;
-            this.cl_edit.DefaultCellStyle = dataGridViewCellStyle4;
-            this.cl_edit.HeaderText = "";
-            this.cl_edit.Name = "cl_edit";
-            this.cl_edit.ReadOnly = true;
-            this.cl_edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cl_edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cl_edit.Text = "แก้ไข";
-            this.cl_edit.UseColumnTextForButtonValue = true;
-            this.cl_edit.Visible = false;
-            this.cl_edit.Width = 90;
-            // 
-            // cl_privilage
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Navy;
-            this.cl_privilage.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cl_privilage.HeaderText = "";
-            this.cl_privilage.Name = "cl_privilage";
-            this.cl_privilage.ReadOnly = true;
-            this.cl_privilage.Text = "กำหนดสิทธิ์";
-            this.cl_privilage.UseColumnTextForButtonValue = true;
-            this.cl_privilage.Visible = false;
-            this.cl_privilage.Width = 110;
-            // 
-            // cl_emp_username
-            // 
-            this.cl_emp_username.DataPropertyName = "emp_username";
-            this.cl_emp_username.HeaderText = "ผู้ใช้งาน";
-            this.cl_emp_username.Name = "cl_emp_username";
-            this.cl_emp_username.ReadOnly = true;
-            this.cl_emp_username.Width = 150;
-            // 
-            // cl_emp_password
-            // 
-            this.cl_emp_password.DataPropertyName = "emp_password";
-            this.cl_emp_password.HeaderText = "รหัสผ่าน";
-            this.cl_emp_password.Name = "cl_emp_password";
-            this.cl_emp_password.ReadOnly = true;
-            this.cl_emp_password.Width = 150;
-            // 
-            // cl_emp_name
-            // 
-            this.cl_emp_name.DataPropertyName = "emp_name";
-            this.cl_emp_name.HeaderText = "ชื่อจริง - นามสกุล";
-            this.cl_emp_name.Name = "cl_emp_name";
-            this.cl_emp_name.ReadOnly = true;
-            this.cl_emp_name.Width = 250;
-            // 
-            // cl_emp_state
-            // 
-            this.cl_emp_state.DataPropertyName = "emp_status";
-            this.cl_emp_state.HeaderText = "emp_state";
-            this.cl_emp_state.Name = "cl_emp_state";
-            this.cl_emp_state.ReadOnly = true;
-            this.cl_emp_state.Visible = false;
             // 
             // frmPrivilage
             // 

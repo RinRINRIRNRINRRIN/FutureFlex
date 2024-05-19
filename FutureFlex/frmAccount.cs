@@ -19,6 +19,15 @@ namespace FutureFlex
 
         private void frmPrivilage_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+            {
+                if (tbPrivilage.menuPrivilage[i] == "account")
+                {
+                    btnAddEmployee.Visible = true;
+                    break;
+                }
+
+            }
             txtFullName.Text = tbEmployeeSQL.emp_name;
             txtUsername.Text = tbEmployeeSQL.emp_username;
             txtPassword.Text = tbEmployeeSQL.emp_password;
