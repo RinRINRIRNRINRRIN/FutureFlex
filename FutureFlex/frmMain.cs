@@ -92,6 +92,8 @@ namespace FutureFlex
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
+            // นำชื่อผู้ใช้มาแสดงที่โปรแกรม
+            tsShowEmp_name.Text = tbEmployeeSQL.emp_name;
 
             // แสดงข้อมูลที่ยังไม่ได้เพิ่มไปที่ odoo
             Task.Run(ShowNotify);
