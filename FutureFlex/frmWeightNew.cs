@@ -143,14 +143,16 @@ namespace FutureFlex
             gbLoadData.Location = new System.Drawing.Point(x, y);
             gbLoadData.Visible = true;
         }
+
+
+
         #endregion
 
         private void frmWeightNew_Load(object sender, EventArgs e)
         {
-            //ClearFormReady();
-
-            //tbEmployeeSQL.emp_username = "sa";
-            //await server.ConnectDatabase();
+            // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
+            if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; gbDel.Visible = true; }
+            if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
 
         }
         #region "INPUT"
