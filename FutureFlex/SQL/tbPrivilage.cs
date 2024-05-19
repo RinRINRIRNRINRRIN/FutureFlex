@@ -110,6 +110,7 @@ namespace FutureFlex.SQL
                             menuPrivilage.Add("account");
                             account.add = add;
                             account.del = del;
+                            account.edit = edit;
                             break;
                         case "setting":
                             menuPrivilage.Add("setting");
