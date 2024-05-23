@@ -186,6 +186,7 @@
     <Compile Include="frmReprintJIT.Designer.cs">
       <DependentUpon>frmReprintJIT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\func_serialport.cs" />
     <Compile Include="SQL\tbEmployeeSQL.cs" />
     <Compile Include="SQL\tbForSendSQL.cs" />
     <Compile Include="frmMain.cs">

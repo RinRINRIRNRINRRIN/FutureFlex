@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Diagnostics;
-using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
-using System.Net;
-    
+using System.Net.NetworkInformation;
+using System.Windows.Forms;
+
 
 namespace FutureFlex
 {
@@ -21,11 +15,11 @@ namespace FutureFlex
             try
             {
                 if (NetworkInterface.GetIsNetworkAvailable())
-                {                  
+                {
                     return true;
                 }
                 else
-                {                  
+                {
                     return false;
                 }
             }
@@ -42,7 +36,7 @@ namespace FutureFlex
             try
             {
                 Ping ping = new Ping();
-                PingReply reply = ping.Send("198.168.1.91",5000);
+                PingReply reply = ping.Send("198.168.1.91", 5000);
                 if (reply.Status != IPStatus.Success)
                 {
                     return false;
@@ -57,7 +51,7 @@ namespace FutureFlex
         }
 
 
-        public static void OpenFormCenterScreen(Form frm,Panel pn) //////////////////////////  เปิด form ซ้อนกัน ตรงกลาง FrmMain
+        public static void OpenFormCenterScreen(Form frm, Panel pn) //////////////////////////  เปิด form ซ้อนกัน ตรงกลาง FrmMain
         {
             try
             {
@@ -71,7 +65,7 @@ namespace FutureFlex
                 pn.Controls.Add(frm);
                 frm.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 LogsSend(2, ex.ToString());
@@ -102,7 +96,7 @@ namespace FutureFlex
             }
         }
 
-        public static void LogsSend(int LogType,string eventlog)  ////////////////////  เก็บLog
+        public static void LogsSend(int LogType, string eventlog)  ////////////////////  เก็บLog
         {
             /*
              *  LogType 
@@ -113,7 +107,7 @@ namespace FutureFlex
              */
 
             try
-            {                         
+            {
                 string logFileName = "logs";
                 long maxLogFileSize = 30000000; // 30MB in bytes
 
@@ -124,15 +118,15 @@ namespace FutureFlex
                     File.Move(logFileName, newLogFileName);
                 }
                 else
-                {  
+                {
                     string ti = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
                     if (LogType == 1) ///// เช็คว่าเป็น Log ประเภทไหนเพื่อง่ายต่อการวิเคราะห์
                     {
-                        File.AppendAllText(logFileName, ti + "  :  " + "INFO     |"+ eventlog + Environment.NewLine, System.Text.Encoding.UTF8);
+                        File.AppendAllText(logFileName, ti + "  :  " + "INFO     |" + eventlog + Environment.NewLine, System.Text.Encoding.UTF8);
                     }
                     else if (LogType == 2)
-                    { 
+                    {
                         File.AppendAllText(logFileName, ti + "  :  " + "ERROR    |" + eventlog + Environment.NewLine, System.Text.Encoding.UTF8);
                     }
                     else if (LogType == 3)
@@ -141,13 +135,13 @@ namespace FutureFlex
                     }
                     else if (LogType == 4)
                     {
-                        File.AppendAllText(logFileName, ti + "  :  " + "SUCCESS  |"+  eventlog + Environment.NewLine, System.Text.Encoding.UTF8);
+                        File.AppendAllText(logFileName, ti + "  :  " + "SUCCESS  |" + eventlog + Environment.NewLine, System.Text.Encoding.UTF8);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);              
+                MessageBox.Show(ex.Message);
                 return;
             }
         }
@@ -159,8 +153,8 @@ namespace FutureFlex
             {
                 MessageBox.Show("มีโปรแกรมเปิดอยู่แล้ว", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-            }        
-         return true;
+            }
+            return true;
         }
 
     }

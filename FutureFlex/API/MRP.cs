@@ -118,7 +118,8 @@ namespace FutureFlex.API
             }
             catch (System.Exception ex)
             {
-                err = ex.Message;
+                err = $"เกิดข้อผิดผลาด {ex.Message}";
+
                 Console.WriteLine(ex.Message);
                 return false;
             }
@@ -178,7 +179,7 @@ namespace FutureFlex.API
             }
             catch (Exception ex)
             {
-
+                err = $"เกิดข้อผิดผลาด {ex.Message}";
                 System.Windows.MessageBox.Show(ex.Message);
                 return value;
 
@@ -257,6 +258,8 @@ namespace FutureFlex.API
             }
             catch (Exception ex)
             {
+                err = $"เกิดข้อผิดผลาด {ex.Message}";
+
                 Console.Write(ex.Message);
                 return false;
             }
@@ -298,7 +301,7 @@ namespace FutureFlex.API
             }
             catch (Exception ex)
             {
-                err = ex.Message;
+                err = $"เกิดข้อผิดผลาด {ex.Message}";
                 return false;
             }
             return true;
