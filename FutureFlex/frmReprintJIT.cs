@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FutureFlex.Function;
+using System;
 using System.Windows.Forms;
 
 namespace FutureFlex
@@ -11,7 +12,9 @@ namespace FutureFlex
         }
         private void frmReprintJIT_Load(object sender, EventArgs e)
         {
-
+            // กำหนดค่าให้กับ serialport
+            serialPort1.PortName = func_serialport.COM_SCANNER;
+            serialPort1.BaudRate = func_serialport.BAUDRATE_SCANNER;
             serialPort1.Open();
         }
 
