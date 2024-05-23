@@ -1,5 +1,6 @@
 ﻿using Bunifu.UI.WinForms;
 using FutureFlex.API;
+using FutureFlex.Function;
 using FutureFlex.SQL;
 using Newtonsoft.Json.Linq;
 using System;
@@ -144,16 +145,17 @@ namespace FutureFlex
             gbLoadData.Visible = true;
         }
 
-
-
         #endregion
 
         private void frmWeightNew_Load(object sender, EventArgs e)
         {
+            // กำหนดค่าให้กับ serialport
+            serialPort1.PortName = func_serialport.COM_SCALE;
+            serialPort1.BaudRate = func_serialport.BAUDRATE_SCALE;
+
             // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
             if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; gbDel.Visible = true; }
             if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
-
         }
         #region "INPUT"
 
