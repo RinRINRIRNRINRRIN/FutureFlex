@@ -660,8 +660,8 @@ namespace FutureFlex
             #endregion
 
             #region Body
-            e.Graphics.DrawString($"[รหัสสินค้า] : ________ [สินค้า] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-            e.Graphics.DrawString($"{MRP.default_code}                         {MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 55));
+            e.Graphics.DrawString($"[สินค้า] : ______________________________________________________________________________________________________  [รหัสสินค้า] : ________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
+            e.Graphics.DrawString($"{MRP.product_name}                            {MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 55));
             e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
             e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 73));
             e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
@@ -694,7 +694,6 @@ namespace FutureFlex
                     e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                     break;  //กรณีเลือกม้วน  
             }
-
             #endregion
 
             #region Footer
