@@ -85,6 +85,11 @@ namespace FutureFlex
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (tbEmployeeSQL.emp_username == "sa")
+            {
+                MessageBox.Show("ไม่สามารถแก้ไขสิทธิ์ข้อมูลผู้ใช้ได้", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             panel1.Enabled = true;
             panel2.Visible = true;
         }

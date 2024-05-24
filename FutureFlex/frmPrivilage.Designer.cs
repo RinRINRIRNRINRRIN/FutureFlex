@@ -938,7 +938,7 @@
             this.gbEmployee.Name = "gbEmployee";
             this.gbEmployee.Size = new System.Drawing.Size(378, 281);
             this.gbEmployee.TabIndex = 0;
-            this.gbEmployee.Text = "กำหนดสิทธิ์การใช้งาน";
+            this.gbEmployee.Text = "เพิ่มข้อมูลผู้ใช้";
             this.gbEmployee.Visible = false;
             // 
             // guna2Button2
