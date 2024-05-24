@@ -1520,6 +1520,7 @@ namespace FutureFlex
             this.cl_wgh_seq.HeaderText = "ลำดับ";
             this.cl_wgh_seq.Name = "cl_wgh_seq";
             this.cl_wgh_seq.ReadOnly = true;
+            this.cl_wgh_seq.Width = 80;
             // 
             // cl_wgh_lot
             // 

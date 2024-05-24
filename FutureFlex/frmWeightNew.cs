@@ -257,7 +257,7 @@ namespace FutureFlex
             {
                 wgh_id = Convert.ToInt32(dgvDetail.Rows[e.RowIndex].Cells["cl_wgh_id"].Value);  // กำหนดค่า fs_id ไปไว้ที่ตัวแปร MainVal.fs_id
 
-                if (dgvDetail.Columns[e.ColumnIndex].Name == "cl_btn_del")
+                if (dgvDetail.Columns[e.ColumnIndex].Name == "cl_del")
                 {
                     if (wgh_id != 0)
                     {
@@ -660,8 +660,8 @@ namespace FutureFlex
             #endregion
 
             #region Body
-            e.Graphics.DrawString($"[สินค้า] : ______________________________________________________________________________________________________  [รหัสสินค้า] : ________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-            e.Graphics.DrawString($"{MRP.product_name}                            {MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 55));
+            e.Graphics.DrawString($"[สินค้า] : ____________________________  [รหัสสินค้า] : _______________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
+            e.Graphics.DrawString($"{MRP.product_name}                               {MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 55));
             e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
             e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 73));
             e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
