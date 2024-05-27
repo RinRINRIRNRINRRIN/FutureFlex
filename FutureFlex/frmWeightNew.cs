@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
@@ -426,6 +427,33 @@ namespace FutureFlex
                 // เช็คว่าผู้ใช้ต้องการปริ้นแบบไหน
                 if (cbPrint.Checked)
                 {
+
+                    // ตั้งฝค่ากระดาษ
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        if (cbbPO.Text == "JIT")
+                        {
+                            // Convert millimeters to hundredths of an inch
+                            int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                            int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
+
+                            // Create a custom paper size
+                            PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                            printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
+                        }
+                        else
+                        {
+                            // Convert millimeters to hundredths of an inch
+                            int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
+                            int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
+
+                            // Create a custom paper size
+                            PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                            printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
+                        }
+                    }));
+
+
                     if (statusPrint) // AutoPrint
                     {
                         BeginInvoke(new MethodInvoker(delegate ()
@@ -631,14 +659,12 @@ namespace FutureFlex
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            Font fontHeader = new Font("Tahoma", 14, System.Drawing.FontStyle.Bold);
-            Font fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
-            Font fontDetail = new Font("Tahoma", 8, System.Drawing.FontStyle.Regular);
+            Font fontHeader;
+            Font fontHead;
+            Font fontDetail;
 
-
-
+            // Create Seq
             string seq = dgvDetail.Rows[0].Cells["cl_wgh_seq"].Value.ToString();
-
             if (cbbPO.Text != "JIT" && cbbPO.Text != "ไม่มี PO")
             {
                 if (statusType == "box")
@@ -653,68 +679,141 @@ namespace FutureFlex
             }
 
 
-            #region Header
-            e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 50, 50);
-            e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 15));
-            e.Graphics.DrawString($"NO :  {seq}", fontDetail, Brushes.Black, new System.Drawing.Point(320, 0));
-            #endregion
-
-            #region Body
-            e.Graphics.DrawString($"[สินค้า] : ____________________________  [รหัสสินค้า] : _______________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-            e.Graphics.DrawString($"{MRP.product_name}                               {MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 55));
-            e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
-            e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 73));
-            e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
-            e.Graphics.DrawString($"{MRP.name}                                  {cbbPO.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 91));
-            e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
-            e.Graphics.DrawString($"{MRP.mo_film}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
-            e.Graphics.DrawString($"[ขนาด] :______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
-            e.Graphics.DrawString($"{MRP.mo_work}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 127));
-
-            switch (statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
+            if (cbbPO.Text == "JIT") // JIT
             {
-                case "box":
-                    e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
-                    e.Graphics.DrawString($"{txtNumBox.Text}                 {lbNetWgh.Text}     ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 145));
-                    e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                    e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 163));
-                    e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                    e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 181));
-                    break;   //กรณีเลือกกล่อง
-                case "roll":
-                    e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
-                    e.Graphics.DrawString($"{txtWghPaper.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 145));
-                    e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                    e.Graphics.DrawString($"{txtWghCors.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 163));
-                    e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                    e.Graphics.DrawString($"{txtNunMeter.Text}           {txtBlade.Text}            {lbNetWgh.Text} ", fontDetail, Brushes.Black, new System.Drawing.Point(90, 181));
-                    e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                    e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
-                    e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
-                    e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
-                    break;  //กรณีเลือกม้วน  
+                fontHeader = new Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
+                fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
+                fontDetail = new Font("Tahoma", 7, System.Drawing.FontStyle.Regular);
+
+
+                #region Header
+                e.Graphics.DrawImage(pictureBox1.Image, 0, 5, 30, 30);
+                e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(30, 15));
+
+                #endregion
+
+                #region Body
+                e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
+                e.Graphics.DrawString($"{MRP.product_id}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 35));
+                e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 57));
+                e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 55));
+                e.Graphics.DrawString($"[ใบสั่งงาน] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 80));
+                e.Graphics.DrawString($"{MRP.name}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(70, 80));
+
+
+                switch (statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
+                {
+                    case "box":
+                        e.Graphics.DrawString($"NO :  {seq}/{txtNumBox.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
+                        e.Graphics.DrawString($"[จำนวน]_____กล่อง.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
+                        e.Graphics.DrawString($"{txtNumBox.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
+                        e.Graphics.DrawString($"____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 130));
+                        e.Graphics.DrawString($"{lbNetWgh.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
+                        e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
+                        e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
+                        break;   //กรณีเลือกกล่อง
+                    case "roll":
+                        e.Graphics.DrawString($"NO :  {seq}/{txtNunMeter.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
+
+                        e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
+                        e.Graphics.DrawString($"{txtNunMeter.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(55, 110));
+                        e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
+                        e.Graphics.DrawString($"{txtBlade.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 125));
+                        e.Graphics.DrawString($"_____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 140));
+                        e.Graphics.DrawString($"{lbNetWgh.Text} ", fontDetail, Brushes.Black, new System.Drawing.Point(10, 140));
+                        e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
+                        e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
+                        break;  //กรณีเลือกม้วน  
+                }
+                #endregion
+
+                // ตั้งค่า Format Barcode
+                BarcodeWriter writer = new BarcodeWriter()
+                {
+                    Format = BarcodeFormat.QR_CODE
+                };
+
+                PictureBox pictureBox = new PictureBox()
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
+                // Generage QR Code
+                pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
+                e.Graphics.DrawImage(pictureBox.Image, 115, 100, 100, 100);
+
+                string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
+                e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
+                e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(0, 180));
             }
-            #endregion
-
-            #region Footer
-            // ตั้งค่า Format Barcode
-            BarcodeWriter writer = new BarcodeWriter()
+            else // แบบมี PO และ ไม่มี PO
             {
-                Format = BarcodeFormat.QR_CODE
-            };
+                fontHeader = new Font("Tahoma", 14, System.Drawing.FontStyle.Bold);
+                fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
+                fontDetail = new Font("Tahoma", 8, System.Drawing.FontStyle.Regular);
 
-            PictureBox pictureBox = new PictureBox()
-            {
-                SizeMode = PictureBoxSizeMode.StretchImage
-            };
-            // Generage QR Code
-            pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
-            e.Graphics.DrawImage(pictureBox.Image, 300, 170, 100, 100);
+                #region Header
+                e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 50, 50);
+                e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 15));
+                e.Graphics.DrawString($"NO :  {seq}", fontDetail, Brushes.Black, new System.Drawing.Point(320, 0));
+                #endregion
 
-            string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
-            e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
-            e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(5, 270));
-            #endregion
+                #region Body
+                e.Graphics.DrawString($"[สินค้า] : ____________________________  [รหัสสินค้า] : _______________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
+                e.Graphics.DrawString($"{MRP.product_name}                               {MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 55));
+                e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
+                e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 73));
+                e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
+                e.Graphics.DrawString($"{MRP.name}                                  {cbbPO.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 91));
+                e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
+                e.Graphics.DrawString($"{MRP.mo_film}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
+                e.Graphics.DrawString($"[ขนาด] :______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
+                e.Graphics.DrawString($"{MRP.mo_work}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 127));
+
+                switch (statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
+                {
+                    case "box":
+                        e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
+                        e.Graphics.DrawString($"{txtNumBox.Text}                 {lbNetWgh.Text}     ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 145));
+                        e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
+                        e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 163));
+                        e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
+                        e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 181));
+                        break;   //กรณีเลือกกล่อง
+                    case "roll":
+                        e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
+                        e.Graphics.DrawString($"{txtWghPaper.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 145));
+                        e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
+                        e.Graphics.DrawString($"{txtWghCors.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 163));
+                        e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
+                        e.Graphics.DrawString($"{txtNunMeter.Text}           {txtBlade.Text}            {lbNetWgh.Text} ", fontDetail, Brushes.Black, new System.Drawing.Point(90, 181));
+                        e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
+                        e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
+                        e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
+                        e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
+                        break;  //กรณีเลือกม้วน  
+                }
+                #endregion
+
+                #region Footer
+                // ตั้งค่า Format Barcode
+                BarcodeWriter writer = new BarcodeWriter()
+                {
+                    Format = BarcodeFormat.QR_CODE
+                };
+
+                PictureBox pictureBox = new PictureBox()
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
+                // Generage QR Code
+                pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
+                e.Graphics.DrawImage(pictureBox.Image, 275, 150, 120, 120);
+
+                string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
+                e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
+                e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(5, 270));
+                #endregion
+            }
         }
 
         private void cbPrint_CheckedChanged(object sender, BunifuCheckBox.CheckedChangedEventArgs e)
