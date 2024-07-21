@@ -8,19 +8,19 @@ namespace FutureFlex.API
 {
     public class MRP
     {
-        public static string id { get; set; }
-        public static string name { get; set; }
-        public static string mo_date { get; set; }
-        public static string mo_date_delivery { get; set; }
-        public static string mo_pono { get; set; }
-        public static string mo_po { get; set; }
-        public static int mo_so_id { get; set; }
-        public static string mo_so_no { get; set; }
+        public static string id { get; set; }    // เลขที่ใบสั่งงานหรือเลขที่ GV (1938)
+        public static string name { get; set; }  // ชื่อเลขที่ใบส่งงาน (GV-67-07-0135)
+        public static string mo_date { get; set; }  // วันที่ออกใบสั่งงาน (2024-06-09)
+        public static string mo_date_delivery { get; set; }  // วันที่กำหนดส่ง
+        public static string mo_pono { get; set; } // เลขที่ PO
+        public static string mo_po { get; set; } // จำนวนสั่งซื้อ
+        public static int mo_so_id { get; set; }  // เลขที่ id so (1827)
+        public static string mo_so_no { get; set; } // เลขที่ so (so19234)
         public static int mo_station_id { get; set; }
         public static string mo_station_name { get; set; }
         public static int partner_id { get; set; }
         public static string partner_name { get; set; }
-        public static int product_id { get; set; }
+        public static int product_id { get; set; }  // รหัสสินค้า
         public static string default_code { get; set; }
         public static string product_name { get; set; }
         public static string mo_gusset { get; set; }
@@ -33,10 +33,40 @@ namespace FutureFlex.API
         public static double manufactured_qty { get; set; }
         public static double pending_qty { get; set; }
         public static int product_uom_id { get; set; }
-        public static string product_uom_name { get; set; }
+        public static string product_uom_name { get; set; }  // หน่วยงาน
 
         public static string err { get; set; }
 
+
+        public static void ClearProp()
+        {
+            id = "";
+            name = "";
+            mo_date = "";
+            mo_date_delivery = "";
+            mo_pono = "";
+            mo_po = "";
+            mo_so_id = 0;
+            mo_so_no = "";
+            mo_station_id = 0;
+            mo_station_name = "";
+            partner_id = 0;
+            partner_name = "";
+            product_id = 0;
+            default_code = "";
+            product_name = "";
+            mo_gusset = "";
+            mo_film = "";
+            mo_film_total = "";
+            mo_type = "";
+            mo_work = "";
+            product_qty = 0;
+            done_qty = 0;
+            manufactured_qty = 0;
+            pending_qty = 0;
+            product_uom_id = 0;
+            product_uom_name = "";
+        }
 
 
         public async static Task<bool> GET_MRP(string gv)
@@ -48,8 +78,6 @@ namespace FutureFlex.API
 
             try
             {
-
-
                 var options = new RestClientOptions(tbOdoo.server)
                 {
                     MaxTimeout = -1,
@@ -187,8 +215,30 @@ namespace FutureFlex.API
             return value;
         }
 
-
-        public async static Task<bool> CREATE_MRP(string GV_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string qty_box, string meterRoll)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gv_id">เลขที่ GV ไม่ใช่ชื่อ GV</param>
+        /// <param name="wgh_id">เลขที่การชั่ง id auto increaement</param>
+        /// <param name="machineOperator">ชื่อผู้ชั่ง</param>
+        /// <param name="country"></param>
+        /// <param name="type"></param>
+        /// <param name="side"></param>
+        /// <param name="po"></param>
+        /// <param name="date"></param>
+        /// <param name="net"></param>
+        /// <param name="tare"></param>
+        /// <param name="gross"></param>
+        /// <param name="weightPaper"></param>
+        /// <param name="weightCore"></param>
+        /// <param name="joint"></param>
+        /// <param name="qty_pch">จำนวนใบ ไม่มีจะเลือกกล่องหรือม้วนให้คีย์ตัวนี้</param>
+        /// <param name="meterRoll">ใส่เฉพาะกรณีเลือกงานม้วน ให้ใส่จำนวนเมตร</param>
+        /// <param name="lot"></param>
+        /// <param name="seq"></param>
+        /// <param name="count_total">จำนวนทั้งหมด ทั้งงานกล่องและงานมัวน</param>
+        /// <returns></returns>
+        public async static Task<bool> CREATE_MRP(string gv_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total)
         {
             try
             {
@@ -206,9 +256,10 @@ namespace FutureFlex.API
                 var request = new RestRequest("/api/mrp/create", Method.Post);
                 request.AddHeader("token", Authentication.access_token);
                 request.AddHeader("Content-Type", "text/plain");
+
                 #region Body
                 var body = "{\n" +
-                  $"    |mrp_request_id|:|{GV_id}|,\n" +
+                  $"    |mrp_request_id|:|{gv_id}|,\n" +
                   $"    |weigh_in_line_id|:|{wgh_id}|,\n" +
                   $"    |emp_name_weigh_in|:|{machineOperator}|,\n" +
                   $"    |select_country|:|{country}|,\n" +
@@ -223,8 +274,11 @@ namespace FutureFlex.API
                   $"    |weight_core_total|:{weightCore},\n" +
                   $"    |joint|:{joint},\n" +
                   $"    |qty_pch|:{qty_pch},\n" +
-                  $"    |qty_bag_in_box|:{qty_box},\n" +
-                  $"    |qty_meter_kg_in_roll|:{meterRoll}\n" +
+                  $"    |qty_bag_in_box|:0,\n" +
+                  $"    |qty_meter_kg_in_roll|:{meterRoll},\n" +
+                  $"    |weight_lot|:|{lot}|,\n" +
+                  $"    |weight_seq|:|{seq}|,\n" +
+                  $"    |count_total|: {count_total}" +
                   "}";
                 #endregion
 
