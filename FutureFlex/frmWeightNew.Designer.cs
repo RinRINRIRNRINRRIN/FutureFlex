@@ -31,11 +31,16 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWeightNew));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCounty = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdOutCounty = new System.Windows.Forms.RadioButton();
             this.rdInCounty = new System.Windows.Forms.RadioButton();
@@ -46,28 +51,20 @@ namespace FutureFlex
             this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.cbPrint = new Bunifu.UI.WinForms.BunifuCheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.gbDel = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtJobNo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.cbbPO = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
+            this.btnStart = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPchRoll = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtWghCors = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtJoint = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNumBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNunMeter = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtBlade = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNumRoll = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtWghPaper = new Guna.UI2.WinForms.Guna2TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -85,9 +82,7 @@ namespace FutureFlex
             this.label17 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnReset = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.btnStop = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.btnStart = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.txtJobNo = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -100,6 +95,13 @@ namespace FutureFlex
             this.rdBackSide = new System.Windows.Forms.RadioButton();
             this.rdFrontSide = new System.Windows.Forms.RadioButton();
             this.rdNot = new System.Windows.Forms.RadioButton();
+            this.cbPrint = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lbNetWgh = new System.Windows.Forms.Label();
             this.lbTotalWgh = new System.Windows.Forms.Label();
@@ -114,46 +116,45 @@ namespace FutureFlex
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.spScale = new System.IO.Ports.SerialPort(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_wgh_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_GVNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_county = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_side = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_gross = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightCore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_joint = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_numMeter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_machineOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_dateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_GVID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightPaper = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_boxNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightBlade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_machineOparator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_statusOdoo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_print = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gross = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_printed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_statusOdoo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_county = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_side = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wgh_paper_plastic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_core = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_joint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_meter_kg_in_roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_pch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
             this.gbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.gbDel.SuspendLayout();
             this.gbData.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbSide.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.gbLoadData.SuspendLayout();
             this.SuspendLayout();
@@ -168,7 +169,7 @@ namespace FutureFlex
             this.gbCounty.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbCounty.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCounty.ForeColor = System.Drawing.Color.White;
-            this.gbCounty.Location = new System.Drawing.Point(16, 249);
+            this.gbCounty.Location = new System.Drawing.Point(17, 339);
             this.gbCounty.Name = "gbCounty";
             this.gbCounty.Size = new System.Drawing.Size(180, 89);
             this.gbCounty.TabIndex = 0;
@@ -213,7 +214,7 @@ namespace FutureFlex
             this.gbType.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbType.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbType.ForeColor = System.Drawing.Color.White;
-            this.gbType.Location = new System.Drawing.Point(202, 249);
+            this.gbType.Location = new System.Drawing.Point(203, 339);
             this.gbType.Name = "gbType";
             this.gbType.Size = new System.Drawing.Size(180, 89);
             this.gbType.TabIndex = 0;
@@ -286,17 +287,13 @@ namespace FutureFlex
             // 
             // pnMain
             // 
+            this.pnMain.Controls.Add(this.btnStart);
+            this.pnMain.Controls.Add(this.gbData);
             this.pnMain.Controls.Add(this.cbPrint);
             this.pnMain.Controls.Add(this.groupBox2);
-            this.pnMain.Controls.Add(this.gbDel);
-            this.pnMain.Controls.Add(this.label4);
-            this.pnMain.Controls.Add(this.txtJobNo);
             this.pnMain.Controls.Add(this.label32);
-            this.pnMain.Controls.Add(this.cbbPO);
             this.pnMain.Controls.Add(this.label33);
-            this.pnMain.Controls.Add(this.label5);
             this.pnMain.Controls.Add(this.label34);
-            this.pnMain.Controls.Add(this.gbData);
             this.pnMain.Controls.Add(this.label12);
             this.pnMain.Controls.Add(this.lbNetWgh);
             this.pnMain.Controls.Add(this.lbTotalWgh);
@@ -312,251 +309,106 @@ namespace FutureFlex
             this.pnMain.Size = new System.Drawing.Size(1595, 830);
             this.pnMain.TabIndex = 57;
             // 
-            // cbPrint
+            // btnStart
             // 
-            this.cbPrint.AllowBindingControlAnimation = true;
-            this.cbPrint.AllowBindingControlColorChanges = false;
-            this.cbPrint.AllowBindingControlLocation = true;
-            this.cbPrint.AllowCheckBoxAnimation = false;
-            this.cbPrint.AllowCheckmarkAnimation = true;
-            this.cbPrint.AllowOnHoverStates = true;
-            this.cbPrint.AutoCheck = true;
-            this.cbPrint.BackColor = System.Drawing.Color.Transparent;
-            this.cbPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cbPrint.BackgroundImage")));
-            this.cbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cbPrint.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
-            this.cbPrint.BorderRadius = 12;
-            this.cbPrint.Checked = true;
-            this.cbPrint.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
-            this.cbPrint.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cbPrint.CustomCheckmarkImage = null;
-            this.cbPrint.Location = new System.Drawing.Point(615, 728);
-            this.cbPrint.MinimumSize = new System.Drawing.Size(17, 17);
-            this.cbPrint.Name = "cbPrint";
-            this.cbPrint.OnCheck.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.cbPrint.OnCheck.BorderRadius = 12;
-            this.cbPrint.OnCheck.BorderThickness = 2;
-            this.cbPrint.OnCheck.CheckBoxColor = System.Drawing.Color.DodgerBlue;
-            this.cbPrint.OnCheck.CheckmarkColor = System.Drawing.Color.White;
-            this.cbPrint.OnCheck.CheckmarkThickness = 2;
-            this.cbPrint.OnDisable.BorderColor = System.Drawing.Color.LightGray;
-            this.cbPrint.OnDisable.BorderRadius = 12;
-            this.cbPrint.OnDisable.BorderThickness = 2;
-            this.cbPrint.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.cbPrint.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
-            this.cbPrint.OnDisable.CheckmarkThickness = 2;
-            this.cbPrint.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.cbPrint.OnHoverChecked.BorderRadius = 12;
-            this.cbPrint.OnHoverChecked.BorderThickness = 2;
-            this.cbPrint.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.cbPrint.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
-            this.cbPrint.OnHoverChecked.CheckmarkThickness = 2;
-            this.cbPrint.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.cbPrint.OnHoverUnchecked.BorderRadius = 12;
-            this.cbPrint.OnHoverUnchecked.BorderThickness = 1;
-            this.cbPrint.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.cbPrint.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbPrint.OnUncheck.BorderRadius = 12;
-            this.cbPrint.OnUncheck.BorderThickness = 1;
-            this.cbPrint.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
-            this.cbPrint.Size = new System.Drawing.Size(17, 17);
-            this.cbPrint.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
-            this.cbPrint.TabIndex = 49;
-            this.cbPrint.ThreeState = false;
-            this.cbPrint.ToolTipText = null;
-            this.cbPrint.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.cbPrint_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(605, 725);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(205, 97);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "   พิมพ์";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.ForeColor = System.Drawing.Color.Black;
-            this.radioButton4.Location = new System.Drawing.Point(6, 56);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(186, 29);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "โชว์หน้าต่างตั้งค่าก่อนพิมพ์";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.Black;
-            this.radioButton3.Location = new System.Drawing.Point(6, 25);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(172, 29);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.Text = "พิมพ์โดยไม่ โชว์หน้าต่าง";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // gbDel
-            // 
-            this.gbDel.Controls.Add(this.button1);
-            this.gbDel.Controls.Add(this.guna2CheckBox1);
-            this.gbDel.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDel.Location = new System.Drawing.Point(816, 728);
-            this.gbDel.Name = "gbDel";
-            this.gbDel.Size = new System.Drawing.Size(252, 97);
-            this.gbDel.TabIndex = 0;
-            this.gbDel.TabStop = false;
-            this.gbDel.Text = "ลบ";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(6, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 34);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "เรียงลำดับและ Reprint ใหม่";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // guna2CheckBox1
-            // 
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CheckBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2CheckBox1.Location = new System.Drawing.Point(11, 25);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(202, 29);
-            this.guna2CheckBox1.TabIndex = 1;
-            this.guna2CheckBox1.Text = "ลบโดยไม่ Reprint ลำดับใหม่";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 0;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(10, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 33);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "เลขที่ใบสั่งงาน : ";
-            // 
-            // txtJobNo
-            // 
-            this.txtJobNo.BorderColor = System.Drawing.Color.Navy;
-            this.txtJobNo.BorderRadius = 8;
-            this.txtJobNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtJobNo.DefaultText = "";
-            this.txtJobNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtJobNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtJobNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtJobNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtJobNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJobNo.Font = new System.Drawing.Font("Athiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobNo.ForeColor = System.Drawing.Color.Black;
-            this.txtJobNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJobNo.IconRight = ((System.Drawing.Image)(resources.GetObject("txtJobNo.IconRight")));
-            this.txtJobNo.IconRightSize = new System.Drawing.Size(50, 50);
-            this.txtJobNo.Location = new System.Drawing.Point(7, 48);
-            this.txtJobNo.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.txtJobNo.Name = "txtJobNo";
-            this.txtJobNo.PasswordChar = '\0';
-            this.txtJobNo.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtJobNo.PlaceholderText = "EX. (GV-67-01-0001)";
-            this.txtJobNo.SelectedText = "";
-            this.txtJobNo.Size = new System.Drawing.Size(328, 60);
-            this.txtJobNo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtJobNo.TabIndex = 0;
-            this.txtJobNo.IconRightClick += new System.EventHandler(this.txtJobNo_IconRightClick);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(1613, 803);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(0, 31);
-            this.label32.TabIndex = 47;
-            // 
-            // cbbPO
-            // 
-            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPO.Font = new System.Drawing.Font("Athiti", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbPO.FormattingEnabled = true;
-            this.cbbPO.Location = new System.Drawing.Point(342, 54);
-            this.cbbPO.Name = "cbbPO";
-            this.cbbPO.Size = new System.Drawing.Size(245, 51);
-            this.cbbPO.TabIndex = 10;
-            this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
-            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
-            this.cbbPO.DropDownClosed += new System.EventHandler(this.cbbPO_DropDownClosed);
-            // 
-            // label33
-            // 
-            this.label33.BackColor = System.Drawing.Color.Black;
-            this.label33.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label33.Location = new System.Drawing.Point(1473, 738);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(104, 31);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "0";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(336, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 33);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "เลขที่ใบสั่งซื้อ : ";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Black;
-            this.label34.Location = new System.Drawing.Point(1349, 738);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(118, 31);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "จำนวนทั้งหมด";
+            this.btnStart.AllowAnimations = true;
+            this.btnStart.AllowMouseEffects = true;
+            this.btnStart.AllowToggling = false;
+            this.btnStart.AnimationSpeed = 200;
+            this.btnStart.AutoGenerateColors = false;
+            this.btnStart.AutoRoundBorders = false;
+            this.btnStart.AutoSizeLeftIcon = true;
+            this.btnStart.AutoSizeRightIcon = true;
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.BackColor1 = System.Drawing.Color.White;
+            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
+            this.btnStart.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnStart.ButtonText = "เริ่มชั่งสินค้า";
+            this.btnStart.ButtonTextMarginLeft = 0;
+            this.btnStart.ColorContrastOnClick = 45;
+            this.btnStart.ColorContrastOnHover = 45;
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnStart.CustomizableEdges = borderEdges2;
+            this.btnStart.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnStart.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnStart.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnStart.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnStart.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnStart.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.Green;
+            this.btnStart.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStart.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnStart.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnStart.IconMarginLeft = 11;
+            this.btnStart.IconPadding = 10;
+            this.btnStart.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStart.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnStart.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnStart.IconSize = 25;
+            this.btnStart.IdleBorderColor = System.Drawing.Color.Green;
+            this.btnStart.IdleBorderRadius = 6;
+            this.btnStart.IdleBorderThickness = 1;
+            this.btnStart.IdleFillColor = System.Drawing.Color.White;
+            this.btnStart.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnStart.IdleIconLeftImage")));
+            this.btnStart.IdleIconRightImage = null;
+            this.btnStart.IndicateFocus = false;
+            this.btnStart.Location = new System.Drawing.Point(13, 734);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnStart.OnDisabledState.BorderRadius = 6;
+            this.btnStart.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnStart.OnDisabledState.BorderThickness = 1;
+            this.btnStart.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnStart.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnStart.OnDisabledState.IconLeftImage = null;
+            this.btnStart.OnDisabledState.IconRightImage = null;
+            this.btnStart.onHoverState.BorderColor = System.Drawing.Color.White;
+            this.btnStart.onHoverState.BorderRadius = 6;
+            this.btnStart.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnStart.onHoverState.BorderThickness = 1;
+            this.btnStart.onHoverState.FillColor = System.Drawing.Color.Green;
+            this.btnStart.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnStart.onHoverState.IconLeftImage = null;
+            this.btnStart.onHoverState.IconRightImage = null;
+            this.btnStart.OnIdleState.BorderColor = System.Drawing.Color.Green;
+            this.btnStart.OnIdleState.BorderRadius = 6;
+            this.btnStart.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnStart.OnIdleState.BorderThickness = 1;
+            this.btnStart.OnIdleState.FillColor = System.Drawing.Color.White;
+            this.btnStart.OnIdleState.ForeColor = System.Drawing.Color.Green;
+            this.btnStart.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnStart.OnIdleState.IconLeftImage")));
+            this.btnStart.OnIdleState.IconRightImage = null;
+            this.btnStart.OnPressedState.BorderColor = System.Drawing.Color.Green;
+            this.btnStart.OnPressedState.BorderRadius = 6;
+            this.btnStart.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnStart.OnPressedState.BorderThickness = 1;
+            this.btnStart.OnPressedState.FillColor = System.Drawing.Color.White;
+            this.btnStart.OnPressedState.ForeColor = System.Drawing.Color.Green;
+            this.btnStart.OnPressedState.IconLeftImage = null;
+            this.btnStart.OnPressedState.IconRightImage = null;
+            this.btnStart.Size = new System.Drawing.Size(578, 73);
+            this.btnStart.TabIndex = 50;
+            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnStart.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnStart.TextMarginLeft = 0;
+            this.btnStart.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnStart.UseDefaultRadiusAndThickness = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // gbData
             // 
             this.gbData.BorderColor = System.Drawing.Color.Navy;
             this.gbData.BorderRadius = 8;
+            this.gbData.Controls.Add(this.cbbPO);
             this.gbData.Controls.Add(this.panel2);
             this.gbData.Controls.Add(this.label35);
             this.gbData.Controls.Add(this.txtOperator);
             this.gbData.Controls.Add(this.panel1);
-            this.gbData.Controls.Add(this.btnReset);
-            this.gbData.Controls.Add(this.btnStop);
-            this.gbData.Controls.Add(this.btnStart);
+            this.gbData.Controls.Add(this.txtJobNo);
             this.gbData.Controls.Add(this.label14);
             this.gbData.Controls.Add(this.label22);
             this.gbData.Controls.Add(this.label24);
@@ -572,31 +424,127 @@ namespace FutureFlex
             this.gbData.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbData.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbData.ForeColor = System.Drawing.Color.White;
-            this.gbData.Location = new System.Drawing.Point(7, 118);
+            this.gbData.Location = new System.Drawing.Point(10, 6);
             this.gbData.Name = "gbData";
-            this.gbData.Size = new System.Drawing.Size(581, 709);
+            this.gbData.Size = new System.Drawing.Size(581, 711);
             this.gbData.TabIndex = 0;
             this.gbData.Text = "รายละเอียดการชั่ง";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
             // 
+            // cbbPO
+            // 
+            this.cbbPO.BackColor = System.Drawing.Color.Transparent;
+            this.cbbPO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPO.ForeColor = System.Drawing.Color.Black;
+            this.cbbPO.ItemHeight = 30;
+            this.cbbPO.Location = new System.Drawing.Point(334, 47);
+            this.cbbPO.Name = "cbbPO";
+            this.cbbPO.Size = new System.Drawing.Size(229, 36);
+            this.cbbPO.TabIndex = 1;
+            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtPchRoll);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtPchBox);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.txtWghCors);
             this.panel2.Controls.Add(this.txtJoint);
             this.panel2.Controls.Add(this.txtNumBox);
             this.panel2.Controls.Add(this.txtNunMeter);
-            this.panel2.Controls.Add(this.txtBlade);
+            this.panel2.Controls.Add(this.txtNumRoll);
             this.panel2.Controls.Add(this.txtWghPaper);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.label28);
-            this.panel2.Location = new System.Drawing.Point(89, 355);
+            this.panel2.Location = new System.Drawing.Point(42, 434);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(403, 202);
+            this.panel2.Size = new System.Drawing.Size(495, 202);
             this.panel2.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(391, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 25);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "จำนวนใบ";
+            // 
+            // txtPchRoll
+            // 
+            this.txtPchRoll.BorderColor = System.Drawing.Color.Navy;
+            this.txtPchRoll.BorderRadius = 8;
+            this.txtPchRoll.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPchRoll.DefaultText = "0";
+            this.txtPchRoll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPchRoll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPchRoll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPchRoll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPchRoll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPchRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPchRoll.ForeColor = System.Drawing.Color.Black;
+            this.txtPchRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPchRoll.Location = new System.Drawing.Point(391, 153);
+            this.txtPchRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtPchRoll.Name = "txtPchRoll";
+            this.txtPchRoll.PasswordChar = '\0';
+            this.txtPchRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtPchRoll.PlaceholderText = "จำนวน ใบ";
+            this.txtPchRoll.SelectedText = "";
+            this.txtPchRoll.Size = new System.Drawing.Size(87, 33);
+            this.txtPchRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtPchRoll.TabIndex = 9;
+            this.txtPchRoll.Tag = "roll";
+            this.txtPchRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(388, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 25);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "จำนวนใบ";
+            // 
+            // txtPchBox
+            // 
+            this.txtPchBox.BorderColor = System.Drawing.Color.Navy;
+            this.txtPchBox.BorderRadius = 8;
+            this.txtPchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPchBox.DefaultText = "0";
+            this.txtPchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPchBox.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPchBox.ForeColor = System.Drawing.Color.Black;
+            this.txtPchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPchBox.Location = new System.Drawing.Point(393, 30);
+            this.txtPchBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtPchBox.Name = "txtPchBox";
+            this.txtPchBox.PasswordChar = '\0';
+            this.txtPchBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtPchBox.PlaceholderText = "จำนวน ใบ";
+            this.txtPchBox.SelectedText = "";
+            this.txtPchBox.Size = new System.Drawing.Size(85, 33);
+            this.txtPchBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtPchBox.TabIndex = 7;
+            this.txtPchBox.Tag = "box";
+            this.txtPchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -633,6 +581,7 @@ namespace FutureFlex
             this.txtWghCors.Size = new System.Drawing.Size(153, 33);
             this.txtWghCors.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtWghCors.TabIndex = 3;
+            this.txtWghCors.Tag = "roll";
             this.txtWghCors.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtWghCors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
@@ -650,7 +599,7 @@ namespace FutureFlex
             this.txtJoint.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtJoint.ForeColor = System.Drawing.Color.Black;
             this.txtJoint.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJoint.Location = new System.Drawing.Point(236, 93);
+            this.txtJoint.Location = new System.Drawing.Point(8, 153);
             this.txtJoint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtJoint.Name = "txtJoint";
             this.txtJoint.PasswordChar = '\0';
@@ -660,6 +609,7 @@ namespace FutureFlex
             this.txtJoint.Size = new System.Drawing.Size(151, 33);
             this.txtJoint.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtJoint.TabIndex = 4;
+            this.txtJoint.Tag = "roll";
             this.txtJoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtJoint.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
@@ -687,6 +637,7 @@ namespace FutureFlex
             this.txtNumBox.Size = new System.Drawing.Size(151, 33);
             this.txtNumBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtNumBox.TabIndex = 2;
+            this.txtNumBox.Tag = "box";
             this.txtNumBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNumBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
@@ -704,7 +655,7 @@ namespace FutureFlex
             this.txtNunMeter.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNunMeter.ForeColor = System.Drawing.Color.Black;
             this.txtNunMeter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNunMeter.Location = new System.Drawing.Point(8, 152);
+            this.txtNunMeter.Location = new System.Drawing.Point(234, 152);
             this.txtNunMeter.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNunMeter.Name = "txtNunMeter";
             this.txtNunMeter.PasswordChar = '\0';
@@ -714,37 +665,39 @@ namespace FutureFlex
             this.txtNunMeter.Size = new System.Drawing.Size(151, 33);
             this.txtNunMeter.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtNunMeter.TabIndex = 5;
+            this.txtNunMeter.Tag = "roll";
             this.txtNunMeter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNunMeter.TextChanged += new System.EventHandler(this.txtNunRoll_TextChanged);
             this.txtNunMeter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
-            // txtBlade
+            // txtNumRoll
             // 
-            this.txtBlade.BorderColor = System.Drawing.Color.Navy;
-            this.txtBlade.BorderRadius = 8;
-            this.txtBlade.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBlade.DefaultText = "0";
-            this.txtBlade.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBlade.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBlade.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBlade.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBlade.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBlade.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBlade.ForeColor = System.Drawing.Color.Black;
-            this.txtBlade.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBlade.Location = new System.Drawing.Point(236, 152);
-            this.txtBlade.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtBlade.Name = "txtBlade";
-            this.txtBlade.PasswordChar = '\0';
-            this.txtBlade.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.txtBlade.PlaceholderText = "จำนวน ใบ";
-            this.txtBlade.ReadOnly = true;
-            this.txtBlade.SelectedText = "";
-            this.txtBlade.Size = new System.Drawing.Size(151, 33);
-            this.txtBlade.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtBlade.TabIndex = 6;
-            this.txtBlade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBlade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
+            this.txtNumRoll.BorderColor = System.Drawing.Color.Navy;
+            this.txtNumRoll.BorderRadius = 8;
+            this.txtNumRoll.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumRoll.DefaultText = "0";
+            this.txtNumRoll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNumRoll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNumRoll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRoll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRoll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumRoll.ForeColor = System.Drawing.Color.Black;
+            this.txtNumRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRoll.Location = new System.Drawing.Point(236, 92);
+            this.txtNumRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNumRoll.Name = "txtNumRoll";
+            this.txtNumRoll.PasswordChar = '\0';
+            this.txtNumRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtNumRoll.PlaceholderText = "จำนวน ใบ";
+            this.txtNumRoll.ReadOnly = true;
+            this.txtNumRoll.SelectedText = "";
+            this.txtNumRoll.Size = new System.Drawing.Size(151, 33);
+            this.txtNumRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtNumRoll.TabIndex = 6;
+            this.txtNumRoll.Tag = "roll";
+            this.txtNumRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumRoll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
             // txtWghPaper
             // 
@@ -770,6 +723,7 @@ namespace FutureFlex
             this.txtWghPaper.Size = new System.Drawing.Size(153, 33);
             this.txtWghPaper.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtWghPaper.TabIndex = 1;
+            this.txtWghPaper.Tag = "roll";
             this.txtWghPaper.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtWghPaper.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
@@ -778,11 +732,11 @@ namespace FutureFlex
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(231, 67);
+            this.label30.Location = new System.Drawing.Point(3, 127);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 25);
+            this.label30.Size = new System.Drawing.Size(93, 25);
             this.label30.TabIndex = 0;
-            this.label30.Text = "รอยต่อ";
+            this.label30.Text = "จำนวนรอยต่อ";
             // 
             // label26
             // 
@@ -800,11 +754,11 @@ namespace FutureFlex
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(231, 126);
+            this.label29.Location = new System.Drawing.Point(231, 66);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(67, 25);
+            this.label29.Size = new System.Drawing.Size(78, 25);
             this.label29.TabIndex = 0;
-            this.label29.Text = "จำนวนใบ";
+            this.label29.Text = "จำนวนม้วน";
             // 
             // label27
             // 
@@ -822,19 +776,18 @@ namespace FutureFlex
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(5, 126);
+            this.label28.Location = new System.Drawing.Point(231, 126);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 25);
             this.label28.TabIndex = 0;
             this.label28.Text = "จำนวนเมตร";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(87, 576);
+            this.label35.Location = new System.Drawing.Point(85, 655);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(77, 25);
             this.label35.TabIndex = 0;
@@ -854,7 +807,7 @@ namespace FutureFlex
             this.txtOperator.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOperator.ForeColor = System.Drawing.Color.Black;
             this.txtOperator.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOperator.Location = new System.Drawing.Point(168, 573);
+            this.txtOperator.Location = new System.Drawing.Point(166, 652);
             this.txtOperator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtOperator.Name = "txtOperator";
             this.txtOperator.PasswordChar = '\0';
@@ -876,7 +829,7 @@ namespace FutureFlex
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label23);
-            this.panel1.Location = new System.Drawing.Point(110, 28);
+            this.panel1.Location = new System.Drawing.Point(111, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(458, 215);
             this.panel1.TabIndex = 0;
@@ -969,118 +922,40 @@ namespace FutureFlex
             this.label23.TabIndex = 0;
             this.label23.Text = ".........";
             // 
-            // btnReset
+            // txtJobNo
             // 
-            this.btnReset.ActiveImage = null;
-            this.btnReset.AllowAnimations = true;
-            this.btnReset.AllowBuffering = false;
-            this.btnReset.AllowToggling = false;
-            this.btnReset.AllowZooming = true;
-            this.btnReset.AllowZoomingOnFocus = false;
-            this.btnReset.BackColor = System.Drawing.Color.Transparent;
-            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnReset.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnReset.ErrorImage")));
-            this.btnReset.FadeWhenInactive = false;
-            this.btnReset.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
-            this.btnReset.ImageActive = null;
-            this.btnReset.ImageLocation = null;
-            this.btnReset.ImageMargin = 40;
-            this.btnReset.ImageSize = new System.Drawing.Size(69, 65);
-            this.btnReset.ImageZoomSize = new System.Drawing.Size(109, 105);
-            this.btnReset.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnReset.InitialImage")));
-            this.btnReset.Location = new System.Drawing.Point(450, 602);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Rotation = 0;
-            this.btnReset.ShowActiveImage = true;
-            this.btnReset.ShowCursorChanges = true;
-            this.btnReset.ShowImageBorders = true;
-            this.btnReset.ShowSizeMarkers = false;
-            this.btnReset.Size = new System.Drawing.Size(109, 105);
-            this.btnReset.TabIndex = 0;
-            this.btnReset.ToolTipText = "";
-            this.btnReset.WaitOnLoad = false;
-            this.btnReset.Zoom = 40;
-            this.btnReset.ZoomSpeed = 10;
-            this.btnReset.Click += new System.EventHandler(this.bunifuImageButton1_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.ActiveImage = null;
-            this.btnStop.AllowAnimations = true;
-            this.btnStop.AllowBuffering = false;
-            this.btnStop.AllowToggling = false;
-            this.btnStop.AllowZooming = true;
-            this.btnStop.AllowZoomingOnFocus = false;
-            this.btnStop.BackColor = System.Drawing.Color.Transparent;
-            this.btnStop.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnStop.Enabled = false;
-            this.btnStop.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnStop.ErrorImage")));
-            this.btnStop.FadeWhenInactive = false;
-            this.btnStop.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
-            this.btnStop.ImageActive = null;
-            this.btnStop.ImageLocation = null;
-            this.btnStop.ImageMargin = 40;
-            this.btnStop.ImageSize = new System.Drawing.Size(69, 65);
-            this.btnStop.ImageZoomSize = new System.Drawing.Size(109, 105);
-            this.btnStop.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnStop.InitialImage")));
-            this.btnStop.Location = new System.Drawing.Point(225, 602);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Rotation = 0;
-            this.btnStop.ShowActiveImage = true;
-            this.btnStop.ShowCursorChanges = true;
-            this.btnStop.ShowImageBorders = true;
-            this.btnStop.ShowSizeMarkers = false;
-            this.btnStop.Size = new System.Drawing.Size(109, 105);
-            this.btnStop.TabIndex = 0;
-            this.btnStop.ToolTipText = "";
-            this.btnStop.WaitOnLoad = false;
-            this.btnStop.Zoom = 40;
-            this.btnStop.ZoomSpeed = 10;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.ActiveImage = null;
-            this.btnStart.AllowAnimations = true;
-            this.btnStart.AllowBuffering = false;
-            this.btnStart.AllowToggling = false;
-            this.btnStart.AllowZooming = true;
-            this.btnStart.AllowZoomingOnFocus = false;
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnStart.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnStart.ErrorImage")));
-            this.btnStart.FadeWhenInactive = false;
-            this.btnStart.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
-            this.btnStart.ImageActive = null;
-            this.btnStart.ImageLocation = null;
-            this.btnStart.ImageMargin = 40;
-            this.btnStart.ImageSize = new System.Drawing.Size(69, 65);
-            this.btnStart.ImageZoomSize = new System.Drawing.Size(109, 105);
-            this.btnStart.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnStart.InitialImage")));
-            this.btnStart.Location = new System.Drawing.Point(20, 602);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Rotation = 0;
-            this.btnStart.ShowActiveImage = true;
-            this.btnStart.ShowCursorChanges = true;
-            this.btnStart.ShowImageBorders = true;
-            this.btnStart.ShowSizeMarkers = false;
-            this.btnStart.Size = new System.Drawing.Size(109, 105);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.ToolTipText = "";
-            this.btnStart.WaitOnLoad = false;
-            this.btnStart.Zoom = 40;
-            this.btnStart.ZoomSpeed = 10;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.txtJobNo.BorderColor = System.Drawing.Color.Navy;
+            this.txtJobNo.BorderRadius = 8;
+            this.txtJobNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtJobNo.DefaultText = "";
+            this.txtJobNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtJobNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtJobNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtJobNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtJobNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtJobNo.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJobNo.ForeColor = System.Drawing.Color.Black;
+            this.txtJobNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtJobNo.IconRight = ((System.Drawing.Image)(resources.GetObject("txtJobNo.IconRight")));
+            this.txtJobNo.IconRightSize = new System.Drawing.Size(30, 30);
+            this.txtJobNo.Location = new System.Drawing.Point(18, 38);
+            this.txtJobNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtJobNo.Name = "txtJobNo";
+            this.txtJobNo.PasswordChar = '\0';
+            this.txtJobNo.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtJobNo.PlaceholderText = "EX. (GV-67-01-0001)";
+            this.txtJobNo.SelectedText = "";
+            this.txtJobNo.Size = new System.Drawing.Size(288, 55);
+            this.txtJobNo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtJobNo.TabIndex = 0;
+            this.txtJobNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(30, 36);
+            this.label14.Location = new System.Drawing.Point(31, 116);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(74, 25);
             this.label14.TabIndex = 0;
@@ -1091,7 +966,7 @@ namespace FutureFlex
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(23, 161);
+            this.label22.Location = new System.Drawing.Point(24, 241);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(81, 25);
             this.label22.TabIndex = 0;
@@ -1102,7 +977,7 @@ namespace FutureFlex
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(12, 111);
+            this.label24.Location = new System.Drawing.Point(13, 191);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(92, 25);
             this.label24.TabIndex = 0;
@@ -1113,7 +988,7 @@ namespace FutureFlex
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(16, 136);
+            this.label25.Location = new System.Drawing.Point(17, 216);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(88, 25);
             this.label25.TabIndex = 0;
@@ -1124,7 +999,7 @@ namespace FutureFlex
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(50, 85);
+            this.label20.Location = new System.Drawing.Point(51, 165);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(54, 25);
             this.label20.TabIndex = 0;
@@ -1135,7 +1010,7 @@ namespace FutureFlex
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(48, 60);
+            this.label19.Location = new System.Drawing.Point(49, 140);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 25);
             this.label19.TabIndex = 0;
@@ -1146,7 +1021,7 @@ namespace FutureFlex
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(7, 186);
+            this.label18.Location = new System.Drawing.Point(8, 266);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(97, 25);
             this.label18.TabIndex = 0;
@@ -1157,7 +1032,7 @@ namespace FutureFlex
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(23, 211);
+            this.label16.Location = new System.Drawing.Point(24, 291);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 25);
             this.label16.TabIndex = 0;
@@ -1174,7 +1049,7 @@ namespace FutureFlex
             this.gbSide.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbSide.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSide.ForeColor = System.Drawing.Color.White;
-            this.gbSide.Location = new System.Drawing.Point(388, 249);
+            this.gbSide.Location = new System.Drawing.Point(389, 339);
             this.gbSide.Name = "gbSide";
             this.gbSide.Size = new System.Drawing.Size(180, 89);
             this.gbSide.TabIndex = 0;
@@ -1225,6 +1100,133 @@ namespace FutureFlex
             this.rdNot.Text = "ไม่เลือก";
             this.rdNot.UseVisualStyleBackColor = false;
             this.rdNot.CheckedChanged += new System.EventHandler(this.rdNot_CheckedChanged);
+            // 
+            // cbPrint
+            // 
+            this.cbPrint.AllowBindingControlAnimation = true;
+            this.cbPrint.AllowBindingControlColorChanges = false;
+            this.cbPrint.AllowBindingControlLocation = true;
+            this.cbPrint.AllowCheckBoxAnimation = false;
+            this.cbPrint.AllowCheckmarkAnimation = true;
+            this.cbPrint.AllowOnHoverStates = true;
+            this.cbPrint.AutoCheck = true;
+            this.cbPrint.BackColor = System.Drawing.Color.Transparent;
+            this.cbPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cbPrint.BackgroundImage")));
+            this.cbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cbPrint.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
+            this.cbPrint.BorderRadius = 12;
+            this.cbPrint.Checked = true;
+            this.cbPrint.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
+            this.cbPrint.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cbPrint.CustomCheckmarkImage = null;
+            this.cbPrint.Location = new System.Drawing.Point(845, 725);
+            this.cbPrint.MinimumSize = new System.Drawing.Size(17, 17);
+            this.cbPrint.Name = "cbPrint";
+            this.cbPrint.OnCheck.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cbPrint.OnCheck.BorderRadius = 12;
+            this.cbPrint.OnCheck.BorderThickness = 2;
+            this.cbPrint.OnCheck.CheckBoxColor = System.Drawing.Color.DodgerBlue;
+            this.cbPrint.OnCheck.CheckmarkColor = System.Drawing.Color.White;
+            this.cbPrint.OnCheck.CheckmarkThickness = 2;
+            this.cbPrint.OnDisable.BorderColor = System.Drawing.Color.LightGray;
+            this.cbPrint.OnDisable.BorderRadius = 12;
+            this.cbPrint.OnDisable.BorderThickness = 2;
+            this.cbPrint.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.cbPrint.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
+            this.cbPrint.OnDisable.CheckmarkThickness = 2;
+            this.cbPrint.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.cbPrint.OnHoverChecked.BorderRadius = 12;
+            this.cbPrint.OnHoverChecked.BorderThickness = 2;
+            this.cbPrint.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.cbPrint.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
+            this.cbPrint.OnHoverChecked.CheckmarkThickness = 2;
+            this.cbPrint.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.cbPrint.OnHoverUnchecked.BorderRadius = 12;
+            this.cbPrint.OnHoverUnchecked.BorderThickness = 1;
+            this.cbPrint.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.cbPrint.OnUncheck.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbPrint.OnUncheck.BorderRadius = 12;
+            this.cbPrint.OnUncheck.BorderThickness = 1;
+            this.cbPrint.OnUncheck.CheckBoxColor = System.Drawing.Color.Transparent;
+            this.cbPrint.Size = new System.Drawing.Size(17, 17);
+            this.cbPrint.Style = Bunifu.UI.WinForms.BunifuCheckBox.CheckBoxStyles.Bunifu;
+            this.cbPrint.TabIndex = 49;
+            this.cbPrint.ThreeState = false;
+            this.cbPrint.ToolTipText = null;
+            this.cbPrint.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs>(this.cbPrint_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Controls.Add(this.radioButton3);
+            this.groupBox2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(835, 722);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(205, 97);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "   พิมพ์";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
+            this.radioButton4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.ForeColor = System.Drawing.Color.Black;
+            this.radioButton4.Location = new System.Drawing.Point(6, 56);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(186, 29);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "โชว์หน้าต่างตั้งค่าก่อนพิมพ์";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.ForeColor = System.Drawing.Color.Black;
+            this.radioButton3.Location = new System.Drawing.Point(6, 25);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(172, 29);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.Text = "พิมพ์โดยไม่ โชว์หน้าต่าง";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.Black;
+            this.label32.Location = new System.Drawing.Point(1613, 803);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(0, 31);
+            this.label32.TabIndex = 47;
+            // 
+            // label33
+            // 
+            this.label33.BackColor = System.Drawing.Color.Black;
+            this.label33.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label33.Location = new System.Drawing.Point(1473, 738);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(104, 31);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "0";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Black;
+            this.label34.Location = new System.Drawing.Point(1349, 738);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(118, 31);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "จำนวนทั้งหมด";
             // 
             // label12
             // 
@@ -1313,81 +1315,83 @@ namespace FutureFlex
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetail.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvDetail.ColumnHeadersHeight = 50;
+            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_del,
             this.cl_edit,
-            this.cl_wgh_seq,
-            this.cl_wgh_lot,
-            this.cl_wgh_id,
-            this.cl_wgh_GVNAME,
-            this.cl_wgh_county,
-            this.cl_wgh_type,
-            this.cl_wgh_side,
-            this.cl_wgh_net,
-            this.cl_wgh_tare,
-            this.cl_wgh_gross,
-            this.cl_wgh_weightCore,
-            this.cl_wgh_joint,
-            this.cl_wgh_numMeter,
-            this.cl_wgh_weightRoll,
-            this.cl_wgh_machineOperator,
-            this.cl_wgh_dateTime,
-            this.cl_wgh_GVID,
-            this.cl_wgh_po,
-            this.cl_wgh_weightPaper,
-            this.cl_wgh_boxNum,
-            this.cl_wgh_weightBlade,
-            this.cl_wgh_machineOparator,
-            this.cl_wgh_statusOdoo,
-            this.cl_wgh_employee});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cl_print,
+            this.cl_id,
+            this.cl_seq,
+            this.cl_gvid,
+            this.cl_po,
+            this.cl_net,
+            this.cl_tare,
+            this.cl_gross,
+            this.cl_lot,
+            this.cl_employee,
+            this.cl_printed,
+            this.cl_statusOdoo,
+            this.cl_county,
+            this.cl_type,
+            this.cl_side,
+            this.cl_date,
+            this.cl_wgh_paper_plastic,
+            this.cl_core,
+            this.cl_joint,
+            this.cl_meter_kg_in_roll,
+            this.cl_pch,
+            this.cl_numbox,
+            this.cl_numroll});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
-            this.dgvDetail.Location = new System.Drawing.Point(603, 146);
+            this.dgvDetail.Location = new System.Drawing.Point(600, 146);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowTemplate.Height = 30;
+            this.dgvDetail.RowTemplate.ReadOnly = true;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(974, 573);
+            this.dgvDetail.Size = new System.Drawing.Size(977, 573);
             this.dgvDetail.TabIndex = 0;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
@@ -1472,10 +1476,10 @@ namespace FutureFlex
             this.guna2ControlBox1.TabIndex = 11;
             this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
-            // serialPort1
+            // spScale
             // 
-            this.serialPort1.PortName = "COM12";
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            this.spScale.PortName = "COM12";
+            this.spScale.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // printDocument1
             // 
@@ -1514,200 +1518,211 @@ namespace FutureFlex
             this.cl_edit.Visible = false;
             this.cl_edit.Width = 60;
             // 
-            // cl_wgh_seq
+            // cl_print
             // 
-            this.cl_wgh_seq.DataPropertyName = "wgh_seq";
-            this.cl_wgh_seq.HeaderText = "ลำดับ";
-            this.cl_wgh_seq.Name = "cl_wgh_seq";
-            this.cl_wgh_seq.ReadOnly = true;
-            this.cl_wgh_seq.Width = 80;
+            this.cl_print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cl_print.HeaderText = "";
+            this.cl_print.Name = "cl_print";
+            this.cl_print.ReadOnly = true;
+            this.cl_print.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cl_print.Text = "ปริ้น";
+            this.cl_print.UseColumnTextForButtonValue = true;
             // 
-            // cl_wgh_lot
+            // cl_id
             // 
-            this.cl_wgh_lot.DataPropertyName = "wgh_lot";
-            this.cl_wgh_lot.HeaderText = "Lot";
-            this.cl_wgh_lot.Name = "cl_wgh_lot";
-            this.cl_wgh_lot.ReadOnly = true;
-            this.cl_wgh_lot.Visible = false;
+            this.cl_id.DataPropertyName = "id";
+            this.cl_id.HeaderText = "id";
+            this.cl_id.Name = "cl_id";
+            this.cl_id.ReadOnly = true;
+            this.cl_id.Visible = false;
             // 
-            // cl_wgh_id
+            // cl_seq
             // 
-            this.cl_wgh_id.DataPropertyName = "wgh_id";
-            this.cl_wgh_id.HeaderText = "wgh_id";
-            this.cl_wgh_id.Name = "cl_wgh_id";
-            this.cl_wgh_id.ReadOnly = true;
-            this.cl_wgh_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_wgh_id.Visible = false;
+            this.cl_seq.DataPropertyName = "wdt_seq";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle12;
+            this.cl_seq.HeaderText = "ลำดับ";
+            this.cl_seq.Name = "cl_seq";
+            this.cl_seq.ReadOnly = true;
+            this.cl_seq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_seq.Width = 80;
             // 
-            // cl_wgh_GVNAME
+            // cl_gvid
             // 
-            this.cl_wgh_GVNAME.DataPropertyName = "wgh_GVNAME";
-            this.cl_wgh_GVNAME.HeaderText = "wgh_GVNAME";
-            this.cl_wgh_GVNAME.Name = "cl_wgh_GVNAME";
-            this.cl_wgh_GVNAME.ReadOnly = true;
-            this.cl_wgh_GVNAME.Visible = false;
+            this.cl_gvid.DataPropertyName = "wdt_GVID";
+            this.cl_gvid.HeaderText = "GVID";
+            this.cl_gvid.Name = "cl_gvid";
+            this.cl_gvid.ReadOnly = true;
+            this.cl_gvid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_gvid.Visible = false;
+            this.cl_gvid.Width = 150;
             // 
-            // cl_wgh_county
+            // cl_po
             // 
-            this.cl_wgh_county.DataPropertyName = "wgh_county";
-            this.cl_wgh_county.HeaderText = "เลือกประเทศ";
-            this.cl_wgh_county.Name = "cl_wgh_county";
-            this.cl_wgh_county.ReadOnly = true;
-            this.cl_wgh_county.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_wgh_county.Width = 140;
+            this.cl_po.DataPropertyName = "wdt_po";
+            this.cl_po.HeaderText = "PO";
+            this.cl_po.Name = "cl_po";
+            this.cl_po.ReadOnly = true;
+            this.cl_po.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_po.Visible = false;
+            this.cl_po.Width = 150;
             // 
-            // cl_wgh_type
+            // cl_net
             // 
-            this.cl_wgh_type.DataPropertyName = "wgh_type";
-            this.cl_wgh_type.HeaderText = "ประเภท";
-            this.cl_wgh_type.Name = "cl_wgh_type";
-            this.cl_wgh_type.ReadOnly = true;
-            this.cl_wgh_type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_net.DataPropertyName = "wdt_net";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_net.DefaultCellStyle = dataGridViewCellStyle13;
+            this.cl_net.HeaderText = "NET";
+            this.cl_net.Name = "cl_net";
+            this.cl_net.ReadOnly = true;
+            this.cl_net.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cl_wgh_side
+            // cl_tare
             // 
-            this.cl_wgh_side.DataPropertyName = "wgh_side";
-            this.cl_wgh_side.HeaderText = "ด้าน";
-            this.cl_wgh_side.Name = "cl_wgh_side";
-            this.cl_wgh_side.ReadOnly = true;
-            this.cl_wgh_side.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_wgh_side.Width = 80;
+            this.cl_tare.DataPropertyName = "wdt_tare";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle14;
+            this.cl_tare.HeaderText = "TARE";
+            this.cl_tare.Name = "cl_tare";
+            this.cl_tare.ReadOnly = true;
+            this.cl_tare.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cl_wgh_net
+            // cl_gross
             // 
-            this.cl_wgh_net.DataPropertyName = "wgh_net";
-            this.cl_wgh_net.HeaderText = "NET WGH";
-            this.cl_wgh_net.Name = "cl_wgh_net";
-            this.cl_wgh_net.ReadOnly = true;
-            this.cl_wgh_net.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_gross.DataPropertyName = "wdt_gross";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle15;
+            this.cl_gross.HeaderText = "GROSS";
+            this.cl_gross.Name = "cl_gross";
+            this.cl_gross.ReadOnly = true;
+            this.cl_gross.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // cl_wgh_tare
+            // cl_lot
             // 
-            this.cl_wgh_tare.DataPropertyName = "wgh_tare";
-            this.cl_wgh_tare.HeaderText = "TARE WGH";
-            this.cl_wgh_tare.Name = "cl_wgh_tare";
-            this.cl_wgh_tare.ReadOnly = true;
-            this.cl_wgh_tare.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_lot.DataPropertyName = "wdt_lot";
+            this.cl_lot.HeaderText = "LOT";
+            this.cl_lot.Name = "cl_lot";
+            this.cl_lot.ReadOnly = true;
+            this.cl_lot.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_lot.Width = 300;
             // 
-            // cl_wgh_gross
+            // cl_employee
             // 
-            this.cl_wgh_gross.DataPropertyName = "wgh_gross";
-            this.cl_wgh_gross.HeaderText = "GROSS WGH";
-            this.cl_wgh_gross.Name = "cl_wgh_gross";
-            this.cl_wgh_gross.ReadOnly = true;
-            this.cl_wgh_gross.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_employee.DataPropertyName = "wdt_employee";
+            this.cl_employee.HeaderText = "ผู้ชั่ง";
+            this.cl_employee.Name = "cl_employee";
+            this.cl_employee.ReadOnly = true;
+            this.cl_employee.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_employee.Width = 200;
             // 
-            // cl_wgh_weightCore
+            // cl_printed
             // 
-            this.cl_wgh_weightCore.DataPropertyName = "wgh_weightCore";
-            this.cl_wgh_weightCore.HeaderText = "wgh_weightCore";
-            this.cl_wgh_weightCore.Name = "cl_wgh_weightCore";
-            this.cl_wgh_weightCore.ReadOnly = true;
-            this.cl_wgh_weightCore.Visible = false;
+            this.cl_printed.DataPropertyName = "wdt_printed";
+            this.cl_printed.HeaderText = "printed";
+            this.cl_printed.Name = "cl_printed";
+            this.cl_printed.ReadOnly = true;
+            this.cl_printed.Visible = false;
             // 
-            // cl_wgh_joint
+            // cl_statusOdoo
             // 
-            this.cl_wgh_joint.DataPropertyName = "wgh_joint";
-            this.cl_wgh_joint.HeaderText = "wgh_joint";
-            this.cl_wgh_joint.Name = "cl_wgh_joint";
-            this.cl_wgh_joint.ReadOnly = true;
-            this.cl_wgh_joint.Visible = false;
+            this.cl_statusOdoo.DataPropertyName = "wdt_statusOdoo";
+            this.cl_statusOdoo.HeaderText = "statusOdoo";
+            this.cl_statusOdoo.Name = "cl_statusOdoo";
+            this.cl_statusOdoo.ReadOnly = true;
+            this.cl_statusOdoo.Visible = false;
             // 
-            // cl_wgh_numMeter
+            // cl_county
             // 
-            this.cl_wgh_numMeter.DataPropertyName = "wgh_numMeter";
-            this.cl_wgh_numMeter.HeaderText = "wgh_numMeter";
-            this.cl_wgh_numMeter.Name = "cl_wgh_numMeter";
-            this.cl_wgh_numMeter.ReadOnly = true;
-            this.cl_wgh_numMeter.Visible = false;
+            this.cl_county.DataPropertyName = "wdt_country";
+            this.cl_county.HeaderText = "ประเทศ";
+            this.cl_county.Name = "cl_county";
+            this.cl_county.ReadOnly = true;
+            this.cl_county.Visible = false;
             // 
-            // cl_wgh_weightRoll
+            // cl_type
             // 
-            this.cl_wgh_weightRoll.DataPropertyName = "wgh_weightRoll";
-            this.cl_wgh_weightRoll.HeaderText = "wgh_weightRoll";
-            this.cl_wgh_weightRoll.Name = "cl_wgh_weightRoll";
-            this.cl_wgh_weightRoll.ReadOnly = true;
-            this.cl_wgh_weightRoll.Visible = false;
+            this.cl_type.DataPropertyName = "wdt_type";
+            this.cl_type.HeaderText = "ประเภท";
+            this.cl_type.Name = "cl_type";
+            this.cl_type.ReadOnly = true;
+            this.cl_type.Visible = false;
             // 
-            // cl_wgh_machineOperator
+            // cl_side
             // 
-            this.cl_wgh_machineOperator.DataPropertyName = "wgh_machineOperator";
-            this.cl_wgh_machineOperator.HeaderText = "wgh_machineOperator";
-            this.cl_wgh_machineOperator.Name = "cl_wgh_machineOperator";
-            this.cl_wgh_machineOperator.ReadOnly = true;
-            this.cl_wgh_machineOperator.Visible = false;
+            this.cl_side.DataPropertyName = "wdt_side";
+            this.cl_side.HeaderText = "ด้าน";
+            this.cl_side.Name = "cl_side";
+            this.cl_side.ReadOnly = true;
+            this.cl_side.Visible = false;
             // 
-            // cl_wgh_dateTime
+            // cl_date
             // 
-            this.cl_wgh_dateTime.DataPropertyName = "wgh_dateTime";
-            this.cl_wgh_dateTime.HeaderText = "wgh_dateTime";
-            this.cl_wgh_dateTime.Name = "cl_wgh_dateTime";
-            this.cl_wgh_dateTime.ReadOnly = true;
-            this.cl_wgh_dateTime.Visible = false;
+            this.cl_date.DataPropertyName = "wdt_date";
+            this.cl_date.HeaderText = "วันที่ชั่ง";
+            this.cl_date.Name = "cl_date";
+            this.cl_date.ReadOnly = true;
+            this.cl_date.Visible = false;
             // 
-            // cl_wgh_GVID
+            // cl_wgh_paper_plastic
             // 
-            this.cl_wgh_GVID.DataPropertyName = "wgh_GVID";
-            this.cl_wgh_GVID.HeaderText = "wgh_GVID";
-            this.cl_wgh_GVID.Name = "cl_wgh_GVID";
-            this.cl_wgh_GVID.ReadOnly = true;
-            this.cl_wgh_GVID.Visible = false;
+            this.cl_wgh_paper_plastic.DataPropertyName = "wdt_wgh_paper_plastic";
+            this.cl_wgh_paper_plastic.HeaderText = "น้ำหนักกระดาษ/น้ำหนักพลาสติก";
+            this.cl_wgh_paper_plastic.Name = "cl_wgh_paper_plastic";
+            this.cl_wgh_paper_plastic.ReadOnly = true;
+            this.cl_wgh_paper_plastic.Visible = false;
             // 
-            // cl_wgh_po
+            // cl_core
             // 
-            this.cl_wgh_po.DataPropertyName = "wgh_po";
-            this.cl_wgh_po.HeaderText = "wgh_po";
-            this.cl_wgh_po.Name = "cl_wgh_po";
-            this.cl_wgh_po.ReadOnly = true;
-            this.cl_wgh_po.Visible = false;
+            this.cl_core.DataPropertyName = "wdt_wgh_core_total";
+            this.cl_core.HeaderText = "น้ำหนักแกน";
+            this.cl_core.Name = "cl_core";
+            this.cl_core.ReadOnly = true;
+            this.cl_core.Visible = false;
             // 
-            // cl_wgh_weightPaper
+            // cl_joint
             // 
-            this.cl_wgh_weightPaper.DataPropertyName = "wgh_weightPaper";
-            this.cl_wgh_weightPaper.HeaderText = "wgh_weightPaper";
-            this.cl_wgh_weightPaper.Name = "cl_wgh_weightPaper";
-            this.cl_wgh_weightPaper.ReadOnly = true;
-            this.cl_wgh_weightPaper.Visible = false;
+            this.cl_joint.DataPropertyName = "wdt_wgh_joint";
+            this.cl_joint.HeaderText = "จำนวนรอยต่อ";
+            this.cl_joint.Name = "cl_joint";
+            this.cl_joint.ReadOnly = true;
+            this.cl_joint.Visible = false;
             // 
-            // cl_wgh_boxNum
+            // cl_meter_kg_in_roll
             // 
-            this.cl_wgh_boxNum.DataPropertyName = "wgh_boxNum";
-            this.cl_wgh_boxNum.HeaderText = "wgh_boxNum";
-            this.cl_wgh_boxNum.Name = "cl_wgh_boxNum";
-            this.cl_wgh_boxNum.ReadOnly = true;
-            this.cl_wgh_boxNum.Visible = false;
+            this.cl_meter_kg_in_roll.DataPropertyName = "wdt_meter_kg_in_roll";
+            this.cl_meter_kg_in_roll.HeaderText = "จำนวนเมตร";
+            this.cl_meter_kg_in_roll.Name = "cl_meter_kg_in_roll";
+            this.cl_meter_kg_in_roll.ReadOnly = true;
+            this.cl_meter_kg_in_roll.Visible = false;
             // 
-            // cl_wgh_weightBlade
+            // cl_pch
             // 
-            this.cl_wgh_weightBlade.DataPropertyName = "wgh_weightBlade";
-            this.cl_wgh_weightBlade.HeaderText = "wgh_weightBlade";
-            this.cl_wgh_weightBlade.Name = "cl_wgh_weightBlade";
-            this.cl_wgh_weightBlade.ReadOnly = true;
-            this.cl_wgh_weightBlade.Visible = false;
+            this.cl_pch.DataPropertyName = "wdt_pch";
+            this.cl_pch.HeaderText = "จำนวนใบ";
+            this.cl_pch.Name = "cl_pch";
+            this.cl_pch.ReadOnly = true;
+            this.cl_pch.Visible = false;
             // 
-            // cl_wgh_machineOparator
+            // cl_numbox
             // 
-            this.cl_wgh_machineOparator.DataPropertyName = "wgh_machineOparator";
-            this.cl_wgh_machineOparator.HeaderText = "wgh_machineOparator";
-            this.cl_wgh_machineOparator.Name = "cl_wgh_machineOparator";
-            this.cl_wgh_machineOparator.ReadOnly = true;
-            this.cl_wgh_machineOparator.Visible = false;
+            this.cl_numbox.DataPropertyName = "wdt_numbox";
+            this.cl_numbox.HeaderText = "จำนวนกล่อง";
+            this.cl_numbox.Name = "cl_numbox";
+            this.cl_numbox.ReadOnly = true;
+            this.cl_numbox.Visible = false;
             // 
-            // cl_wgh_statusOdoo
+            // cl_numroll
             // 
-            this.cl_wgh_statusOdoo.DataPropertyName = "wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.HeaderText = "wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.Name = "cl_wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.ReadOnly = true;
-            this.cl_wgh_statusOdoo.Visible = false;
+            this.cl_numroll.DataPropertyName = "wdt_numroll";
+            this.cl_numroll.HeaderText = "จำนวนม้วน";
+            this.cl_numroll.Name = "cl_numroll";
+            this.cl_numroll.ReadOnly = true;
+            this.cl_numroll.Visible = false;
             // 
-            // cl_wgh_employee
+            // guna2AnimateWindow1
             // 
-            this.cl_wgh_employee.DataPropertyName = "wgh_employee";
-            this.cl_wgh_employee.HeaderText = "ผู้ชั่ง";
-            this.cl_wgh_employee.Name = "cl_wgh_employee";
-            this.cl_wgh_employee.ReadOnly = true;
-            this.cl_wgh_employee.Width = 150;
+            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
+            this.guna2AnimateWindow1.TargetForm = this;
             // 
             // frmWeightNew
             // 
@@ -1723,6 +1738,7 @@ namespace FutureFlex
             this.Name = "frmWeightNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWeightNew_FormClosing);
             this.Load += new System.EventHandler(this.frmWeightNew_Load);
             this.gbCounty.ResumeLayout(false);
             this.gbCounty.PerformLayout();
@@ -1732,10 +1748,6 @@ namespace FutureFlex
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.gbDel.ResumeLayout(false);
-            this.gbDel.PerformLayout();
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1744,6 +1756,8 @@ namespace FutureFlex
             this.panel1.PerformLayout();
             this.gbSide.ResumeLayout(false);
             this.gbSide.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.gbLoadData.ResumeLayout(false);
             this.gbLoadData.PerformLayout();
@@ -1778,8 +1792,7 @@ namespace FutureFlex
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbTotalWgh;
         private System.Windows.Forms.Label label10;
-        private System.IO.Ports.SerialPort serialPort1;
-        private System.Windows.Forms.ComboBox cbbPO;
+        private System.IO.Ports.SerialPort spScale;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -1789,12 +1802,7 @@ namespace FutureFlex
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Bunifu.UI.WinForms.BunifuImageButton btnStart;
-        private Bunifu.UI.WinForms.BunifuImageButton btnStop;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private Bunifu.UI.WinForms.BunifuImageButton btnReset;
-        private Guna.UI2.WinForms.Guna2TextBox txtBlade;
+        private Guna.UI2.WinForms.Guna2TextBox txtNumRoll;
         private Guna.UI2.WinForms.Guna2TextBox txtWghPaper;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
@@ -1827,37 +1835,40 @@ namespace FutureFlex
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox gbDel;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private Bunifu.UI.WinForms.BunifuCheckBox cbPrint;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
-        private System.Windows.Forms.Button button1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnStart;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2TextBox txtPchRoll;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2TextBox txtPchBox;
         private System.Windows.Forms.DataGridViewButtonColumn cl_del;
         private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_seq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_lot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_GVNAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_county;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_side;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_net;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_tare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_gross;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightCore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_joint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_numMeter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightRoll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_machineOperator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_dateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_GVID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_po;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightPaper;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_boxNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightBlade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_machineOparator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_statusOdoo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_employee;
+        private System.Windows.Forms.DataGridViewButtonColumn cl_print;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_seq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_po;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_net;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_tare;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gross;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_lot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_employee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_printed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_statusOdoo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_county;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_side;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_paper_plastic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_core;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_joint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_meter_kg_in_roll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_pch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_numbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_numroll;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

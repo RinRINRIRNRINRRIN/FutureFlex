@@ -28,6 +28,13 @@ namespace FutureFlex
                 }
 
             }
+
+            // เช็คว่ามีสิทธ์ หรือไม่
+            if (tbPrivilage.account.add == "False")
+            {
+                btnAddEmployee.Enabled = false;
+            }
+
             txtFullName.Text = tbEmployeeSQL.emp_name;
             txtUsername.Text = tbEmployeeSQL.emp_username;
             txtPassword.Text = tbEmployeeSQL.emp_password;

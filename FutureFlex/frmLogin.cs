@@ -18,9 +18,44 @@ namespace FutureFlex
 
         }
 
+        void Login()
+        {
+            if (txtUsername.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("กรุณากรอกข้อมูลให้ครบก่อนเข้าสู่ระบบ", "เข้าสู่ระบบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (tbEmployeeSQL.LOGIN(txtUsername.Text, txtPassword.Text))
+            {
+                txtUsername.Clear();
+                txtPassword.Clear();
+                MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                frmMain frm = new frmMain();
+                for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+                {
+                    string menu = tbPrivilage.menuPrivilage[i];
 
+                    foreach (var btn in frm.Controls.OfType<Guna2Button>())
+                    {
+                        if (menu == btn.Tag)
+                        {
+                            btn.Enabled = true;
+                        }
+                    }
+                }
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                txtUsername.Clear();
+                txtPassword.Clear();
+                MessageBox.Show("ผู้ใช้ หรือ รหัสผ่านไม่ถูกต้อง", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsername.Focus();
+            }
+        }
 
         private async void frmLogin_Load(object sender, EventArgs e)
         {
@@ -68,72 +103,32 @@ namespace FutureFlex
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tbEmployeeSQL.LOGIN(txtUsername.Text, txtPassword.Text))
-            {
-                txtUsername.Clear();
-                txtPassword.Clear();
-                MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                frmMain frm = new frmMain();
-                for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
-                {
-                    string menu = tbPrivilage.menuPrivilage[i];
-
-                    foreach (var btn in frm.Controls.OfType<Guna2Button>())
-                    {
-                        if (menu == btn.Tag)
-                        {
-                            btn.Enabled = true;
-                        }
-                    }
-                }
-                frm.Show();
-                this.Hide();
-            }
-            else
-            {
-                txtUsername.Clear();
-                txtPassword.Clear();
-                MessageBox.Show("ผู้ใช้ หรือ รหัสผ่านไม่ถูกต้อง", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsername.Focus();
-            }
+            Login();
         }
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.Alt && e.KeyCode == Keys.A)
-            {
-                MainFun.LogsSend(1, "SELECT FROM frmWeightNew");
-                frmMain frm = new frmMain();
-                frm.Show();
-
-                this.Hide();
-            }
-            if (e.KeyCode == Keys.LControlKey && e.KeyCode == Keys.LShiftKey)
-            {
-                MainFun.LogsSend(1, "SELECT FROM frmWeightNew");
-
-                frmMain frm = new frmMain();
-                frm.Show();
-
-                this.Hide();
-            }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.ExitThread();
-        }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
+
+        private void guna2PictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
         }
     }
 }

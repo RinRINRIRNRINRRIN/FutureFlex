@@ -32,10 +32,6 @@ namespace FutureFlex
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsINTERNETCEHCK = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsSERVERCHECK = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsShowName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsShowEmp_name = new System.Windows.Forms.ToolStripStatusLabel();
@@ -61,10 +57,6 @@ namespace FutureFlex
             this.statusStrip1.BackColor = System.Drawing.Color.Navy;
             this.statusStrip1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.tsINTERNETCEHCK,
-            this.toolStripStatusLabel2,
-            this.tsSERVERCHECK,
             this.tsShowName,
             this.toolStripStatusLabel3,
             this.tsShowEmp_name});
@@ -74,49 +66,6 @@ namespace FutureFlex
             this.statusStrip1.Size = new System.Drawing.Size(1240, 34);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
-            this.toolStripStatusLabel1.ImageTransparentColor = System.Drawing.Color.White;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(184, 29);
-            this.toolStripStatusLabel1.Text = "INTERNET STATUS :";
-            // 
-            // tsINTERNETCEHCK
-            // 
-            this.tsINTERNETCEHCK.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tsINTERNETCEHCK.Font = new System.Drawing.Font("Athiti Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsINTERNETCEHCK.ForeColor = System.Drawing.Color.Lime;
-            this.tsINTERNETCEHCK.Name = "tsINTERNETCEHCK";
-            this.tsINTERNETCEHCK.Size = new System.Drawing.Size(148, 29);
-            this.tsINTERNETCEHCK.Text = "tsINTERNETCEHCK";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel2.Image")));
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(165, 29);
-            this.toolStripStatusLabel2.Text = "SERVER STATUS :";
-            // 
-            // tsSERVERCHECK
-            // 
-            this.tsSERVERCHECK.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tsSERVERCHECK.Font = new System.Drawing.Font("Athiti Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsSERVERCHECK.ForeColor = System.Drawing.Color.Lime;
-            this.tsSERVERCHECK.Name = "tsSERVERCHECK";
-            this.tsSERVERCHECK.Size = new System.Drawing.Size(133, 29);
-            this.tsSERVERCHECK.Text = "tsSERVERCHECK";
             // 
             // tsShowName
             // 
@@ -407,10 +356,6 @@ namespace FutureFlex
         #endregion
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel tsINTERNETCEHCK;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel tsSERVERCHECK;
         private System.Windows.Forms.Splitter splitter1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;

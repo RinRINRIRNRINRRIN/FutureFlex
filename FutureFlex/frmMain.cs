@@ -2,8 +2,6 @@
 using Guna.UI2.WinForms;
 using System;
 using System.Drawing;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -23,54 +21,6 @@ namespace FutureFlex
 
 
         #region "FUNCSION LOCAL"
-
-        async Task CHECK_NETWORK_CONNECT()
-        {
-            while (stateNetwork)
-            {
-                if (NetworkInterface.GetIsNetworkAvailable() == true)
-                {
-                    this.BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        tsINTERNETCEHCK.Text = "Connected";
-                        tsINTERNETCEHCK.ForeColor = Color.Lime;
-                        stateNetwork = false;
-                    }));
-
-                }
-                if (NetworkInterface.GetIsNetworkAvailable() == false)
-                {
-                    this.BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        tsINTERNETCEHCK.Text = "Can't connect network !!!";
-                        tsINTERNETCEHCK.ForeColor = Color.Red;
-                        tsSERVERCHECK.Text = "Can't connect server !!!";
-                        tsSERVERCHECK.ForeColor = Color.Red;
-                        stateNetwork = false;
-                    }));
-                }
-
-                await Task.Delay(2000);
-            }
-        }
-
-        /// <summary>
-        /// ทำหรับทำ NotifyIcon
-        /// </summary>
-        /// <returns></returns>
-        async Task ShowNotify()
-        {
-            while (true)
-            {
-                int a = tbWeight.SELECT_NOT_SUCCESS().Rows.Count;
-                BeginInvoke(new MethodInvoker(delegate ()
-                {
-                    notify1.Text = a.ToString();
-
-                }));
-                await Task.Delay(5000);
-            }
-        }
 
         /// <summary>
         /// สำหรับการแสดง form ให้อยู่กลางหน้าจอ
@@ -95,11 +45,6 @@ namespace FutureFlex
             // นำชื่อผู้ใช้มาแสดงที่โปรแกรม
             tsShowEmp_name.Text = tbEmployeeSQL.emp_name;
 
-            // แสดงข้อมูลที่ยังไม่ได้เพิ่มไปที่ odoo
-            Task.Run(ShowNotify);
-
-            // ตรวจสอบอินเตอร์
-            Task.Run(CHECK_NETWORK_CONNECT);
 
             tbOdoo.defineServerOdoo();
             Console.WriteLine("define odoo success");
@@ -127,30 +72,29 @@ namespace FutureFlex
         private void MenuSelect(object sender, EventArgs e)
         {
             Guna2Button btn = sender as Guna2Button;
-
-
             switch (btn.Tag)
             {
                 case "weight":
-                    frmWeightNew frmWeightNew = new frmWeightNew();
-                    ShowFormCenterScreen(frmWeightNew);
+                    frmWeightNew frm = new frmWeightNew();
+                    frm.ShowDialog();
                     break;
                 case "reprintJIT":
-                    frmReprintJIT frmReprintJIT = new frmReprintJIT();
-                    ShowFormCenterScreen(frmReprintJIT);
+                    frmReprintJIT frm1 = new frmReprintJIT();
+                    frm1.ShowDialog();
                     break;
                 case "history":
+                    frmHistoryWeight frm2 = new frmHistoryWeight();
+                    frm2.ShowDialog();
                     break;
                 case "account":
-                    frmAccount frmPrivilage = new frmAccount();
-                    ShowFormCenterScreen(frmPrivilage);
+                    frmAccount frm3 = new frmAccount();
+                    frm3.ShowDialog();
                     break;
                 case "setting":
-                    frmSetting frmSetting = new frmSetting();
-                    ShowFormCenterScreen(frmSetting);
+                    frmSetting frm4 = new frmSetting();
+                    frm4.ShowDialog();
                     break;
             }
-
         }
     }
 }

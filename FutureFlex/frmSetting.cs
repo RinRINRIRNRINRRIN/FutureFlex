@@ -14,9 +14,6 @@ namespace FutureFlex
         string WGH_COM = ConfigurationManager.AppSettings["WGH_COM"];
         string WGH_BUADRATE = ConfigurationManager.AppSettings["WGH_BAUDRATE"];
 
-        string SCN_COM = ConfigurationManager.AppSettings["SCN_COM"];
-        string SCN_BUADRATE = ConfigurationManager.AppSettings["SCN_BAUDRATE"];
-
 
         Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
         BunifuSnackbar sk = new BunifuSnackbar();
@@ -29,15 +26,11 @@ namespace FutureFlex
         private void frmSetting_Load(object sender, EventArgs e)
         {
             // ดึงค่า COM BUADRATE มาแสดงที่ Combobox
-            cbbSCNBUADRATE.Items.Add(SCN_BUADRATE);
-            cbbSCNCOM.Items.Add(SCN_COM);
             cbbWGHBAUTRATE.Items.Add(WGH_BUADRATE);
             cbbWGHCOM.Items.Add(WGH_COM);
 
             cbbWGHCOM.SelectedIndex = 0;
             cbbWGHBAUTRATE.SelectedIndex = 0;
-            cbbSCNCOM.SelectedIndex = 0;
-            cbbSCNBUADRATE.SelectedIndex = 0;
         }
 
 
@@ -86,16 +79,6 @@ namespace FutureFlex
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            // ตรวจสอบค่าว่าง
-            foreach (var item in gbSCN.Controls.OfType<ComboBox>())
-            {
-                if (item.Text.Contains("--"))
-                {
-                    sk.Show(this, "กรุณาเลือก COM หรือ BUADRATE ก่อนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                    return;
-                }
-            }
-
             foreach (var item in gbWGH.Controls.OfType<ComboBox>())
             {
                 if (item.Text.Contains("--"))
@@ -107,8 +90,6 @@ namespace FutureFlex
 
             config.AppSettings.Settings["WGH_COM"].Value = cbbWGHCOM.Text;
             config.AppSettings.Settings["WGH_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
-            config.AppSettings.Settings["SCN_COM"].Value = cbbWGHBAUTRATE.Text;
-            config.AppSettings.Settings["SCN_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
 

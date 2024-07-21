@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbWeightDetail" msprop:Generator_RowEvHandlerName="tbWeightDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="tbWeightDetailRowDeleted" msprop:Generator_RowDeletingName="tbWeightDetailRowDeleting" msprop:Generator_RowEvArgName="tbWeightDetailRowChangeEvent" msprop:Generator_TablePropName="tbWeightDetail" msprop:Generator_RowChangedName="tbWeightDetailRowChanged" msprop:Generator_RowChangingName="tbWeightDetailRowChanging" msprop:Generator_TableClassName="tbWeightDetailDataTable" msprop:Generator_RowClassName="tbWeightDetailRow" msprop:Generator_TableVarName="tabletbWeightDetail" msprop:Generator_UserTableName="tbWeightDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wdt_gvid" msprop:Generator_ColumnPropNameInRow="wdt_gvid" msprop:Generator_ColumnPropNameInTable="wdt_gvidColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_gvid" msprop:Generator_UserColumnName="wdt_gvid" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_po" msprop:Generator_ColumnPropNameInRow="wdt_po" msprop:Generator_ColumnPropNameInTable="wdt_poColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_po" msprop:Generator_UserColumnName="wdt_po" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_seq" msprop:Generator_ColumnPropNameInRow="wdt_seq" msprop:Generator_ColumnPropNameInTable="wdt_seqColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_seq" msprop:Generator_UserColumnName="wdt_seq" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_net" msprop:Generator_ColumnPropNameInRow="wdt_net" msprop:Generator_ColumnPropNameInTable="wdt_netColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_net" msprop:Generator_UserColumnName="wdt_net" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_tare" msprop:Generator_ColumnPropNameInRow="wdt_tare" msprop:Generator_ColumnPropNameInTable="wdt_tareColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_tare" msprop:Generator_UserColumnName="wdt_tare" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_gross" msprop:Generator_ColumnPropNameInRow="wdt_gross" msprop:Generator_ColumnPropNameInTable="wdt_grossColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_gross" msprop:Generator_UserColumnName="wdt_gross" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_lot" msprop:Generator_ColumnPropNameInRow="wdt_lot" msprop:Generator_ColumnPropNameInTable="wdt_lotColumn" msprop:Generator_ColumnVarNameInTable="columnwdt_lot" msprop:Generator_UserColumnName="wdt_lot" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

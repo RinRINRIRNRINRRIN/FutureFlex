@@ -48,6 +48,7 @@
             this.btnEdit = new Bunifu.UI.WinForms.BunifuImageButton();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2GroupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -373,6 +374,11 @@
             this.guna2DragControl1.TargetControl = this.guna2GroupBox1;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // guna2AnimateWindow1
+            // 
+            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
+            this.guna2AnimateWindow1.TargetForm = this;
+            // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
@@ -384,6 +390,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "frmAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrivilage";
             this.Load += new System.EventHandler(this.frmPrivilage_Load);
             this.guna2GroupBox1.ResumeLayout(false);
@@ -415,5 +422,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAddEmployee;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2CheckBox cbShowPassword;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

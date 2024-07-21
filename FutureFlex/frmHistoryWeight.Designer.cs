@@ -31,42 +31,46 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoryWeight));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gross = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_printed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_statusOdoo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_county = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_side = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wgh_paper_plastic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_core = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_joint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_meter_kg_in_roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_pch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wdt_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wdt_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2NotificationPaint1 = new Guna.UI2.WinForms.Guna2NotificationPaint(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cl_btnDel = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_btnSend = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cl_wgh_GVNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_dateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_GVID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_county = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_side = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightPaper = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightCore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_boxNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_joint = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_numMeter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_weightRoll = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_machineOperator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_gross = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wgh_statusOdoo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
@@ -75,32 +79,439 @@ namespace FutureFlex
             // 
             this.gbMain.BorderColor = System.Drawing.Color.Navy;
             this.gbMain.BorderRadius = 6;
-            this.gbMain.Controls.Add(this.label4);
-            this.gbMain.Controls.Add(this.label3);
-            this.gbMain.Controls.Add(this.label2);
+            this.gbMain.Controls.Add(this.bunifuButton2);
             this.gbMain.Controls.Add(this.label1);
-            this.gbMain.Controls.Add(this.bunifuButton1);
+            this.gbMain.Controls.Add(this.cbbPO);
+            this.gbMain.Controls.Add(this.guna2ControlBox1);
             this.gbMain.Controls.Add(this.dgvDetail);
+            this.gbMain.Controls.Add(this.bunifuButton1);
             this.gbMain.CustomBorderColor = System.Drawing.Color.Navy;
             this.gbMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbMain.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMain.ForeColor = System.Drawing.Color.White;
             this.gbMain.Location = new System.Drawing.Point(0, 0);
             this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(1436, 572);
+            this.gbMain.Size = new System.Drawing.Size(1201, 572);
             this.gbMain.TabIndex = 1;
-            this.gbMain.Text = "ประวัติการชั่ง";
+            this.gbMain.Text = "รายการที่ต้องส่งข้อมูลไปหา odoo";
+            // 
+            // bunifuButton2
+            // 
+            this.bunifuButton2.AllowAnimations = true;
+            this.bunifuButton2.AllowMouseEffects = true;
+            this.bunifuButton2.AllowToggling = false;
+            this.bunifuButton2.AnimationSpeed = 200;
+            this.bunifuButton2.AutoGenerateColors = false;
+            this.bunifuButton2.AutoRoundBorders = false;
+            this.bunifuButton2.AutoSizeLeftIcon = true;
+            this.bunifuButton2.AutoSizeRightIcon = true;
+            this.bunifuButton2.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuButton2.BackColor1 = System.Drawing.Color.White;
+            this.bunifuButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton2.BackgroundImage")));
+            this.bunifuButton2.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButton2.ButtonText = "พิมพ์ข้อมูลที่ส่งไปที่ odoo";
+            this.bunifuButton2.ButtonTextMarginLeft = 0;
+            this.bunifuButton2.ColorContrastOnClick = 45;
+            this.bunifuButton2.ColorContrastOnHover = 45;
+            this.bunifuButton2.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.bunifuButton2.CustomizableEdges = borderEdges1;
+            this.bunifuButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButton2.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButton2.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton2.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.bunifuButton2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton2.ForeColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuButton2.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton2.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.bunifuButton2.IconMarginLeft = 11;
+            this.bunifuButton2.IconPadding = 10;
+            this.bunifuButton2.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bunifuButton2.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton2.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.bunifuButton2.IconSize = 25;
+            this.bunifuButton2.IdleBorderColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.IdleBorderRadius = 8;
+            this.bunifuButton2.IdleBorderThickness = 1;
+            this.bunifuButton2.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuButton2.IdleIconLeftImage = null;
+            this.bunifuButton2.IdleIconRightImage = null;
+            this.bunifuButton2.IndicateFocus = false;
+            this.bunifuButton2.Location = new System.Drawing.Point(12, 466);
+            this.bunifuButton2.Name = "bunifuButton2";
+            this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButton2.OnDisabledState.BorderRadius = 8;
+            this.bunifuButton2.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButton2.OnDisabledState.BorderThickness = 1;
+            this.bunifuButton2.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButton2.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton2.OnDisabledState.IconLeftImage = null;
+            this.bunifuButton2.OnDisabledState.IconRightImage = null;
+            this.bunifuButton2.onHoverState.BorderColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.onHoverState.BorderRadius = 8;
+            this.bunifuButton2.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButton2.onHoverState.BorderThickness = 1;
+            this.bunifuButton2.onHoverState.FillColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton2.onHoverState.IconLeftImage = null;
+            this.bunifuButton2.onHoverState.IconRightImage = null;
+            this.bunifuButton2.OnIdleState.BorderColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.OnIdleState.BorderRadius = 8;
+            this.bunifuButton2.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButton2.OnIdleState.BorderThickness = 1;
+            this.bunifuButton2.OnIdleState.FillColor = System.Drawing.Color.White;
+            this.bunifuButton2.OnIdleState.ForeColor = System.Drawing.Color.Navy;
+            this.bunifuButton2.OnIdleState.IconLeftImage = null;
+            this.bunifuButton2.OnIdleState.IconRightImage = null;
+            this.bunifuButton2.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.bunifuButton2.OnPressedState.BorderRadius = 8;
+            this.bunifuButton2.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.bunifuButton2.OnPressedState.BorderThickness = 1;
+            this.bunifuButton2.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.bunifuButton2.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton2.OnPressedState.IconLeftImage = null;
+            this.bunifuButton2.OnPressedState.IconRightImage = null;
+            this.bunifuButton2.Size = new System.Drawing.Size(280, 43);
+            this.bunifuButton2.TabIndex = 15;
+            this.bunifuButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuButton2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bunifuButton2.TextMarginLeft = 0;
+            this.bunifuButton2.TextPadding = new System.Windows.Forms.Padding(0);
+            this.bunifuButton2.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton2.Click += new System.EventHandler(this.bunifuButton2_Click);
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 87);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "เลือกข้อูล";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Size = new System.Drawing.Size(173, 21);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "เลือก PO ที่ต้องการส่งไปหา odoo";
+            // 
+            // cbbPO
+            // 
+            this.cbbPO.BackColor = System.Drawing.Color.Transparent;
+            this.cbbPO.BorderColor = System.Drawing.Color.Navy;
+            this.cbbPO.BorderRadius = 6;
+            this.cbbPO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPO.ForeColor = System.Drawing.Color.Black;
+            this.cbbPO.ItemHeight = 30;
+            this.cbbPO.Location = new System.Drawing.Point(12, 84);
+            this.cbbPO.Name = "cbbPO";
+            this.cbbPO.Size = new System.Drawing.Size(270, 36);
+            this.cbbPO.TabIndex = 13;
+            this.cbbPO.DropDown += new System.EventHandler(this.guna2ComboBox1_DropDown);
+            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1146, 5);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 12;
+            // 
+            // dgvDetail
+            // 
+            this.dgvDetail.AllowUserToAddRows = false;
+            this.dgvDetail.AllowUserToDeleteRows = false;
+            this.dgvDetail.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetail.ColumnHeadersHeight = 50;
+            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_del,
+            this.cl_edit,
+            this.cl_id,
+            this.cl_gvid,
+            this.cl_seq,
+            this.cl_po,
+            this.cl_net,
+            this.cl_tare,
+            this.cl_gross,
+            this.cl_lot,
+            this.cl_employee,
+            this.cl_printed,
+            this.cl_statusOdoo,
+            this.cl_county,
+            this.cl_type,
+            this.cl_side,
+            this.cl_date,
+            this.cl_wgh_paper_plastic,
+            this.cl_core,
+            this.cl_joint,
+            this.cl_meter_kg_in_roll,
+            this.cl_pch,
+            this.cl_wdt_numbox,
+            this.cl_wdt_numroll});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetail.EnableHeadersVisualStyles = false;
+            this.dgvDetail.GridColor = System.Drawing.Color.White;
+            this.dgvDetail.Location = new System.Drawing.Point(298, 43);
+            this.dgvDetail.Name = "dgvDetail";
+            this.dgvDetail.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDetail.RowHeadersVisible = false;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowTemplate.Height = 30;
+            this.dgvDetail.RowTemplate.ReadOnly = true;
+            this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvDetail.Size = new System.Drawing.Size(895, 526);
+            this.dgvDetail.TabIndex = 9;
+            // 
+            // cl_del
+            // 
+            this.cl_del.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cl_del.HeaderText = "";
+            this.cl_del.Name = "cl_del";
+            this.cl_del.ReadOnly = true;
+            this.cl_del.Text = "ลบ";
+            this.cl_del.UseColumnTextForButtonValue = true;
+            this.cl_del.Visible = false;
+            this.cl_del.Width = 60;
+            // 
+            // cl_edit
+            // 
+            this.cl_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cl_edit.HeaderText = "";
+            this.cl_edit.Name = "cl_edit";
+            this.cl_edit.ReadOnly = true;
+            this.cl_edit.Text = "แก้ไข";
+            this.cl_edit.UseColumnTextForButtonValue = true;
+            this.cl_edit.Visible = false;
+            this.cl_edit.Width = 60;
+            // 
+            // cl_id
+            // 
+            this.cl_id.DataPropertyName = "id";
+            this.cl_id.HeaderText = "id";
+            this.cl_id.Name = "cl_id";
+            this.cl_id.ReadOnly = true;
+            this.cl_id.Visible = false;
+            // 
+            // cl_gvid
+            // 
+            this.cl_gvid.DataPropertyName = "wdt_GVID";
+            this.cl_gvid.HeaderText = "GVID";
+            this.cl_gvid.Name = "cl_gvid";
+            this.cl_gvid.ReadOnly = true;
+            this.cl_gvid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_gvid.Width = 200;
+            // 
+            // cl_seq
+            // 
+            this.cl_seq.DataPropertyName = "wdt_seq";
+            this.cl_seq.HeaderText = "ลำดับ";
+            this.cl_seq.Name = "cl_seq";
+            this.cl_seq.ReadOnly = true;
+            this.cl_seq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_seq.Width = 80;
+            // 
+            // cl_po
+            // 
+            this.cl_po.DataPropertyName = "wdt_po";
+            this.cl_po.HeaderText = "PO";
+            this.cl_po.Name = "cl_po";
+            this.cl_po.ReadOnly = true;
+            this.cl_po.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_po.Visible = false;
+            this.cl_po.Width = 150;
+            // 
+            // cl_net
+            // 
+            this.cl_net.DataPropertyName = "wdt_net";
+            this.cl_net.HeaderText = "NET";
+            this.cl_net.Name = "cl_net";
+            this.cl_net.ReadOnly = true;
+            this.cl_net.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cl_tare
+            // 
+            this.cl_tare.DataPropertyName = "wdt_tare";
+            this.cl_tare.HeaderText = "TARE";
+            this.cl_tare.Name = "cl_tare";
+            this.cl_tare.ReadOnly = true;
+            this.cl_tare.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cl_gross
+            // 
+            this.cl_gross.DataPropertyName = "wdt_gross";
+            this.cl_gross.HeaderText = "GROSS";
+            this.cl_gross.Name = "cl_gross";
+            this.cl_gross.ReadOnly = true;
+            this.cl_gross.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // cl_lot
+            // 
+            this.cl_lot.DataPropertyName = "wdt_lot";
+            this.cl_lot.HeaderText = "LOT";
+            this.cl_lot.Name = "cl_lot";
+            this.cl_lot.ReadOnly = true;
+            this.cl_lot.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_lot.Width = 300;
+            // 
+            // cl_employee
+            // 
+            this.cl_employee.DataPropertyName = "wdt_employee";
+            this.cl_employee.HeaderText = "ผู้ชั่ง";
+            this.cl_employee.Name = "cl_employee";
+            this.cl_employee.ReadOnly = true;
+            this.cl_employee.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_employee.Visible = false;
+            this.cl_employee.Width = 200;
+            // 
+            // cl_printed
+            // 
+            this.cl_printed.DataPropertyName = "wdt_printed";
+            this.cl_printed.HeaderText = "printed";
+            this.cl_printed.Name = "cl_printed";
+            this.cl_printed.ReadOnly = true;
+            this.cl_printed.Visible = false;
+            // 
+            // cl_statusOdoo
+            // 
+            this.cl_statusOdoo.DataPropertyName = "wdt_statusOdoo";
+            this.cl_statusOdoo.HeaderText = "statusOdoo";
+            this.cl_statusOdoo.Name = "cl_statusOdoo";
+            this.cl_statusOdoo.ReadOnly = true;
+            this.cl_statusOdoo.Visible = false;
+            // 
+            // cl_county
+            // 
+            this.cl_county.DataPropertyName = "wdt_country";
+            this.cl_county.HeaderText = "ประเทศ";
+            this.cl_county.Name = "cl_county";
+            this.cl_county.ReadOnly = true;
+            this.cl_county.Visible = false;
+            // 
+            // cl_type
+            // 
+            this.cl_type.DataPropertyName = "wdt_type";
+            this.cl_type.HeaderText = "ประเภท";
+            this.cl_type.Name = "cl_type";
+            this.cl_type.ReadOnly = true;
+            this.cl_type.Visible = false;
+            // 
+            // cl_side
+            // 
+            this.cl_side.DataPropertyName = "wdt_side";
+            this.cl_side.HeaderText = "ด้าน";
+            this.cl_side.Name = "cl_side";
+            this.cl_side.ReadOnly = true;
+            this.cl_side.Visible = false;
+            // 
+            // cl_date
+            // 
+            this.cl_date.DataPropertyName = "wdt_date";
+            this.cl_date.HeaderText = "วันที่ชั่ง";
+            this.cl_date.Name = "cl_date";
+            this.cl_date.ReadOnly = true;
+            this.cl_date.Visible = false;
+            // 
+            // cl_wgh_paper_plastic
+            // 
+            this.cl_wgh_paper_plastic.DataPropertyName = "wdt_wgh_paper_plastic";
+            this.cl_wgh_paper_plastic.HeaderText = "น้ำหนักกระดาษ/น้ำหนักพลาสติก";
+            this.cl_wgh_paper_plastic.Name = "cl_wgh_paper_plastic";
+            this.cl_wgh_paper_plastic.ReadOnly = true;
+            this.cl_wgh_paper_plastic.Visible = false;
+            // 
+            // cl_core
+            // 
+            this.cl_core.DataPropertyName = "wdt_wgh_core_total";
+            this.cl_core.HeaderText = "น้ำหนักแกน";
+            this.cl_core.Name = "cl_core";
+            this.cl_core.ReadOnly = true;
+            this.cl_core.Visible = false;
+            // 
+            // cl_joint
+            // 
+            this.cl_joint.DataPropertyName = "wdt_wgh_joint";
+            this.cl_joint.HeaderText = "จำนวนรอยต่อ";
+            this.cl_joint.Name = "cl_joint";
+            this.cl_joint.ReadOnly = true;
+            this.cl_joint.Visible = false;
+            // 
+            // cl_meter_kg_in_roll
+            // 
+            this.cl_meter_kg_in_roll.DataPropertyName = "wdt_meter_kg_in_roll";
+            this.cl_meter_kg_in_roll.HeaderText = "จำนวนเมตร";
+            this.cl_meter_kg_in_roll.Name = "cl_meter_kg_in_roll";
+            this.cl_meter_kg_in_roll.ReadOnly = true;
+            this.cl_meter_kg_in_roll.Visible = false;
+            // 
+            // cl_pch
+            // 
+            this.cl_pch.DataPropertyName = "wdt_pch";
+            this.cl_pch.HeaderText = "จำนวนใบ";
+            this.cl_pch.Name = "cl_pch";
+            this.cl_pch.ReadOnly = true;
+            this.cl_pch.Visible = false;
+            // 
+            // cl_wdt_numbox
+            // 
+            this.cl_wdt_numbox.DataPropertyName = "wdt_numbox";
+            this.cl_wdt_numbox.HeaderText = "จำนวนกล่อง";
+            this.cl_wdt_numbox.Name = "cl_wdt_numbox";
+            this.cl_wdt_numbox.ReadOnly = true;
+            this.cl_wdt_numbox.Visible = false;
+            // 
+            // cl_wdt_numroll
+            // 
+            this.cl_wdt_numroll.DataPropertyName = "wdt_numroll";
+            this.cl_wdt_numroll.HeaderText = "จำนวนม้วน";
+            this.cl_wdt_numroll.Name = "cl_wdt_numroll";
+            this.cl_wdt_numroll.ReadOnly = true;
+            this.cl_wdt_numroll.Visible = false;
             // 
             // bunifuButton1
             // 
@@ -183,7 +594,7 @@ namespace FutureFlex
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
-            this.bunifuButton1.Size = new System.Drawing.Size(165, 43);
+            this.bunifuButton1.Size = new System.Drawing.Size(280, 43);
             this.bunifuButton1.TabIndex = 2;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -191,78 +602,6 @@ namespace FutureFlex
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
-            // 
-            // dgvDetail
-            // 
-            this.dgvDetail.AllowUserToAddRows = false;
-            this.dgvDetail.AllowUserToDeleteRows = false;
-            this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cl_btnDel,
-            this.cl_btnSend,
-            this.cl_wgh_GVNAME,
-            this.cl_wgh_id,
-            this.cl_wgh_dateTime,
-            this.cl_wgh_employee,
-            this.cl_wgh_GVID,
-            this.cl_wgh_po,
-            this.cl_wgh_county,
-            this.cl_wgh_type,
-            this.cl_wgh_side,
-            this.cl_wgh_weightPaper,
-            this.cl_wgh_weightCore,
-            this.cl_wgh_boxNum,
-            this.cl_wgh_joint,
-            this.cl_wgh_numMeter,
-            this.cl_wgh_weightRoll,
-            this.cl_wgh_machineOperator,
-            this.cl_wgh_net,
-            this.cl_wgh_tare,
-            this.cl_wgh_gross,
-            this.cl_wgh_statusOdoo});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvDetail.EnableHeadersVisualStyles = false;
-            this.dgvDetail.GridColor = System.Drawing.Color.White;
-            this.dgvDetail.Location = new System.Drawing.Point(183, 43);
-            this.dgvDetail.Name = "dgvDetail";
-            this.dgvDetail.ReadOnly = true;
-            this.dgvDetail.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1250, 515);
-            this.dgvDetail.TabIndex = 1;
-            this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
             // guna2AnimateWindow1
             // 
@@ -274,218 +613,12 @@ namespace FutureFlex
             this.guna2NotificationPaint1.Alignment = Guna.UI2.WinForms.Enums.CustomContentAlignment.TopRight;
             this.guna2NotificationPaint1.FillColor = System.Drawing.Color.Red;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(7, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "ความหมายสี";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Green;
-            this.label3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ส่งข้อมูล สำเร็จ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 25);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "ส่งข้อมูล ไม่สำเร็จ";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cl_btnDel
-            // 
-            this.cl_btnDel.HeaderText = "";
-            this.cl_btnDel.Name = "cl_btnDel";
-            this.cl_btnDel.ReadOnly = true;
-            this.cl_btnDel.Text = "DELETE";
-            this.cl_btnDel.UseColumnTextForButtonValue = true;
-            // 
-            // cl_btnSend
-            // 
-            this.cl_btnSend.HeaderText = "";
-            this.cl_btnSend.Name = "cl_btnSend";
-            this.cl_btnSend.ReadOnly = true;
-            this.cl_btnSend.Text = "SEND";
-            this.cl_btnSend.UseColumnTextForButtonValue = true;
-            // 
-            // cl_wgh_GVNAME
-            // 
-            this.cl_wgh_GVNAME.DataPropertyName = "wgh_GVNAME";
-            this.cl_wgh_GVNAME.HeaderText = "เลขที่ GV";
-            this.cl_wgh_GVNAME.Name = "cl_wgh_GVNAME";
-            this.cl_wgh_GVNAME.ReadOnly = true;
-            this.cl_wgh_GVNAME.Width = 150;
-            // 
-            // cl_wgh_id
-            // 
-            this.cl_wgh_id.DataPropertyName = "wgh_id";
-            this.cl_wgh_id.HeaderText = "wgh_id";
-            this.cl_wgh_id.Name = "cl_wgh_id";
-            this.cl_wgh_id.ReadOnly = true;
-            this.cl_wgh_id.Visible = false;
-            // 
-            // cl_wgh_dateTime
-            // 
-            this.cl_wgh_dateTime.DataPropertyName = "wgh_dateTime";
-            this.cl_wgh_dateTime.HeaderText = "วัน/เวลา";
-            this.cl_wgh_dateTime.Name = "cl_wgh_dateTime";
-            this.cl_wgh_dateTime.ReadOnly = true;
-            this.cl_wgh_dateTime.Width = 170;
-            // 
-            // cl_wgh_employee
-            // 
-            this.cl_wgh_employee.DataPropertyName = "wgh_employee";
-            this.cl_wgh_employee.HeaderText = "พนักงานชั่ง";
-            this.cl_wgh_employee.Name = "cl_wgh_employee";
-            this.cl_wgh_employee.ReadOnly = true;
-            this.cl_wgh_employee.Width = 130;
-            // 
-            // cl_wgh_GVID
-            // 
-            this.cl_wgh_GVID.DataPropertyName = "wgh_GVID";
-            this.cl_wgh_GVID.HeaderText = "wgh_GVID";
-            this.cl_wgh_GVID.Name = "cl_wgh_GVID";
-            this.cl_wgh_GVID.ReadOnly = true;
-            this.cl_wgh_GVID.Visible = false;
-            // 
-            // cl_wgh_po
-            // 
-            this.cl_wgh_po.DataPropertyName = "wgh_po";
-            this.cl_wgh_po.HeaderText = "เลขที่ PO";
-            this.cl_wgh_po.Name = "cl_wgh_po";
-            this.cl_wgh_po.ReadOnly = true;
-            this.cl_wgh_po.Width = 110;
-            // 
-            // cl_wgh_county
-            // 
-            this.cl_wgh_county.DataPropertyName = "wgh_county";
-            this.cl_wgh_county.HeaderText = "เลือกประเทศ";
-            this.cl_wgh_county.Name = "cl_wgh_county";
-            this.cl_wgh_county.ReadOnly = true;
-            this.cl_wgh_county.Width = 150;
-            // 
-            // cl_wgh_type
-            // 
-            this.cl_wgh_type.DataPropertyName = "wgh_type";
-            this.cl_wgh_type.HeaderText = "เลือกประเภท";
-            this.cl_wgh_type.Name = "cl_wgh_type";
-            this.cl_wgh_type.ReadOnly = true;
-            this.cl_wgh_type.Width = 150;
-            // 
-            // cl_wgh_side
-            // 
-            this.cl_wgh_side.DataPropertyName = "wgh_side";
-            this.cl_wgh_side.HeaderText = "เลือกด้าน";
-            this.cl_wgh_side.Name = "cl_wgh_side";
-            this.cl_wgh_side.ReadOnly = true;
-            this.cl_wgh_side.Width = 150;
-            // 
-            // cl_wgh_weightPaper
-            // 
-            this.cl_wgh_weightPaper.DataPropertyName = "wgh_weightPaper";
-            this.cl_wgh_weightPaper.HeaderText = "นน.กระดาษ/แกน";
-            this.cl_wgh_weightPaper.Name = "cl_wgh_weightPaper";
-            this.cl_wgh_weightPaper.ReadOnly = true;
-            this.cl_wgh_weightPaper.Width = 180;
-            // 
-            // cl_wgh_weightCore
-            // 
-            this.cl_wgh_weightCore.DataPropertyName = "wgh_weightCore";
-            this.cl_wgh_weightCore.HeaderText = "นน.แกน";
-            this.cl_wgh_weightCore.Name = "cl_wgh_weightCore";
-            this.cl_wgh_weightCore.ReadOnly = true;
-            this.cl_wgh_weightCore.Width = 120;
-            // 
-            // cl_wgh_boxNum
-            // 
-            this.cl_wgh_boxNum.DataPropertyName = "wgh_boxNum";
-            this.cl_wgh_boxNum.HeaderText = "จำนวนกล่อง";
-            this.cl_wgh_boxNum.Name = "cl_wgh_boxNum";
-            this.cl_wgh_boxNum.ReadOnly = true;
-            this.cl_wgh_boxNum.Width = 130;
-            // 
-            // cl_wgh_joint
-            // 
-            this.cl_wgh_joint.DataPropertyName = "wgh_joint";
-            this.cl_wgh_joint.HeaderText = "รอยต่อ";
-            this.cl_wgh_joint.Name = "cl_wgh_joint";
-            this.cl_wgh_joint.ReadOnly = true;
-            this.cl_wgh_joint.Width = 120;
-            // 
-            // cl_wgh_numMeter
-            // 
-            this.cl_wgh_numMeter.DataPropertyName = "wgh_numMeter";
-            this.cl_wgh_numMeter.HeaderText = "จำนวนเมตร";
-            this.cl_wgh_numMeter.Name = "cl_wgh_numMeter";
-            this.cl_wgh_numMeter.ReadOnly = true;
-            this.cl_wgh_numMeter.Width = 130;
-            // 
-            // cl_wgh_weightRoll
-            // 
-            this.cl_wgh_weightRoll.DataPropertyName = "wgh_weightRoll";
-            this.cl_wgh_weightRoll.HeaderText = "นน.ม้วน";
-            this.cl_wgh_weightRoll.Name = "cl_wgh_weightRoll";
-            this.cl_wgh_weightRoll.ReadOnly = true;
-            this.cl_wgh_weightRoll.Width = 120;
-            // 
-            // cl_wgh_machineOperator
-            // 
-            this.cl_wgh_machineOperator.DataPropertyName = "wgh_machineOperator";
-            this.cl_wgh_machineOperator.HeaderText = "ผู้ควบคุมเครื่อง";
-            this.cl_wgh_machineOperator.Name = "cl_wgh_machineOperator";
-            this.cl_wgh_machineOperator.ReadOnly = true;
-            this.cl_wgh_machineOperator.Width = 150;
-            // 
-            // cl_wgh_net
-            // 
-            this.cl_wgh_net.DataPropertyName = "wgh_net";
-            this.cl_wgh_net.HeaderText = "NET";
-            this.cl_wgh_net.Name = "cl_wgh_net";
-            this.cl_wgh_net.ReadOnly = true;
-            // 
-            // cl_wgh_tare
-            // 
-            this.cl_wgh_tare.DataPropertyName = "wgh_tare";
-            this.cl_wgh_tare.HeaderText = "TARE";
-            this.cl_wgh_tare.Name = "cl_wgh_tare";
-            this.cl_wgh_tare.ReadOnly = true;
-            // 
-            // cl_wgh_gross
-            // 
-            this.cl_wgh_gross.DataPropertyName = "wgh_gross";
-            this.cl_wgh_gross.HeaderText = "GROSS";
-            this.cl_wgh_gross.Name = "cl_wgh_gross";
-            this.cl_wgh_gross.ReadOnly = true;
-            // 
-            // cl_wgh_statusOdoo
-            // 
-            this.cl_wgh_statusOdoo.DataPropertyName = "wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.HeaderText = "wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.Name = "cl_wgh_statusOdoo";
-            this.cl_wgh_statusOdoo.ReadOnly = true;
-            this.cl_wgh_statusOdoo.Visible = false;
-            // 
             // frmHistoryWeight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1436, 572);
+            this.ClientSize = new System.Drawing.Size(1201, 572);
             this.Controls.Add(this.gbMain);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -504,35 +637,37 @@ namespace FutureFlex
         #endregion
 
         private Guna.UI2.WinForms.Guna2GroupBox gbMain;
-        private System.Windows.Forms.DataGridView dgvDetail;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
         private Guna.UI2.WinForms.Guna2NotificationPaint guna2NotificationPaint1;
+        private System.Windows.Forms.DataGridView dgvDetail;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.DataGridViewButtonColumn cl_del;
+        private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_seq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_po;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_net;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_tare;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gross;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_lot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_employee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_printed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_statusOdoo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_county;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_side;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_paper_plastic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_core;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_joint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_meter_kg_in_roll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_pch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numroll;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewButtonColumn cl_btnDel;
-        private System.Windows.Forms.DataGridViewButtonColumn cl_btnSend;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_GVNAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_dateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_employee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_GVID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_po;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_county;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_side;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightPaper;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightCore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_boxNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_joint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_numMeter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_weightRoll;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_machineOperator;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_net;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_tare;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_gross;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_statusOdoo;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
     }
 }

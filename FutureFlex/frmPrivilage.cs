@@ -170,7 +170,7 @@ namespace FutureFlex
                     if (tbPrivilage.DELETE(emp_username))
                     {
                         // เปิดสิทธิ์หน้าชั่ง
-                        if (tgsWghDel.Checked || tgsWghEdit.Checked)
+                        if (cbWeight.Checked)
                         {
                             if (!tbPrivilage.INSERT(emp_username, "weight", "False", tgsWghDel.Checked.ToString(), tgsWghEdit.Checked.ToString()))
                             {
@@ -249,10 +249,19 @@ namespace FutureFlex
                         DialogResult dialog = MessageBox.Show($"คุณต้องการลบผู้ใช้ {fullName} ออกจากระบบหรือไม่", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dialog == DialogResult.Yes)
                         {
-                            if (tbEmployeeSQL.DELETE(username))
+                            // ลบสิทธ์ผู้ใช้งานระบบก่อน
+                            if (tbPrivilage.DELETE(username))
                             {
-                                sk.Show(this, $"ลบผู้ใช้ {fullName} ออกจากระบบสำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                                dgvEmployee.DataSource = tbEmployeeSQL.SELECTDATA();
+                                if (tbEmployeeSQL.DELETE(username))
+                                {
+                                    sk.Show(this, $"ลบผู้ใช้ {fullName} ออกจากระบบสำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                                    dgvEmployee.DataSource = tbEmployeeSQL.SELECTDATA();
+                                }
+                                else
+                                {
+                                    sk.Show(this, tbEmployeeSQL.ERR, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                                    return;
+                                }
                             }
                             else
                             {
