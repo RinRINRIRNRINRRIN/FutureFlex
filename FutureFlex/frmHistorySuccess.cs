@@ -56,5 +56,10 @@ namespace FutureFlex
                 throw;
             }
         }
+
+        private void gbMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

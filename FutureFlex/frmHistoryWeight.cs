@@ -184,12 +184,31 @@ namespace FutureFlex
                 return;
             }
             dgvDetail.DataSource = tb;
+
+
+            // รวมจำนวนกล่องและน้ำหนักรวม
+            double totalCount = 0;
+            double totalWeight = 0;
+            foreach (DataGridViewRow rw in dgvDetail.Rows)
+            {
+                double _Count = double.Parse(rw.Cells["cl_net"].Value.ToString());
+                totalWeight = totalWeight + _Count;
+            }
+
+            lblTotalWeight.Text = totalWeight.ToString("F2");
+            lblTotol.Text = dgvDetail.Rows.Count.ToString();
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
             frmPrint frmPrint = new frmPrint();
             frmPrint.ShowDialog();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            frmHistorySuccess frmHistorySuccess = new frmHistorySuccess();
+            frmHistorySuccess.ShowDialog();
         }
     }
 }
