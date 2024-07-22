@@ -31,16 +31,16 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWeightNew));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCounty = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdOutCounty = new System.Windows.Forms.RadioButton();
             this.rdInCounty = new System.Windows.Forms.RadioButton();
@@ -110,15 +110,6 @@ namespace FutureFlex
             this.label3 = new System.Windows.Forms.Label();
             this.btnReprint = new System.Windows.Forms.Label();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.lbGrossWgh = new System.Windows.Forms.Label();
-            this.lbTareWgh = new System.Windows.Forms.Label();
-            this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.spScale = new System.IO.Ports.SerialPort(this.components);
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_print = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -144,6 +135,15 @@ namespace FutureFlex
             this.cl_pch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbGrossWgh = new System.Windows.Forms.Label();
+            this.lbTareWgh = new System.Windows.Forms.Label();
+            this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.spScale = new System.IO.Ports.SerialPort(this.components);
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
@@ -328,11 +328,11 @@ namespace FutureFlex
             this.btnStart.ColorContrastOnClick = 45;
             this.btnStart.ColorContrastOnHover = 45;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.btnStart.CustomizableEdges = borderEdges2;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnStart.CustomizableEdges = borderEdges1;
             this.btnStart.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnStart.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnStart.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -1315,22 +1315,22 @@ namespace FutureFlex
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.ColumnHeadersHeight = 50;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1359,31 +1359,31 @@ namespace FutureFlex
             this.cl_pch,
             this.cl_numbox,
             this.cl_numroll});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
             this.dgvDetail.Location = new System.Drawing.Point(600, 146);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
@@ -1394,107 +1394,6 @@ namespace FutureFlex
             this.dgvDetail.Size = new System.Drawing.Size(977, 573);
             this.dgvDetail.TabIndex = 0;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
-            // 
-            // lbGrossWgh
-            // 
-            this.lbGrossWgh.BackColor = System.Drawing.Color.Black;
-            this.lbGrossWgh.Font = new System.Drawing.Font("Athiti", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbGrossWgh.ForeColor = System.Drawing.Color.Lime;
-            this.lbGrossWgh.Location = new System.Drawing.Point(598, 68);
-            this.lbGrossWgh.Name = "lbGrossWgh";
-            this.lbGrossWgh.Size = new System.Drawing.Size(279, 67);
-            this.lbGrossWgh.TabIndex = 0;
-            this.lbGrossWgh.Text = "00.00";
-            this.lbGrossWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTareWgh
-            // 
-            this.lbTareWgh.BackColor = System.Drawing.Color.Black;
-            this.lbTareWgh.Font = new System.Drawing.Font("Athiti", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTareWgh.ForeColor = System.Drawing.Color.Lime;
-            this.lbTareWgh.Location = new System.Drawing.Point(883, 69);
-            this.lbTareWgh.Name = "lbTareWgh";
-            this.lbTareWgh.Size = new System.Drawing.Size(310, 67);
-            this.lbTareWgh.TabIndex = 0;
-            this.lbTareWgh.Text = "00.00";
-            this.lbTareWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // gbLoadData
-            // 
-            this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
-            this.gbLoadData.BorderRadius = 6;
-            this.gbLoadData.Controls.Add(this.label1);
-            this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
-            this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
-            this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
-            this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLoadData.ForeColor = System.Drawing.Color.White;
-            this.gbLoadData.Location = new System.Drawing.Point(600, 336);
-            this.gbLoadData.Name = "gbLoadData";
-            this.gbLoadData.Size = new System.Drawing.Size(406, 124);
-            this.gbLoadData.TabIndex = 56;
-            this.gbLoadData.Text = "กำลังโหลดข้อมูล";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(124, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 39);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "กำลังโหลดข้อมูล............";
-            // 
-            // guna2CircleProgressBar1
-            // 
-            this.guna2CircleProgressBar1.Animated = true;
-            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2CircleProgressBar1.FillThickness = 15;
-            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(14, 16);
-            this.guna2CircleProgressBar1.Minimum = 0;
-            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.ProgressEndCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2CircleProgressBar1.ProgressStartCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2CircleProgressBar1.ProgressThickness = 15;
-            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(89, 89);
-            this.guna2CircleProgressBar1.TabIndex = 0;
-            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.Value = 50;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1557, 5);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 11;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
-            // 
-            // spScale
-            // 
-            this.spScale.PortName = "COM12";
-            this.spScale.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
             // 
             // cl_del
             // 
@@ -1539,8 +1438,8 @@ namespace FutureFlex
             // cl_seq
             // 
             this.cl_seq.DataPropertyName = "wdt_seq";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle3;
             this.cl_seq.HeaderText = "ลำดับ";
             this.cl_seq.Name = "cl_seq";
             this.cl_seq.ReadOnly = true;
@@ -1570,8 +1469,8 @@ namespace FutureFlex
             // cl_net
             // 
             this.cl_net.DataPropertyName = "wdt_net";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_net.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_net.DefaultCellStyle = dataGridViewCellStyle4;
             this.cl_net.HeaderText = "NET";
             this.cl_net.Name = "cl_net";
             this.cl_net.ReadOnly = true;
@@ -1580,8 +1479,8 @@ namespace FutureFlex
             // cl_tare
             // 
             this.cl_tare.DataPropertyName = "wdt_tare";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle5;
             this.cl_tare.HeaderText = "TARE";
             this.cl_tare.Name = "cl_tare";
             this.cl_tare.ReadOnly = true;
@@ -1590,8 +1489,8 @@ namespace FutureFlex
             // cl_gross
             // 
             this.cl_gross.DataPropertyName = "wdt_gross";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle6;
             this.cl_gross.HeaderText = "GROSS";
             this.cl_gross.Name = "cl_gross";
             this.cl_gross.ReadOnly = true;
@@ -1719,6 +1618,107 @@ namespace FutureFlex
             this.cl_numroll.ReadOnly = true;
             this.cl_numroll.Visible = false;
             // 
+            // lbGrossWgh
+            // 
+            this.lbGrossWgh.BackColor = System.Drawing.Color.Black;
+            this.lbGrossWgh.Font = new System.Drawing.Font("Athiti", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbGrossWgh.ForeColor = System.Drawing.Color.Lime;
+            this.lbGrossWgh.Location = new System.Drawing.Point(598, 68);
+            this.lbGrossWgh.Name = "lbGrossWgh";
+            this.lbGrossWgh.Size = new System.Drawing.Size(279, 67);
+            this.lbGrossWgh.TabIndex = 0;
+            this.lbGrossWgh.Text = "00.00";
+            this.lbGrossWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbTareWgh
+            // 
+            this.lbTareWgh.BackColor = System.Drawing.Color.Black;
+            this.lbTareWgh.Font = new System.Drawing.Font("Athiti", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTareWgh.ForeColor = System.Drawing.Color.Lime;
+            this.lbTareWgh.Location = new System.Drawing.Point(883, 69);
+            this.lbTareWgh.Name = "lbTareWgh";
+            this.lbTareWgh.Size = new System.Drawing.Size(310, 67);
+            this.lbTareWgh.TabIndex = 0;
+            this.lbTareWgh.Text = "00.00";
+            this.lbTareWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gbLoadData
+            // 
+            this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.BorderRadius = 6;
+            this.gbLoadData.Controls.Add(this.label1);
+            this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
+            this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
+            this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLoadData.ForeColor = System.Drawing.Color.White;
+            this.gbLoadData.Location = new System.Drawing.Point(600, 336);
+            this.gbLoadData.Name = "gbLoadData";
+            this.gbLoadData.Size = new System.Drawing.Size(406, 124);
+            this.gbLoadData.TabIndex = 56;
+            this.gbLoadData.Text = "กำลังโหลดข้อมูล";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(124, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 39);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "กำลังโหลดข้อมูล............";
+            // 
+            // guna2CircleProgressBar1
+            // 
+            this.guna2CircleProgressBar1.Animated = true;
+            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2CircleProgressBar1.FillThickness = 15;
+            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(14, 16);
+            this.guna2CircleProgressBar1.Minimum = 0;
+            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.ProgressEndCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressStartCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressThickness = 15;
+            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(89, 89);
+            this.guna2CircleProgressBar1.TabIndex = 0;
+            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.Value = 50;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1557, 5);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.TabIndex = 11;
+            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            // 
+            // spScale
+            // 
+            this.spScale.PortName = "COM12";
+            this.spScale.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // guna2AnimateWindow1
             // 
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
@@ -1733,6 +1733,7 @@ namespace FutureFlex
             this.Controls.Add(this.gbMain);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "frmWeightNew";
