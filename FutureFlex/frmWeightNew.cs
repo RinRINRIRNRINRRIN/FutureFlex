@@ -319,8 +319,8 @@ namespace FutureFlex
                             if (cbbPO.Text == "JIT")
                             {
                                 // Convert millimeters to hundredths of an inch
-                                int widthInHundredthsOfInch = (int)(50 / 25.4 * 100);
-                                int heightInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                                int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                                int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
 
                                 // Create a custom paper size
                                 PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
@@ -553,9 +553,14 @@ namespace FutureFlex
                 {
                     if (cbbPO.Text == "JIT")
                     {
+                        //TDP 247
                         // Convert millimeters to hundredths of an inch
-                        int widthInHundredthsOfInch = (int)(50 / 25.4 * 100);
-                        int heightInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                        //int widthInHundredthsOfInch = (int)(50 / 25.4 * 100);
+                        //int heightInHundredthsOfInch = (int)(55 / 25.4 * 100);
+
+                        // Zebra
+                        int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                        int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
 
                         // Create a custom paper size
                         PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
@@ -714,7 +719,7 @@ namespace FutureFlex
                     };
                     // Generage QR Code
                     pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
-                    e.Graphics.DrawImage(pictureBox.Image, 115, 100, 100, 100);
+                    e.Graphics.DrawImage(pictureBox.Image, 115, 100, 80, 80);
 
                     string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
                     e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));

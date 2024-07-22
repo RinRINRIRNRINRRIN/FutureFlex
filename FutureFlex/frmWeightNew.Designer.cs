@@ -495,7 +495,7 @@ namespace FutureFlex
             this.txtPchRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPchRoll.ForeColor = System.Drawing.Color.Black;
             this.txtPchRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPchRoll.Location = new System.Drawing.Point(391, 153);
+            this.txtPchRoll.Location = new System.Drawing.Point(391, 152);
             this.txtPchRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPchRoll.Name = "txtPchRoll";
             this.txtPchRoll.PasswordChar = '\0';
