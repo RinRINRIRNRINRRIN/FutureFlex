@@ -234,20 +234,20 @@ namespace FutureFlex
 
         private async void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
-            if (txtLot.Text.Length == 28)
-            {
-                foreach (DataGridViewRow rw in dgvDetail.Rows)
-                {
-                    string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
-                    if (txtLot.Text == _lot)
-                    {
-                        lot = txtLot.Text;
-                        await Task.Delay(500);
-                        PrintData(lot);
-                        break;
-                    }
-                }
-            }
+            //if (txtLot.Text.Length == 28)
+            //{
+            //    foreach (DataGridViewRow rw in dgvDetail.Rows)
+            //    {
+            //        string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
+            //        if (txtLot.Text == _lot)
+            //        {
+            //            lot = txtLot.Text;
+            //            await Task.Delay(500);
+            //            PrintData(lot);
+            //            break;
+            //        }
+            //    }
+            //}
         }
 
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -268,14 +268,31 @@ namespace FutureFlex
             }
         }
 
-        private void guna2GroupBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtLot_IconRightClick(object sender, EventArgs e)
         {
             txtLot.Clear();
+        }
+
+        private async void txtLot_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                label1.Text = $"DATA : {txtLot.Text}";
+                lot = txtLot.Text;
+                txtLot.Clear();
+                foreach (DataGridViewRow rw in dgvDetail.Rows)
+                {
+                    string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
+                    if (txtLot.Text == _lot)
+                    {
+                        await Task.Delay(500);
+                        PrintData(lot);
+                        break;
+                    }
+                }
+
+            }
         }
     }
 }
