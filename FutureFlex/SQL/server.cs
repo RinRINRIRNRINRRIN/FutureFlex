@@ -9,7 +9,7 @@ namespace FutureFlex.SQL
     public class server
     {
 
-        static string serverLocal = ConfigurationManager.AppSettings["SERVER_LOCAL"];
+        public static string serverLocal = ConfigurationManager.AppSettings["SERVER_LOCAL"];
         static string port = ConfigurationManager.AppSettings["PORT_LOCAL"];
         static string user = ConfigurationManager.AppSettings["USER_LOCAL"];
         static string pass = ConfigurationManager.AppSettings["PASS_LOCAL"];
