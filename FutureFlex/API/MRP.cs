@@ -1,6 +1,7 @@
 ﻿using FutureFlex.SQL;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using Serilog;
 using System;
 using System.Threading.Tasks;
 
@@ -40,6 +41,7 @@ namespace FutureFlex.API
 
         public static void ClearProp()
         {
+            Log.Information("== เครีย์ property MRP");
             id = "";
             name = "";
             mo_date = "";
@@ -66,6 +68,7 @@ namespace FutureFlex.API
             pending_qty = 0;
             product_uom_id = 0;
             product_uom_name = "";
+            Log.Information("== เครีย์ property MRP สำเร็จ");
         }
 
 
@@ -73,6 +76,7 @@ namespace FutureFlex.API
         {
             if (!await Authentication.CHECK_TOKEN())
             {
+                err = Authentication.ERR;
                 return false;
             }
 
