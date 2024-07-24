@@ -48,6 +48,8 @@ namespace FutureFlex
             this.btnWeight = new Guna.UI2.WinForms.Guna2Button();
             this.btnReprintJIT = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tShowServerName = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +61,9 @@ namespace FutureFlex
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsShowName,
             this.toolStripStatusLabel3,
-            this.tsShowEmp_name});
+            this.tsShowEmp_name,
+            this.toolStripStatusLabel1,
+            this.tShowServerName});
             this.statusStrip1.Location = new System.Drawing.Point(0, 572);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
@@ -319,6 +323,27 @@ namespace FutureFlex
             this.btnHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnHistory.Click += new System.EventHandler(this.MenuSelect);
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(20, 29);
+            // 
+            // tShowServerName
+            // 
+            this.tShowServerName.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tShowServerName.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tShowServerName.ForeColor = System.Drawing.Color.White;
+            this.tShowServerName.Name = "tShowServerName";
+            this.tShowServerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tShowServerName.Size = new System.Drawing.Size(154, 29);
+            this.tShowServerName.Text = "tsShowEmp_name";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -372,6 +397,8 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2Button btnWeight;
         private Guna.UI2.WinForms.Guna2Button btnReprintJIT;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
+        private System.Windows.Forms.ToolStripStatusLabel tShowServerName;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
