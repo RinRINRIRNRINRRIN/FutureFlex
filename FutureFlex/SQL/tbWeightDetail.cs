@@ -1,4 +1,5 @@
 ﻿using FutureFlex.API;
+using Serilog;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -63,6 +64,7 @@ namespace FutureFlex.SQL
         {
             try
             {
+                Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
                 sql = $"SELECT * FROM {tbName} WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
@@ -71,8 +73,10 @@ namespace FutureFlex.SQL
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo ไม่สำเร็จ");
                 return tb;
             }
+            Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo สำเร็จ");
             return tb;
         }
 
@@ -155,8 +159,28 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
         {
             try
             {
+                Log.Information($"== INSERTING DATA");
+
                 sql = $"INSERT INTO {tbName} (wdt_GVID,wdt_po,wdt_seq,wdt_country,wdt_type,wdt_side,wdt_net,wdt_tare,wdt_gross,wdt_wgh_paper_plastic,wdt_wgh_core_total,wdt_wgh_joint,wdt_meter_kg_in_roll,wdt_numbox,wdt_numroll,wdt_pch,wdt_lot,wdt_employee,wdt_date,wdt_printed,wdt_statusOdoo)" +
                     $"VALUES(@wdt_GVID,@wdt_po,@wdt_seq,@wdt_country,@wdt_type,@wdt_side,@wdt_net,@wdt_tare,@wdt_gross,@wdt_wgh_paper_plastic,@wdt_wgh_core_total,@wdt_wgh_joint,@wdt_meter_kg_in_roll,@wdt_numbox,@wdt_numroll,@wdt_pch,@wdt_lot,@wdt_employee,CURRENT_TIMESTAMP,@wdt_printed,@wdt_statusOdoo)";
+
+                Log.Information($"-- ชื่อ GV : {MRP.name}");
+                Log.Information($"-- po : {PO}");
+                Log.Information($"-- ลำดับที่ : {seq}");
+                Log.Information($"-- ประเทศ : {country}");
+                Log.Information($"-- ประเภท : {type}");
+                Log.Information($"-- ด้าน : {side}");
+                Log.Information($"-- น้ำหนักสุทธิ์ : {net}");
+                Log.Information($"-- น้ำหนักภาชนะ : {tare}");
+                Log.Information($"-- น้ำหนักรวม : {gross}");
+                Log.Information($"-- น้ำหนักกระดาษ : {wgh_paper_plastic}");
+                Log.Information($"-- น้ำหนักแกน : {wgh_core_total}");
+                Log.Information($"-- จำนวนรอยต่อ : {wgh_joint}");
+                Log.Information($"-- จำนวนเมตร : {wgh_meter_kg_in_roll}");
+                Log.Information($"-- จำนวนกล่อง : {numbox}");
+                Log.Information($"-- จำนวนม้วน : {numroll}");
+                Log.Information($"-- จำนวนใบ : {pch}");
+                Log.Information($"-- LOT : {lot}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("@wdt_GVID", MRP.name));
@@ -199,8 +223,10 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error($"INSERT DATA | tbWeightDetail : {ERR}");
                 return false;
             }
+            Log.Information($"INSERT DATA SUCCESS");
             return true;
         }
 
@@ -209,6 +235,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
         {
             try
             {
+                Log.Information($"-- ลบข้อมูลที่ {id}");
                 sql = $"DELETE FROM {tbName} WHERE id = '{id}'";
                 cmd = new SqlCommand(sql, con);
                 cmd.ExecuteNonQuery();
@@ -216,8 +243,10 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error($"DELETE | tbWeightDetail : {ERR}");
                 return false;
             }
+            Log.Information($"== ลบข้อมูลสำเร็จ");
             return true;
         }
 
@@ -226,11 +255,17 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
         {
             try
             {
+                Log.Information("== แก้ไขข้อมูลการชั่ง");
                 sql = $"UPDATE {tbName} " +
                     $" SET wdt_net = @wdt_net," +
                     $" wdt_tare = @wdt_tare," +
                     $" wdt_gross = @wdt_gross" +
                     $" WHERE id = @id";
+
+                Log.Information($"- น้ำหนักสุทธิ์ : {net}");
+                Log.Information($"- น้ำหนักภาชนะ : {tare}");
+                Log.Information($"- น้ำหนักรวม : {gross}");
+                Log.Information($"- แก้ไขข้อมูลที่ : {id}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("@wdt_net", net));
@@ -242,8 +277,10 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error($"UPDATE | tbWeightDetail : {ex.Message}");
                 return false;
             }
+            Log.Information("== แก้ไขข้อมูลการชั่งสำเร็จ");
             return true;
         }
 

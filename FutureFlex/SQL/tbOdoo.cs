@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Serilog;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace FutureFlex.SQL
@@ -14,6 +15,7 @@ namespace FutureFlex.SQL
         {
             try
             {
+                Log.Information($"==== GET CONFIG ODOO API");
                 SqlConnection con = SQL.server.con;
                 string sql = "SELECT * FROM tbOdoo";
 
@@ -26,12 +28,15 @@ namespace FutureFlex.SQL
                     key = rw["od_key"].ToString();
                     server = rw["od_server"].ToString();
                     db = rw["od_database"].ToString();
+                    Log.Information($"-- key : {key}");
+                    Log.Information($"-- server : {server}");
+                    Log.Information($"-- db : {db}");
+                    break;
                 }
             }
             catch (System.Exception ex)
             {
-
-                throw;
+                Log.Error($"tbOdoo | defineServerOdoo {ex.Message}");
             }
         }
 
