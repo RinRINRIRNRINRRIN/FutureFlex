@@ -1,16 +1,14 @@
 ﻿using FutureFlex.SQL;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using Serilog;
 using System;
 using System.Threading.Tasks;
-using System.Windows;
 namespace FutureFlex.API
 {
     public class Authentication
     {
         public static string access_token { get; set; }
-
+        public static string ERR { get; set; }
         public async static Task<bool> take_token_key()
         {
 
@@ -38,9 +36,7 @@ namespace FutureFlex.API
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Log.Error($"take_token_key {ex.Message}");
-                Console.WriteLine(ex.Message);
+                ERR = ex.Message;
                 return false;
             }
             return true;
@@ -61,7 +57,6 @@ namespace FutureFlex.API
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return false;
             }
             return true;
