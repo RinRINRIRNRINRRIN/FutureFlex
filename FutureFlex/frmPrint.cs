@@ -43,6 +43,7 @@ namespace FutureFlex
                 string jobScale = "";
                 double totalPch = 0;
                 int totalList = 0;
+                double totalNet = 0;
 
                 tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
                 // Get data tbweight
@@ -52,7 +53,7 @@ namespace FutureFlex
                     DataTable tb1 = tbWeight.SELECT_SELECT_GV(_gvname);
                     foreach (DataRow rw1 in tb1.Rows)
                     {
-                        productName = rw1["wgh_product"].ToString();
+                        productName = $"({rw1["wgh_productID"]} {rw1["wgh_product"]})";
                         customerName = rw1["wgh_customer"].ToString();
                         jobScale = rw1["wgh_typeSuccess"].ToString();
                         string[] _datea = rw1["wgh_date"].ToString().Split(' ');
@@ -76,6 +77,7 @@ namespace FutureFlex
                     string _gross = rw["wdt_gross"].ToString();
                     string _lot = rw["wdt_lot"].ToString();
                     totalPch = totalPch + double.Parse(rw["wdt_pch"].ToString());
+                    totalNet = totalNet + double.Parse(rw["wdt_net"].ToString());
                     dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, _tare, _gross, _lot);
                 }
                 totalList = tb.Rows.Count;
@@ -88,6 +90,7 @@ namespace FutureFlex
                 ReportParameter _jobScale = new ReportParameter("jobscale", jobScale);  // กำหนดค่า parameter 
                 ReportParameter _totalList = new ReportParameter("totalList", totalList.ToString());  // กำหนดค่า parameter 
                 ReportParameter _totalPch = new ReportParameter("totalPch", totalPch.ToString());  // กำหนดค่า parameter 
+                ReportParameter _totalNet = new ReportParameter("totalNet", totalNet.ToString());  // กำหนดค่า parameter 
 
                 reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _productName });
                 reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _customerName });
@@ -95,6 +98,7 @@ namespace FutureFlex
                 reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _jobScale });
                 reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _totalList });
                 reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _totalPch });
+                reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _totalNet });
 
                 // ตั้งค่าตัว DataSource ของ ReportViewer
                 ReportDataSource rds = new ReportDataSource("DataSet1", dataSet1.Tables["tbWeightDetail"]);
