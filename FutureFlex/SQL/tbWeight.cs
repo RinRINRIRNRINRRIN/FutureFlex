@@ -1,4 +1,5 @@
 ﻿using FutureFlex.API;
+using Serilog;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -131,30 +132,35 @@ namespace FutureFlex.SQL
         /// <summary>
         /// สำหรับเพิ่มข้อมูลหลัก
         /// </summary>
-        /// <param name="po">เลขที่ PO</param>
-        /// <param name="county">ประเทศ</param>
-        /// <param name="type">ประเภท</param>
-        /// <param name="side">ด้าน</param>
-        /// <param name="weight_paper_plstic">น้ำหนักกระดาษ/น้ำหนักพลาสติก</param>
-        /// <param name="core_total">น้ำหนักแกนรวม</param>
-        /// <param name="joint">น้ำหนักรอยต่้อ</param>
-        /// <param name="qty_bag_in_box">จำนวนซองต่อกล่อง</param>
-        /// <param name="qty_meter_kg_in_roll">จำนวนเมตรต่อกล่อง</param>
-        /// <param name="totalBox">จำนวนกล่อง</param>
         /// <param name="_operator">ผู้คุมเครื่อง</param>
         /// <returns></returns>
         public static bool INSERT_ALL_DATA(string _operator)
         {
             try
             {
-                sql = $"INSERT INTO {tbName} (wgh_GV,wgh_gvid,wgh_customer,wgh_productID,wgh_product,wgh_jobType,wgh_typeSuccess,wgh_structure,wgh_daliveryStation,wgh_date,wgh_dateDalivery,wgh_operator)" +
-                    $"VALUES(@wgh_GV,@wgh_gvid,@wgh_customer,@wgh_productID,@wgh_product,@wgh_jobType,@wgh_typeSuccess,@wgh_structure,@wgh_daliveryStation,@wgh_date,@wgh_dateDalivery,@wgh_operator)";
+                Log.Information($"== TBWEIGHT INSERTING");
+                sql = $"INSERT INTO {tbName} (wgh_GV,wgh_gvid,wgh_customer,wgh_customer_productID,wgh_productID,wgh_product,wgh_jobType,wgh_typeSuccess,wgh_structure,wgh_daliveryStation,wgh_date,wgh_dateDalivery,wgh_operator)" +
+                    $"VALUES(@wgh_GV,@wgh_gvid,@wgh_customer,@wgh_customer_productID,@wgh_productID,@wgh_product,@wgh_jobType,@wgh_typeSuccess,@wgh_structure,@wgh_daliveryStation,@wgh_date,@wgh_dateDalivery,@wgh_operator)";
+
+                Log.Information($"- ชื่อ GV : {MRP.name} ");
+                Log.Information($"- เลขที่ GV :  {MRP.id}");
+                Log.Information($"- รหัสสินค้าของลูกค้า : {MRP.customer_product_code}");
+                Log.Information($"- รหัสสินค้า :  {MRP.default_code}");
+                Log.Information($"- ชื่อสินค้า :  {MRP.product_name}");
+                Log.Information($"- ชื่อลูกค้า :  {MRP.partner_name}");
+                Log.Information($"- ขนาดงาน : {MRP.mo_type}");
+                Log.Information($"- โครงสร้าง : {MRP.mo_work}");
+                Log.Information($"- สถานที่จัดส่ง : {MRP.mo_station_name}");
+                Log.Information($"- วันที่จัดส่ง : {MRP.mo_date_delivery}");
+                Log.Information($"- วันที่ผลิต : {MRP.mo_date}");
+                Log.Information($"- ผู้คุมเครื่อง : {_operator}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("@wgh_GV", MRP.name));
                 cmd.Parameters.Add(new SqlParameter("@wgh_gvid", MRP.id));
                 cmd.Parameters.Add(new SqlParameter("@wgh_productID", MRP.default_code));
                 cmd.Parameters.Add(new SqlParameter("@wgh_customer", MRP.partner_name));
+                cmd.Parameters.Add(new SqlParameter("@wgh_customer_productID", MRP.customer_product_code));
                 cmd.Parameters.Add(new SqlParameter("@wgh_product", MRP.product_name));
                 cmd.Parameters.Add(new SqlParameter("@wgh_jobType", MRP.mo_type));
                 cmd.Parameters.Add(new SqlParameter("@wgh_typeSuccess", MRP.mo_work));
@@ -168,135 +174,77 @@ namespace FutureFlex.SQL
             catch (Exception ex)
             {
                 ERR = ex.Message;
+                Log.Error($"== tbWeight | INSERT_ALL_DATA : {ex.Message}");
                 Console.WriteLine("insert" + ex.Message);
                 return false;
             }
+            Log.Information($"== INSERT TBWEIGHT SUCCESS");
             return true;
         }
 
         #endregion
         #region UPDATE
-        public static bool UPDATE_ALL_DATA(int id, string wgh_po, string wgh_county, string wgh_type, string wgh_side, decimal wgh_weightPaper, int wgh_boxNum, decimal wgh_weightCore, int wgh_joint, decimal wgh_numMeter, decimal wgh_weightRoll, string wgh_machineOperator, decimal wgh_net, decimal wgh_tare, decimal wgh_gross)
+        /// <summary>
+        /// สำหรับเพิ่มข้อมูลหลัก
+        /// </summary>
+        /// <param name="_operator">ผู้คุมเครื่อง</param>
+        /// <returns></returns>
+        public static bool UPDATE_ALL_DATA(string _operator)
         {
             try
             {
+                Log.Information($"== TBWEIGHT UPDATING");
                 sql = $"UPDATE {tbName}" +
-                    $" SET wgh_employee = @wgh_employee," +
-                    $"wgh_GVID = @wgh_GVID," +
-                    $"wgh_GVNAME = @wgh_GVNAME," +
-                    $"wgh_po = @wgh_po," +
-                    $"wgh_county =@wgh_county," +
-                    $"wgh_type = @wgh_type," +
-                    $"wgh_side = @wgh_side," +
-                    $"wgh_weightPaper = @wgh_weightPaper," +
-                    $"wgh_boxNum = @wgh_boxNum," +
-                    $"wgh_weightCore = @wgh_weightCore," +
-                    $"wgh_joint = @wgh_joint," +
-                    $"wgh_numMeter = @wgh_numMeter," +
-                    $"wgh_weightRoll = @wgh_weightRoll," +
-                    $"wgh_machineOperator = @wgh_machineOperator," +
-                    $"wgh_net = @wgh_net," +
-                    $"wgh_tare = @wgh_tare," +
-                    $"wgh_gross = @wgh_gross" +
-                    $" WHERE wgh_id = @wgh_id";
+                    $" SET wgh_productID = @wgh_productID," +
+                    $" wgh_customer = @wgh_customer," +
+                    $" wgh_customer_productID = @wgh_customer_productID," +
+                    $" wgh_product = @wgh_product," +
+                    $" wgh_jobType = @wgh_jobType," +
+                    $" wgh_typeSuccess = @wgh_typeSuccess," +
+                    $" wgh_structure = @wgh_structure," +
+                    $" wgh_daliveryStation = @wgh_daliveryStation," +
+                    $" wgh_date = @wgh_date," +
+                    $" wgh_dateDalivery = @wgh_dateDalivery," +
+                    $" wgh_operator = @wgh_operator" +
+                    $" WHERE wgh_GV = @wgh_GV";
+
+                Log.Information($"- ชื่อ GV : {MRP.name} ");
+                Log.Information($"- เลขที่ GV :  {MRP.id}");
+                Log.Information($"- รหัสสินค้าของลูกค้า : {MRP.customer_product_code}");
+                Log.Information($"- รหัสสินค้า :  {MRP.default_code}");
+                Log.Information($"- ชื่อสินค้า :  {MRP.product_name}");
+                Log.Information($"- ชื่อลูกค้า :  {MRP.partner_name}");
+                Log.Information($"- ขนาดงาน : {MRP.mo_type}");
+                Log.Information($"- โครงสร้าง : {MRP.mo_film}");
+                Log.Information($"- สถานที่จัดส่ง : {MRP.mo_station_name}");
+                Log.Information($"- วันที่จัดส่ง : {MRP.mo_date_delivery}");
+                Log.Information($"- วันที่ผลิต : {MRP.mo_date}");
+                Log.Information($"- ผู้คุมเครื่อง : {_operator}");
 
                 cmd = new SqlCommand(sql, con);
-                cmd.Parameters.Add(new SqlParameter("@wgh_employee", tbEmployeeSQL.emp_username));
-                cmd.Parameters.Add(new SqlParameter("@wgh_GVID", MRP.id));
-                cmd.Parameters.Add(new SqlParameter("@wgh_GVNAME", MRP.name));
-                cmd.Parameters.Add(new SqlParameter("@wgh_po", wgh_po));
-                cmd.Parameters.Add(new SqlParameter("@wgh_county", wgh_county));
-                cmd.Parameters.Add(new SqlParameter("@wgh_type", wgh_type));
-                cmd.Parameters.Add(new SqlParameter("@wgh_side", wgh_side));
-                cmd.Parameters.Add(new SqlParameter("@wgh_weightPaper", wgh_weightPaper));
-                cmd.Parameters.Add(new SqlParameter("@wgh_boxNum", wgh_boxNum));
-                cmd.Parameters.Add(new SqlParameter("@wgh_weightCore", wgh_weightCore));
-                cmd.Parameters.Add(new SqlParameter("@wgh_joint", wgh_joint));
-                cmd.Parameters.Add(new SqlParameter("@wgh_numMeter", wgh_numMeter));
-                cmd.Parameters.Add(new SqlParameter("@wgh_weightRoll", wgh_weightRoll));
-                cmd.Parameters.Add(new SqlParameter("@wgh_machineOperator", wgh_machineOperator));
-                cmd.Parameters.Add(new SqlParameter("@wgh_net", wgh_net));
-                cmd.Parameters.Add(new SqlParameter("@wgh_tare", wgh_tare));
-                cmd.Parameters.Add(new SqlParameter("@wgh_gross", wgh_gross));
-                cmd.Parameters.Add(new SqlParameter("@wgh_id", id));
+                cmd.Parameters.Add(new SqlParameter("@wgh_productID", MRP.default_code));
+                cmd.Parameters.Add(new SqlParameter("@wgh_customer", MRP.partner_name));
+                cmd.Parameters.Add(new SqlParameter("@wgh_customer_productID", MRP.customer_product_code));
+                cmd.Parameters.Add(new SqlParameter("@wgh_product", MRP.product_name));
+                cmd.Parameters.Add(new SqlParameter("@wgh_jobType", MRP.mo_type));
+                cmd.Parameters.Add(new SqlParameter("@wgh_typeSuccess", MRP.mo_work));
+                cmd.Parameters.Add(new SqlParameter("@wgh_structure", MRP.mo_film));
+                cmd.Parameters.Add(new SqlParameter("@wgh_daliveryStation", MRP.mo_station_name));
+                cmd.Parameters.Add(new SqlParameter("@wgh_date", MRP.mo_date));
+                cmd.Parameters.Add(new SqlParameter("@wgh_dateDalivery", MRP.mo_date_delivery));
+                cmd.Parameters.Add(new SqlParameter("@wgh_operator", _operator));
+                cmd.Parameters.Add(new SqlParameter("@wgh_GV", MRP.name));
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                ERR = ex.Message;
+                Log.Error($"== tbWeight | UPDATE_ALL_DATA : {ERR}");
                 return false;
             }
-            return true;
-        }
-
-        public static bool UPDATE_STATUS(int id)
-        {
-            try
-            {
-                sql = $"UPDATE {tbName} SET wgh_statusOdoo = 1 WHERE wgh_id = {id}";
-                cmd = new SqlCommand(sql, con);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            return true;
-        }
-
-        public static bool UPDATE_SEQ(int id, string wgh_seq)
-        {
-            try
-            {
-                sql = $"UPDATE {tbName}" +
-                    $" SET wgh_seq = @wgh_seq " +
-                    " WHERE wgh_id = @wgh_id";
-
-
-                cmd = new SqlCommand(sql, con);
-
-                cmd.Parameters.Add(new SqlParameter("@wgh_seq", wgh_seq));
-                cmd.Parameters.Add(new SqlParameter("@wgh_id", id));
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region DELETE
-        public static bool DELETE_DATA(int wgh_id)
-        {
-            try
-            {
-                sql = $"DELETE FROM {tbName} WHERE wgh_id = @wgh_id";
-
-                cmd = new SqlCommand(sql, con);
-                cmd.Parameters.Add(new SqlParameter("@wgh_id", wgh_id));
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            Log.Information($"== UPDATE TBWEIGHT SUCCESS");
             return true;
         }
         #endregion
-
-
-
-
-
-
-
-
-
     }
 }

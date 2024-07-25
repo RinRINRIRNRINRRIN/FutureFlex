@@ -53,6 +53,7 @@ namespace FutureFlex
             this.pnMain = new System.Windows.Forms.Panel();
             this.btnStart = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@ namespace FutureFlex
             this.label35 = new System.Windows.Forms.Label();
             this.txtOperator = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -144,7 +146,6 @@ namespace FutureFlex
             this.spScale = new System.IO.Ports.SerialPort(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
             this.gbMain.SuspendLayout();
@@ -169,7 +170,7 @@ namespace FutureFlex
             this.gbCounty.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbCounty.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCounty.ForeColor = System.Drawing.Color.White;
-            this.gbCounty.Location = new System.Drawing.Point(17, 339);
+            this.gbCounty.Location = new System.Drawing.Point(17, 363);
             this.gbCounty.Name = "gbCounty";
             this.gbCounty.Size = new System.Drawing.Size(180, 89);
             this.gbCounty.TabIndex = 0;
@@ -214,7 +215,7 @@ namespace FutureFlex
             this.gbType.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbType.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbType.ForeColor = System.Drawing.Color.White;
-            this.gbType.Location = new System.Drawing.Point(203, 339);
+            this.gbType.Location = new System.Drawing.Point(203, 363);
             this.gbType.Name = "gbType";
             this.gbType.Size = new System.Drawing.Size(180, 89);
             this.gbType.TabIndex = 0;
@@ -403,6 +404,7 @@ namespace FutureFlex
             // 
             this.gbData.BorderColor = System.Drawing.Color.Navy;
             this.gbData.BorderRadius = 8;
+            this.gbData.Controls.Add(this.label5);
             this.gbData.Controls.Add(this.cbbPO);
             this.gbData.Controls.Add(this.panel2);
             this.gbData.Controls.Add(this.label35);
@@ -430,6 +432,17 @@ namespace FutureFlex
             this.gbData.TabIndex = 0;
             this.gbData.Text = "รายละเอียดการชั่ง";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(30, 319);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 25);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "วันที่ผลิต :";
             // 
             // cbbPO
             // 
@@ -465,7 +478,7 @@ namespace FutureFlex
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.label28);
-            this.panel2.Location = new System.Drawing.Point(42, 434);
+            this.panel2.Location = new System.Drawing.Point(42, 458);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(495, 202);
             this.panel2.TabIndex = 0;
@@ -504,7 +517,7 @@ namespace FutureFlex
             this.txtPchRoll.SelectedText = "";
             this.txtPchRoll.Size = new System.Drawing.Size(87, 33);
             this.txtPchRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtPchRoll.TabIndex = 9;
+            this.txtPchRoll.TabIndex = 8;
             this.txtPchRoll.Tag = "roll";
             this.txtPchRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -542,7 +555,7 @@ namespace FutureFlex
             this.txtPchBox.SelectedText = "";
             this.txtPchBox.Size = new System.Drawing.Size(85, 33);
             this.txtPchBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtPchBox.TabIndex = 7;
+            this.txtPchBox.TabIndex = 5;
             this.txtPchBox.Tag = "box";
             this.txtPchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -580,9 +593,10 @@ namespace FutureFlex
             this.txtWghCors.SelectedText = "";
             this.txtWghCors.Size = new System.Drawing.Size(153, 33);
             this.txtWghCors.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtWghCors.TabIndex = 3;
+            this.txtWghCors.TabIndex = 2;
             this.txtWghCors.Tag = "roll";
             this.txtWghCors.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtWghCors.TextChanged += new System.EventHandler(this.txtWghCors_TextChanged);
             this.txtWghCors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
             // txtJoint
@@ -608,7 +622,7 @@ namespace FutureFlex
             this.txtJoint.SelectedText = "";
             this.txtJoint.Size = new System.Drawing.Size(151, 33);
             this.txtJoint.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtJoint.TabIndex = 4;
+            this.txtJoint.TabIndex = 3;
             this.txtJoint.Tag = "roll";
             this.txtJoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtJoint.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
@@ -636,7 +650,7 @@ namespace FutureFlex
             this.txtNumBox.SelectedText = "";
             this.txtNumBox.Size = new System.Drawing.Size(151, 33);
             this.txtNumBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtNumBox.TabIndex = 2;
+            this.txtNumBox.TabIndex = 4;
             this.txtNumBox.Tag = "box";
             this.txtNumBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNumBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
@@ -664,7 +678,7 @@ namespace FutureFlex
             this.txtNunMeter.SelectedText = "";
             this.txtNunMeter.Size = new System.Drawing.Size(151, 33);
             this.txtNunMeter.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtNunMeter.TabIndex = 5;
+            this.txtNunMeter.TabIndex = 7;
             this.txtNunMeter.Tag = "roll";
             this.txtNunMeter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNunMeter.TextChanged += new System.EventHandler(this.txtNunRoll_TextChanged);
@@ -690,7 +704,6 @@ namespace FutureFlex
             this.txtNumRoll.PasswordChar = '\0';
             this.txtNumRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.txtNumRoll.PlaceholderText = "จำนวน ใบ";
-            this.txtNumRoll.ReadOnly = true;
             this.txtNumRoll.SelectedText = "";
             this.txtNumRoll.Size = new System.Drawing.Size(151, 33);
             this.txtNumRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -787,7 +800,7 @@ namespace FutureFlex
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(85, 655);
+            this.label35.Location = new System.Drawing.Point(85, 670);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(77, 25);
             this.label35.TabIndex = 0;
@@ -807,7 +820,7 @@ namespace FutureFlex
             this.txtOperator.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOperator.ForeColor = System.Drawing.Color.Black;
             this.txtOperator.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOperator.Location = new System.Drawing.Point(166, 652);
+            this.txtOperator.Location = new System.Drawing.Point(166, 667);
             this.txtOperator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtOperator.Name = "txtOperator";
             this.txtOperator.PasswordChar = '\0';
@@ -816,11 +829,12 @@ namespace FutureFlex
             this.txtOperator.SelectedText = "";
             this.txtOperator.Size = new System.Drawing.Size(303, 33);
             this.txtOperator.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtOperator.TabIndex = 0;
+            this.txtOperator.TabIndex = 9;
             this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label31);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label11);
@@ -831,8 +845,19 @@ namespace FutureFlex
             this.panel1.Controls.Add(this.label23);
             this.panel1.Location = new System.Drawing.Point(111, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(458, 215);
+            this.panel1.Size = new System.Drawing.Size(458, 249);
             this.panel1.TabIndex = 0;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(3, 211);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(48, 25);
+            this.label31.TabIndex = 1;
+            this.label31.Text = ".........";
             // 
             // label7
             // 
@@ -943,12 +968,13 @@ namespace FutureFlex
             this.txtJobNo.Name = "txtJobNo";
             this.txtJobNo.PasswordChar = '\0';
             this.txtJobNo.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtJobNo.PlaceholderText = "EX. (GV-67-01-0001)";
+            this.txtJobNo.PlaceholderText = "EX. (67-01-0001)";
             this.txtJobNo.SelectedText = "";
             this.txtJobNo.Size = new System.Drawing.Size(288, 55);
             this.txtJobNo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtJobNo.TabIndex = 0;
             this.txtJobNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
+            this.txtJobNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtJobNo_KeyPress);
             // 
             // label14
             // 
@@ -1032,7 +1058,7 @@ namespace FutureFlex
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(24, 291);
+            this.label16.Location = new System.Drawing.Point(23, 292);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(81, 25);
             this.label16.TabIndex = 0;
@@ -1049,7 +1075,7 @@ namespace FutureFlex
             this.gbSide.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbSide.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSide.ForeColor = System.Drawing.Color.White;
-            this.gbSide.Location = new System.Drawing.Point(389, 339);
+            this.gbSide.Location = new System.Drawing.Point(389, 363);
             this.gbSide.Name = "gbSide";
             this.gbSide.Size = new System.Drawing.Size(180, 89);
             this.gbSide.TabIndex = 0;
@@ -1119,7 +1145,7 @@ namespace FutureFlex
             this.cbPrint.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
             this.cbPrint.Cursor = System.Windows.Forms.Cursors.Default;
             this.cbPrint.CustomCheckmarkImage = null;
-            this.cbPrint.Location = new System.Drawing.Point(845, 725);
+            this.cbPrint.Location = new System.Drawing.Point(610, 725);
             this.cbPrint.MinimumSize = new System.Drawing.Size(17, 17);
             this.cbPrint.Name = "cbPrint";
             this.cbPrint.OnCheck.BorderColor = System.Drawing.Color.DodgerBlue;
@@ -1160,7 +1186,7 @@ namespace FutureFlex
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(835, 722);
+            this.groupBox2.Location = new System.Drawing.Point(600, 722);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(205, 97);
             this.groupBox2.TabIndex = 0;
@@ -1216,6 +1242,7 @@ namespace FutureFlex
             this.label33.TabIndex = 0;
             this.label33.Text = "0";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label33.Visible = false;
             // 
             // label34
             // 
@@ -1227,6 +1254,7 @@ namespace FutureFlex
             this.label34.Size = new System.Drawing.Size(118, 31);
             this.label34.TabIndex = 0;
             this.label34.Text = "จำนวนทั้งหมด";
+            this.label34.Visible = false;
             // 
             // label12
             // 
@@ -1238,6 +1266,7 @@ namespace FutureFlex
             this.label12.Size = new System.Drawing.Size(41, 31);
             this.label12.TabIndex = 0;
             this.label12.Text = "Kg.";
+            this.label12.Visible = false;
             // 
             // lbNetWgh
             // 
@@ -1262,6 +1291,7 @@ namespace FutureFlex
             this.lbTotalWgh.TabIndex = 0;
             this.lbTotalWgh.Text = "0";
             this.lbTotalWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbTotalWgh.Visible = false;
             // 
             // label9
             // 
@@ -1285,6 +1315,7 @@ namespace FutureFlex
             this.label10.Size = new System.Drawing.Size(96, 31);
             this.label10.TabIndex = 0;
             this.label10.Text = "น้ำหนักรวม";
+            this.label10.Visible = false;
             // 
             // label3
             // 
@@ -1367,6 +1398,7 @@ namespace FutureFlex
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvDetail.Enabled = false;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
             this.dgvDetail.Location = new System.Drawing.Point(600, 146);
@@ -1719,11 +1751,6 @@ namespace FutureFlex
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // guna2AnimateWindow1
-            // 
-            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
-            this.guna2AnimateWindow1.TargetForm = this;
-            // 
             // frmWeightNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
@@ -1870,6 +1897,7 @@ namespace FutureFlex
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_pch;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numroll;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label31;
     }
 }

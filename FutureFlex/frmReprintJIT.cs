@@ -69,7 +69,7 @@ namespace FutureFlex
 
         void ShowData()
         {
-            tbWeightDetail.PO = txtPO.Text;
+            tbWeightDetail.PO = txtPO.Text.Trim();
             DataTable tb = tbWeightDetail.SELECT_PO_SUCCESS_ODOO();
             // เช็คว่ามีข้อมูลหรือไม่
             if (tb.Rows.Count == 0)
@@ -284,14 +284,13 @@ namespace FutureFlex
                 foreach (DataGridViewRow rw in dgvDetail.Rows)
                 {
                     string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
-                    if (txtLot.Text == _lot)
+                    if (lot == _lot)
                     {
                         await Task.Delay(500);
                         PrintData(lot);
                         break;
                     }
                 }
-
             }
         }
     }

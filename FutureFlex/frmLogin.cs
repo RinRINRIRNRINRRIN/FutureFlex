@@ -14,9 +14,12 @@ namespace FutureFlex
         {
             InitializeComponent();
 
+            Log.Logger = new LoggerConfiguration()
+.WriteTo.File(Application.StartupPath + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
+.CreateLogger();
+
             pnUsername.Visible = false;
             gbConnection.Visible = true;
-
         }
 
         void Login()
@@ -46,7 +49,7 @@ namespace FutureFlex
                         if (menu == btn.Tag)
                         {
                             btn.Enabled = true;
-                            Log.Information($"-- ฟังชั่นที่เปิด {btn.Text}");
+                            Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
                         }
                     }
                 }
@@ -67,10 +70,6 @@ namespace FutureFlex
 
         private async void frmLogin_Load(object sender, EventArgs e)
         {
-
-            Log.Logger = new LoggerConfiguration()
-                    .WriteTo.File(Application.StartupPath + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
-                    .CreateLogger();
             Log.Information("=================================================================  Open program");
 
             // เช็คโปรแกรมว่ามีเปิดซ้ำหรือไม่

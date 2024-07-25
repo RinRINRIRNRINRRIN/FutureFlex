@@ -11,23 +11,40 @@ namespace FutureFlex.Function
     internal class func_print
     {
 
-        public string _statusType { get; set; }   // ประเภท
-        public string _statusSide { get; set; }   // ด้าน
-        public string _statusCounty { get; set; } // ประเทศ
-        public string _seq { get; set; }  // ลำดับ
-        public string _net { get; set; }  // น้ำหนักสุทธิ์
-        public string _numBox { get; set; }  // จำนวนกล่อง
-        public string _numRoll { get; set; }  // จำนวนม้วน
-        public string _numMeter { get; set; } // จำนวนเมตร
-        public string _pchBox { get; set; }  // จำนวนใบของกล่อง
-        public string _pchRoll { get; set; }  // จำนวนใบของม้วน
-        public string _wghPaper { get; set; }  // น้ำหนักกระดาษ
-        public string _wghCore { get; set; }  // น้ำหนักแกน
-        public PictureBox pictureBox1 { get; set; }  // เก็บรูปภาพ 
-        public string _operator { get; set; } // ชื่อผู้คุมเครื่อง
+        //string _statusSide { get; set; }   // ด้าน
+        //string _statusCounty { get; set; } // ประเทศ
+        public static string _statusType { get; set; }   // ประเภท
+        public static string _seq { get; set; }  // ลำดับ
+        public static string _net { get; set; }  // น้ำหนักสุทธิ์
+        public static string _numBox { get; set; }  // จำนวนกล่อง
+        public static string _numRoll { get; set; }  // จำนวนม้วน
+        public static string _numMeter { get; set; } // จำนวนเมตร
+        public static string _pchBox { get; set; }  // จำนวนใบของกล่อง
+        public static string _pchRoll { get; set; }  // จำนวนใบของม้วน
+        public static string _wghPaper { get; set; }  // น้ำหนักกระดาษ
+        public static string _wghCore { get; set; }  // น้ำหนักแกน
+        public static PictureBox pictureBox1 { get; set; }  // เก็บรูปภาพ 
+        public static string _operator { get; set; } // ชื่อผู้คุมเครื่อง
+        public static string _lot { get; set; }
+
+        public static void DefineParameterPrint(string _seq_, string _statusType_, string _net_, string _numBox_, string _numRoll_, string _numMeter_, string _pchBox_, string _pchRoll_, string _wghPaper_, string _wghCore_, PictureBox pb, string _operator_, string _lot_)
+        {
+            _statusType = _statusType_;
+            _seq = _seq_;
+            _net = _net_;
+            _numBox = _numBox_;
+            _numRoll = _numRoll_;
+            _numMeter = _numMeter_;
+            _pchBox = _pchBox_;
+            _pchRoll = _pchRoll_;
+            _wghCore = _wghCore_;
+            _wghPaper = _wghPaper_;
+            pictureBox1 = pb;
+            _operator = _operator_;
+        }
 
 
-        public void FormatPrint(PrintPageEventArgs e)
+        public static void FormatPrint(PrintPageEventArgs e)
         {
             try
             {
@@ -64,7 +81,7 @@ namespace FutureFlex.Function
 
                     #region Body
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 57));
-                    e.Graphics.DrawString($"{MRP.product_id}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
+                    e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
                     e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
                     e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
                     e.Graphics.DrawString($"[ใบสั่งงาน] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 80));
@@ -108,10 +125,10 @@ namespace FutureFlex.Function
                         SizeMode = PictureBoxSizeMode.StretchImage
                     };
                     // Generage QR Code
-                    pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
+                    pictureBox.Image = writer.Write($"{_lot}");
                     e.Graphics.DrawImage(pictureBox.Image, 115, 100, 80, 80);
 
-                    string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
+                    string barCodeStr = $"{_lot}";
                     e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
                     e.Graphics.DrawString("FM-DL-012 Rev.0", fontDetail, Brushes.Black, new System.Drawing.Point(0, 180));
                 }
@@ -130,9 +147,9 @@ namespace FutureFlex.Function
                     #region Body
                     e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
                     e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 55));
-
+                    Console.WriteLine(MRP.product_name.Length);
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
-                    e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
+                    e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
 
 
                     e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
@@ -181,10 +198,10 @@ namespace FutureFlex.Function
                         SizeMode = PictureBoxSizeMode.StretchImage
                     };
                     // Generage QR Code
-                    pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
+                    pictureBox.Image = writer.Write($"{_lot}");
                     e.Graphics.DrawImage(pictureBox.Image, 275, 150, 120, 120);
 
-                    string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
+                    string barCodeStr = $"{_lot}";
                     e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
                     e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(5, 270));
                     #endregion
@@ -194,7 +211,5 @@ namespace FutureFlex.Function
             {
             }
         }
-
-
     }
 }

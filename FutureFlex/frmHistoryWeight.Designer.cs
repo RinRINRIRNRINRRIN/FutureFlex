@@ -359,6 +359,7 @@ namespace FutureFlex
             this.cbbPO.TabIndex = 13;
             this.cbbPO.DropDown += new System.EventHandler(this.guna2ComboBox1_DropDown);
             this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            this.cbbPO.DropDownClosed += new System.EventHandler(this.cbbPO_DropDownClosed);
             // 
             // guna2ControlBox1
             // 
@@ -428,7 +429,7 @@ namespace FutureFlex
             this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
-            this.dgvDetail.Location = new System.Drawing.Point(298, 43);
+            this.dgvDetail.Location = new System.Drawing.Point(309, 43);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -450,7 +451,7 @@ namespace FutureFlex
             this.dgvDetail.RowTemplate.Height = 30;
             this.dgvDetail.RowTemplate.ReadOnly = true;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(895, 526);
+            this.dgvDetail.Size = new System.Drawing.Size(884, 526);
             this.dgvDetail.TabIndex = 9;
             // 
             // cl_del

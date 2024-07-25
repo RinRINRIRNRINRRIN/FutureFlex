@@ -210,5 +210,10 @@ namespace FutureFlex
             frmHistorySuccess frmHistorySuccess = new frmHistorySuccess();
             frmHistorySuccess.ShowDialog();
         }
+
+        private void cbbPO_DropDownClosed(object sender, EventArgs e)
+        {
+
+        }
     }
 }

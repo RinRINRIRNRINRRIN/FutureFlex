@@ -3,6 +3,8 @@ using Bunifu.UI.WinForms.BunifuButton;
 using FutureFlex.API;
 using FutureFlex.Function;
 using FutureFlex.SQL;
+using Guna.UI2.WinForms;
+using Serilog;
 using System;
 using System.Data;
 using System.Drawing;
@@ -10,7 +12,6 @@ using System.Drawing.Printing;
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
-using ZXing;
 
 namespace FutureFlex
 {
@@ -30,8 +31,6 @@ namespace FutureFlex
             cbbPO.Items.Clear();
             cbbPO.Items.Add("--เลือกเลขที่ PO--");
             cbbPO.SelectedIndex = 0;
-
-
         }
 
 
@@ -57,6 +56,7 @@ namespace FutureFlex
         /// </summary>
         void ClearForm()
         {
+            Log.Information("== เครีย์ Form");
             statusCounty = "";
             statusSide = "";
             statusType = "";
@@ -90,12 +90,92 @@ namespace FutureFlex
                 txt.Text = "0";
                 txt.Enabled = false;
             }
+
             DataTable dataTable = tbWeightDetail.SELECT_PO("---");
 
             dgvDetail.DataSource = dataTable;
             label33.Text = "0";
             lbTotalWgh.Text = "0.0";
+            Log.Information("== เครีย์ Form สำเร็จ");
+        }
 
+        void SetPaper()
+        {
+            Log.Information("== ตั้งค่ากระดาษ");
+            // Set paper 
+            if (cbPrint.Checked)
+            {
+                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
+                if (tbWeightDetail.PO == "JIT")
+                {
+                    // Convert millimeters to hundredths of an inch
+                    int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                    int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
+
+                    // Create a custom paper size
+                    PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                    printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
+
+                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 55*50");
+                }
+                else
+                {
+                    // สำหรับเครื่อง TDP-247
+                    // Convert millimeters to hundredths of an inch
+                    //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
+                    //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                    // Convert millimeters to hundredths of an inch
+
+                    // สำหรับเครื่อง Zebra
+                    int widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                    int heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
+
+                    // Create a custom paper size
+                    PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                    printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
+                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
+                }
+
+                if (statusPrint) // AutoPrint
+                {
+                    printDocument1.Print();
+                }
+                else
+                {
+                    try
+                    {
+                        printPreviewDialog1.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ผู้ใช้ไม่ได้ปิด Print preview");
+                    }
+                }
+
+
+            }
+        }
+
+        /// <summary>
+        /// กำหนดค่าตัวแปลก่อนทำการปริ้น
+        /// </summary>
+        /// <param name="seq"></param>
+        void DefinePrintParameter()
+        {
+            // Print paper
+            func_print._seq = tbWeightDetail.seq;
+            func_print._statusType = statusType;
+            func_print._net = lbNetWgh.Text;
+            func_print._numBox = txtNumBox.Text;
+            func_print._numRoll = txtNumRoll.Text;
+            func_print._numMeter = txtNunMeter.Text;
+            func_print._pchBox = txtPchBox.Text;
+            func_print._pchRoll = txtPchRoll.Text;
+            func_print._wghPaper = txtWghPaper.Text;
+            func_print._wghCore = txtWghCors.Text;
+            func_print.pictureBox1 = pictureBox1;
+            func_print._operator = txtOperator.Text;
+            func_print._lot = tbWeightDetail.lot;
         }
 
 
@@ -115,19 +195,30 @@ namespace FutureFlex
         {
             try
             {
+                Log.Information($"==================================================   frmWeightNew is open");
                 // กำหนดค่าให้กับ serialport
                 spScale.PortName = func_serialport.COM_SCALE;
                 spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
-
                 spScale.Open();
+
+                Log.Information($"== Serial port open");
+                Log.Information($"-- COM SCALE : {spScale.PortName}");
+                Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
+                Log.Information($"Scale is connected");
+
                 //spScanner.Open();
                 // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
                 if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; }
                 if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
+
+                Log.Information($"== Get privilage");
+                Log.Information($"-- DEL : {tbPrivilage.weight.del} ");
+                Log.Information($"-- EDIT : {tbPrivilage.weight.edit} ");
             }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
+                Log.Error($"frmWeightNew | frmWeightNew_Load {ex.Message}");
             }
 
         }
@@ -138,32 +229,22 @@ namespace FutureFlex
         {
             if (rdTypeBox.Checked == true)
             {
-                if (cbbPO.Text != "JIT")
-                {
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                    {
-                        if (txt.Tag == "roll")
-                        {
-                            txt.Text = "0";
-                            txt.Enabled = false;
-                        }
-                    }
 
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                    {
-                        if (txt.Tag == "box")
-                        {
-                            txt.Text = "0";
-                            txt.Enabled = true;
-                        }
-                    }
-                }
-                else
+                foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
                 {
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
+                    if (txt.Tag == "roll")
                     {
                         txt.Text = "0";
                         txt.Enabled = false;
+                    }
+                }
+
+                foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
+                {
+                    if (txt.Tag == "box")
+                    {
+                        txt.Text = "0";
+                        txt.Enabled = true;
                     }
                 }
 
@@ -178,38 +259,25 @@ namespace FutureFlex
         {
             if (rdTypeRoll.Checked == true)
             {
-                if (cbbPO.Text != "JIT")
+                foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
                 {
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                    {
-                        if (txt.Tag == "box")
-                        {
-                            txt.Text = "0";
-                            txt.Enabled = false;
-                        }
-                    }
-
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                    {
-                        if (txt.Tag == "roll")
-                        {
-                            txt.Text = "0";
-                            txt.Enabled = true;
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
+                    if (txt.Tag == "box")
                     {
                         txt.Text = "0";
                         txt.Enabled = false;
                     }
                 }
 
+                foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
+                {
+                    if (txt.Tag == "roll")
+                    {
+                        txt.Text = "0";
+                        txt.Enabled = true;
+                    }
+                }
 
-
-                btnReprint.Text = "น้ำหนักสุทธิ - น้ำหักแกน";
+                btnReprint.Text = "น้ำหนักสุทธิ - น้ำหนักแกน";
                 gbSide.Enabled = true;
                 txtNumBox.Enabled = false;
                 statusType = "roll";
@@ -226,7 +294,6 @@ namespace FutureFlex
         }
         private void rdOutCounty_CheckedChanged(object sender, EventArgs e)
         {
-
             if (rdOutCounty.Checked == true)
             {
                 statusCounty = "ovs";
@@ -258,18 +325,27 @@ namespace FutureFlex
 
         private void txtNunRoll_TextChanged(object sender, EventArgs e)
         {
-            if (txtNumRoll.Text != "")
+            try
             {
-                if (txtNunMeter.Text != "0")
+                if (txtNumRoll.Text != "")
                 {
-                    string[] a = label15.Text.Split(' ');
-                    string b = a[2];
-                    double c = double.Parse(b) / 1000;
-                    double d = double.Parse(txtNunMeter.Text) / c;
-
-                    txtNumRoll.Text = d.ToString("F0");
+                    if (txtNunMeter.Text != "0")
+                    {
+                        string[] a = label15.Text.Split(' ');
+                        string b = a[2];
+                        double c = double.Parse(b) / 1000;
+                        double d = double.Parse(txtNunMeter.Text) / c;
+                        string[] f = d.ToString().Split('.');
+                        txtPchRoll.Text = f[0];
+                    }
                 }
             }
+            catch (Exception)
+            {
+
+
+            }
+
         }
 
         #endregion
@@ -283,8 +359,8 @@ namespace FutureFlex
                 switch (dgvDetail.Columns[e.ColumnIndex].Name)
                 {
                     case "cl_del":
-                        _id = Convert.ToInt16(dgvDetail.Rows[e.RowIndex].Cells["cl_id"].Value.ToString());
-
+                        Log.Information($"== ผู้ใช้เลือกลบข้อมูล");
+                        _id = Convert.ToInt32(dgvDetail.Rows[e.RowIndex].Cells["cl_id"].Value.ToString());
                         DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("คุณต้องการลบข้อมูลหรือไม่", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -299,8 +375,13 @@ namespace FutureFlex
                             }
                             return;
                         }
+                        else
+                        {
+                            Log.Information($"== ผู้ใช้ยกเลิกลบข้อมูล");
+                        }
                         break;
                     case "cl_edit":
+                        Log.Information($"== ผู้ใช้เลือกแก้ไขข้อมูล");
                         string _employee = dgvDetail.Rows[e.RowIndex].Cells["cl_employee"].Value.ToString();
                         // เช็คว่าคนที่จะแก้ไขต้องเป็นเดียวกัน
                         if (_employee != tbEmployeeSQL.emp_name)
@@ -309,57 +390,19 @@ namespace FutureFlex
                             return;
                         }
                         _id = Convert.ToInt16(dgvDetail.Rows[e.RowIndex].Cells["cl_id"].Value.ToString());
+                        tbWeightDetail.seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
+                        tbWeightDetail.lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
                         isEdit = true;
                         dgvDetail.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Olive;
                         dgvDetail.Enabled = false;
                         break;
                     case "cl_print":
-                        if (cbPrint.Checked)
-                        {
-                            if (cbbPO.Text == "JIT")
-                            {
-                                // Convert millimeters to hundredths of an inch
-                                int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
-                                int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
-
-                                // Create a custom paper size
-                                PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                                printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-                            }
-                            else
-                            {
-                                // สำหรับเครื่อง TDP-247
-                                // Convert millimeters to hundredths of an inch
-                                //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
-                                //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                                // Convert millimeters to hundredths of an inch
-
-                                // สำหรับเครื่อง Zebra
-                                int widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                                int heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
-
-                                // Create a custom paper size
-                                PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                                printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-                            }
-
-                            if (statusPrint) // AutoPrint
-                            {
-                                printDocument1.Print();
-                            }
-                            else
-                            {
-                                try
-                                {
-                                    printPreviewDialog1.ShowDialog();
-                                }
-                                catch (Exception)
-                                {
-                                }
-                            }
-                        }
+                        Log.Information($"== ผู้ใช้เลือกพิมพ์ข้อมูลใหม่");
+                        tbWeightDetail.seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
+                        tbWeightDetail.lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
+                        DefinePrintParameter();
+                        SetPaper();
                         break;
-
                 }
             }
             catch (Exception ex)
@@ -381,20 +424,18 @@ namespace FutureFlex
 
             string a = spScale.ReadLine();
             Console.WriteLine($"SERIAL {a}");
+            Log.Information($"== SERIAL {a}");
             string[] b = a.Split(',');
 
-            Console.WriteLine($"NET {b[2].Trim()}");
-            Console.WriteLine($"TARE {b[3].Trim()}");
-            Console.WriteLine($"GROSS {b[4].Trim()}");
+            Log.Information($"- NET {b[2]}");
+            Log.Information($"- TARE {b[3]}");
+            Log.Information($"- GROSS {b[4]}");
 
             string net = b[2];
             string tare = b[3];
             string gross = b[4];
 
-            double old = Convert.ToDouble(lbTotalWgh.Text);
-            double total = old + Convert.ToDouble(net);
-
-
+            // สดงข้อมูลน้ำหนักที่อ่านมาได้
             BeginInvoke(new MethodInvoker(delegate ()
             {
                 lbTareWgh.Text = tare;
@@ -410,15 +451,16 @@ namespace FutureFlex
             }
             else if (statusType == "roll")
             {
-                //double cors = Convert.ToDouble(txtWghCors.Text);
-                //double tt = Convert.ToDouble(net) - cors;
+                double cors = Convert.ToDouble(txtWghCors.Text);
+                double tt = Convert.ToDouble(net) - cors;
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
-                    lbNetWgh.Text = Convert.ToString(net);
+                    lbNetWgh.Text = Convert.ToString(tt);
                 }));
+                Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {tt}");
             }
             #endregion
-            DataTable tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            DataTable tb = new DataTable();
 
             // เช็คว่าเป็น UPDATE or INSERT
             if (isEdit) // UDPATE
@@ -447,8 +489,9 @@ namespace FutureFlex
             }
             else // INSERT
             {
+                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
                 // เช็คว่าครบจำนวนที่จะต้องชั่งหรือยัง
-                if (tbWeightDetail.PO != "JIT" && tbWeightDetail.PO != "ไม่มีPO")
+                if (tbWeightDetail.PO != "JIT" && tbWeightDetail.PO != "ไม่มี PO")
                 {
                     // เช็คว่าเป็นเป็นงานม้วนหรือกล่อง
                     switch (statusType)
@@ -474,21 +517,20 @@ namespace FutureFlex
                             }
                             break;
                     }
-
                 }
 
 
                 #region SAVE DATA
                 string _seq = Convert.ToString(tb.Rows.Count + 1);
-                switch (_seq.Length)
-                {
-                    case 1:
-                        _seq = $"00{_seq}";
-                        break;
-                    case 2:
-                        _seq = $"0{_seq}";
-                        break;
-                }
+                //switch (_seq.Length)
+                //{
+                //    case 1:
+                //        _seq = $"00{_seq}";
+                //        break;
+                //    case 2:
+                //        _seq = $"0{_seq}";
+                //        break;
+                //}
 
 
                 string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
@@ -519,15 +561,13 @@ namespace FutureFlex
                         break;
                 }
 
-                tbWeightDetail.lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}{_seq}";
-
-
+                tbWeightDetail.lot = _lot;
                 // บันทึกข้อมูล
                 if (!tbWeightDetail.INSERT_DATA())
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
-                        sb.Show(this, $"INSERT DATA {tbWeightDetail.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                        sb.Show(this, $"บันทึกข้อมูลผิดผลาด {tbWeightDetail.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
                     }));
                     return;
                 }
@@ -537,76 +577,12 @@ namespace FutureFlex
                 {
                     dgvDetail.DataSource = tb;
                 }));
-                // เพิ่มข้อมูลไปที่ dgv
-
                 #endregion
-
-
             }
             #region Print Data
+            DefinePrintParameter();
             // Print Sticker
-            // เช็คว่าผู้ใช้ต้องการปริ้นแบบไหน
-            if (cbPrint.Checked)
-            {
-                // ตั้งฝค่ากระดาษ
-                BeginInvoke(new MethodInvoker(delegate ()
-                {
-                    if (cbbPO.Text == "JIT")
-                    {
-                        //TDP 247
-                        // Convert millimeters to hundredths of an inch
-                        //int widthInHundredthsOfInch = (int)(50 / 25.4 * 100);
-                        //int heightInHundredthsOfInch = (int)(55 / 25.4 * 100);
-
-                        // Zebra
-                        int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
-                        int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
-
-                        // Create a custom paper size
-                        PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                        printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-                    }
-                    else
-                    {
-                        // สำหรับเครื่อง TDP-247
-                        // Convert millimeters to hundredths of an inch
-                        //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
-                        //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                        // Convert millimeters to hundredths of an inch
-
-                        // สำหรับเครื่อง Zebra
-                        int widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                        int heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
-
-                        // Create a custom paper size
-                        PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                        printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-                    }
-                }));
-
-
-                if (statusPrint) // AutoPrint
-                {
-                    BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        printDocument1.Print();
-                    }));
-                }
-                else
-                {
-                    BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        try
-                        {
-                            printPreviewDialog1.ShowDialog();
-                        }
-                        catch (Exception)
-                        {
-                        }
-
-                    }));
-                }
-            }
+            SetPaper();
             #endregion
 
         }
@@ -615,6 +591,21 @@ namespace FutureFlex
 
         private void KeyIn(object sender, KeyPressEventArgs e)
         {
+            Guna2TextBox txt = sender as Guna2TextBox;
+
+            if (tbWeightDetail.PO == "JIT" && tbWeightDetail.PO == "ไม่มี PO")  // หากผู้ใช้เลือก JIT จะไม่สามารถคีย์ จำนวนกล่องจำนวนม้วนได้
+            {
+                switch (txt.Name)
+                {
+                    case "txtNumBox":
+                        sb.Show(this, "กรณีเลือกงานกล่อง ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        return;
+                    case "txtNumRoll":
+                        sb.Show(this, "กรณีเลือกงานม้วน ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        return;
+                }
+            }
+
             // ตรวจสอบว่าตัวอักษรที่ผู้ใช้ป้อนเป็นตัวเลขหรือจุดทศนิยมหรือไม่
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -636,173 +627,10 @@ namespace FutureFlex
         }
 
 
+
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            try
-            {
-                Font fontHeader;
-                Font fontHead;
-                Font fontDetail;
-
-                // Create Seq
-                string seq = Convert.ToString(dgvDetail.Rows.Count);
-                if (cbbPO.Text != "JIT" && cbbPO.Text != "ไม่มี PO")
-                {
-                    if (statusType == "box")
-                    {
-                        seq = $"{seq}/{txtNumBox.Text}";
-                    }
-
-                    if (statusType == "roll")
-                    {
-                        seq = $"{seq}/{txtNumRoll.Text}";
-                    }
-                }
-
-
-                if (cbbPO.Text == "JIT") // JIT
-                {
-                    fontHeader = new Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
-                    fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
-                    fontDetail = new Font("Tahoma", 7, System.Drawing.FontStyle.Regular);
-
-                    #region Header
-                    e.Graphics.DrawImage(pictureBox1.Image, 0, 5, 30, 30);
-                    e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(30, 15));
-
-                    #endregion
-
-                    #region Body
-                    e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 57));
-                    e.Graphics.DrawString($"{MRP.product_id}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
-                    e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
-                    e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
-                    e.Graphics.DrawString($"[ใบสั่งงาน] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 80));
-                    e.Graphics.DrawString($"{MRP.name}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(70, 80));
-
-
-                    switch (statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
-                    {
-                        case "box":
-                            e.Graphics.DrawString($"NO :  {seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
-                            e.Graphics.DrawString($"[จำนวน]_____กล่อง.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{txtNumBox.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
-                            e.Graphics.DrawString($"____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 130));
-                            e.Graphics.DrawString($"{lbNetWgh.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
-                            e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
-                            e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
-                            break;   //กรณีเลือกกล่อง
-                        case "roll":
-                            e.Graphics.DrawString($"NO :  {seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
-
-                            e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{txtNunMeter.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 110));
-                            e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
-                            e.Graphics.DrawString($"{txtNumRoll.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(30, 125));
-                            e.Graphics.DrawString($"_____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 140));
-                            e.Graphics.DrawString($"{lbNetWgh.Text} ", fontDetail, Brushes.Black, new System.Drawing.Point(30, 140));
-                            e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
-                            e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
-                            break;  //กรณีเลือกม้วน  
-                    }
-                    #endregion
-
-                    // ตั้งค่า Format Barcode
-                    BarcodeWriter writer = new BarcodeWriter()
-                    {
-                        Format = BarcodeFormat.QR_CODE
-                    };
-
-                    PictureBox pictureBox = new PictureBox()
-                    {
-                        SizeMode = PictureBoxSizeMode.StretchImage
-                    };
-                    // Generage QR Code
-                    pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
-                    e.Graphics.DrawImage(pictureBox.Image, 115, 100, 80, 80);
-
-                    string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
-                    e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
-                    e.Graphics.DrawString("FM-DL-012 Rev.0", fontDetail, Brushes.Black, new System.Drawing.Point(0, 180));
-                }
-                else // แบบมี PO และ ไม่มี PO
-                {
-                    fontHeader = new Font("Tahoma", 14, System.Drawing.FontStyle.Bold);
-                    fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
-                    fontDetail = new Font("Tahoma", 8, System.Drawing.FontStyle.Regular);
-
-                    #region Header
-                    e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 50, 50);
-                    e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 15));
-                    e.Graphics.DrawString($"NO : {seq}", new Font("Tahoma", 12, System.Drawing.FontStyle.Regular), Brushes.Black, new System.Drawing.Point(290, 5));
-                    #endregion
-
-                    #region Body
-                    e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-                    e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 55));
-
-                    e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
-                    e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
-
-
-                    e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
-                    e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 91));
-                    e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
-                    e.Graphics.DrawString($"{MRP.name}                                  {cbbPO.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
-                    e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
-                    e.Graphics.DrawString($"{MRP.mo_film}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 127));
-                    e.Graphics.DrawString($"[ขนาด] :________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
-                    e.Graphics.DrawString($"{MRP.mo_work}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 145));
-
-                    switch (statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
-                    {
-                        case "box":
-                            e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                            e.Graphics.DrawString($"{txtNumBox.Text}                    {lbNetWgh.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
-                            e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                            e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
-                            e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                            e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
-                            break;   //กรณีเลือกกล่อง
-                        case "roll":
-                            e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                            e.Graphics.DrawString($"{txtWghPaper.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 163));
-                            e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                            e.Graphics.DrawString($"{txtWghCors.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
-                            e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                            e.Graphics.DrawString($"{txtNunMeter.Text}           {txtNumRoll.Text}            {lbNetWgh.Text} ", fontDetail, Brushes.Black, new System.Drawing.Point(90, 199));
-                            e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
-                            e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
-                            e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
-                            e.Graphics.DrawString($"{txtOperator.Text}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 235));
-                            break;  //กรณีเลือกม้วน  
-                    }
-                    #endregion
-
-                    #region Footer
-                    // ตั้งค่า Format Barcode
-                    BarcodeWriter writer = new BarcodeWriter()
-                    {
-                        Format = BarcodeFormat.QR_CODE
-                    };
-
-                    PictureBox pictureBox = new PictureBox()
-                    {
-                        SizeMode = PictureBoxSizeMode.StretchImage
-                    };
-                    // Generage QR Code
-                    pictureBox.Image = writer.Write($"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001");
-                    e.Graphics.DrawImage(pictureBox.Image, 275, 150, 120, 120);
-
-                    string barCodeStr = $"{MRP.name}{DateTime.Now.ToString("dd")}{DateTime.Now.ToString("MM")}{DateTime.Now.ToString("yy")}{DateTime.Now.ToString("HH")}{DateTime.Now.ToString("mm")}{DateTime.Now.ToString("ss")}001";
-                    e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
-                    e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(5, 270));
-                    #endregion
-                }
-            }
-            catch (Exception ex)
-            {
-            }
+            func_print.FormatPrint(e);
         }
 
         private void cbPrint_CheckedChanged(object sender, BunifuCheckBox.CheckedChangedEventArgs e)
@@ -838,46 +666,18 @@ namespace FutureFlex
             switch (btn.Text)
             {
                 case "เริ่มชั่งสินค้า":
+                    Log.Information($"== เริ่มชั่งสินค้า");
                     // เช็คว่าเลือกข้อมูลครบหรือไม่
                     if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "")
                     {
+                        Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
+                        Log.Information($"- ประเทศ : {statusCounty}");
+                        Log.Information($"- ประเภท : {statusType}");
+                        Log.Information($"- ด้าน : {statusSide}");
+                        Log.Information($"- PO : {cbbPO.Text}");
+                        Log.Information($"- GV : {MRP.name}");
                         sb.Show(this, "กรุณาตรวจสอบ ประเทศ ประเภท ด้าน po ก่อนกันบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
                         return;
-                    }
-
-                    //หากไม่ได้เลือก JIT จะต้องเช็คว่ากรอกข้อมูลครบหรือไม่
-                    if (cbbPO.Text != "JIT" && cbbPO.Text != "ไม่มีPO")
-                    {
-                        // หลังจากเลือกงาน กล่อง ม้วนให้เช็คว่า ได้คีย์ข้อมูลหรือไม่
-                        switch (statusType)
-                        {
-                            case "box":
-                                foreach (var item in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                                {
-                                    if (item.Tag == "box")
-                                    {
-                                        if (item.Text == "" || item.Text == "0")
-                                        {
-                                            sb.Show(this, "กรุณาเลอกกรอกข้อมูลให้ครบกอนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                                            return;
-                                        }
-                                    }
-                                }
-                                break;
-                            case "roll":
-                                foreach (var item in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
-                                {
-                                    if (item.Tag == "roll")
-                                    {
-                                        if (item.Text == "" || item.Text == "0")
-                                        {
-                                            sb.Show(this, "กรุณาเลอกกรอกข้อมูลให้ครบกอนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                                            return;
-                                        }
-                                    }
-                                }
-                                break;
-                        }
                     }
 
                     tbWeightDetail.PO = cbbPO.Text;
@@ -886,7 +686,7 @@ namespace FutureFlex
                     tbWeightDetail.side = statusSide;
                     // นำ GV ไปหาในระบบก่อน
                     DataTable tb = tbWeight.SELECT_SEARCH();
-                    if (tb.Rows.Count == 0)
+                    if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
                     {
                         //บันทึกข้อมูลไปที่ tbWeight
                         if (!tbWeight.INSERT_ALL_DATA(txtOperator.Text))
@@ -895,11 +695,17 @@ namespace FutureFlex
                             return;
                         }
                     }
-
-
+                    else // UPDATE
+                    {
+                        // อัพเดทข้อมูล
+                        if (!tbWeight.UPDATE_ALL_DATA(txtOperator.Text))
+                        {
+                            sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                            return;
+                        }
+                    }
 
                     // ปิดปุ่ต่่าง ๆ 
-                    gbData.Enabled = false;
                     isStart = true;
 
                     btn.Text = "หยุดชั่งสินค้า";
@@ -915,10 +721,12 @@ namespace FutureFlex
                     btn.OnIdleState.BorderColor = Color.Red;
                     btn.OnIdleState.FillColor = Color.White;
                     btn.OnIdleState.ForeColor = Color.Red;
+
+                    txtJobNo.Enabled = false;
+                    cbbPO.Enabled = false;
+                    dgvDetail.Enabled = true;
                     break;
                 case "หยุดชั่งสินค้า":
-
-                    gbData.Enabled = true;
                     isStart = false;
 
                     btn.Text = "เริ่มชั่งสินค้า";
@@ -934,34 +742,21 @@ namespace FutureFlex
                     btn.OnIdleState.BorderColor = Color.Green;
                     btn.OnIdleState.FillColor = Color.White;
                     btn.OnIdleState.ForeColor = Color.Green;
-
+                    txtJobNo.Enabled = true;
+                    cbbPO.Enabled = true;
+                    dgvDetail.Enabled = false;
+                    Log.Information($"== หยุดชั่งสินค้า");
                     break;
             }
         }
 
         private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             // เครียข้อมูล
+            Log.Information($"== เลือก PO {cbbPO.Text}");
             tbWeightDetail.PO = cbbPO.Text;
             DataTable tb1 = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
             dgvDetail.DataSource = tb1;
-
-            //// ดึงข้อมูลจาก Odoo
-            //if (!await MRP.GET_MRP(txtJobNo.Text))
-            //{
-            //    pnMain.Visible = true;
-            //    sb.Show(this, MRP.err, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-            //    return;
-            //}
-
-            //// แสดงข้อมูล gvของเก่า หากมี
-            //tb1 = tbWeight.SELECT_SEARCH();
-
-            //foreach (DataRow rw in tb1.Rows)
-            //{
-            //    txtOperator.Text = rw["wgh_operator"].ToString();
-            //}
         }
 
         private async void txtJobNo_KeyDown(object sender, KeyEventArgs e)
@@ -970,6 +765,7 @@ namespace FutureFlex
             {
                 if (txtJobNo.Text == "")
                 {
+                    Log.Warning("== พบว่าผู้ใช้ไม่ได้คีย์ชื่อ GV");
                     sb.Show(this, "กรุณากรอกข้อมูล", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     return;
                 }
@@ -983,7 +779,7 @@ namespace FutureFlex
                 //แสดง Loader
                 ShowLoadData();
 
-                if (!await MRP.GET_MRP(txtJobNo.Text))
+                if (!await MRP.GET_MRP($"GV-{txtJobNo.Text}"))
                 {
                     pnMain.Visible = true;
                     sb.Show(this, MRP.err, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
@@ -1002,6 +798,7 @@ namespace FutureFlex
                 label17.Text = $"{MRP.mo_film}";
                 label21.Text = $"{MRP.mo_station_name}";
                 label23.Text = $"{MRP.mo_date_delivery}";
+                label31.Text = $"{MRP.mo_date}";
 
                 DataTable tb = tbWeight.SELECT_SEARCH();
                 foreach (DataRow rw in tb.Rows)
@@ -1026,6 +823,21 @@ namespace FutureFlex
         private void frmWeightNew_FormClosing(object sender, FormClosingEventArgs e)
         {
             spScale.Close();
+        }
+
+        private void txtJobNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // ตรวจสอบว่าตัวอักษรที่ผู้ใช้ป้อนเป็นตัวเลขหรือจุดทศนิยมหรือไม่
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '-'))
+            {
+                sb.Show(this, "กรุณากรอกเฉพาะตัวเลข", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
+            }
+        }
+
+        private void txtWghCors_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,13 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rdbSend = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.rdbNotSend = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.txtPO = new Guna.UI2.WinForms.Guna2TextBox();
             this.sb = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.gbMain.SuspendLayout();
             this.bunifuGroupBox1.SuspendLayout();
@@ -62,7 +62,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(8, 51);
+            this.label1.Location = new System.Drawing.Point(12, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 21);
             this.label1.TabIndex = 14;
@@ -82,9 +82,9 @@
             // 
             this.gbMain.BorderColor = System.Drawing.Color.Navy;
             this.gbMain.BorderRadius = 6;
+            this.gbMain.Controls.Add(this.cbbPO);
             this.gbMain.Controls.Add(this.bunifuGroupBox1);
             this.gbMain.Controls.Add(this.reportViewer1);
-            this.gbMain.Controls.Add(this.txtPO);
             this.gbMain.Controls.Add(this.label1);
             this.gbMain.Controls.Add(this.guna2ControlBox1);
             this.gbMain.CustomBorderColor = System.Drawing.Color.Navy;
@@ -96,6 +96,25 @@
             this.gbMain.Size = new System.Drawing.Size(1388, 755);
             this.gbMain.TabIndex = 2;
             this.gbMain.Text = "พิมพ์ข้อมูล";
+            // 
+            // cbbPO
+            // 
+            this.cbbPO.BackColor = System.Drawing.Color.Transparent;
+            this.cbbPO.BorderColor = System.Drawing.Color.Navy;
+            this.cbbPO.BorderRadius = 6;
+            this.cbbPO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPO.ForeColor = System.Drawing.Color.Black;
+            this.cbbPO.ItemHeight = 30;
+            this.cbbPO.Location = new System.Drawing.Point(12, 78);
+            this.cbbPO.Name = "cbbPO";
+            this.cbbPO.Size = new System.Drawing.Size(280, 36);
+            this.cbbPO.TabIndex = 18;
+            this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
+            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
             // 
             // bunifuGroupBox1
             // 
@@ -111,7 +130,7 @@
             this.bunifuGroupBox1.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.bunifuGroupBox1.LabelIndent = 10;
             this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox1.Location = new System.Drawing.Point(350, 64);
+            this.bunifuGroupBox1.Location = new System.Drawing.Point(298, 64);
             this.bunifuGroupBox1.Name = "bunifuGroupBox1";
             this.bunifuGroupBox1.Size = new System.Drawing.Size(308, 50);
             this.bunifuGroupBox1.TabIndex = 17;
@@ -188,32 +207,6 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1364, 620);
             this.reportViewer1.TabIndex = 16;
-            // 
-            // txtPO
-            // 
-            this.txtPO.BorderColor = System.Drawing.Color.Navy;
-            this.txtPO.BorderRadius = 6;
-            this.txtPO.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPO.DefaultText = "";
-            this.txtPO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPO.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPO.ForeColor = System.Drawing.Color.Black;
-            this.txtPO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPO.Location = new System.Drawing.Point(12, 78);
-            this.txtPO.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtPO.Name = "txtPO";
-            this.txtPO.PasswordChar = '\0';
-            this.txtPO.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtPO.PlaceholderText = "PO";
-            this.txtPO.SelectedText = "";
-            this.txtPO.Size = new System.Drawing.Size(331, 36);
-            this.txtPO.TabIndex = 15;
-            this.txtPO.TextChanged += new System.EventHandler(this.txtPO_TextChanged);
-            this.txtPO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox1_KeyDown);
             // 
             // sb
             // 
@@ -312,7 +305,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2GroupBox gbMain;
-        private Guna.UI2.WinForms.Guna2TextBox txtPO;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
         private System.Windows.Forms.Label label3;
@@ -320,5 +312,6 @@
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForms.BunifuRadioButton rdbNotSend;
         private Bunifu.UI.WinForms.BunifuSnackbar sb;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
     }
 }
