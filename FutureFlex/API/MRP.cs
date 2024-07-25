@@ -21,14 +21,15 @@ namespace FutureFlex.API
         public static string mo_station_name { get; set; }
         public static int partner_id { get; set; }
         public static string partner_name { get; set; }
+        public static string customer_product_code { get; set; }
         public static int product_id { get; set; }  // รหัสสินค้า
         public static string default_code { get; set; }
         public static string product_name { get; set; }
         public static string mo_gusset { get; set; }
-        public static string mo_film { get; set; }
+        public static string mo_film { get; set; }  // โครงสร้าง
         public static string mo_film_total { get; set; }
-        public static string mo_type { get; set; }
-        public static string mo_work { get; set; }
+        public static string mo_type { get; set; }  // ลักษณะงาน
+        public static string mo_work { get; set; } // ขนาดสำเร็จ
         public static double product_qty { get; set; }
         public static double done_qty { get; set; }
         public static double manufactured_qty { get; set; }
@@ -74,6 +75,7 @@ namespace FutureFlex.API
 
         public async static Task<bool> GET_MRP(string gv)
         {
+            Log.Information($"== ดึงข้อมูลจาก odoo ค้นหาจาก {gv}");
             if (!await Authentication.CHECK_TOKEN())
             {
                 err = Authentication.ERR;
@@ -92,15 +94,17 @@ namespace FutureFlex.API
                 request.AddHeader("mrnumber", gv);
                 RestResponse response = await client.ExecuteAsync(request);
                 Console.WriteLine(response.Content);
-
+                Log.Information($"- response \n {response.Content}");
                 if (response.Content == "[]")
                 {
                     err = "ไม่พบรายการที่เลือก";
+                    Log.Information($"- ไม่พบรายการ");
                     return false;
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
+                    Log.Information($"- token หมดอายุ");
                     if (await Authentication.take_token_key())
                     {
                         request.AddHeader("token", Authentication.access_token);
@@ -131,6 +135,7 @@ namespace FutureFlex.API
                     mo_station_name = value["mo_station_name"].ToString();
                     partner_id = (int)value["partner_id"];
                     partner_name = value["partner_name"].ToString();
+                    customer_product_code = value["customer_product_code"].ToString();
                     product_id = (int)value["product_id"];
                     default_code = value["default_code"].ToString();
                     product_name = value["product_name"].ToString();
@@ -146,78 +151,18 @@ namespace FutureFlex.API
                     product_uom_id = (int)value["product_uom_id"];
                     product_uom_name = value["product_uom_name"].ToString();
                 }
-
             }
             catch (System.Exception ex)
             {
                 err = $"เกิดข้อผิดผลาด {ex.Message}";
-
+                Log.Error($"GET_MRP | MRP : {err}");
                 Console.WriteLine(ex.Message);
                 return false;
             }
+            Log.Information($"- ดึงข้อมูลจาก odoo สำเร็จ");
             return true;
         }
 
-        public async static Task<JArray> GET_PO(string gv)
-        {
-            JArray value = new JArray();
-            try
-            {
-                if (!await Authentication.CHECK_TOKEN())
-                {
-                    return value;
-                }
-
-                var options = new RestClientOptions(tbOdoo.server)
-                {
-                    MaxTimeout = -1,
-                };
-                var client = new RestClient(options);
-                var request = new RestRequest("/api/mrp/po", Method.Get);
-                request.AddHeader("token", Authentication.access_token);
-                request.AddHeader("mrnumber", gv);
-                RestResponse response = await client.ExecuteAsync(request);
-                Console.WriteLine(response.Content);
-
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    if (await Authentication.take_token_key())
-                    {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("mrnumber", gv);
-                        response = await client.ExecuteAsync(request);
-                        Console.WriteLine(response.Content);
-
-                        JObject key = JObject.Parse(response.Content);
-                        value = JArray.Parse(key["mo_po_list"].ToString());
-                        return value;
-                    }
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    if (response.Content == "{}")
-                    {
-                        return value;
-                    }
-                    else
-                    {
-                        JObject key = JObject.Parse(response.Content);
-                        value = JArray.Parse(key["mo_po_list"].ToString());
-                        return value;
-                    }
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                err = $"เกิดข้อผิดผลาด {ex.Message}";
-                System.Windows.MessageBox.Show(ex.Message);
-                return value;
-
-            }
-            return value;
-        }
 
         /// <summary>
         /// 
