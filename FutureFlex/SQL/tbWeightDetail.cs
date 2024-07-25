@@ -155,15 +155,14 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
         /// สำหรับบันทึกขอมูลการชั่ง
         /// </summary>
         /// <returns></returns>
-        public static bool INSERT_DATA()
+        public static DataTable INSERT_DATA()
         {
+
             try
             {
                 Log.Information($"== INSERTING DATA");
 
-                sql = $"INSERT INTO {tbName} (wdt_GVID,wdt_po,wdt_seq,wdt_country,wdt_type,wdt_side,wdt_net,wdt_tare,wdt_gross,wdt_wgh_paper_plastic,wdt_wgh_core_total,wdt_wgh_joint,wdt_meter_kg_in_roll,wdt_numbox,wdt_numroll,wdt_pch,wdt_lot,wdt_employee,wdt_date,wdt_printed,wdt_statusOdoo)" +
-                    $"VALUES(@wdt_GVID,@wdt_po,@wdt_seq,@wdt_country,@wdt_type,@wdt_side,@wdt_net,@wdt_tare,@wdt_gross,@wdt_wgh_paper_plastic,@wdt_wgh_core_total,@wdt_wgh_joint,@wdt_meter_kg_in_roll,@wdt_numbox,@wdt_numroll,@wdt_pch,@wdt_lot,@wdt_employee,CURRENT_TIMESTAMP,@wdt_printed,@wdt_statusOdoo)";
-
+                sql = "InsertWithSeq";
                 Log.Information($"-- ชื่อ GV : {MRP.name}");
                 Log.Information($"-- po : {PO}");
                 Log.Information($"-- ลำดับที่ : {seq}");
@@ -183,51 +182,53 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
                 Log.Information($"-- LOT : {lot}");
 
                 cmd = new SqlCommand(sql, con);
-                cmd.Parameters.Add(new SqlParameter("@wdt_GVID", MRP.name));
-                cmd.Parameters.Add(new SqlParameter("@wdt_po", PO));
-                cmd.Parameters.Add(new SqlParameter("@wdt_seq", seq));
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@gvid", MRP.name));
+                cmd.Parameters.Add(new SqlParameter("@po", PO));
 
-                cmd.Parameters.Add(new SqlParameter("@wdt_country", country));
-                cmd.Parameters.Add(new SqlParameter("@wdt_type", type));
-                cmd.Parameters.Add(new SqlParameter("@wdt_side", side));
+                cmd.Parameters.Add(new SqlParameter("@country", country));
+                cmd.Parameters.Add(new SqlParameter("@type", type));
+                cmd.Parameters.Add(new SqlParameter("@side", side));
 
-                cmd.Parameters.Add(new SqlParameter("@wdt_net", net));
-                cmd.Parameters.Add(new SqlParameter("@wdt_tare", tare));
-                cmd.Parameters.Add(new SqlParameter("@wdt_gross", gross));
+                cmd.Parameters.Add(new SqlParameter("@net", net));
+                cmd.Parameters.Add(new SqlParameter("@tare", tare));
+                cmd.Parameters.Add(new SqlParameter("@gross", gross));
 
-                cmd.Parameters.Add(new SqlParameter("@wdt_wgh_paper_plastic", wgh_paper_plastic));
-                cmd.Parameters.Add(new SqlParameter("@wdt_wgh_core_total", wgh_core_total));
-                cmd.Parameters.Add(new SqlParameter("@wdt_wgh_joint", wgh_joint));
-                cmd.Parameters.Add(new SqlParameter("@wdt_meter_kg_in_roll", wgh_meter_kg_in_roll));
-                cmd.Parameters.Add(new SqlParameter("@wdt_numbox", numbox));
-                cmd.Parameters.Add(new SqlParameter("@wdt_numroll", numroll));
+                cmd.Parameters.Add(new SqlParameter("@wgh_paper", wgh_paper_plastic));
+                cmd.Parameters.Add(new SqlParameter("@wgh_core", wgh_core_total));
+                cmd.Parameters.Add(new SqlParameter("@wgh_joint", wgh_joint));
+                cmd.Parameters.Add(new SqlParameter("@numMeter", wgh_meter_kg_in_roll));
+                cmd.Parameters.Add(new SqlParameter("@numBox", numbox));
+                cmd.Parameters.Add(new SqlParameter("@numRoll", numroll));
 
-                cmd.Parameters.Add(new SqlParameter("@wdt_pch", pch));
+                cmd.Parameters.Add(new SqlParameter("@pch", pch));
 
 
-                cmd.Parameters.Add(new SqlParameter("@wdt_lot", lot));
-                cmd.Parameters.Add(new SqlParameter("@wdt_employee", tbEmployeeSQL.emp_name));
+                cmd.Parameters.Add(new SqlParameter("@lot", lot));
+                cmd.Parameters.Add(new SqlParameter("@employee", tbEmployeeSQL.emp_name));
 
                 if (PO == "JIT")
                 {
-                    cmd.Parameters.Add(new SqlParameter("@wdt_printed", "NOT PRINT"));
+                    cmd.Parameters.Add(new SqlParameter("@printed", "NOT PRINT"));
                 }
                 else
                 {
-                    cmd.Parameters.Add(new SqlParameter("@wdt_printed", "PRINTED"));
+                    cmd.Parameters.Add(new SqlParameter("@printed", "PRINTED"));
                 }
-                cmd.Parameters.Add(new SqlParameter("@wdt_statusOdoo", "NOT SEND"));
+                cmd.Parameters.Add(new SqlParameter("@statusOdoo", "NOT SEND"));
 
-                cmd.ExecuteNonQuery();
+                tb = new DataTable();
+                da = new SqlDataAdapter(cmd);
+                da.Fill(tb);
             }
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
                 Log.Error($"INSERT DATA | tbWeightDetail : {ERR}");
-                return false;
+
             }
             Log.Information($"INSERT DATA SUCCESS");
-            return true;
+            return tb;
         }
 
 
@@ -251,7 +252,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
         }
 
 
-        public static bool UPDATE(string id, decimal net, decimal tare, decimal gross)
+        public static DataTable UPDATE(string id, decimal net, decimal tare, decimal gross)
         {
             try
             {
@@ -273,15 +274,19 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
                 cmd.Parameters.Add(new SqlParameter("@wdt_gross", gross));
                 cmd.Parameters.Add(new SqlParameter("@id", id));
                 cmd.ExecuteNonQuery();
+
+                sql = $"SELECT * FROM tbWeightDetail WHERE id = {id}";
+                tb = new DataTable();
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(tb);
             }
             catch (System.Exception ex)
             {
                 ERR = ex.Message;
                 Log.Error($"UPDATE | tbWeightDetail : {ex.Message}");
-                return false;
             }
             Log.Information("== แก้ไขข้อมูลการชั่งสำเร็จ");
-            return true;
+            return tb;
         }
 
         /// <summary>
