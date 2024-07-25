@@ -39,8 +39,7 @@ namespace FutureFlex
                         // ลบข้อมูลที่ odoo ก่อน 
                         if (await MRP.DELETE(wgh_id))
                         {
-                            // ถ้าลบ odoo สำเร็จให้ลบข้อมูลใน db
-                            tbWeight.DELETE_DATA(wgh_id);
+
                             dgvDetail.DataSource = tbWeight.SELECT_SUCCESS();
                         }
                         else
