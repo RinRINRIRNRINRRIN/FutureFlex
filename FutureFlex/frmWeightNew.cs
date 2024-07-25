@@ -99,7 +99,7 @@ namespace FutureFlex
             Log.Information("== เครีย์ Form สำเร็จ");
         }
 
-        void SetPaper()
+        void SetPaperAndPrint()
         {
             Log.Information("== ตั้งค่ากระดาษ");
             // Set paper 
@@ -162,6 +162,7 @@ namespace FutureFlex
         /// <param name="seq"></param>
         void DefinePrintParameter()
         {
+
             // Print paper
             func_print._seq = tbWeightDetail.seq;
             func_print._statusType = statusType;
@@ -401,7 +402,7 @@ namespace FutureFlex
                         tbWeightDetail.seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
                         tbWeightDetail.lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
                         DefinePrintParameter();
-                        SetPaper();
+                        SetPaperAndPrint();
                         break;
                 }
             }
@@ -466,16 +467,13 @@ namespace FutureFlex
             if (isEdit) // UDPATE
             {
                 #region UPDATE
-                if (tbWeightDetail.UPDATE(_id.ToString(), decimal.Parse(net), decimal.Parse(tare), decimal.Parse(gross)))
+                tb = tbWeightDetail.UPDATE(_id.ToString(), decimal.Parse(net), decimal.Parse(tare), decimal.Parse(gross));
+                if (tb.Rows.Count != 0)
                 {
                     isEdit = false;
                     _id = 0;
-                    tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
-                    BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        dgvDetail.Enabled = true;
-                        dgvDetail.DataSource = tb;
-                    }));
+
+
                 }
                 else
                 {
@@ -489,7 +487,6 @@ namespace FutureFlex
             }
             else // INSERT
             {
-                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
                 // เช็คว่าครบจำนวนที่จะต้องชั่งหรือยัง
                 if (tbWeightDetail.PO != "JIT" && tbWeightDetail.PO != "ไม่มี PO")
                 {
@@ -521,25 +518,14 @@ namespace FutureFlex
 
 
                 #region SAVE DATA
-                string _seq = Convert.ToString(tb.Rows.Count + 1);
-                //switch (_seq.Length)
-                //{
-                //    case 1:
-                //        _seq = $"00{_seq}";
-                //        break;
-                //    case 2:
-                //        _seq = $"0{_seq}";
-                //        break;
-                //}
-
 
                 string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string _Time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
-                string _lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}{_seq}";
+                string _lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}";
 
 
                 // insert new data
-                tbWeightDetail.seq = _seq;
+                //tbWeightDetail.seq = _seq;
                 tbWeightDetail.net = decimal.Parse(lbNetWgh.Text);
                 tbWeightDetail.tare = decimal.Parse(lbTareWgh.Text);
                 tbWeightDetail.gross = decimal.Parse(lbGrossWgh.Text);
@@ -562,8 +548,9 @@ namespace FutureFlex
                 }
 
                 tbWeightDetail.lot = _lot;
+                tb = tbWeightDetail.INSERT_DATA();
                 // บันทึกข้อมูล
-                if (!tbWeightDetail.INSERT_DATA())
+                if (tb.Rows.Count == 0)
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
@@ -571,20 +558,39 @@ namespace FutureFlex
                     }));
                     return;
                 }
-
-                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
-                BeginInvoke(new MethodInvoker(delegate ()
-                {
-                    dgvDetail.DataSource = tb;
-                }));
                 #endregion
             }
-            #region Print Data
-            DefinePrintParameter();
-            // Print Sticker
-            SetPaper();
-            #endregion
 
+            foreach (DataRow rw in tb.Rows)
+            {
+                func_print._seq = rw["wdt_seq"].ToString();
+                func_print._statusType = statusType;
+                func_print._net = lbNetWgh.Text;
+                func_print._numBox = txtNumBox.Text;
+                func_print._numRoll = txtNumRoll.Text;
+                func_print._numMeter = txtNunMeter.Text;
+                func_print._pchBox = txtPchBox.Text;
+                func_print._pchRoll = txtPchRoll.Text;
+                func_print._wghPaper = txtWghPaper.Text;
+                func_print._wghCore = txtWghCors.Text;
+                func_print.pictureBox1 = pictureBox1;
+                func_print._operator = txtOperator.Text;
+                func_print._lot = rw["wdt_lot"].ToString();
+                break;
+            }
+            #region Print Data
+            //DefinePrintParameter();
+            // Print Sticker
+            SetPaperAndPrint();
+
+            // แสดงข้อมูล
+            tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            BeginInvoke(new MethodInvoker(delegate ()
+            {
+                dgvDetail.DataSource = tb;
+                dgvDetail.Enabled = true;
+            }));
+            #endregion
         }
         //============================================================================================================================================================= End  input data form RS232
         #endregion
@@ -593,18 +599,22 @@ namespace FutureFlex
         {
             Guna2TextBox txt = sender as Guna2TextBox;
 
-            if (tbWeightDetail.PO == "JIT" && tbWeightDetail.PO == "ไม่มี PO")  // หากผู้ใช้เลือก JIT จะไม่สามารถคีย์ จำนวนกล่องจำนวนม้วนได้
+            if (tbWeightDetail.PO == "JIT" || tbWeightDetail.PO == "ไม่มี PO")  // หากผู้ใช้เลือก JIT จะไม่สามารถคีย์ จำนวนกล่องจำนวนม้วนได้
             {
                 switch (txt.Name)
                 {
                     case "txtNumBox":
                         sb.Show(this, "กรณีเลือกงานกล่อง ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                        return;
+                        break;
                     case "txtNumRoll":
                         sb.Show(this, "กรณีเลือกงานม้วน ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                        return;
+                        break;
                 }
+                txt.Text = "0";
+                e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
+                return;
             }
+
 
             // ตรวจสอบว่าตัวอักษรที่ผู้ใช้ป้อนเป็นตัวเลขหรือจุดทศนิยมหรือไม่
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
