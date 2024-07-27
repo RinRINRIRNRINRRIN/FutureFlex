@@ -454,7 +454,7 @@ namespace FutureFlex
             this.cbbPO.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPO.ForeColor = System.Drawing.Color.Black;
             this.cbbPO.ItemHeight = 30;
-            this.cbbPO.Location = new System.Drawing.Point(334, 47);
+            this.cbbPO.Location = new System.Drawing.Point(335, 48);
             this.cbbPO.Name = "cbbPO";
             this.cbbPO.Size = new System.Drawing.Size(229, 36);
             this.cbbPO.TabIndex = 1;

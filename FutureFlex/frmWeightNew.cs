@@ -432,9 +432,9 @@ namespace FutureFlex
             Log.Information($"- TARE {b[3]}");
             Log.Information($"- GROSS {b[4]}");
 
-            string net = b[2];
-            string tare = b[3];
-            string gross = b[4];
+            string net = b[2].Trim();
+            string tare = b[3].Trim();
+            string gross = b[4].Trim();
 
             // สดงข้อมูลน้ำหนักที่อ่านมาได้
             BeginInvoke(new MethodInvoker(delegate ()
@@ -605,14 +605,15 @@ namespace FutureFlex
                 {
                     case "txtNumBox":
                         sb.Show(this, "กรณีเลือกงานกล่อง ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        txt.Text = "0";
+                        e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
                         break;
                     case "txtNumRoll":
                         sb.Show(this, "กรณีเลือกงานม้วน ไม่สามารถคีย์จำนวนม้วนได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        txt.Text = "0";
+                        e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
                         break;
                 }
-                txt.Text = "0";
-                e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
-                return;
             }
 
 
