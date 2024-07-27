@@ -40,10 +40,27 @@ namespace FutureFlex.SQL
         static SqlCommand cmd;
         static SqlDataAdapter da;
         static DataTable tb;
-
+        public static string ERR { get; set; }
 
 
         #region SELECT
+        public static DataTable SELECT_PRIVILAGE(string _employee)
+        {
+            try
+            {
+                sqlstr = $"SELECT * FROM tbPrivilage WHERE pri_employeeID ='{_employee}'";
+                da = new SqlDataAdapter(sqlstr, server.con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception ex)
+            {
+                ERR = ex.Message;
+                return tb;
+            }
+            return tb;
+        }
+
 
         /// <summary>
         /// สำหรับเช็ค สิทธืทุกเมนูเมื่อ login
