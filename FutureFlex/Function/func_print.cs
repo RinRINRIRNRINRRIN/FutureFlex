@@ -84,8 +84,7 @@ namespace FutureFlex.Function
                     e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
                     e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
                     e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
-                    e.Graphics.DrawString($"[ใบสั่งงาน] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 80));
-                    e.Graphics.DrawString($"{MRP.name}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(70, 80));
+                    e.Graphics.DrawString($"{_lot}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(0, 80));
 
 
                     switch (_statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
