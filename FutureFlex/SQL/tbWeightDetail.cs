@@ -104,10 +104,31 @@ namespace FutureFlex.SQL
 
 
         /// <summary>
+        /// แสดงข้อมูล PO ที่ยังไม่ปร้ิน
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SELECT_PO_NOT_PRINT()
+        {
+            try
+            {
+                sql = $"SELECT * FROM {tbName} WHERE wdt_printed = 'NOT PRINT'";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception ex)
+            {
+                ERR = ex.Message;
+                return tb;
+            }
+            return tb;
+        }
+
+        /// <summary>
         /// สำหรับแสดงข้อมูล PO ที่มีการส่งข้อมูลไปหา Odoo เรียบร้อย หน้า Repinrt พร้อมที่จะ reprint
         /// </summary>
         /// <returns></returns>
-        public static DataTable SELECT_PO_SUCCESS_ODOO()
+        public static DataTable SELECT_PO_SUCCESS_ODOO_AND_NOT_REPRINT()
         {
             try
             {
@@ -165,7 +186,6 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
                 sql = "InsertWithSeq";
                 Log.Information($"-- ชื่อ GV : {MRP.name}");
                 Log.Information($"-- po : {PO}");
-                Log.Information($"-- ลำดับที่ : {seq}");
                 Log.Information($"-- ประเทศ : {country}");
                 Log.Information($"-- ประเภท : {type}");
                 Log.Information($"-- ด้าน : {side}");
