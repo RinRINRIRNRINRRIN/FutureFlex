@@ -1,5 +1,4 @@
-﻿using Bunifu.UI.WinForms;
-using FutureFlex.SQL;
+﻿using FutureFlex.SQL;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Data;
@@ -20,24 +19,6 @@ namespace FutureFlex
 
             this.reportViewer1.RefreshReport();
         }
-
-        string statusOdoo = ""; // keep data search
-
-
-        private void RAIDO_BUTTON_CHECK(object sender, Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs e)
-        {
-            BunifuRadioButton rdb = sender as BunifuRadioButton;
-            switch (rdb.Tag)
-            {
-                case "NOTSEND":
-                    statusOdoo = "NOTSEND";
-                    break;
-                case "SEND":
-                    statusOdoo = "SEND";
-                    break;
-            }
-        }
-
 
         private void cbbPO_DropDown(object sender, EventArgs e)
         {
@@ -99,9 +80,11 @@ namespace FutureFlex
                 string _tare = rw["wdt_tare"].ToString();
                 string _gross = rw["wdt_gross"].ToString();
                 string _lot = rw["wdt_lot"].ToString();
+                string _employee = rw["wdt_employee"].ToString();
+
                 totalPch = totalPch + double.Parse(rw["wdt_pch"].ToString());
                 totalNet = totalNet + double.Parse(rw["wdt_net"].ToString());
-                dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, _tare, _gross, _lot);
+                dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, _tare, _gross, _lot, _employee);
             }
             totalList = tb.Rows.Count;
 

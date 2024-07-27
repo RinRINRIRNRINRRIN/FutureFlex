@@ -36,15 +36,9 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rdbSend = new Bunifu.UI.WinForms.BunifuRadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rdbNotSend = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.sb = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.gbMain.SuspendLayout();
-            this.bunifuGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2NotificationPaint1
@@ -83,7 +77,6 @@
             this.gbMain.BorderColor = System.Drawing.Color.Navy;
             this.gbMain.BorderRadius = 6;
             this.gbMain.Controls.Add(this.cbbPO);
-            this.gbMain.Controls.Add(this.bunifuGroupBox1);
             this.gbMain.Controls.Add(this.reportViewer1);
             this.gbMain.Controls.Add(this.label1);
             this.gbMain.Controls.Add(this.guna2ControlBox1);
@@ -115,86 +108,6 @@
             this.cbbPO.TabIndex = 18;
             this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
             this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
-            // 
-            // bunifuGroupBox1
-            // 
-            this.bunifuGroupBox1.BorderColor = System.Drawing.Color.Navy;
-            this.bunifuGroupBox1.BorderRadius = 6;
-            this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(this.label3);
-            this.bunifuGroupBox1.Controls.Add(this.rdbSend);
-            this.bunifuGroupBox1.Controls.Add(this.label2);
-            this.bunifuGroupBox1.Controls.Add(this.rdbNotSend);
-            this.bunifuGroupBox1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.bunifuGroupBox1.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox1.LabelIndent = 10;
-            this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox1.Location = new System.Drawing.Point(298, 64);
-            this.bunifuGroupBox1.Name = "bunifuGroupBox1";
-            this.bunifuGroupBox1.Size = new System.Drawing.Size(308, 50);
-            this.bunifuGroupBox1.TabIndex = 17;
-            this.bunifuGroupBox1.TabStop = false;
-            this.bunifuGroupBox1.Text = "ค้นหา";
-            this.bunifuGroupBox1.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(190, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "รายการที่ส่งแล้ว";
-            // 
-            // rdbSend
-            // 
-            this.rdbSend.AllowBindingControlLocation = false;
-            this.rdbSend.BackColor = System.Drawing.Color.Transparent;
-            this.rdbSend.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            this.rdbSend.BorderThickness = 1;
-            this.rdbSend.Checked = false;
-            this.rdbSend.Location = new System.Drawing.Point(162, 22);
-            this.rdbSend.Name = "rdbSend";
-            this.rdbSend.OutlineColor = System.Drawing.Color.DodgerBlue;
-            this.rdbSend.OutlineColorTabFocused = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.rdbSend.OutlineColorUnchecked = System.Drawing.Color.DarkGray;
-            this.rdbSend.RadioColor = System.Drawing.Color.DodgerBlue;
-            this.rdbSend.RadioColorTabFocused = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.rdbSend.Size = new System.Drawing.Size(20, 20);
-            this.rdbSend.TabIndex = 2;
-            this.rdbSend.Tag = "SEND";
-            this.rdbSend.Text = null;
-            this.rdbSend.CheckedChanged2 += new System.EventHandler<Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs>(this.RAIDO_BUTTON_CHECK);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "รายการที่ยังค้างส่ง";
-            // 
-            // rdbNotSend
-            // 
-            this.rdbNotSend.AllowBindingControlLocation = false;
-            this.rdbNotSend.BackColor = System.Drawing.Color.Transparent;
-            this.rdbNotSend.BindingControlPosition = Bunifu.UI.WinForms.BunifuRadioButton.BindingControlPositions.Right;
-            this.rdbNotSend.BorderThickness = 1;
-            this.rdbNotSend.Checked = true;
-            this.rdbNotSend.Location = new System.Drawing.Point(8, 22);
-            this.rdbNotSend.Name = "rdbNotSend";
-            this.rdbNotSend.OutlineColor = System.Drawing.Color.DodgerBlue;
-            this.rdbNotSend.OutlineColorTabFocused = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.rdbNotSend.OutlineColorUnchecked = System.Drawing.Color.DarkGray;
-            this.rdbNotSend.RadioColor = System.Drawing.Color.DodgerBlue;
-            this.rdbNotSend.RadioColorTabFocused = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.rdbNotSend.Size = new System.Drawing.Size(20, 20);
-            this.rdbNotSend.TabIndex = 0;
-            this.rdbNotSend.Tag = "NOTSEND";
-            this.rdbNotSend.Text = null;
-            this.rdbNotSend.CheckedChanged2 += new System.EventHandler<Bunifu.UI.WinForms.BunifuRadioButton.CheckedChangedEventArgs>(this.RAIDO_BUTTON_CHECK);
             // 
             // reportViewer1
             // 
@@ -292,8 +205,6 @@
             this.Load += new System.EventHandler(this.frmPrint_Load);
             this.gbMain.ResumeLayout(false);
             this.gbMain.PerformLayout();
-            this.bunifuGroupBox1.ResumeLayout(false);
-            this.bunifuGroupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -306,11 +217,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2GroupBox gbMain;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
-        private System.Windows.Forms.Label label3;
-        private Bunifu.UI.WinForms.BunifuRadioButton rdbSend;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.UI.WinForms.BunifuRadioButton rdbNotSend;
         private Bunifu.UI.WinForms.BunifuSnackbar sb;
         private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
     }
