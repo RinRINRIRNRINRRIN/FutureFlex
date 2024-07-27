@@ -69,8 +69,8 @@ namespace FutureFlex
 
         void ShowData()
         {
-            tbWeightDetail.PO = txtPO.Text.Trim();
-            DataTable tb = tbWeightDetail.SELECT_PO_SUCCESS_ODOO();
+            tbWeightDetail.PO = cbbPO.Text.Trim();
+            DataTable tb = tbWeightDetail.SELECT_PO_SUCCESS_ODOO_AND_NOT_REPRINT();
             // เช็คว่ามีข้อมูลหรือไม่
             if (tb.Rows.Count == 0)
             {
@@ -94,21 +94,6 @@ namespace FutureFlex
                 }
             }
         }
-
-        private void txtPO_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (txtPO.Text == "JIT")
-                {
-                    sb.Show(this, "ไม่สามารถ reprint jit", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                    return;
-                }
-                // แสดงข้อมูล PO ที่ส่งไปหา Odoo เรียบร้ิยแล้ว
-                ShowData();
-            }
-        }
-
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             try
@@ -292,6 +277,44 @@ namespace FutureFlex
                     }
                 }
             }
+        }
+
+        private void cbbPO_DropDown(object sender, EventArgs e)
+        {
+            cbbPO.Items.Clear();
+            DataTable tb = tbWeightDetail.SELECT_PO_NOT_PRINT();
+
+            string _opNew = "";
+            string _poOld = "";
+
+            foreach (DataRow rw in tb.Rows)
+            {
+                _opNew = rw["wdt_po"].ToString();
+
+                bool isSame = false;
+                for (int i = 0; i < cbbPO.Items.Count; i++)
+                {
+                    if (_opNew == cbbPO.Items[i].ToString())
+                    {
+                        isSame = true;
+                    }
+                }
+                if (!isSame)
+                {
+                    cbbPO.Items.Add(_opNew);
+                }
+            }
+        }
+
+        private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbPO.Text == "JIT")
+            {
+                sb.Show(this, "ไม่สามารถ reprint jit", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                return;
+            }
+            // แสดงข้อมูล PO ที่ส่งไปหา Odoo เรียบร้ิยแล้ว
+            ShowData();
         }
     }
 }

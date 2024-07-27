@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReprintJIT));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbPrint = new Bunifu.UI.WinForms.BunifuCheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -43,7 +44,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtLot = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblQRCODE = new System.Windows.Forms.Label();
-            this.txtPO = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -75,7 +75,8 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,13 +89,14 @@
             this.guna2GroupBox1.BackColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Navy;
             this.guna2GroupBox1.BorderRadius = 6;
+            this.guna2GroupBox1.Controls.Add(this.label2);
+            this.guna2GroupBox1.Controls.Add(this.cbbPO);
             this.guna2GroupBox1.Controls.Add(this.label1);
             this.guna2GroupBox1.Controls.Add(this.cbPrint);
             this.guna2GroupBox1.Controls.Add(this.groupBox2);
             this.guna2GroupBox1.Controls.Add(this.pictureBox1);
             this.guna2GroupBox1.Controls.Add(this.txtLot);
             this.guna2GroupBox1.Controls.Add(this.lblQRCODE);
-            this.guna2GroupBox1.Controls.Add(this.txtPO);
             this.guna2GroupBox1.Controls.Add(this.guna2ControlBox1);
             this.guna2GroupBox1.Controls.Add(this.bunifuGroupBox1);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Navy;
@@ -106,6 +108,17 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(822, 849);
             this.guna2GroupBox1.TabIndex = 0;
             this.guna2GroupBox1.Text = "Reprint JIT";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 33);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "DATA : ";
             // 
             // cbPrint
             // 
@@ -202,7 +215,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(30, 62);
+            this.pictureBox1.Location = new System.Drawing.Point(767, 162);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,7 +238,7 @@
             this.txtLot.ForeColor = System.Drawing.Color.Black;
             this.txtLot.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLot.IconRight = ((System.Drawing.Image)(resources.GetObject("txtLot.IconRight")));
-            this.txtLot.Location = new System.Drawing.Point(131, 106);
+            this.txtLot.Location = new System.Drawing.Point(131, 108);
             this.txtLot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLot.MaxLength = 28;
             this.txtLot.Name = "txtLot";
@@ -245,37 +258,11 @@
             this.lblQRCODE.AutoSize = true;
             this.lblQRCODE.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQRCODE.ForeColor = System.Drawing.Color.Black;
-            this.lblQRCODE.Location = new System.Drawing.Point(12, 109);
+            this.lblQRCODE.Location = new System.Drawing.Point(12, 111);
             this.lblQRCODE.Name = "lblQRCODE";
             this.lblQRCODE.Size = new System.Drawing.Size(112, 33);
             this.lblQRCODE.TabIndex = 5;
             this.lblQRCODE.Text = "QRCODE : ";
-            // 
-            // txtPO
-            // 
-            this.txtPO.BorderColor = System.Drawing.Color.Navy;
-            this.txtPO.BorderRadius = 6;
-            this.txtPO.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPO.DefaultText = "";
-            this.txtPO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPO.Font = new System.Drawing.Font("Athiti Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPO.ForeColor = System.Drawing.Color.Black;
-            this.txtPO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPO.Location = new System.Drawing.Point(14, 47);
-            this.txtPO.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtPO.Name = "txtPO";
-            this.txtPO.PasswordChar = '\0';
-            this.txtPO.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtPO.PlaceholderText = "กรอกเลขที่ PO (กด Enter เพื่อค้นหา)";
-            this.txtPO.SelectedText = "";
-            this.txtPO.Size = new System.Drawing.Size(531, 52);
-            this.txtPO.TabIndex = 4;
-            this.txtPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPO_KeyDown);
             // 
             // guna2ControlBox1
             // 
@@ -338,22 +325,22 @@
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgvDetail.ColumnHeadersHeight = 50;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -380,32 +367,32 @@
             this.cl_wgh_date,
             this.cl_wdt_print,
             this.cl_wgh_operator});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
             this.dgvDetail.Location = new System.Drawing.Point(6, 32);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
@@ -634,16 +621,35 @@
             this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
             this.guna2AnimateWindow1.TargetForm = this;
             // 
-            // label1
+            // cbbPO
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 162);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 33);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "DATA : ";
+            this.cbbPO.BackColor = System.Drawing.Color.Transparent;
+            this.cbbPO.BorderColor = System.Drawing.Color.Navy;
+            this.cbbPO.BorderRadius = 6;
+            this.cbbPO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbPO.Font = new System.Drawing.Font("Athiti Medium", 18F, System.Drawing.FontStyle.Bold);
+            this.cbbPO.ForeColor = System.Drawing.Color.Black;
+            this.cbbPO.ItemHeight = 30;
+            this.cbbPO.Location = new System.Drawing.Point(18, 64);
+            this.cbbPO.Name = "cbbPO";
+            this.cbbPO.Size = new System.Drawing.Size(527, 36);
+            this.cbbPO.TabIndex = 54;
+            this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
+            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(14, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 21);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "เลือก PO ที่ต้องการ reprint";
             // 
             // frmReprintJIT
             // 
@@ -676,7 +682,6 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txtPO;
         private System.Windows.Forms.Label lblQRCODE;
         private System.Windows.Forms.DataGridView dgvDetail;
         private Guna.UI2.WinForms.Guna2TextBox txtLot;
@@ -713,5 +718,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_operator;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
+        private System.Windows.Forms.Label label2;
     }
 }
