@@ -25,6 +25,8 @@ namespace FutureFlex
 
         async Task SHOW_CENTER_SCREEN(Guna2GroupBox gb)
         {
+            // คืนค่าปุ่ม
+            ClearFromMenuAndDetail();
             int x = (gbMain.Width - gb.Width) / 2;
             int y = (gbMain.Height - gb.Height) / 2;
             gb.Location = new System.Drawing.Point(x, y);
@@ -33,6 +35,87 @@ namespace FutureFlex
         }
 
 
+        /// <summary>
+        /// เครียข้อมูลเมนู
+        /// </summary>
+        void ClearFromMenuAndDetail()
+        {
+            // คืนค่า CheckBox
+            foreach (Guna2CheckBox cb in gbPrivilage.Controls.OfType<Guna2CheckBox>())
+            {
+                cb.Checked = false;
+            }
+            // คืนค่า toggle switch
+            foreach (BunifuToggleSwitch tgb in gbPrivilage.Controls.OfType<BunifuToggleSwitch>())
+            {
+                tgb.Checked = false;
+            }
+        }
+
+        /// <summary>
+        /// เครียข้อมูลช่องผู้ใช้งาน
+        /// </summary>
+        void ClearTextBoxUser()
+        {
+            foreach (Guna2TextBox txt in gbEmployee.Controls.OfType<Guna2TextBox>())
+            {
+                txt.Clear();
+            }
+        }
+
+        void CheckPrivilate(string _employee)
+        {
+            DataTable tb = tbPrivilage.SELECT_PRIVILAGE(_employee);
+
+            foreach (DataRow rw in tb.Rows)
+            {
+                string menuName = rw["pri_menu"].ToString();
+                string _add = rw["pri_add"].ToString();
+                string _edit = rw["pri_edit"].ToString();
+                string _del = rw["pri_del"].ToString();
+
+                // Check menu
+                switch (menuName)
+                {
+                    case "setting":
+                        cbSetting.Checked = true;
+                        break;
+                    case "reprintJIT":
+                        cbReprintJIT.Checked = true;
+                        break;
+                    case "history":
+                        cbHistory.Checked = true;
+                        break;
+                    case "account":
+                        cbAccount.Checked = true;
+                        if (_add == "True")
+                        {
+                            tgsAccAdd.Checked = true;
+                            tgsAccPri.Checked = true;
+                        }
+                        if (_edit == "True")
+                        {
+                            tgsAccEdit.Checked = true;
+                        }
+                        if (_del == "True")
+                        {
+                            tgsAccDel.Checked = true;
+                        }
+                        break;
+                    case "weight":
+                        cbWeight.Checked = true;
+                        if (_edit == "True")
+                        {
+                            tgsAccEdit.Checked = true;
+                        }
+                        if (_del == "True")
+                        {
+                            tgsAccDel.Checked = true;
+                        }
+                        break;
+                }
+            }
+        }
 
         private void frmPrivilage_Load(object sender, EventArgs e)
         {
@@ -48,8 +131,6 @@ namespace FutureFlex
                     dgvEmployee.Columns["cl_privilage"].Visible = true;
                 }
             }
-
-
 
             dgvEmployee.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12, System.Drawing.FontStyle.Regular);
             dgvEmployee.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12, System.Drawing.FontStyle.Regular);
@@ -163,7 +244,7 @@ namespace FutureFlex
 
 
                     }
-
+                    ClearTextBoxUser();
                     break;
                 case "privilage":
 
@@ -222,6 +303,7 @@ namespace FutureFlex
                     gbPrivilage.Visible = false;
                     pnDetail.Visible = true;
                     emp_username = null;
+                    ClearFromMenuAndDetail();
 
                     sk.Show(this, "กำหนดสิทธิ์การใช้งานสำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     break;
@@ -291,85 +373,87 @@ namespace FutureFlex
                             sk.Show(this, "ไม่สามารถ ลบ, แก้ไข หรือ กำหนสิทธื์การใช้งาน กับสิทธิ์สุงสุดของระบบได้ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                             return;
                         }
-
                         pnDetail.Visible = false;
                         await SHOW_CENTER_SCREEN(gbPrivilage);
-                        emp_username = username;
-                        // เช็คว่ามีสิทธิ์ในระบบหรือไม่
-                        if (tbPrivilage.CheckPrivilage(emp_username))
-                        {
-                            DataTable tb = new DataTable();
-                            for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
-                            {
-                                string _menuName = tbPrivilage.menuPrivilage[i];
-                                switch (_menuName)
-                                {
-                                    case "account":
-                                        cbAccount.Checked = true;
-                                        tb = tbPrivilage.CheckPrivilageMenu(emp_username, _menuName);
-                                        if (tb.Rows.Count != 0)
-                                        {
-                                            foreach (DataRow rw in tb.Rows)
-                                            {
-                                                string add = rw["pri_add"].ToString();
-                                                string edit = rw["pri_edit"].ToString();
-                                                string del = rw["pri_del"].ToString();
+                        CheckPrivilate(username);
+                        //emp_username = username;
+                        //// เช็คว่ามีสิทธิ์ในระบบหรือไม่
+                        //if (tbPrivilage.CheckPrivilage(emp_username))
+                        //{
+                        //    DataTable tb = new DataTable();
+                        //    for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+                        //    {
+                        //        string _menuName = tbPrivilage.menuPrivilage[i];
+                        //        switch (_menuName)
+                        //        {
+                        //            case "account":
+                        //                cbAccount.Checked = true;
+                        //                tb = tbPrivilage.CheckPrivilageMenu(emp_username, _menuName);
+                        //                if (tb.Rows.Count != 0)
+                        //                {
+                        //                    foreach (DataRow rw in tb.Rows)
+                        //                    {
+                        //                        string add = rw["pri_add"].ToString();
+                        //                        string edit = rw["pri_edit"].ToString();
+                        //                        string del = rw["pri_del"].ToString();
 
-                                                if (add == "True")
-                                                {
-                                                    tgsAccAdd.Checked = true;
-                                                }
-                                                if (edit == "True")
-                                                {
-                                                    tgsWghDel.Checked = true;
-                                                }
+                        //                        if (add == "True")
+                        //                        {
+                        //                            tgsAccAdd.Checked = true;
+                        //                        }
+                        //                        if (edit == "True")
+                        //                        {
+                        //                            tgsWghDel.Checked = true;
+                        //                        }
 
-                                                if (del == "True")
-                                                {
-                                                    tgsWghEdit.Checked = true;
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    case "privilage":
-                                        tgsAccPri.Checked = true;
-                                        break;
-                                    case "setting":
-                                        cbSetting.Checked = true;
-                                        break;
-                                    case "weight":
-                                        cbWeight.Checked = true;
-                                        tb = tbPrivilage.CheckPrivilageMenu(emp_username, _menuName);
-                                        if (tb.Rows.Count != 0)
-                                        {
-                                            foreach (DataRow rw in tb.Rows)
-                                            {
-                                                string edit = rw["pri_edit"].ToString();
-                                                string del = rw["pri_del"].ToString();
+                        //                        if (del == "True")
+                        //                        {
+                        //                            tgsWghEdit.Checked = true;
+                        //                        }
+                        //                    }
+                        //                }
+                        //                break;
+                        //            case "privilage":
+                        //                tgsAccPri.Checked = true;
+                        //                break;
+                        //            case "setting":
+                        //                cbSetting.Checked = true;
+                        //                break;
+                        //            case "weight":
+                        //                cbWeight.Checked = true;
+                        //                tb = tbPrivilage.CheckPrivilageMenu(emp_username, _menuName);
+                        //                if (tb.Rows.Count != 0)
+                        //                {
+                        //                    foreach (DataRow rw in tb.Rows)
+                        //                    {
+                        //                        string edit = rw["pri_edit"].ToString();
+                        //                        string del = rw["pri_del"].ToString();
 
-                                                if (edit == "True")
-                                                {
-                                                    tgsWghDel.Checked = true;
-                                                }
+                        //                        if (edit == "True")
+                        //                        {
+                        //                            tgsWghDel.Checked = true;
+                        //                        }
 
-                                                if (del == "True")
-                                                {
-                                                    tgsWghEdit.Checked = true;
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    case "reprintJIT":
-                                        cbReprintJIT.Checked = true;
-                                        break;
-                                    case "history":
-                                        cbHistory.Checked = true;
-                                        break;
-                                }
-                            }
-                        }
+                        //                        if (del == "True")
+                        //                        {
+                        //                            tgsWghEdit.Checked = true;
+                        //                        }
+                        //                    }
+                        //                }
+                        //                break;
+                        //            case "reprintJIT":
+                        //                cbReprintJIT.Checked = true;
+                        //                break;
+                        //            case "history":
+                        //                cbHistory.Checked = true;
+                        //                break;
+                        //        }
+                        //    }
+                        //}
                         break;
                 }
+
+                emp_username = username;
             }
             catch (Exception)
             {
