@@ -675,7 +675,7 @@ namespace FutureFlex
                     if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
                     {
                         //บันทึกข้อมูลไปที่ tbWeight
-                        if (!tbWeight.INSERT_ALL_DATA(txtOperator.Text))
+                        if (!tbWeight.INSERT_ALL_DATA())
                         {
                             sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
                             return;
@@ -684,7 +684,7 @@ namespace FutureFlex
                     else // UPDATE
                     {
                         // อัพเดทข้อมูล
-                        if (!tbWeight.UPDATE_ALL_DATA(txtOperator.Text))
+                        if (!tbWeight.UPDATE_ALL_DATA())
                         {
                             sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
                             return;
