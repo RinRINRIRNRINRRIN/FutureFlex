@@ -20,9 +20,11 @@ namespace FutureFlex.API
         public static int mo_station_id { get; set; }
         public static string mo_station_name { get; set; }
         public static int partner_id { get; set; }
+
         public static string partner_name { get; set; }
         public static string customer_product_code { get; set; }
         public static int product_id { get; set; }  // รหัสสินค้า
+        public static double product_qty { get; set; } // จำนวนสั่งผลิต
         public static string default_code { get; set; }
         public static string product_name { get; set; }
         public static string mo_gusset { get; set; }
@@ -30,12 +32,17 @@ namespace FutureFlex.API
         public static string mo_film_total { get; set; }
         public static string mo_type { get; set; }  // ลักษณะงาน
         public static string mo_work { get; set; } // ขนาดสำเร็จ
-        public static double product_qty { get; set; }
         public static double done_qty { get; set; }
         public static double manufactured_qty { get; set; }
         public static double pending_qty { get; set; }
         public static int product_uom_id { get; set; }
         public static string product_uom_name { get; set; }  // หน่วยงาน
+
+        public static double mo_po_qty { get; set; } // จำนวนสั้งซื้อ
+        public static string uom_id { get; set; } // หน่วย FG(สั่งซื้อ)
+        public static double mo_po_new { get; set; } // จำนวนสั่งซื้อ (ใบ)
+        public static double mo_order_qty { get; set; } // จำนวนสั่งซื้อ (ใบ) +%
+
 
         public static string err { get; set; }
 
@@ -150,6 +157,10 @@ namespace FutureFlex.API
                     pending_qty = (double)value["pending_qty"];
                     product_uom_id = (int)value["product_uom_id"];
                     product_uom_name = value["product_uom_name"].ToString();
+                    mo_po_qty = (double)value["mo_po_qty"];
+                    uom_id = value["uom_id"].ToString();
+                    mo_po_new = (double)value["mo_po_new"];
+                    mo_order_qty = (double)value["mo_order_qty"];
                 }
             }
             catch (System.Exception ex)
