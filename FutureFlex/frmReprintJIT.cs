@@ -1,9 +1,9 @@
 ﻿using Bunifu.UI.WinForms;
+using FutureFlex.Function;
 using FutureFlex.SQL;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
@@ -27,16 +27,11 @@ namespace FutureFlex
 
         void PrintData(string _lot)
         {
-            // Format Zebra
-            int widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
-            int heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
-
-            // Create a custom paper size
-            PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-            printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-
             if (cbPrint.Checked)
             {
+                // Set printer
+                func_print.SetPrinter(printDocument1, "PO");
+
                 foreach (DataGridViewRow rw in dgvDetail.Rows)
                 {
                     string lot = rw.Cells["cl_wdt_lot"].Value.ToString();
