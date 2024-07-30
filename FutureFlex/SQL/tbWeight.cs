@@ -134,13 +134,13 @@ namespace FutureFlex.SQL
         /// </summary>
         /// <param name="_operator">ผู้คุมเครื่อง</param>
         /// <returns></returns>
-        public static bool INSERT_ALL_DATA(string _operator)
+        public static bool INSERT_ALL_DATA()
         {
             try
             {
                 Log.Information($"== TBWEIGHT INSERTING");
-                sql = $"INSERT INTO {tbName} (wgh_GV,wgh_gvid,wgh_customer,wgh_customer_productID,wgh_productID,wgh_product,wgh_jobType,wgh_typeSuccess,wgh_structure,wgh_daliveryStation,wgh_date,wgh_dateDalivery,wgh_operator)" +
-                    $"VALUES(@wgh_GV,@wgh_gvid,@wgh_customer,@wgh_customer_productID,@wgh_productID,@wgh_product,@wgh_jobType,@wgh_typeSuccess,@wgh_structure,@wgh_daliveryStation,@wgh_date,@wgh_dateDalivery,@wgh_operator)";
+                sql = $"INSERT INTO {tbName} (wgh_GV,wgh_gvid,wgh_customer,wgh_customer_productID,wgh_productID,wgh_product,wgh_jobType,wgh_typeSuccess,wgh_structure,wgh_daliveryStation,wgh_date,wgh_dateDalivery)" +
+                    $"VALUES(@wgh_GV,@wgh_gvid,@wgh_customer,@wgh_customer_productID,@wgh_productID,@wgh_product,@wgh_jobType,@wgh_typeSuccess,@wgh_structure,@wgh_daliveryStation,@wgh_date,@wgh_dateDalivery)";
 
                 Log.Information($"- ชื่อ GV : {MRP.name} ");
                 Log.Information($"- เลขที่ GV :  {MRP.id}");
@@ -153,7 +153,6 @@ namespace FutureFlex.SQL
                 Log.Information($"- สถานที่จัดส่ง : {MRP.mo_station_name}");
                 Log.Information($"- วันที่จัดส่ง : {MRP.mo_date_delivery}");
                 Log.Information($"- วันที่ผลิต : {MRP.mo_date}");
-                Log.Information($"- ผู้คุมเครื่อง : {_operator}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("@wgh_GV", MRP.name));
@@ -168,7 +167,6 @@ namespace FutureFlex.SQL
                 cmd.Parameters.Add(new SqlParameter("@wgh_daliveryStation", MRP.mo_station_name));
                 cmd.Parameters.Add(new SqlParameter("@wgh_dateDalivery", MRP.mo_date_delivery));
                 cmd.Parameters.Add(new SqlParameter("@wgh_date", MRP.mo_date));
-                cmd.Parameters.Add(new SqlParameter("@wgh_operator", _operator));
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -189,7 +187,7 @@ namespace FutureFlex.SQL
         /// </summary>
         /// <param name="_operator">ผู้คุมเครื่อง</param>
         /// <returns></returns>
-        public static bool UPDATE_ALL_DATA(string _operator)
+        public static bool UPDATE_ALL_DATA()
         {
             try
             {
@@ -204,8 +202,7 @@ namespace FutureFlex.SQL
                     $" wgh_structure = @wgh_structure," +
                     $" wgh_daliveryStation = @wgh_daliveryStation," +
                     $" wgh_date = @wgh_date," +
-                    $" wgh_dateDalivery = @wgh_dateDalivery," +
-                    $" wgh_operator = @wgh_operator" +
+                    $" wgh_dateDalivery = @wgh_dateDalivery " +
                     $" WHERE wgh_GV = @wgh_GV";
 
                 Log.Information($"- ชื่อ GV : {MRP.name} ");
@@ -219,7 +216,6 @@ namespace FutureFlex.SQL
                 Log.Information($"- สถานที่จัดส่ง : {MRP.mo_station_name}");
                 Log.Information($"- วันที่จัดส่ง : {MRP.mo_date_delivery}");
                 Log.Information($"- วันที่ผลิต : {MRP.mo_date}");
-                Log.Information($"- ผู้คุมเครื่อง : {_operator}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.Parameters.Add(new SqlParameter("@wgh_productID", MRP.default_code));
@@ -232,7 +228,6 @@ namespace FutureFlex.SQL
                 cmd.Parameters.Add(new SqlParameter("@wgh_daliveryStation", MRP.mo_station_name));
                 cmd.Parameters.Add(new SqlParameter("@wgh_date", MRP.mo_date));
                 cmd.Parameters.Add(new SqlParameter("@wgh_dateDalivery", MRP.mo_date_delivery));
-                cmd.Parameters.Add(new SqlParameter("@wgh_operator", _operator));
                 cmd.Parameters.Add(new SqlParameter("@wgh_GV", MRP.name));
                 cmd.ExecuteNonQuery();
             }
