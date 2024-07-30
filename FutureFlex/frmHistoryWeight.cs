@@ -23,14 +23,23 @@ namespace FutureFlex
             dgvDetail.DefaultCellStyle.ForeColor = Color.Black;
         }
 
+
+        void ShowCountAndWeightTotal()
+        {
+            double totalWeight = 0;
+            foreach (DataGridViewRow rw in dgvDetail.Rows)
+            {
+                double _Count = double.Parse(rw.Cells["cl_net"].Value.ToString());
+                totalWeight = totalWeight + _Count;
+            }
+
+            lblTotalWeight.Text = totalWeight.ToString("F2");
+            lblTotol.Text = dgvDetail.Rows.Count.ToString();
+        }
+
         private void frmHistoryWeight_Load(object sender, EventArgs e)
         {
             dgvDetail.DataSource = tbWeight.SELECT_NOT_SUCCESS();
-        }
-
-        private async void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
 
@@ -119,7 +128,6 @@ namespace FutureFlex
                     // SEND DATA
                     if (await MRP.CREATE_MRP(gv_id, _wgh_id, _wgh_machineOperator, _wgh_county, _wgh_type, _wgh_side, _wgh_po, newDate, _wgh_net, _wgh_tare, _wgh_gross, _wgh_weightPaper, _wgh_weightCore, _wgh_joint, _pch, _wgh_weightRoll, _lot, _seq, count_total))
                     {
-
                         tbWeightDetail.UPDATE_STATUS_ODOO(_wgh_id);
                         rw.DefaultCellStyle.BackColor = Color.Green;
                         rw.DefaultCellStyle.ForeColor = Color.White;
@@ -132,6 +140,7 @@ namespace FutureFlex
                 }
                 await Task.Delay(500);
             }
+            ShowCountAndWeightTotal();
             DataTable tb1 = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
             dgvDetail.DataSource = tb1;
             bunifuButton1.Enabled = true;
@@ -165,10 +174,19 @@ namespace FutureFlex
             foreach (DataRow rw in tb.Rows)
             {
                 _opNew = rw["wdt_po"].ToString();
-                if (_opNew != _poOld)
+                bool isSame = false;
+
+                for (int i = 0; i < cbbPO.Items.Count; i++)
+                {
+                    if (_opNew == cbbPO.Items[i].ToString())
+                    {
+                        isSame = true;
+                    }
+                }
+
+                if (!isSame)
                 {
                     cbbPO.Items.Add(_opNew);
-                    _poOld = _opNew;
                 }
             }
         }
@@ -187,16 +205,7 @@ namespace FutureFlex
 
 
             // รวมจำนวนกล่องและน้ำหนักรวม
-            double totalCount = 0;
-            double totalWeight = 0;
-            foreach (DataGridViewRow rw in dgvDetail.Rows)
-            {
-                double _Count = double.Parse(rw.Cells["cl_net"].Value.ToString());
-                totalWeight = totalWeight + _Count;
-            }
-
-            lblTotalWeight.Text = totalWeight.ToString("F2");
-            lblTotol.Text = dgvDetail.Rows.Count.ToString();
+            ShowCountAndWeightTotal();
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
@@ -209,11 +218,6 @@ namespace FutureFlex
         {
             frmHistorySuccess frmHistorySuccess = new frmHistorySuccess();
             frmHistorySuccess.ShowDialog();
-        }
-
-        private void cbbPO_DropDownClosed(object sender, EventArgs e)
-        {
-
         }
     }
 }

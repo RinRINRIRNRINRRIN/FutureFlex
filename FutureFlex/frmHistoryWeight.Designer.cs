@@ -359,7 +359,6 @@ namespace FutureFlex
             this.cbbPO.TabIndex = 13;
             this.cbbPO.DropDown += new System.EventHandler(this.guna2ComboBox1_DropDown);
             this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
-            this.cbbPO.DropDownClosed += new System.EventHandler(this.cbbPO_DropDownClosed);
             // 
             // guna2ControlBox1
             // 
