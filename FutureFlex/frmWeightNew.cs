@@ -8,7 +8,6 @@ using Serilog;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
@@ -70,9 +69,12 @@ namespace FutureFlex
             gbData.CustomBorderColor = Color.Navy;
             gbData.BorderColor = Color.Navy;
 
-            foreach (var lbl in panel1.Controls.OfType<Label>())
+            foreach (var lbl in gbData.Controls.OfType<Label>())
             {
-                lbl.Text = "......";
+                if (lbl.Tag == "value")
+                {
+                    lbl.Text = "......";
+                }
             }
 
             foreach (var gbChilden in gbData.Controls.OfType<Guna.UI2.WinForms.Guna2GroupBox>())
@@ -101,40 +103,13 @@ namespace FutureFlex
 
         void SetPaperAndPrint()
         {
-            Log.Information("== ตั้งค่ากระดาษ");
+
             // Set paper 
             if (cbPrint.Checked)
             {
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
-                if (tbWeightDetail.PO == "JIT")
-                {
-                    // Convert millimeters to hundredths of an inch
-                    int widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
-                    int heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
 
-                    // Create a custom paper size
-                    PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                    printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-
-                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 55*50");
-                }
-                else
-                {
-                    // สำหรับเครื่อง TDP-247
-                    // Convert millimeters to hundredths of an inch
-                    //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
-                    //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                    // Convert millimeters to hundredths of an inch
-
-                    // สำหรับเครื่อง Zebra
-                    int widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                    int heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
-
-                    // Create a custom paper size
-                    PaperSize customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                    printDocument1.DefaultPageSettings.PaperSize = customPaperSize;
-                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
-                }
+                func_print.SetPrinter(printDocument1, tbWeightDetail.PO);
 
                 if (statusPrint) // AutoPrint
                 {
@@ -810,6 +785,9 @@ namespace FutureFlex
                 label21.Text = $"{MRP.mo_station_name}";
                 label23.Text = $"{MRP.mo_date_delivery}";
                 label31.Text = $"{MRP.mo_date}";
+                label41.Text = $"{MRP.mo_po_qty.ToString("#,###,###")}  ({MRP.uom_id})";
+                label40.Text = $"{MRP.mo_po_new.ToString("#,###,###")}";
+                label39.Text = $"{MRP.mo_order_qty.ToString("#,###,###")}";
 
                 DataTable tb = tbWeight.SELECT_SEARCH();
                 foreach (DataRow rw in tb.Rows)
@@ -844,11 +822,6 @@ namespace FutureFlex
                 sb.Show(this, "กรุณากรอกเฉพาะตัวเลข", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                 e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
             }
-        }
-
-        private void txtWghCors_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

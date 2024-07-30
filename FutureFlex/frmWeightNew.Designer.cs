@@ -53,8 +53,18 @@ namespace FutureFlex
             this.pnMain = new System.Windows.Forms.Panel();
             this.btnStart = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPchRoll = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,19 +82,14 @@ namespace FutureFlex
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.txtOperator = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtOperator = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.txtJobNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -153,7 +158,6 @@ namespace FutureFlex
             this.pnMain.SuspendLayout();
             this.gbData.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.gbSide.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -404,13 +408,27 @@ namespace FutureFlex
             // 
             this.gbData.BorderColor = System.Drawing.Color.Navy;
             this.gbData.BorderRadius = 8;
+            this.gbData.Controls.Add(this.label41);
+            this.gbData.Controls.Add(this.label40);
+            this.gbData.Controls.Add(this.label39);
+            this.gbData.Controls.Add(this.label38);
+            this.gbData.Controls.Add(this.label37);
+            this.gbData.Controls.Add(this.label36);
+            this.gbData.Controls.Add(this.label31);
             this.gbData.Controls.Add(this.label5);
+            this.gbData.Controls.Add(this.label7);
+            this.gbData.Controls.Add(this.label8);
             this.gbData.Controls.Add(this.cbbPO);
+            this.gbData.Controls.Add(this.label11);
             this.gbData.Controls.Add(this.panel2);
+            this.gbData.Controls.Add(this.label13);
             this.gbData.Controls.Add(this.label35);
+            this.gbData.Controls.Add(this.label15);
             this.gbData.Controls.Add(this.txtOperator);
-            this.gbData.Controls.Add(this.panel1);
+            this.gbData.Controls.Add(this.label17);
+            this.gbData.Controls.Add(this.label21);
             this.gbData.Controls.Add(this.txtJobNo);
+            this.gbData.Controls.Add(this.label23);
             this.gbData.Controls.Add(this.label14);
             this.gbData.Controls.Add(this.label22);
             this.gbData.Controls.Add(this.label24);
@@ -433,16 +451,121 @@ namespace FutureFlex
             this.gbData.Text = "รายละเอียดการชั่ง";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(130, 299);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(48, 25);
+            this.label41.TabIndex = 16;
+            this.label41.Tag = "value";
+            this.label41.Text = ".........";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(130, 324);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(48, 25);
+            this.label40.TabIndex = 15;
+            this.label40.Tag = "value";
+            this.label40.Text = ".........";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.Black;
+            this.label39.Location = new System.Drawing.Point(353, 324);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(48, 25);
+            this.label39.TabIndex = 14;
+            this.label39.Tag = "value";
+            this.label39.Text = ".........";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(240, 324);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(115, 25);
+            this.label38.TabIndex = 13;
+            this.label38.Text = "จำนวนใบ +% :";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(38, 324);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(86, 25);
+            this.label37.TabIndex = 12;
+            this.label37.Text = "จำนวนใบ :";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(17, 299);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(107, 25);
+            this.label36.TabIndex = 11;
+            this.label36.Text = "จำนวนสั่งซื้อ :";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.Black;
+            this.label31.Location = new System.Drawing.Point(353, 273);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(48, 25);
+            this.label31.TabIndex = 1;
+            this.label31.Tag = "value";
+            this.label31.Text = ".........";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(30, 319);
+            this.label5.Location = new System.Drawing.Point(273, 274);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 25);
+            this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 10;
             this.label5.Text = "วันที่ผลิต :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(130, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 25);
+            this.label7.TabIndex = 0;
+            this.label7.Tag = "value";
+            this.label7.Text = ".........";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(130, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 25);
+            this.label8.TabIndex = 0;
+            this.label8.Tag = "value";
+            this.label8.Text = ".........";
             // 
             // cbbPO
             // 
@@ -459,6 +582,18 @@ namespace FutureFlex
             this.cbbPO.Size = new System.Drawing.Size(229, 36);
             this.cbbPO.TabIndex = 1;
             this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(130, 147);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 25);
+            this.label11.TabIndex = 0;
+            this.label11.Tag = "value";
+            this.label11.Text = ".........";
             // 
             // panel2
             // 
@@ -596,7 +731,6 @@ namespace FutureFlex
             this.txtWghCors.TabIndex = 2;
             this.txtWghCors.Tag = "roll";
             this.txtWghCors.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtWghCors.TextChanged += new System.EventHandler(this.txtWghCors_TextChanged);
             this.txtWghCors.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
             // txtJoint
@@ -795,6 +929,18 @@ namespace FutureFlex
             this.label28.TabIndex = 0;
             this.label28.Text = "จำนวนเมตร";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(130, 173);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Tag = "value";
+            this.label13.Text = ".........";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -805,6 +951,18 @@ namespace FutureFlex
             this.label35.Size = new System.Drawing.Size(77, 25);
             this.label35.TabIndex = 0;
             this.label35.Text = "พนักงาน : ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(130, 198);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 25);
+            this.label15.TabIndex = 0;
+            this.label15.Tag = "value";
+            this.label15.Text = ".........";
             // 
             // txtOperator
             // 
@@ -832,97 +990,16 @@ namespace FutureFlex
             this.txtOperator.TabIndex = 9;
             this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label31);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Location = new System.Drawing.Point(111, 108);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(458, 249);
-            this.panel1.TabIndex = 0;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(3, 211);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(48, 25);
-            this.label31.TabIndex = 1;
-            this.label31.Text = ".........";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(3, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 25);
-            this.label7.TabIndex = 0;
-            this.label7.Text = ".........";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Text = ".........";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(3, 57);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 25);
-            this.label11.TabIndex = 0;
-            this.label11.Text = ".........";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(3, 83);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 25);
-            this.label13.TabIndex = 0;
-            this.label13.Text = ".........";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(3, 108);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 25);
-            this.label15.TabIndex = 0;
-            this.label15.Text = ".........";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(3, 133);
+            this.label17.Location = new System.Drawing.Point(130, 223);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(48, 25);
             this.label17.TabIndex = 0;
+            this.label17.Tag = "value";
             this.label17.Text = ".........";
             // 
             // label21
@@ -930,22 +1007,12 @@ namespace FutureFlex
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(3, 158);
+            this.label21.Location = new System.Drawing.Point(130, 248);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(48, 25);
             this.label21.TabIndex = 0;
+            this.label21.Tag = "value";
             this.label21.Text = ".........";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(3, 183);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 25);
-            this.label23.TabIndex = 0;
-            this.label23.Text = ".........";
             // 
             // txtJobNo
             // 
@@ -976,91 +1043,103 @@ namespace FutureFlex
             this.txtJobNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
             this.txtJobNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtJobNo_KeyPress);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(130, 273);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 25);
+            this.label23.TabIndex = 0;
+            this.label23.Tag = "value";
+            this.label23.Text = ".........";
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(31, 116);
+            this.label14.Location = new System.Drawing.Point(40, 98);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 25);
+            this.label14.Size = new System.Drawing.Size(84, 25);
             this.label14.TabIndex = 0;
             this.label14.Text = "เลขที่ GV :";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(24, 241);
+            this.label22.Location = new System.Drawing.Point(32, 223);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(81, 25);
+            this.label22.Size = new System.Drawing.Size(92, 25);
             this.label22.TabIndex = 0;
             this.label22.Text = "โครงสร้าง :";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(13, 191);
+            this.label24.Location = new System.Drawing.Point(20, 173);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(92, 25);
+            this.label24.Size = new System.Drawing.Size(104, 25);
             this.label24.TabIndex = 0;
             this.label24.Text = "ลักษณะงาน :";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(17, 216);
+            this.label25.Location = new System.Drawing.Point(23, 198);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(88, 25);
+            this.label25.Size = new System.Drawing.Size(101, 25);
             this.label25.TabIndex = 0;
             this.label25.Text = "ขนาดสำเร็จ :";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(51, 165);
+            this.label20.Location = new System.Drawing.Point(63, 147);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 25);
+            this.label20.Size = new System.Drawing.Size(61, 25);
             this.label20.TabIndex = 0;
             this.label20.Text = "สินค้า :";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(49, 140);
+            this.label19.Location = new System.Drawing.Point(62, 122);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(56, 25);
+            this.label19.Size = new System.Drawing.Size(62, 25);
             this.label19.TabIndex = 0;
             this.label19.Text = "บริษัท :";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(8, 266);
+            this.label18.Location = new System.Drawing.Point(15, 248);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 25);
+            this.label18.Size = new System.Drawing.Size(109, 25);
             this.label18.TabIndex = 0;
             this.label18.Text = "สถานที่จัดส่ง :";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(23, 292);
+            this.label16.Location = new System.Drawing.Point(34, 274);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(81, 25);
+            this.label16.Size = new System.Drawing.Size(90, 25);
             this.label16.TabIndex = 0;
             this.label16.Text = "วันที่จัดส่ง :";
             // 
@@ -1780,8 +1859,6 @@ namespace FutureFlex
             this.gbData.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.gbSide.ResumeLayout(false);
             this.gbSide.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1851,7 +1928,6 @@ namespace FutureFlex
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label35;
         private Guna.UI2.WinForms.Guna2TextBox txtOperator;
         private System.Windows.Forms.Panel panel2;
@@ -1899,5 +1975,11 @@ namespace FutureFlex
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numroll;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
     }
 }
