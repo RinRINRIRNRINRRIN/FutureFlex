@@ -1,5 +1,6 @@
 ﻿using FutureFlex.API;
 using FutureFlex.SQL;
+using Serilog;
 using System;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -26,23 +27,6 @@ namespace FutureFlex.Function
         public static PictureBox pictureBox1 { get; set; }  // เก็บรูปภาพ 
         public static string _operator { get; set; } // ชื่อผู้คุมเครื่อง
         public static string _lot { get; set; }
-
-        public static void DefineParameterPrint(string _seq_, string _statusType_, string _net_, string _numBox_, string _numRoll_, string _numMeter_, string _pchBox_, string _pchRoll_, string _wghPaper_, string _wghCore_, PictureBox pb, string _operator_, string _lot_)
-        {
-            _statusType = _statusType_;
-            _seq = _seq_;
-            _net = _net_;
-            _numBox = _numBox_;
-            _numRoll = _numRoll_;
-            _numMeter = _numMeter_;
-            _pchBox = _pchBox_;
-            _pchRoll = _pchRoll_;
-            _wghCore = _wghCore_;
-            _wghPaper = _wghPaper_;
-            pictureBox1 = pb;
-            _operator = _operator_;
-        }
-
 
         public static void FormatPrint(PrintPageEventArgs e)
         {
@@ -208,6 +192,46 @@ namespace FutureFlex.Function
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        public static void SetPrinter(PrintDocument printDocument, string mode)
+        {
+            Log.Information("== ตั้งค่ากระดาษ");
+            int widthInHundredthsOfInch = 0;
+            int heightInHundredthsOfInch = 0;
+            PaperSize customPaperSize;
+
+            if (mode == "JIT")
+            {
+                printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
+                // Convert millimeters to hundredths of an inch
+                widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
+
+                // Create a custom paper size
+                customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                printDocument.DefaultPageSettings.PaperSize = customPaperSize;
+
+                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 55*50");
+            }
+            else
+            {
+                printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
+                // สำหรับเครื่อง TDP-247
+                // Convert millimeters to hundredths of an inch
+                //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
+                //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                // Convert millimeters to hundredths of an inch
+
+                // สำหรับเครื่อง Zebra
+                widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
+
+                // Create a custom paper size
+                customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                printDocument.DefaultPageSettings.PaperSize = customPaperSize;
+                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
             }
         }
     }
