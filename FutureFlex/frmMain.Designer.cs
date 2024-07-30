@@ -35,6 +35,8 @@ namespace FutureFlex
             this.tsShowName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsShowEmp_name = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tShowServerName = new System.Windows.Forms.ToolStripStatusLabel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -48,8 +50,6 @@ namespace FutureFlex
             this.btnWeight = new Guna.UI2.WinForms.Guna2Button();
             this.btnReprintJIT = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tShowServerName = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,27 @@ namespace FutureFlex
             this.tsShowEmp_name.Size = new System.Drawing.Size(154, 29);
             this.tsShowEmp_name.Text = "tsShowEmp_name";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(20, 29);
+            // 
+            // tShowServerName
+            // 
+            this.tShowServerName.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tShowServerName.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tShowServerName.ForeColor = System.Drawing.Color.White;
+            this.tShowServerName.Name = "tShowServerName";
+            this.tShowServerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tShowServerName.Size = new System.Drawing.Size(154, 29);
+            this.tShowServerName.Text = "tsShowEmp_name";
+            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
@@ -118,7 +139,7 @@ namespace FutureFlex
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1240, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "   Future Flex Ver 1.0";
+            this.label1.Text = "   Future Flex Ver 1.0.4";
             // 
             // guna2ControlBox1
             // 
@@ -322,27 +343,6 @@ namespace FutureFlex
             this.btnHistory.Text = "รายการที่ชังแล้ว";
             this.btnHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnHistory.Click += new System.EventHandler(this.MenuSelect);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
-            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(20, 29);
-            // 
-            // tShowServerName
-            // 
-            this.tShowServerName.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tShowServerName.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tShowServerName.ForeColor = System.Drawing.Color.White;
-            this.tShowServerName.Name = "tShowServerName";
-            this.tShowServerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tShowServerName.Size = new System.Drawing.Size(154, 29);
-            this.tShowServerName.Text = "tsShowEmp_name";
             // 
             // frmMain
             // 
