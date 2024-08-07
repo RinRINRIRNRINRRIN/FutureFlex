@@ -108,6 +108,11 @@ namespace FutureFlex.SQL
             return tb;
         }
 
+        /// <summary>
+        /// ค้นหาข้อมูลสำหรับ gv นั้นที่ไม่ใช่หน้าชั่ง
+        /// </summary>
+        /// <param name="gvname"></param>
+        /// <returns></returns>
         public static DataTable SELECT_SELECT_GV(string gvname)
         {
             try
