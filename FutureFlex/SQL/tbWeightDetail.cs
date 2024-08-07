@@ -32,6 +32,7 @@ namespace FutureFlex.SQL
         public static int numroll { get; set; }
         public static int pch { get; set; }
         public static string lot { get; set; }
+        public static string oparator { get; set; }
 
         /// <summary>
         /// สำหรับแสดงข้อมูล PO 
@@ -149,7 +150,6 @@ namespace FutureFlex.SQL
 "b.wdt_tare," +
 "b.wdt_gross," +
 "a.wgh_date," +
-"a.wgh_operator," +
 "b.wdt_lot," +
 "b.wdt_type," +
 "b.wdt_printed," +
@@ -158,6 +158,56 @@ namespace FutureFlex.SQL
 " LEFT JOIN tbWeight a" +
 " ON b.wdt_GVID = a.wgh_GV" +
 $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception ex)
+            {
+                ERR = ex.Message;
+                return tb;
+            }
+            return tb;
+        }
+
+
+        /// <summary>
+        /// แสดงข้อมูล GV ทั้งหมด
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SELECT_GV(string gvid)
+        {
+            try
+            {
+                sql = $"SELECT b.wdt_seq," +
+"a.wgh_product," +
+"a.wgh_productID," +
+"a.wgh_customer," +
+"b.wdt_GVID," +
+"b.wdt_date," +
+"b.wdt_po," +
+"a.wgh_structure," +
+"a.wgh_typeSuccess," +
+"b.wdt_wgh_paper_plastic," +
+"b.wdt_wgh_core_total," +
+"b.wdt_numroll," +
+"b.wdt_numbox," +
+"b.wdt_pch," +
+"b.wdt_net," +
+"b.wdt_tare," +
+"b.wdt_gross," +
+"a.wgh_date," +
+"b.wdt_lot," +
+"b.wdt_type," +
+"b.wdt_printed," +
+"b.wdt_statusOdoo," +
+"b.wdt_employee," +
+"b.wdt_oparator," +
+"b.wdt_meter_kg_in_roll" +
+" FROM tbWeightDetail b" +
+" LEFT JOIN tbWeight a" +
+" ON b.wdt_GVID = a.wgh_GV" +
+$" WHERE a.wgh_GV = '{gvid}'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -200,6 +250,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
                 Log.Information($"-- จำนวนม้วน : {numroll}");
                 Log.Information($"-- จำนวนใบ : {pch}");
                 Log.Information($"-- LOT : {lot}");
+                Log.Information($"-- OPARATOR : {oparator}");
 
                 cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -225,6 +276,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
 
 
                 cmd.Parameters.Add(new SqlParameter("@lot", lot));
+                cmd.Parameters.Add(new SqlParameter("@oparator", oparator));
                 cmd.Parameters.Add(new SqlParameter("@employee", tbEmployeeSQL.emp_name));
 
                 if (PO == "JIT")

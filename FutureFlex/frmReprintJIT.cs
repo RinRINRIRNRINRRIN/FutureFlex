@@ -4,6 +4,7 @@ using FutureFlex.SQL;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
@@ -30,7 +31,11 @@ namespace FutureFlex
             if (cbPrint.Checked)
             {
                 // Set printer
-                func_print.SetPrinter(printDocument1, "PO");
+                if (!func_print.SetPrinter(printDocument1, "PO"))
+                {
+                    sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    return;
+                }
 
                 foreach (DataGridViewRow rw in dgvDetail.Rows)
                 {
@@ -205,7 +210,7 @@ namespace FutureFlex
                 }
                 #endregion
             }
-            catch (Exception ex)
+            catch (InvalidPrinterException ex)
             {
                 Console.WriteLine(ex.Message);
             }

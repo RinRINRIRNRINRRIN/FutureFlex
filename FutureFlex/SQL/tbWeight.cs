@@ -24,7 +24,7 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sql = $"SELECT * FROM {tbName} ORDER BY wgh_id DESC";
+                sql = $"SELECT * FROM {tbName} ORDER BY wgh_GV DESC";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);

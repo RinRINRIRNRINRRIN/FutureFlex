@@ -109,7 +109,12 @@ namespace FutureFlex
             {
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
 
-                func_print.SetPrinter(printDocument1, tbWeightDetail.PO);
+                // Check print is online?
+                if (!func_print.SetPrinter(printDocument1, tbWeightDetail.PO))
+                {
+                    sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    return;
+                }
 
                 if (statusPrint) // AutoPrint
                 {
@@ -123,11 +128,10 @@ namespace FutureFlex
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("ผู้ใช้ไม่ได้ปิด Print preview");
+                        sb.Show(this, "กรุณาปิด หน้าต่างการพิมพ์ " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        return;
                     }
                 }
-
-
             }
         }
 
@@ -523,6 +527,7 @@ namespace FutureFlex
                 }
 
                 tbWeightDetail.lot = _lot;
+                tbWeightDetail.oparator = txtOperator.Text;
                 tb = tbWeightDetail.INSERT_DATA();
                 // บันทึกข้อมูล
                 if (tb.Rows.Count == 0)
@@ -789,11 +794,11 @@ namespace FutureFlex
                 label40.Text = $"{MRP.mo_po_new.ToString("#,###,###")}";
                 label39.Text = $"{MRP.mo_order_qty.ToString("#,###,###")}";
 
-                DataTable tb = tbWeight.SELECT_SEARCH();
-                foreach (DataRow rw in tb.Rows)
-                {
-                    txtOperator.Text = rw["wgh_operator"].ToString();
-                }
+                //DataTable tb = tbWeight.SELECT_SEARCH();
+                //foreach (DataRow rw in tb.Rows)
+                //{
+                //    txtOperator.Text = rw["wgh_operator"].ToString();
+                //}
 
 
                 // define combobox

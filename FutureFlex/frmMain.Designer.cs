@@ -139,7 +139,7 @@ namespace FutureFlex
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1240, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "   Future Flex Ver 1.0.4";
+            this.label1.Text = "Future Flex";
             // 
             // guna2ControlBox1
             // 
