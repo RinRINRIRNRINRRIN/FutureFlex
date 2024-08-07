@@ -4,6 +4,7 @@ using Serilog;
 using System;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Printing;
 using System.Windows.Forms;
 using ZXing;
 
@@ -195,8 +196,9 @@ namespace FutureFlex.Function
             }
         }
 
-        public static void SetPrinter(PrintDocument printDocument, string mode)
+        public static bool SetPrinter(PrintDocument printDocument, string mode)
         {
+
             Log.Information("== ตั้งค่ากระดาษ");
             int widthInHundredthsOfInch = 0;
             int heightInHundredthsOfInch = 0;
@@ -205,6 +207,11 @@ namespace FutureFlex.Function
             if (mode == "JIT")
             {
                 printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
+                if (!CheckPrinterStatus("ZEBRA_JIT"))
+                {
+                    return false;
+                }
+
                 // Convert millimeters to hundredths of an inch
                 widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
                 heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
@@ -218,6 +225,10 @@ namespace FutureFlex.Function
             else
             {
                 printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
+                if (!CheckPrinterStatus("ZEBRA_PO"))
+                {
+                    return false;
+                }
                 // สำหรับเครื่อง TDP-247
                 // Convert millimeters to hundredths of an inch
                 //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
@@ -233,6 +244,32 @@ namespace FutureFlex.Function
                 printDocument.DefaultPageSettings.PaperSize = customPaperSize;
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
             }
+            return true;
+        }
+
+
+
+
+        static bool CheckPrinterStatus(string printerName)
+        {
+            bool isConnected = false;
+
+            try
+            {
+                PrintServer printServer = new PrintServer();
+                PrintQueue printQueue = printServer.GetPrintQueue(printerName);
+
+                if (printQueue != null)
+                {
+                    isConnected = true;
+                }
+            }
+            catch (PrintQueueException ex)
+            {
+                isConnected = false;
+            }
+
+            return isConnected;
         }
     }
 }
