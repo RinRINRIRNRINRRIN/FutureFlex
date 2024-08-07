@@ -257,6 +257,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnect.Designer.cs">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHistorySuccess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,6 +355,9 @@
     <Compile Include="SQL\tbPrivilage.cs" />
     <Compile Include="SQL\tbWeight.cs" />
     <Compile Include="SQL\tbWeightDetail.cs" />
+    <EmbeddedResource Include="frmConnect.resx">
+      <DependentUpon>frmConnect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHistorySuccess.resx">
       <DependentUpon>frmHistorySuccess.cs</DependentUpon>
     </EmbeddedResource>
