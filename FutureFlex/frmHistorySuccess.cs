@@ -3,6 +3,7 @@ using ClosedXML.Excel;
 using FutureFlex.SQL;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace FutureFlex
         public frmHistorySuccess()
         {
             InitializeComponent();
+            dtpStart.CustomFormat = "dd/MM/yyyy";
+            dtpStop.CustomFormat = "dd/MM/yyyy";
         }
 
 
@@ -26,21 +29,9 @@ namespace FutureFlex
             dgvDetail.DefaultCellStyle.ForeColor = Color.Black;
         }
 
-        private async void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        void Showdata(DataTable tb)
         {
-
-        }
-
-        private void gbMain_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvDetail.Rows.Clear();
-            DataTable tb = tbWeightDetail.SELECT_GV(cbbPO.Text);
-
             foreach (DataRow rw in tb.Rows)
             {
                 lblCustomer.Text = rw["wgh_customer"].ToString();
@@ -100,17 +91,13 @@ namespace FutureFlex
             }
         }
 
-        private void cbbPO_DropDown(object sender, EventArgs e)
+        private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbbPO.Items.Clear();
-            DataTable tb = tbWeight.SELECT_ALL_DATA();
+            dgvDetail.Rows.Clear();
+            DataTable tb = tbWeightDetail.SELECT_GV(cbbPO.Text);
+            Showdata(tb);
 
-            foreach (DataRow rw in tb.Rows)
-            {
-                cbbPO.Items.Add(rw["wgh_GV"].ToString());
-            }
         }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sa = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
@@ -150,6 +137,45 @@ namespace FutureFlex
                         sc.Show(this, "เกิดข้อผิดผลาก " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                         Log.Error("EXPORT EXCEL : " + ex.Message);
                     }
+                }
+            }
+        }
+
+        private void txtSearchGV_IconRightClick(object sender, EventArgs e)
+        {
+            dgvDetail.Rows.Clear();
+            DataTable tb = tbWeightDetail.SELECT_GV($"GV-{txtSearchGV.Text}");
+            Showdata(tb);
+
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            string dtstart = dtpStart.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+            string dtstop = dtpStop.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+
+            DataTable tb = tbWeightDetail.SELECT_DATE(dtstart, dtstop);
+
+            List<string> gv = new List<string>();
+            cbbPO.Items.Clear();
+            foreach (DataRow rw in tb.Rows)
+            {
+                bool isHave = false;
+                string _gv = rw["wdt_GVID"].ToString();
+
+                for (int i = 0; i < gv.Count; i++)
+                {
+                    if (_gv == gv[i])
+                    {
+                        isHave = true;
+                        break;
+                    }
+                }
+
+                if (!isHave)
+                {
+                    gv.Add(_gv);
+                    cbbPO.Items.Add(_gv);
                 }
             }
         }
