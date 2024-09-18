@@ -206,6 +206,7 @@ namespace FutureFlex.Function
 
             if (mode == "JIT")
             {
+                // ปร้ินตามชื่อของปร้ินเตอร์
                 //printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
                 //if (!CheckPrinterStatus("ZEBRA_JIT"))
                 //{
