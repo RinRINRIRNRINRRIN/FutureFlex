@@ -206,11 +206,11 @@ namespace FutureFlex.Function
 
             if (mode == "JIT")
             {
-                printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
-                if (!CheckPrinterStatus("ZEBRA_JIT"))
-                {
-                    return false;
-                }
+                //printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
+                //if (!CheckPrinterStatus("ZEBRA_JIT"))
+                //{
+                //    return false;
+                //}
 
                 // Convert millimeters to hundredths of an inch
                 widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
@@ -224,11 +224,11 @@ namespace FutureFlex.Function
             }
             else
             {
-                printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
-                if (!CheckPrinterStatus("ZEBRA_PO"))
-                {
-                    return false;
-                }
+                //printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
+                //if (!CheckPrinterStatus("ZEBRA_PO"))
+                //{
+                //    return false;
+                //}
                 // สำหรับเครื่อง TDP-247
                 // Convert millimeters to hundredths of an inch
                 //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
