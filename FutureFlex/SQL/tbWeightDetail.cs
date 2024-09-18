@@ -1,5 +1,6 @@
 ﻿using FutureFlex.API;
 using Serilog;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -56,6 +57,45 @@ namespace FutureFlex.SQL
             return tb;
         }
 
+        public static DataTable SELECT_DATE(string start, string end)
+        {
+            try
+            {
+                sql = $"SELECT wdt_GVID FROM {tbName} WHERE  wdt_date BETWEEN '{start}' and '{end}'";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (Exception ex)
+            {
+                ERR = ex.Message;
+                return tb;
+            }
+            return tb;
+        }
+
+
+        /// <summary>
+        /// สำหรับแสดง GV ทั้งหมด
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SELECT_ALL_GV()
+        {
+            try
+            {
+                sql = $"SELECT wdt_GVID FROM {tbName}";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (Exception ex)
+            {
+                ERR = ex.Message;
+                return tb;
+            }
+            return tb;
+        }
+
         /// <summary>
         /// สำหรับแสดงข้อมูล PO 
         /// </summary>
@@ -67,6 +107,26 @@ namespace FutureFlex.SQL
             {
                 Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
                 sql = $"SELECT * FROM {tbName} WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND'";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception ex)
+            {
+                ERR = ex.Message;
+                Log.Error($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo ไม่สำเร็จ");
+                return tb;
+            }
+            Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo สำเร็จ");
+            return tb;
+        }
+
+        public static DataTable SELECT_JIT_NOT_SEND_ODOO()
+        {
+            try
+            {
+                Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
+                sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_GVID ='{MRP.name}' and wdt_statusOdoo = 'NOT SEND'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -150,6 +210,7 @@ namespace FutureFlex.SQL
 "b.wdt_tare," +
 "b.wdt_gross," +
 "a.wgh_date," +
+"b.wdt_oparator," +
 "b.wdt_lot," +
 "b.wdt_type," +
 "b.wdt_printed," +
