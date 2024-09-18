@@ -53,7 +53,15 @@ namespace FutureFlex
             int totalList = 0;
             double totalNet = 0;
 
-            tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            if (cbbPO.Text == "JIT" || cbbPO.Text == "ไม่มีPO")
+            {
+                tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
+            }
+            else
+            {
+                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            }
+
             // Get data tbweight
             foreach (DataRow rw in tb.Rows)
             {
@@ -94,7 +102,7 @@ namespace FutureFlex
             ReportParameter _customerName = new ReportParameter("customerName", customerName);  // กำหนดค่า parameter 
             ReportParameter _date = new ReportParameter("date", date);  // กำหนดค่า parameter 
             ReportParameter _jobScale = new ReportParameter("jobscale", jobScale);  // กำหนดค่า parameter 
-            ReportParameter _totalList = new ReportParameter("totalList", totalList.ToString());  // กำหนดค่า parameter 
+            ReportParameter _totalList = new ReportParameter("totalList", totalList.ToString());
             ReportParameter _totalPch = new ReportParameter("totalPch", totalPch.ToString());  // กำหนดค่า parameter 
             ReportParameter _totalNet = new ReportParameter("totalNet", totalNet.ToString());  // กำหนดค่า parameter 
 
