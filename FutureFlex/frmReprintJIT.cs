@@ -26,12 +26,12 @@ namespace FutureFlex
             // กำหนดค่าให้กับ serialport
         }
 
-        void PrintData(string _lot)
+        void PrintData(string _lot, string _mode)
         {
             if (cbPrint.Checked)
             {
                 // Set printer
-                if (!func_print.SetPrinter(printDocument1, "PO"))
+                if (!func_print.SetPrinter(printDocument1, _mode))
                 {
                     sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     return;
@@ -243,7 +243,7 @@ namespace FutureFlex
                 {
                     lot = dgvDetail.Rows[e.RowIndex].Cells["cl_wdt_lot"].Value.ToString();
 
-                    PrintData(lot);
+                    PrintData(lot, "PO");
                 }
             }
             catch (Exception ex)
@@ -272,7 +272,7 @@ namespace FutureFlex
                     if (lot == _lot)
                     {
                         await Task.Delay(500);
-                        PrintData(lot);
+                        PrintData(lot, "PO");
                         break;
                     }
                 }
