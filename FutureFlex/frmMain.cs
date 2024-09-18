@@ -67,7 +67,7 @@ namespace FutureFlex
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F9)
+            if (e.KeyCode == Keys.F9 && tbEmployeeSQL.emp_username == "sa")
             {
                 frmConnect frmConnect = new frmConnect();
                 frmConnect.ShowDialog();

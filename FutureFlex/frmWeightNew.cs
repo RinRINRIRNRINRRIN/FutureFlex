@@ -112,7 +112,10 @@ namespace FutureFlex
                 // Check print is online?
                 if (!func_print.SetPrinter(printDocument1, tbWeightDetail.PO))
                 {
-                    sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    }));
                     return;
                 }
 
@@ -564,7 +567,15 @@ namespace FutureFlex
             SetPaperAndPrint();
 
             // แสดงข้อมูล
-            tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            if (cbbPO.Text == "JIT" || cbbPO.Text == "ไม่มีPO")
+            {
+                tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
+            }
+            else
+            {
+                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            }
+
             BeginInvoke(new MethodInvoker(delegate ()
             {
                 dgvDetail.DataSource = tb;
@@ -659,7 +670,7 @@ namespace FutureFlex
                 case "เริ่มชั่งสินค้า":
                     Log.Information($"== เริ่มชั่งสินค้า");
                     // เช็คว่าเลือกข้อมูลครบหรือไม่
-                    if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "")
+                    if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "" || txtOperator.Text == "")
                     {
                         Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
                         Log.Information($"- ประเทศ : {statusCounty}");
@@ -700,15 +711,12 @@ namespace FutureFlex
                     isStart = true;
 
                     btn.Text = "หยุดชั่งสินค้า";
-
                     btn.onHoverState.BorderColor = Color.White;
                     btn.onHoverState.FillColor = Color.Red;
                     btn.onHoverState.ForeColor = Color.White;
-
                     btn.OnIdleState.BorderColor = Color.Red;
                     btn.OnIdleState.FillColor = Color.White;
                     btn.OnIdleState.ForeColor = Color.Red;
-
                     btn.OnIdleState.BorderColor = Color.Red;
                     btn.OnIdleState.FillColor = Color.White;
                     btn.OnIdleState.ForeColor = Color.Red;
@@ -746,8 +754,17 @@ namespace FutureFlex
             // เครียข้อมูล
             Log.Information($"== เลือก PO {cbbPO.Text}");
             tbWeightDetail.PO = cbbPO.Text;
-            DataTable tb1 = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
-            dgvDetail.DataSource = tb1;
+            if (cbbPO.Text == "JIT" || cbbPO.Text == "ไม่มีPO")
+            {
+                DataTable tb1 = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
+                dgvDetail.DataSource = tb1;
+            }
+            else
+            {
+
+                DataTable tb1 = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+                dgvDetail.DataSource = tb1;
+            }
         }
 
         private async void txtJobNo_KeyDown(object sender, KeyEventArgs e)

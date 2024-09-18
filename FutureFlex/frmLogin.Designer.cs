@@ -160,7 +160,7 @@ namespace FutureFlex
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Version  1.0.6";
+            this.label5.Text = "Version  1.0.8";
             // 
             // pnUsername
             // 

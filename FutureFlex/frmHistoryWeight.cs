@@ -195,7 +195,18 @@ namespace FutureFlex
         {
             // แสดงข้อมู] PO ที่มีการส่งไปหา Odoo แล้ว
             tbWeightDetail.PO = cbbPO.Text;
-            DataTable tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+
+            DataTable tb = new DataTable();
+
+            if (cbbPO.Text == "JIT" || cbbPO.Text == "ไม่มีPO")
+            {
+                tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
+            }
+            else
+            {
+                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+            }
+
             if (tb.Rows.Count == 0)
             {
                 sc.Show(this, "ไม่พบรายการ PO ที่เลือก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
