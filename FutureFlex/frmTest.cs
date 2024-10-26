@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using FutureFlex.API;
+using Serilog;
 using System;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -31,9 +32,6 @@ namespace FutureFlex
 
                 // Create __seq
 
-
-
-
                 if (type == "JIT") // JIT
                 {
                     fontHeader = new Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
@@ -43,7 +41,6 @@ namespace FutureFlex
                     #region Header
                     e.Graphics.DrawImage(pictureBox1.Image, 0, 5, 30, 30);
                     e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(30, 15));
-
                     #endregion
 
                     #region Body
@@ -203,6 +200,18 @@ namespace FutureFlex
             {
                 Console.WriteLine($"Error printing to {printerName}: {ex.Message}");
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            function function = new function();
+            function.GetOrder();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Phone phone = new Phone();
+            phone.GetOrder();
         }
     }
 }
