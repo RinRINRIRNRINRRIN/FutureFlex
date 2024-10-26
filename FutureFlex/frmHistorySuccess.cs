@@ -98,6 +98,9 @@ namespace FutureFlex
             Showdata(tb);
 
         }
+
+
+
         private void btnExport_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sa = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
