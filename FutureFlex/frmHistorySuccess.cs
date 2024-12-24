@@ -1,7 +1,5 @@
 ﻿using Bunifu.UI.WinForms;
-using ClosedXML.Excel;
 using FutureFlex.SQL;
-using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,7 +24,7 @@ namespace FutureFlex
 
         private void frmHistorySuccess_Load(object sender, EventArgs e)
         {
-            dgvDetail.DefaultCellStyle.ForeColor = Color.Black;
+            btnSearch.DefaultCellStyle.ForeColor = Color.Black;
         }
 
 
@@ -71,10 +69,10 @@ namespace FutureFlex
                     _state = "ส่งแล้ว";
                 }
 
-                dgvDetail.Rows.Add(_state, _seq, num, _numPch, _net, _date[0], _oparator, _employee, _lot);
+                btnSearch.Rows.Add(_state, _seq, num, _numPch, _net, _date[0], _oparator, _employee, _lot);
             }
 
-            foreach (DataGridViewRow rw in dgvDetail.Rows)
+            foreach (DataGridViewRow rw in btnSearch.Rows)
             {
                 string _status = rw.Cells["cl_status"].Value.ToString();
                 switch (_status)
@@ -93,7 +91,7 @@ namespace FutureFlex
 
         private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvDetail.Rows.Clear();
+            btnSearch.Rows.Clear();
             DataTable tb = tbWeightDetail.SELECT_GV(cbbPO.Text);
             Showdata(tb);
 
@@ -101,58 +99,84 @@ namespace FutureFlex
 
 
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog sa = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
-            {
-                if (sa.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        using (XLWorkbook el = new XLWorkbook())
-                        {
-                            DataTable tb = new DataTable();
-                            // เพิ่มคอลัมน์ใน DataTable จาก DataGridView
-                            foreach (DataGridViewColumn column in dgvDetail.Columns)
-                            {
-                                tb.Columns.Add(column.HeaderText);
-                            }
+        //private void btnExport_Click(object sender, EventArgs e)
+        //{
+        //    using (SaveFileDialog sa = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+        //    {
+        //        if (sa.ShowDialog() == DialogResult.OK)
+        //        {
+        //            try
+        //            {
+        //                using (XLWorkbook el = new XLWorkbook())
+        //                {
+        //                    DataTable tb = new DataTable();
+        //                    // เพิ่มคอลัมน์ใน DataTable จาก DataGridView
+        //                    foreach (DataGridViewColumn column in btnSearch.Columns)
+        //                    {
+        //                        tb.Columns.Add(column.HeaderText);
+        //                    }
 
-                            // เพิ่มแถวใน DataTable จาก DataGridView
-                            foreach (DataGridViewRow row in dgvDetail.Rows)
-                            {
-                                if (row.IsNewRow) continue; // ข้ามแถวใหม่ (ที่ยังไม่ได้เพิ่มข้อมูล)
+        //                    // เพิ่มแถวใน DataTable จาก DataGridView
+        //                    foreach (DataGridViewRow row in btnSearch.Rows)
+        //                    {
+        //                        if (row.IsNewRow) continue; // ข้ามแถวใหม่ (ที่ยังไม่ได้เพิ่มข้อมูล)
 
-                                DataRow dataRow = tb.NewRow();
-                                foreach (DataGridViewCell cell in row.Cells)
-                                {
-                                    dataRow[cell.ColumnIndex] = cell.Value;
-                                }
-                                tb.Rows.Add(dataRow);
-                            }
-                            el.Worksheets.Add(tb, "Data export");
-                            el.SaveAs(sa.FileName);
-                        }
-                        sc.Show(this, "Export รายการสำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                    }
-                    catch (Exception ex)
-                    {
-                        sc.Show(this, "เกิดข้อผิดผลาก " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                        Log.Error("EXPORT EXCEL : " + ex.Message);
-                    }
-                }
-            }
-        }
+        //                        DataRow dataRow = tb.NewRow();
+        //                        foreach (DataGridViewCell cell in row.Cells)
+        //                        {
+        //                            dataRow[cell.ColumnIndex] = cell.Value;
+        //                        }
+        //                        tb.Rows.Add(dataRow);
+        //                    }
+        //                    el.Worksheets.Add(tb, "Data export");
+        //                    el.SaveAs(sa.FileName);
+        //                }
+        //                sc.Show(this, "Export รายการสำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                sc.Show(this, "เกิดข้อผิดผลาก " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+        //                Log.Error("EXPORT EXCEL : " + ex.Message);
+        //            }
+        //        }
+        //    }
+        //}
 
         private void txtSearchGV_IconRightClick(object sender, EventArgs e)
         {
-            dgvDetail.Rows.Clear();
+            btnSearch.Rows.Clear();
             DataTable tb = tbWeightDetail.SELECT_GV($"GV-{txtSearchGV.Text}");
             Showdata(tb);
-
         }
 
-        private void bunifuButton3_Click(object sender, EventArgs e)
+        //private void bunifuButton3_Click(object sender, EventArgs e)
+        //{
+        //    string dtstart = dtpStart.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+        //    string dtstop = dtpStop.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+        //    DataTable tb = tbWeightDetail.SELECT_DATE(dtstart, dtstop);
+        //    List<string> gv = new List<string>();
+        //    cbbPO.Items.Clear();
+        //    foreach (DataRow rw in tb.Rows)
+        //    {
+        //        bool isHave = false;
+        //        string _gv = rw["wdt_GVID"].ToString();
+        //        for (int i = 0; i < gv.Count; i++)
+        //        {
+        //            if (_gv == gv[i])
+        //            {
+        //                isHave = true;
+        //                break;
+        //            }
+        //        }
+        //        if (!isHave)
+        //        {
+        //            gv.Add(_gv);
+        //            cbbPO.Items.Add(_gv);
+        //        } 
+        //    } 
+        //} 
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             string dtstart = dtpStart.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
             string dtstop = dtpStop.Value.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
@@ -181,6 +205,16 @@ namespace FutureFlex
                     cbbPO.Items.Add(_gv);
                 }
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
