@@ -57,36 +57,6 @@ namespace FutureFlex
                     frmPrivilage frmPrivilage = new frmPrivilage();
                     frmPrivilage.ShowDialog();
                     break;
-                case "save":
-                    // ตรวจสอบค่าว่าง
-                    foreach (var txt in panel1.Controls.OfType<Guna2TextBox>())
-                    {
-                        if (txt.Text == "")
-                        {
-                            sk.Show(this, "กรุณากรอกข้อมูลให้ตรบก่อนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                            return;
-                        }
-                    }
-
-                    // เช็คว่ารหัสตรงหรือไม่
-                    if (txtPassword.Text != txtCMPassword.Text)
-                    {
-                        sk.Show(this, "รหัสผ่านไม่ตรง", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                        return;
-                    }
-
-                    //บันทึก
-                    if (tbEmployeeSQL.UPDATE(txtFullName.Text, txtUsername.Text, txtCMPassword.Text, tbEmployeeSQL.emp_username))
-                    {
-                        MessageBox.Show("แก้ไชข้อมูลผู้ใชงานสำเร็จ ระบบจะปิดโปรแกรมเพื่อให้ login เข้าใช้งานใหม่อีกครั้ง", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Application.Exit();
-                    }
-
-                    break;
-                case "cancel":
-                    panel1.Enabled = false;
-                    panel2.Visible = false;
-                    break;
             }
         }
 
