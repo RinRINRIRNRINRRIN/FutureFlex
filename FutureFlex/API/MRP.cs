@@ -194,11 +194,12 @@ namespace FutureFlex.API
         /// <param name="joint"></param>
         /// <param name="qty_pch">จำนวนใบ ไม่มีจะเลือกกล่องหรือม้วนให้คีย์ตัวนี้</param>
         /// <param name="meterRoll">ใส่เฉพาะกรณีเลือกงานม้วน ให้ใส่จำนวนเมตร</param>
-        /// <param name="lot"></param>
-        /// <param name="seq"></param>
+        /// <param name="lot">เลขที่</param>
+        /// <param name="seq">ลำดับกล่องลำดับม้วน</param>
         /// <param name="count_total">จำนวนทั้งหมด ทั้งงานกล่องและงานมัวน</param>
+        /// <param name="qty_roll">จำนวนม้วน/LOT</param>
         /// <returns></returns>
-        public async static Task<bool> CREATE_MRP(string gv_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total)
+        public async static Task<bool> CREATE_MRP(string gv_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total, double qty_roll)
         {
             try
             {
@@ -216,7 +217,28 @@ namespace FutureFlex.API
                 var request = new RestRequest("/api/mrp/create", Method.Post);
                 request.AddHeader("token", Authentication.access_token);
                 request.AddHeader("Content-Type", "text/plain");
-
+                Log.Information("==================================================== SEND TO ODOO");
+                Log.Information($"mrp_request_id : {gv_id}");
+                Log.Information($"weigh_in_line_id : {wgh_id}");
+                Log.Information($"emp_name_weigh_in : {machineOperator}");
+                Log.Information($"select_country : {country}");
+                Log.Information($"select_type : {type}");
+                Log.Information($"select_side : {side}");
+                Log.Information($"for_po : {po}");
+                Log.Information($"date : {date}");
+                Log.Information($"net_weight : {net}");
+                Log.Information($"tare_weight : {tare}");
+                Log.Information($"gross_weight : {gross}");
+                Log.Information($"weight_paper_plastic : {weightPaper}");
+                Log.Information($"weight_core_total : {weightCore}");
+                Log.Information($"joint : {joint}");
+                Log.Information($"qty_pch : {qty_pch}");
+                Log.Information($"qty_bag_in_box : 0");
+                Log.Information($"qty_meter_kg_in_roll : {meterRoll}");
+                Log.Information($"weight_lot : {lot}");
+                Log.Information($"weight_seq : {seq}");
+                Log.Information($"count_total : {count_total}");
+                Log.Information($"qty_roll : {qty_roll}");
                 #region Body
                 var body = "{\n" +
                   $"    |mrp_request_id|:|{gv_id}|,\n" +
@@ -238,25 +260,25 @@ namespace FutureFlex.API
                   $"    |qty_meter_kg_in_roll|:{meterRoll},\n" +
                   $"    |weight_lot|:|{lot}|,\n" +
                   $"    |weight_seq|:|{seq}|,\n" +
-                  $"    |count_total|: {count_total}" +
+                  $"    |count_total|: {count_total}," +
+                  $"    |qty_roll|:{qty_roll}" +
                   "}";
                 #endregion
 
                 request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
                 RestResponse response = await client.ExecuteAsync(request);
+                Log.Information($"{response.Content}");
                 Console.WriteLine(response.Content);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {
-
                     if (await Authentication.take_token_key())
                     {
                         request.AddHeader("token", Authentication.access_token);
                         request.AddHeader("Content-Type", "text/plain");
                         request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
                         response = await client.ExecuteAsync(request);
-                        Console.WriteLine(response.Content);
-
+                        Log.Information($"{response.Content}");
                         if (response.StatusCode != System.Net.HttpStatusCode.OK)
                         {
                             return false;
