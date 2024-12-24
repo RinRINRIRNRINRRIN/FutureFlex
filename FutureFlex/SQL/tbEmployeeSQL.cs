@@ -98,10 +98,10 @@ namespace FutureFlex.SQL
             }
             catch (Exception ex)
             {
-                MainFun.LogsSend(2, ex.ToString());
+                Log.Error(ex.Message);
                 return false;
             }
-            MainFun.LogsSend(3, "Not found user");
+            Log.Information($"Login success {emp_name}");
             return true;
         }
         #endregion
