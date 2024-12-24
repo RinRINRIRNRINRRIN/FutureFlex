@@ -78,35 +78,42 @@ namespace FutureFlex
 
         private void frmConnect_Load(object sender, EventArgs e)
         {
-            // แสดงข้อมูลจาก config
-            txtHost.Text = ConfigurationManager.AppSettings["SERVER_LOCAL"];
-            txtPort.Text = ConfigurationManager.AppSettings["PORT_LOCAL"];
-            txtUser.Text = ConfigurationManager.AppSettings["USER_LOCAL"];
-            txtPassword.Text = ConfigurationManager.AppSettings["PASS_LOCAL"];
-            txtDatabase.Text = ConfigurationManager.AppSettings["DB_LOCAL"];
-
-
-            // ดึงข้อมูลจาก tbodoo
-            string sql = "SELECT * FROM tbOdoo";
-            SqlDataAdapter da = new SqlDataAdapter(sql, server.con);
-            DataTable tb = new DataTable();
-            da.Fill(tb);
-
-            if (tb.Rows.Count != 0)
+            try
             {
-                foreach (DataRow rw in tb.Rows)
-                {
-                    _id = rw["od_id"].ToString();
-                    _key = rw["od_key"].ToString();
-                    _server = rw["od_server"].ToString();
-                    _database = rw["od_database"].ToString();
-                    break;
-                }
-            }
+                // แสดงข้อมูลจาก config
+                txtHost.Text = ConfigurationManager.AppSettings["SERVER_LOCAL"];
+                txtPort.Text = ConfigurationManager.AppSettings["PORT_LOCAL"];
+                txtUser.Text = ConfigurationManager.AppSettings["USER_LOCAL"];
+                txtPassword.Text = ConfigurationManager.AppSettings["PASS_LOCAL"];
+                txtDatabase.Text = ConfigurationManager.AppSettings["DB_LOCAL"];
 
-            txtbase.Text = _database;
-            txtURL.Text = _server;
-            txtKey.Text = _key;
+
+                // ดึงข้อมูลจาก tbodoo
+                string sql = "SELECT * FROM tbOdoo";
+                SqlDataAdapter da = new SqlDataAdapter(sql, server.con);
+                DataTable tb = new DataTable();
+                da.Fill(tb);
+
+                if (tb.Rows.Count != 0)
+                {
+                    foreach (DataRow rw in tb.Rows)
+                    {
+                        _id = rw["od_id"].ToString();
+                        _key = rw["od_key"].ToString();
+                        _server = rw["od_server"].ToString();
+                        _database = rw["od_database"].ToString();
+                        break;
+                    }
+                }
+
+                txtbase.Text = _database;
+                txtURL.Text = _server;
+                txtKey.Text = _key;
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
