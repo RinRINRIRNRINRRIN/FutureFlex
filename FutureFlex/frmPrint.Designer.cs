@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrint));
             this.guna2NotificationPaint1 = new Guna.UI2.WinForms.Guna2NotificationPaint(this.components);
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.sb = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
-            this.gbMain.SuspendLayout();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // guna2NotificationPaint1
@@ -46,17 +46,12 @@
             this.guna2NotificationPaint1.Alignment = Guna.UI2.WinForms.Enums.CustomContentAlignment.TopRight;
             this.guna2NotificationPaint1.FillColor = System.Drawing.Color.Red;
             // 
-            // guna2AnimateWindow1
-            // 
-            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_HOR_POSITIVE;
-            this.guna2AnimateWindow1.TargetForm = this;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 54);
+            this.label1.Location = new System.Drawing.Point(12, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 21);
             this.label1.TabIndex = 14;
@@ -65,30 +60,12 @@
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1333, 5);
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1340, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 12;
-            // 
-            // gbMain
-            // 
-            this.gbMain.BorderColor = System.Drawing.Color.Navy;
-            this.gbMain.BorderRadius = 6;
-            this.gbMain.Controls.Add(this.cbbPO);
-            this.gbMain.Controls.Add(this.reportViewer1);
-            this.gbMain.Controls.Add(this.label1);
-            this.gbMain.Controls.Add(this.guna2ControlBox1);
-            this.gbMain.CustomBorderColor = System.Drawing.Color.Navy;
-            this.gbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMain.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMain.ForeColor = System.Drawing.Color.White;
-            this.gbMain.Location = new System.Drawing.Point(0, 0);
-            this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(1388, 755);
-            this.gbMain.TabIndex = 2;
-            this.gbMain.Text = "พิมพ์ข้อมูล";
             // 
             // cbbPO
             // 
@@ -102,9 +79,10 @@
             this.cbbPO.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPO.ForeColor = System.Drawing.Color.Black;
             this.cbbPO.ItemHeight = 30;
-            this.cbbPO.Location = new System.Drawing.Point(12, 78);
+            this.cbbPO.Location = new System.Drawing.Point(12, 100);
             this.cbbPO.Name = "cbbPO";
             this.cbbPO.Size = new System.Drawing.Size(280, 36);
+            this.cbbPO.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbbPO.TabIndex = 18;
             this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
             this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
@@ -115,7 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FutureFlex.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 123);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 145);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1364, 620);
@@ -190,34 +168,71 @@
             this.sb.WarningOptions.IconLeftMargin = 12;
             this.sb.ZoomCloseIcon = true;
             // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.ForeColor = System.Drawing.Color.Navy;
+            this.label9.Location = new System.Drawing.Point(7, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 25);
+            this.label9.TabIndex = 59;
+            this.label9.Text = "ปริ้นรายการ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label10.ForeColor = System.Drawing.Color.Navy;
+            this.label10.Location = new System.Drawing.Point(1, -3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 51);
+            this.label10.TabIndex = 58;
+            this.label10.Text = "Print";
+            // 
             // frmPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1388, 755);
-            this.Controls.Add(this.gbMain);
+            this.ClientSize = new System.Drawing.Size(1387, 779);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.guna2ControlBox1);
+            this.Controls.Add(this.cbbPO);
+            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPrint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrint";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrint_Load);
-            this.gbMain.ResumeLayout(false);
-            this.gbMain.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Guna.UI2.WinForms.Guna2NotificationPaint guna2NotificationPaint1;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2GroupBox gbMain;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Bunifu.UI.WinForms.BunifuSnackbar sb;
         private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
