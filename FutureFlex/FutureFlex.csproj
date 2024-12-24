@@ -251,10 +251,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Authentication.cs" />
-    <Compile Include="API\employee.cs" />
-    <Compile Include="API\function.cs" />
     <Compile Include="API\MRP.cs" />
-    <Compile Include="API\Phone.cs" />
+    <Compile Include="API\RTFG.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -356,7 +354,6 @@
       <DependentUpon>frmWeightNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\Function.cs" />
-    <Compile Include="MainFun.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\server.cs" />
@@ -395,12 +392,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReprintJIT.resx">
       <DependentUpon>frmReprintJIT.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRTFG.resx">
       <DependentUpon>frmRTFG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>

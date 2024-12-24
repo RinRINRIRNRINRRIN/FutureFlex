@@ -1,5 +1,4 @@
-﻿using FutureFlex.API;
-using Serilog;
+﻿using Serilog;
 using System;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -204,14 +203,12 @@ namespace FutureFlex
 
         private void button4_Click(object sender, EventArgs e)
         {
-            function function = new function();
-            function.GetOrder();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Phone phone = new Phone();
-            phone.GetOrder();
+
         }
     }
 }
