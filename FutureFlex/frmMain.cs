@@ -62,6 +62,13 @@ namespace FutureFlex
                     frmSetting frm4 = new frmSetting();
                     frm4.ShowDialog();
                     break;
+                case "RTFG":
+                    md.Buttons = MessageDialogButtons.OK;
+                    md.Icon = MessageDialogIcon.Information;
+                    md.Show("Coming soon", "RTFG");
+                    //frmRTFG frm5 = new frmRTFG();
+                    //frm5.ShowDialog();
+                    break;
             }
         }
 
@@ -73,5 +80,6 @@ namespace FutureFlex
                 frmConnect.ShowDialog();
             }
         }
+
     }
 }

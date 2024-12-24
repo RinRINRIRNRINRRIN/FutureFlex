@@ -37,8 +37,6 @@ namespace FutureFlex
             this.tsShowEmp_name = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tShowServerName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -50,6 +48,10 @@ namespace FutureFlex
             this.btnWeight = new Guna.UI2.WinForms.Guna2Button();
             this.btnReprintJIT = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.btnRTFG = new Guna.UI2.WinForms.Guna2Button();
+            this.md = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +66,7 @@ namespace FutureFlex
             this.tsShowEmp_name,
             this.toolStripStatusLabel1,
             this.tShowServerName});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 679);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1240, 34);
@@ -122,33 +124,14 @@ namespace FutureFlex
             this.tShowServerName.Size = new System.Drawing.Size(154, 29);
             this.tShowServerName.Text = "tsShowEmp_name";
             // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.label1;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Navy;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Athiti Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1240, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Future Flex";
-            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BackColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.BackColor = System.Drawing.Color.White;
             this.guna2ControlBox1.BorderRadius = 6;
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Navy;
             this.guna2ControlBox1.Location = new System.Drawing.Point(1202, 7);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(26, 29);
@@ -157,13 +140,13 @@ namespace FutureFlex
             // guna2ControlBox2
             // 
             this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox2.BackColor = System.Drawing.Color.White;
             this.guna2ControlBox2.BorderRadius = 6;
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1173, 7);
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1171, 7);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(26, 29);
             this.guna2ControlBox2.TabIndex = 0;
@@ -171,13 +154,13 @@ namespace FutureFlex
             // guna2ControlBox3
             // 
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.BackColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox3.BackColor = System.Drawing.Color.White;
             this.guna2ControlBox3.BorderRadius = 6;
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1145, 7);
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1141, 7);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(26, 29);
             this.guna2ControlBox3.TabIndex = 0;
@@ -191,7 +174,7 @@ namespace FutureFlex
             // btnAccount
             // 
             this.btnAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAccount.BorderColor = System.Drawing.Color.White;
+            this.btnAccount.BorderColor = System.Drawing.Color.SlateBlue;
             this.btnAccount.BorderRadius = 6;
             this.btnAccount.BorderThickness = 1;
             this.btnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -206,7 +189,7 @@ namespace FutureFlex
             this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
             this.btnAccount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAccount.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnAccount.Location = new System.Drawing.Point(902, 54);
+            this.btnAccount.Location = new System.Drawing.Point(903, 57);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(160, 39);
             this.btnAccount.TabIndex = 5;
@@ -218,7 +201,7 @@ namespace FutureFlex
             // btnSetting
             // 
             this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetting.BorderColor = System.Drawing.Color.White;
+            this.btnSetting.BorderColor = System.Drawing.Color.SlateBlue;
             this.btnSetting.BorderRadius = 6;
             this.btnSetting.BorderThickness = 1;
             this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -233,7 +216,7 @@ namespace FutureFlex
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnSetting.Location = new System.Drawing.Point(1068, 54);
+            this.btnSetting.Location = new System.Drawing.Point(1068, 57);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(160, 39);
             this.btnSetting.TabIndex = 4;
@@ -252,23 +235,23 @@ namespace FutureFlex
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.splitter1);
-            this.panel1.Location = new System.Drawing.Point(12, 102);
+            this.panel1.Location = new System.Drawing.Point(12, 106);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1216, 464);
+            this.panel1.Size = new System.Drawing.Size(1216, 567);
             this.panel1.TabIndex = 0;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 464);
+            this.splitter1.Size = new System.Drawing.Size(3, 567);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
             // btnWeight
             // 
-            this.btnWeight.BorderColor = System.Drawing.Color.White;
+            this.btnWeight.BorderColor = System.Drawing.Color.SlateBlue;
             this.btnWeight.BorderRadius = 6;
             this.btnWeight.BorderThickness = 1;
             this.btnWeight.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -283,7 +266,7 @@ namespace FutureFlex
             this.btnWeight.Image = ((System.Drawing.Image)(resources.GetObject("btnWeight.Image")));
             this.btnWeight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnWeight.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnWeight.Location = new System.Drawing.Point(12, 54);
+            this.btnWeight.Location = new System.Drawing.Point(12, 57);
             this.btnWeight.Name = "btnWeight";
             this.btnWeight.Size = new System.Drawing.Size(160, 39);
             this.btnWeight.TabIndex = 10;
@@ -294,7 +277,7 @@ namespace FutureFlex
             // 
             // btnReprintJIT
             // 
-            this.btnReprintJIT.BorderColor = System.Drawing.Color.White;
+            this.btnReprintJIT.BorderColor = System.Drawing.Color.SlateBlue;
             this.btnReprintJIT.BorderRadius = 6;
             this.btnReprintJIT.BorderThickness = 1;
             this.btnReprintJIT.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -309,7 +292,7 @@ namespace FutureFlex
             this.btnReprintJIT.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintJIT.Image")));
             this.btnReprintJIT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReprintJIT.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnReprintJIT.Location = new System.Drawing.Point(178, 54);
+            this.btnReprintJIT.Location = new System.Drawing.Point(341, 57);
             this.btnReprintJIT.Name = "btnReprintJIT";
             this.btnReprintJIT.Size = new System.Drawing.Size(160, 39);
             this.btnReprintJIT.TabIndex = 11;
@@ -320,7 +303,7 @@ namespace FutureFlex
             // 
             // btnHistory
             // 
-            this.btnHistory.BorderColor = System.Drawing.Color.White;
+            this.btnHistory.BorderColor = System.Drawing.Color.SlateBlue;
             this.btnHistory.BorderRadius = 6;
             this.btnHistory.BorderThickness = 1;
             this.btnHistory.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -335,14 +318,68 @@ namespace FutureFlex
             this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
             this.btnHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHistory.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnHistory.Location = new System.Drawing.Point(344, 54);
+            this.btnHistory.Location = new System.Drawing.Point(506, 57);
             this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(160, 39);
+            this.btnHistory.Size = new System.Drawing.Size(202, 39);
             this.btnHistory.TabIndex = 12;
             this.btnHistory.Tag = "history";
-            this.btnHistory.Text = "รายการที่ชังแล้ว";
+            this.btnHistory.Text = "รายการที่ชัง/คืนสินค้า";
             this.btnHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnHistory.Click += new System.EventHandler(this.MenuSelect);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(11, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(202, 51);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "เมนูการทำงาน";
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // btnRTFG
+            // 
+            this.btnRTFG.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btnRTFG.BorderRadius = 6;
+            this.btnRTFG.BorderThickness = 1;
+            this.btnRTFG.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRTFG.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRTFG.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRTFG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRTFG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRTFG.FillColor = System.Drawing.Color.GhostWhite;
+            this.btnRTFG.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRTFG.ForeColor = System.Drawing.Color.Navy;
+            this.btnRTFG.Image = ((System.Drawing.Image)(resources.GetObject("btnRTFG.Image")));
+            this.btnRTFG.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRTFG.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnRTFG.Location = new System.Drawing.Point(176, 57);
+            this.btnRTFG.Name = "btnRTFG";
+            this.btnRTFG.Size = new System.Drawing.Size(160, 39);
+            this.btnRTFG.TabIndex = 23;
+            this.btnRTFG.Tag = "RTFG";
+            this.btnRTFG.Text = "คืนสินค้า";
+            this.btnRTFG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnRTFG.Click += new System.EventHandler(this.MenuSelect);
+            // 
+            // md
+            // 
+            this.md.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.md.Caption = null;
+            this.md.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.md.Parent = this;
+            this.md.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
+            this.md.Text = null;
             // 
             // frmMain
             // 
@@ -350,7 +387,9 @@ namespace FutureFlex
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1240, 606);
+            this.ClientSize = new System.Drawing.Size(1240, 713);
+            this.Controls.Add(this.btnRTFG);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnReprintJIT);
             this.Controls.Add(this.btnWeight);
@@ -360,7 +399,6 @@ namespace FutureFlex
             this.Controls.Add(this.guna2ControlBox2);
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -385,7 +423,6 @@ namespace FutureFlex
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Splitter splitter1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
@@ -395,12 +432,15 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2Button btnSetting;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2NotificationPaint notify1;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnWeight;
         private Guna.UI2.WinForms.Guna2Button btnReprintJIT;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private System.Windows.Forms.ToolStripStatusLabel tShowServerName;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2Button btnRTFG;
+        private Guna.UI2.WinForms.Guna2MessageDialog md;
     }
 }
 
