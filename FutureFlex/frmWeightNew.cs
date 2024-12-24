@@ -1,5 +1,4 @@
 ﻿using Bunifu.UI.WinForms;
-using Bunifu.UI.WinForms.BunifuButton;
 using FutureFlex.API;
 using FutureFlex.Function;
 using FutureFlex.SQL;
@@ -93,6 +92,7 @@ namespace FutureFlex
                 txt.Enabled = false;
             }
 
+
             DataTable dataTable = tbWeightDetail.SELECT_PO("---");
 
             dgvDetail.DataSource = dataTable;
@@ -103,7 +103,6 @@ namespace FutureFlex
 
         void SetPaperAndPrint()
         {
-
             // Set paper 
             if (cbPrint.Checked)
             {
@@ -150,7 +149,7 @@ namespace FutureFlex
             func_print._statusType = statusType;
             func_print._net = lbNetWgh.Text;
             func_print._numBox = txtNumBox.Text;
-            func_print._numRoll = txtNumRoll.Text;
+            func_print._numRoll = txtNumRollAll.Text;
             func_print._numMeter = txtNunMeter.Text;
             func_print._pchBox = txtPchBox.Text;
             func_print._pchRoll = txtPchRoll.Text;
@@ -165,8 +164,8 @@ namespace FutureFlex
         void ShowLoadData()
         {
             pnMain.Visible = false;
-            int x = (gbMain.Width - gbLoadData.Width) / 2;
-            int y = (gbMain.Height - gbLoadData.Height) / 2;
+            int x = (this.Width - gbLoadData.Width) / 2;
+            int y = (this.Height - gbLoadData.Height) / 2;
 
             gbLoadData.Location = new System.Drawing.Point(x, y);
             gbLoadData.Visible = true;
@@ -310,7 +309,7 @@ namespace FutureFlex
         {
             try
             {
-                if (txtNumRoll.Text != "")
+                if (txtNumRollAll.Text != "")
                 {
                     if (txtNunMeter.Text != "0")
                     {
@@ -486,7 +485,7 @@ namespace FutureFlex
                             }
                             break;
                         case "roll":
-                            if (tb.Rows.Count >= int.Parse(txtNumRoll.Text))
+                            if (tb.Rows.Count >= int.Parse(txtNumRollAll.Text))
                             {
                                 BeginInvoke(new MethodInvoker(delegate ()
                                 {
@@ -515,7 +514,8 @@ namespace FutureFlex
                 tbWeightDetail.wgh_core_total = decimal.Parse(txtWghCors.Text);
                 tbWeightDetail.wgh_joint = decimal.Parse(txtJoint.Text);
                 tbWeightDetail.numbox = int.Parse(txtNumBox.Text);
-                tbWeightDetail.numroll = int.Parse(txtNumRoll.Text);
+                tbWeightDetail.numrollAll = int.Parse(txtNumRollAll.Text);
+                tbWeightDetail.numroll = decimal.Parse(txtNumRoll.Text);
 
                 switch (statusType)
                 {
@@ -550,7 +550,7 @@ namespace FutureFlex
                 func_print._statusType = statusType;
                 func_print._net = lbNetWgh.Text;
                 func_print._numBox = txtNumBox.Text;
-                func_print._numRoll = txtNumRoll.Text;
+                func_print._numRoll = txtNumRollAll.Text;
                 func_print._numMeter = txtNunMeter.Text;
                 func_print._pchBox = txtPchBox.Text;
                 func_print._pchRoll = txtPchRoll.Text;
@@ -662,92 +662,92 @@ namespace FutureFlex
         }
 
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            BunifuButton btn = sender as BunifuButton;
-            switch (btn.Text)
-            {
-                case "เริ่มชั่งสินค้า":
-                    Log.Information($"== เริ่มชั่งสินค้า");
-                    // เช็คว่าเลือกข้อมูลครบหรือไม่
-                    if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "" || txtOperator.Text == "")
-                    {
-                        Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
-                        Log.Information($"- ประเทศ : {statusCounty}");
-                        Log.Information($"- ประเภท : {statusType}");
-                        Log.Information($"- ด้าน : {statusSide}");
-                        Log.Information($"- PO : {cbbPO.Text}");
-                        Log.Information($"- GV : {MRP.name}");
-                        sb.Show(this, "กรุณาตรวจสอบ ประเทศ ประเภท ด้าน po ก่อนกันบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                        return;
-                    }
+        //private void btnStart_Click(object sender, EventArgs e)
+        //{
+        //    BunifuButton btn = sender as BunifuButton;
+        //    switch (btn.Text)
+        //    {
+        //        case "เริ่มชั่งสินค้า":
+        //            Log.Information($"== เริ่มชั่งสินค้า");
+        //            // เช็คว่าเลือกข้อมูลครบหรือไม่
+        //            if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "" || txtOperator.Text == "")
+        //            {
+        //                Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
+        //                Log.Information($"- ประเทศ : {statusCounty}");
+        //                Log.Information($"- ประเภท : {statusType}");
+        //                Log.Information($"- ด้าน : {statusSide}");
+        //                Log.Information($"- PO : {cbbPO.Text}");
+        //                Log.Information($"- GV : {MRP.name}");
+        //                sb.Show(this, "กรุณาตรวจสอบ ประเทศ ประเภท ด้าน po ก่อนกันบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+        //                return;
+        //            }
 
-                    tbWeightDetail.PO = cbbPO.Text;
-                    tbWeightDetail.country = statusCounty;
-                    tbWeightDetail.type = statusType;
-                    tbWeightDetail.side = statusSide;
-                    // นำ GV ไปหาในระบบก่อน
-                    DataTable tb = tbWeight.SELECT_SEARCH();
-                    if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
-                    {
-                        //บันทึกข้อมูลไปที่ tbWeight
-                        if (!tbWeight.INSERT_ALL_DATA())
-                        {
-                            sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                            return;
-                        }
-                    }
-                    else // UPDATE
-                    {
-                        // อัพเดทข้อมูล
-                        if (!tbWeight.UPDATE_ALL_DATA())
-                        {
-                            sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                            return;
-                        }
-                    }
+        //            tbWeightDetail.PO = cbbPO.Text;
+        //            tbWeightDetail.country = statusCounty;
+        //            tbWeightDetail.type = statusType;
+        //            tbWeightDetail.side = statusSide;
+        //            // นำ GV ไปหาในระบบก่อน
+        //            DataTable tb = tbWeight.SELECT_SEARCH();
+        //            if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
+        //            {
+        //                //บันทึกข้อมูลไปที่ tbWeight
+        //                if (!tbWeight.INSERT_ALL_DATA())
+        //                {
+        //                    sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+        //                    return;
+        //                }
+        //            }
+        //            else // UPDATE
+        //            {
+        //                // อัพเดทข้อมูล
+        //                if (!tbWeight.UPDATE_ALL_DATA())
+        //                {
+        //                    sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+        //                    return;
+        //                }
+        //            }
 
-                    // ปิดปุ่ต่่าง ๆ 
-                    isStart = true;
+        //            // ปิดปุ่ต่่าง ๆ 
+        //            isStart = true;
 
-                    btn.Text = "หยุดชั่งสินค้า";
-                    btn.onHoverState.BorderColor = Color.White;
-                    btn.onHoverState.FillColor = Color.Red;
-                    btn.onHoverState.ForeColor = Color.White;
-                    btn.OnIdleState.BorderColor = Color.Red;
-                    btn.OnIdleState.FillColor = Color.White;
-                    btn.OnIdleState.ForeColor = Color.Red;
-                    btn.OnIdleState.BorderColor = Color.Red;
-                    btn.OnIdleState.FillColor = Color.White;
-                    btn.OnIdleState.ForeColor = Color.Red;
+        //            btn.Text = "หยุดชั่งสินค้า";
+        //            btn.onHoverState.BorderColor = Color.White;
+        //            btn.onHoverState.FillColor = Color.Red;
+        //            btn.onHoverState.ForeColor = Color.White;
+        //            btn.OnIdleState.BorderColor = Color.Red;
+        //            btn.OnIdleState.FillColor = Color.White;
+        //            btn.OnIdleState.ForeColor = Color.Red;
+        //            btn.OnIdleState.BorderColor = Color.Red;
+        //            btn.OnIdleState.FillColor = Color.White;
+        //            btn.OnIdleState.ForeColor = Color.Red;
 
-                    txtJobNo.Enabled = false;
-                    cbbPO.Enabled = false;
-                    dgvDetail.Enabled = true;
-                    break;
-                case "หยุดชั่งสินค้า":
-                    isStart = false;
+        //            txtJobNo.Enabled = false;
+        //            cbbPO.Enabled = false;
+        //            dgvDetail.Enabled = true;
+        //            break;
+        //        case "หยุดชั่งสินค้า":
+        //            isStart = false;
 
-                    btn.Text = "เริ่มชั่งสินค้า";
+        //            btn.Text = "เริ่มชั่งสินค้า";
 
-                    btn.onHoverState.BorderColor = Color.White;
-                    btn.onHoverState.FillColor = Color.Green;
-                    btn.onHoverState.ForeColor = Color.White;
+        //            btn.onHoverState.BorderColor = Color.White;
+        //            btn.onHoverState.FillColor = Color.Green;
+        //            btn.onHoverState.ForeColor = Color.White;
 
-                    btn.OnIdleState.BorderColor = Color.Green;
-                    btn.OnIdleState.FillColor = Color.White;
-                    btn.OnIdleState.ForeColor = Color.Green;
+        //            btn.OnIdleState.BorderColor = Color.Green;
+        //            btn.OnIdleState.FillColor = Color.White;
+        //            btn.OnIdleState.ForeColor = Color.Green;
 
-                    btn.OnIdleState.BorderColor = Color.Green;
-                    btn.OnIdleState.FillColor = Color.White;
-                    btn.OnIdleState.ForeColor = Color.Green;
-                    txtJobNo.Enabled = true;
-                    cbbPO.Enabled = true;
-                    dgvDetail.Enabled = false;
-                    Log.Information($"== หยุดชั่งสินค้า");
-                    break;
-            }
-        }
+        //            btn.OnIdleState.BorderColor = Color.Green;
+        //            btn.OnIdleState.FillColor = Color.White;
+        //            btn.OnIdleState.ForeColor = Color.Green;
+        //            txtJobNo.Enabled = true;
+        //            cbbPO.Enabled = true;
+        //            dgvDetail.Enabled = false;
+        //            Log.Information($"== หยุดชั่งสินค้า");
+        //            break;
+        //    }
+        //}
 
         private void cbbPO_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -811,12 +811,6 @@ namespace FutureFlex
                 label40.Text = $"{MRP.mo_po_new.ToString("#,###,###")}";
                 label39.Text = $"{MRP.mo_order_qty.ToString("#,###,###")}";
 
-                //DataTable tb = tbWeight.SELECT_SEARCH();
-                //foreach (DataRow rw in tb.Rows)
-                //{
-                //    txtOperator.Text = rw["wgh_operator"].ToString();
-                //}
-
 
                 // define combobox
                 string[] a = MRP.mo_pono.Split(',');
@@ -843,6 +837,73 @@ namespace FutureFlex
             {
                 sb.Show(this, "กรุณากรอกเฉพาะตัวเลข", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                 e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
+            }
+        }
+
+        private void btnStart_Click_1(object sender, EventArgs e)
+        {
+            Guna2GradientButton btn = sender as Guna2GradientButton;
+            switch (btn.Text)
+            {
+                case "เริ่มชั่งสินค้า":
+                    Log.Information($"== เริ่มชั่งสินค้า");
+                    // เช็คว่าเลือกข้อมูลครบหรือไม่
+                    if (statusCounty == "" || statusSide == "" || statusType == "" || cbbPO.Text == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
+                    {
+                        Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
+                        Log.Information($"- ประเทศ : {statusCounty}");
+                        Log.Information($"- ประเภท : {statusType}");
+                        Log.Information($"- ด้าน : {statusSide}");
+                        Log.Information($"- PO : {cbbPO.Text}");
+                        Log.Information($"- GV : {MRP.name}");
+                        Log.Information($"- จำนวนม้วน : {txtNumRoll.Text}");
+                        Log.Information($"- จำนวนม้วนทั้งหมด : {txtNumRollAll.Text}");
+                        sb.Show(this, "กรุณาตรวจสอบ ประเทศ ประเภท ด้าน po ก่อนกันบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                        return;
+                    }
+
+                    tbWeightDetail.PO = cbbPO.Text;
+                    tbWeightDetail.country = statusCounty;
+                    tbWeightDetail.type = statusType;
+                    tbWeightDetail.side = statusSide;
+                    // นำ GV ไปหาในระบบก่อน
+                    DataTable tb = tbWeight.SELECT_SEARCH();
+                    if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
+                    {
+                        //บันทึกข้อมูลไปที่ tbWeight
+                        if (!tbWeight.INSERT_ALL_DATA())
+                        {
+                            sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                            return;
+                        }
+                    }
+                    else // UPDATE
+                    {
+                        // อัพเดทข้อมูล
+                        if (!tbWeight.UPDATE_ALL_DATA())
+                        {
+                            sb.Show(this, $"เกิดข้อผิดผลาด {tbWeight.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                            return;
+                        }
+                    }
+
+                    // ปิดปุ่ต่่าง ๆ 
+                    isStart = true;
+
+                    btn.Text = "หยุดชั่งสินค้า";
+                    txtJobNo.Enabled = false;
+                    cbbPO.Enabled = false;
+                    dgvDetail.Enabled = true;
+                    break;
+                case "หยุดชั่งสินค้า":
+                    isStart = false;
+
+                    btn.Text = "เริ่มชั่งสินค้า";
+                    txtJobNo.Enabled = true;
+                    cbbPO.Enabled = true;
+                    dgvDetail.Enabled = false;
+                    Log.Information($"== หยุดชั่งสินค้า");
+                    break;
             }
         }
     }

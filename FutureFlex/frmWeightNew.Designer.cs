@@ -31,7 +31,6 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWeightNew));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,11 +46,9 @@ namespace FutureFlex
             this.gbType = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdTypeRoll = new System.Windows.Forms.RadioButton();
             this.rdTypeBox = new System.Windows.Forms.RadioButton();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.btnStart = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnStart = new Guna.UI2.WinForms.Guna2GradientButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -66,6 +63,8 @@ namespace FutureFlex
             this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtNumRoll = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label44 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPchRoll = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,7 +74,7 @@ namespace FutureFlex
             this.txtJoint = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNumBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNunMeter = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtNumRoll = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNumRollAll = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtWghPaper = new Guna.UI2.WinForms.Guna2TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -106,6 +105,9 @@ namespace FutureFlex
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -119,13 +121,13 @@ namespace FutureFlex
             this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.lbGrossWgh = new System.Windows.Forms.Label();
             this.lbTareWgh = new System.Windows.Forms.Label();
-            this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.spScale = new System.IO.Ports.SerialPort(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_print = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -151,24 +153,24 @@ namespace FutureFlex
             this.cl_meter_kg_in_roll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_pch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_numrollAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
-            this.gbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
             this.gbData.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbSide.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.gbLoadData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // gbCounty
             // 
             this.gbCounty.BorderColor = System.Drawing.Color.Navy;
-            this.gbCounty.BorderRadius = 8;
+            this.gbCounty.BorderRadius = 4;
             this.gbCounty.Controls.Add(this.rdOutCounty);
             this.gbCounty.Controls.Add(this.rdInCounty);
             this.gbCounty.CustomBorderColor = System.Drawing.Color.Navy;
@@ -213,7 +215,7 @@ namespace FutureFlex
             // gbType
             // 
             this.gbType.BorderColor = System.Drawing.Color.Navy;
-            this.gbType.BorderRadius = 8;
+            this.gbType.BorderRadius = 4;
             this.gbType.Controls.Add(this.rdTypeRoll);
             this.gbType.Controls.Add(this.rdTypeBox);
             this.gbType.CustomBorderColor = System.Drawing.Color.Navy;
@@ -255,35 +257,11 @@ namespace FutureFlex
             this.rdTypeBox.UseVisualStyleBackColor = true;
             this.rdTypeBox.CheckedChanged += new System.EventHandler(this.rdTypeBox_CheckedChanged);
             // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.gbMain;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // gbMain
-            // 
-            this.gbMain.BorderColor = System.Drawing.Color.Navy;
-            this.gbMain.BorderRadius = 8;
-            this.gbMain.Controls.Add(this.pictureBox1);
-            this.gbMain.Controls.Add(this.pnMain);
-            this.gbMain.Controls.Add(this.gbLoadData);
-            this.gbMain.Controls.Add(this.guna2ControlBox1);
-            this.gbMain.CustomBorderColor = System.Drawing.Color.Navy;
-            this.gbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMain.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMain.ForeColor = System.Drawing.Color.White;
-            this.gbMain.Location = new System.Drawing.Point(0, 0);
-            this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(1613, 876);
-            this.gbMain.TabIndex = 1;
-            this.gbMain.Text = "ชั่งสินค้า PO ใหม่";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(162, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(1435, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,6 +275,7 @@ namespace FutureFlex
             this.pnMain.Controls.Add(this.gbData);
             this.pnMain.Controls.Add(this.cbPrint);
             this.pnMain.Controls.Add(this.groupBox2);
+            this.pnMain.Controls.Add(this.gbLoadData);
             this.pnMain.Controls.Add(this.label32);
             this.pnMain.Controls.Add(this.label33);
             this.pnMain.Controls.Add(this.label34);
@@ -310,105 +289,37 @@ namespace FutureFlex
             this.pnMain.Controls.Add(this.dgvDetail);
             this.pnMain.Controls.Add(this.lbGrossWgh);
             this.pnMain.Controls.Add(this.lbTareWgh);
-            this.pnMain.Location = new System.Drawing.Point(3, 43);
+            this.pnMain.Location = new System.Drawing.Point(12, 87);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1595, 830);
+            this.pnMain.Size = new System.Drawing.Size(1595, 780);
             this.pnMain.TabIndex = 57;
             // 
             // btnStart
             // 
-            this.btnStart.AllowAnimations = true;
-            this.btnStart.AllowMouseEffects = true;
-            this.btnStart.AllowToggling = false;
-            this.btnStart.AnimationSpeed = 200;
-            this.btnStart.AutoGenerateColors = false;
-            this.btnStart.AutoRoundBorders = false;
-            this.btnStart.AutoSizeLeftIcon = true;
-            this.btnStart.AutoSizeRightIcon = true;
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.BackColor1 = System.Drawing.Color.White;
-            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
-            this.btnStart.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnStart.ButtonText = "เริ่มชั่งสินค้า";
-            this.btnStart.ButtonTextMarginLeft = 0;
-            this.btnStart.ColorContrastOnClick = 45;
-            this.btnStart.ColorContrastOnHover = 45;
-            this.btnStart.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.btnStart.CustomizableEdges = borderEdges1;
-            this.btnStart.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnStart.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnStart.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnStart.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnStart.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnStart.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.Green;
-            this.btnStart.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStart.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnStart.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.btnStart.IconMarginLeft = 11;
-            this.btnStart.IconPadding = 10;
-            this.btnStart.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStart.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btnStart.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.btnStart.IconSize = 25;
-            this.btnStart.IdleBorderColor = System.Drawing.Color.Green;
-            this.btnStart.IdleBorderRadius = 6;
-            this.btnStart.IdleBorderThickness = 1;
-            this.btnStart.IdleFillColor = System.Drawing.Color.White;
-            this.btnStart.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnStart.IdleIconLeftImage")));
-            this.btnStart.IdleIconRightImage = null;
-            this.btnStart.IndicateFocus = false;
-            this.btnStart.Location = new System.Drawing.Point(13, 734);
+            this.btnStart.Animated = true;
+            this.btnStart.BorderRadius = 3;
+            this.btnStart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStart.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStart.FillColor2 = System.Drawing.Color.MidnightBlue;
+            this.btnStart.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.btnStart.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.btnStart.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnStart.Location = new System.Drawing.Point(11, 733);
             this.btnStart.Name = "btnStart";
-            this.btnStart.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnStart.OnDisabledState.BorderRadius = 6;
-            this.btnStart.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnStart.OnDisabledState.BorderThickness = 1;
-            this.btnStart.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnStart.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnStart.OnDisabledState.IconLeftImage = null;
-            this.btnStart.OnDisabledState.IconRightImage = null;
-            this.btnStart.onHoverState.BorderColor = System.Drawing.Color.White;
-            this.btnStart.onHoverState.BorderRadius = 6;
-            this.btnStart.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnStart.onHoverState.BorderThickness = 1;
-            this.btnStart.onHoverState.FillColor = System.Drawing.Color.Green;
-            this.btnStart.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.btnStart.onHoverState.IconLeftImage = null;
-            this.btnStart.onHoverState.IconRightImage = null;
-            this.btnStart.OnIdleState.BorderColor = System.Drawing.Color.Green;
-            this.btnStart.OnIdleState.BorderRadius = 6;
-            this.btnStart.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnStart.OnIdleState.BorderThickness = 1;
-            this.btnStart.OnIdleState.FillColor = System.Drawing.Color.White;
-            this.btnStart.OnIdleState.ForeColor = System.Drawing.Color.Green;
-            this.btnStart.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnStart.OnIdleState.IconLeftImage")));
-            this.btnStart.OnIdleState.IconRightImage = null;
-            this.btnStart.OnPressedState.BorderColor = System.Drawing.Color.Green;
-            this.btnStart.OnPressedState.BorderRadius = 6;
-            this.btnStart.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnStart.OnPressedState.BorderThickness = 1;
-            this.btnStart.OnPressedState.FillColor = System.Drawing.Color.White;
-            this.btnStart.OnPressedState.ForeColor = System.Drawing.Color.Green;
-            this.btnStart.OnPressedState.IconLeftImage = null;
-            this.btnStart.OnPressedState.IconRightImage = null;
-            this.btnStart.Size = new System.Drawing.Size(578, 73);
-            this.btnStart.TabIndex = 50;
-            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnStart.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnStart.TextMarginLeft = 0;
-            this.btnStart.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnStart.UseDefaultRadiusAndThickness = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.Size = new System.Drawing.Size(580, 43);
+            this.btnStart.TabIndex = 51;
+            this.btnStart.Text = "เริ่มชั่งสินค้า";
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click_1);
             // 
             // gbData
             // 
             this.gbData.BorderColor = System.Drawing.Color.Navy;
-            this.gbData.BorderRadius = 8;
+            this.gbData.BorderRadius = 3;
             this.gbData.Controls.Add(this.label41);
             this.gbData.Controls.Add(this.label40);
             this.gbData.Controls.Add(this.label39);
@@ -598,6 +509,8 @@ namespace FutureFlex
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtNumRoll);
+            this.panel2.Controls.Add(this.label44);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtPchRoll);
             this.panel2.Controls.Add(this.label2);
@@ -607,17 +520,56 @@ namespace FutureFlex
             this.panel2.Controls.Add(this.txtJoint);
             this.panel2.Controls.Add(this.txtNumBox);
             this.panel2.Controls.Add(this.txtNunMeter);
-            this.panel2.Controls.Add(this.txtNumRoll);
+            this.panel2.Controls.Add(this.txtNumRollAll);
             this.panel2.Controls.Add(this.txtWghPaper);
             this.panel2.Controls.Add(this.label30);
             this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.label28);
-            this.panel2.Location = new System.Drawing.Point(42, 458);
+            this.panel2.Location = new System.Drawing.Point(25, 458);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(495, 202);
+            this.panel2.Size = new System.Drawing.Size(522, 202);
             this.panel2.TabIndex = 0;
+            // 
+            // txtNumRoll
+            // 
+            this.txtNumRoll.BorderColor = System.Drawing.Color.Navy;
+            this.txtNumRoll.BorderRadius = 8;
+            this.txtNumRoll.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumRoll.DefaultText = "0";
+            this.txtNumRoll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNumRoll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNumRoll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRoll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRoll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumRoll.ForeColor = System.Drawing.Color.Black;
+            this.txtNumRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRoll.Location = new System.Drawing.Point(398, 92);
+            this.txtNumRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNumRoll.Name = "txtNumRoll";
+            this.txtNumRoll.PasswordChar = '\0';
+            this.txtNumRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtNumRoll.PlaceholderText = "จำนวน ใบ";
+            this.txtNumRoll.SelectedText = "";
+            this.txtNumRoll.Size = new System.Drawing.Size(80, 33);
+            this.txtNumRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtNumRoll.TabIndex = 12;
+            this.txtNumRoll.Tag = "roll";
+            this.txtNumRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumRoll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.Color.Black;
+            this.label44.Location = new System.Drawing.Point(393, 66);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(78, 25);
+            this.label44.TabIndex = 11;
+            this.label44.Text = "จำนวนม้วน";
             // 
             // label4
             // 
@@ -644,14 +596,14 @@ namespace FutureFlex
             this.txtPchRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPchRoll.ForeColor = System.Drawing.Color.Black;
             this.txtPchRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPchRoll.Location = new System.Drawing.Point(391, 152);
+            this.txtPchRoll.Location = new System.Drawing.Point(398, 152);
             this.txtPchRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPchRoll.Name = "txtPchRoll";
             this.txtPchRoll.PasswordChar = '\0';
             this.txtPchRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.txtPchRoll.PlaceholderText = "จำนวน ใบ";
             this.txtPchRoll.SelectedText = "";
-            this.txtPchRoll.Size = new System.Drawing.Size(87, 33);
+            this.txtPchRoll.Size = new System.Drawing.Size(80, 33);
             this.txtPchRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtPchRoll.TabIndex = 8;
             this.txtPchRoll.Tag = "roll";
@@ -682,14 +634,14 @@ namespace FutureFlex
             this.txtPchBox.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPchBox.ForeColor = System.Drawing.Color.Black;
             this.txtPchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPchBox.Location = new System.Drawing.Point(393, 30);
+            this.txtPchBox.Location = new System.Drawing.Point(398, 30);
             this.txtPchBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPchBox.Name = "txtPchBox";
             this.txtPchBox.PasswordChar = '\0';
             this.txtPchBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.txtPchBox.PlaceholderText = "จำนวน ใบ";
             this.txtPchBox.SelectedText = "";
-            this.txtPchBox.Size = new System.Drawing.Size(85, 33);
+            this.txtPchBox.Size = new System.Drawing.Size(80, 33);
             this.txtPchBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtPchBox.TabIndex = 5;
             this.txtPchBox.Tag = "box";
@@ -819,33 +771,33 @@ namespace FutureFlex
             this.txtNunMeter.TextChanged += new System.EventHandler(this.txtNunRoll_TextChanged);
             this.txtNunMeter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
-            // txtNumRoll
+            // txtNumRollAll
             // 
-            this.txtNumRoll.BorderColor = System.Drawing.Color.Navy;
-            this.txtNumRoll.BorderRadius = 8;
-            this.txtNumRoll.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumRoll.DefaultText = "0";
-            this.txtNumRoll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNumRoll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNumRoll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumRoll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNumRoll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumRoll.ForeColor = System.Drawing.Color.Black;
-            this.txtNumRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumRoll.Location = new System.Drawing.Point(236, 92);
-            this.txtNumRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtNumRoll.Name = "txtNumRoll";
-            this.txtNumRoll.PasswordChar = '\0';
-            this.txtNumRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
-            this.txtNumRoll.PlaceholderText = "จำนวน ใบ";
-            this.txtNumRoll.SelectedText = "";
-            this.txtNumRoll.Size = new System.Drawing.Size(151, 33);
-            this.txtNumRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtNumRoll.TabIndex = 6;
-            this.txtNumRoll.Tag = "roll";
-            this.txtNumRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNumRoll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
+            this.txtNumRollAll.BorderColor = System.Drawing.Color.Navy;
+            this.txtNumRollAll.BorderRadius = 8;
+            this.txtNumRollAll.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumRollAll.DefaultText = "0";
+            this.txtNumRollAll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNumRollAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNumRollAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRollAll.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNumRollAll.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRollAll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumRollAll.ForeColor = System.Drawing.Color.Black;
+            this.txtNumRollAll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNumRollAll.Location = new System.Drawing.Point(236, 92);
+            this.txtNumRollAll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtNumRollAll.Name = "txtNumRollAll";
+            this.txtNumRollAll.PasswordChar = '\0';
+            this.txtNumRollAll.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.txtNumRollAll.PlaceholderText = "จำนวน ใบ";
+            this.txtNumRollAll.SelectedText = "";
+            this.txtNumRollAll.Size = new System.Drawing.Size(151, 33);
+            this.txtNumRollAll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtNumRollAll.TabIndex = 6;
+            this.txtNumRollAll.Tag = "roll";
+            this.txtNumRollAll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumRollAll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
             // txtWghPaper
             // 
@@ -904,9 +856,9 @@ namespace FutureFlex
             this.label29.ForeColor = System.Drawing.Color.Black;
             this.label29.Location = new System.Drawing.Point(231, 66);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 25);
+            this.label29.Size = new System.Drawing.Size(132, 25);
             this.label29.TabIndex = 0;
-            this.label29.Text = "จำนวนม้วน";
+            this.label29.Text = "จำนวนม้วน(ทั้งหมด)";
             // 
             // label27
             // 
@@ -1147,7 +1099,7 @@ namespace FutureFlex
             // gbSide
             // 
             this.gbSide.BorderColor = System.Drawing.Color.Navy;
-            this.gbSide.BorderRadius = 8;
+            this.gbSide.BorderRadius = 4;
             this.gbSide.Controls.Add(this.rdBackSide);
             this.gbSide.Controls.Add(this.rdFrontSide);
             this.gbSide.Controls.Add(this.rdNot);
@@ -1268,7 +1220,7 @@ namespace FutureFlex
             this.groupBox2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(600, 722);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(205, 97);
+            this.groupBox2.Size = new System.Drawing.Size(386, 54);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "   พิมพ์";
@@ -1279,7 +1231,7 @@ namespace FutureFlex
             this.radioButton4.Checked = true;
             this.radioButton4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton4.ForeColor = System.Drawing.Color.Black;
-            this.radioButton4.Location = new System.Drawing.Point(6, 56);
+            this.radioButton4.Location = new System.Drawing.Point(187, 21);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(186, 29);
             this.radioButton4.TabIndex = 0;
@@ -1293,13 +1245,60 @@ namespace FutureFlex
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButton3.ForeColor = System.Drawing.Color.Black;
-            this.radioButton3.Location = new System.Drawing.Point(6, 25);
+            this.radioButton3.Location = new System.Drawing.Point(9, 21);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(172, 29);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.Text = "พิมพ์โดยไม่ โชว์หน้าต่าง";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // gbLoadData
+            // 
+            this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.BorderRadius = 6;
+            this.gbLoadData.Controls.Add(this.label1);
+            this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
+            this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
+            this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLoadData.ForeColor = System.Drawing.Color.White;
+            this.gbLoadData.Location = new System.Drawing.Point(1081, 743);
+            this.gbLoadData.Name = "gbLoadData";
+            this.gbLoadData.Size = new System.Drawing.Size(406, 124);
+            this.gbLoadData.TabIndex = 56;
+            this.gbLoadData.Text = "กำลังโหลดข้อมูล";
+            this.gbLoadData.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(124, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 39);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "กำลังโหลดข้อมูล............";
+            // 
+            // guna2CircleProgressBar1
+            // 
+            this.guna2CircleProgressBar1.Animated = true;
+            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2CircleProgressBar1.FillThickness = 15;
+            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(14, 16);
+            this.guna2CircleProgressBar1.Minimum = 0;
+            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.ProgressEndCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressStartCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressThickness = 15;
+            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(89, 89);
+            this.guna2CircleProgressBar1.TabIndex = 0;
+            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.Value = 50;
             // 
             // label32
             // 
@@ -1341,7 +1340,7 @@ namespace FutureFlex
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(1541, 780);
+            this.label12.Location = new System.Drawing.Point(1548, 738);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 31);
             this.label12.TabIndex = 0;
@@ -1365,7 +1364,7 @@ namespace FutureFlex
             this.lbTotalWgh.BackColor = System.Drawing.Color.Black;
             this.lbTotalWgh.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalWgh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lbTotalWgh.Location = new System.Drawing.Point(1406, 780);
+            this.lbTotalWgh.Location = new System.Drawing.Point(1413, 738);
             this.lbTotalWgh.Name = "lbTotalWgh";
             this.lbTotalWgh.Size = new System.Drawing.Size(129, 31);
             this.lbTotalWgh.TabIndex = 0;
@@ -1390,7 +1389,7 @@ namespace FutureFlex
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Athiti SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1304, 780);
+            this.label10.Location = new System.Drawing.Point(1311, 738);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 31);
             this.label10.TabIndex = 0;
@@ -1436,7 +1435,7 @@ namespace FutureFlex
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1470,11 +1469,12 @@ namespace FutureFlex
             this.cl_meter_kg_in_roll,
             this.cl_pch,
             this.cl_numbox,
+            this.cl_numrollAll,
             this.cl_numroll});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -1487,7 +1487,7 @@ namespace FutureFlex
             this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -1532,58 +1532,12 @@ namespace FutureFlex
             this.lbTareWgh.Text = "00.00";
             this.lbTareWgh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gbLoadData
-            // 
-            this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
-            this.gbLoadData.BorderRadius = 6;
-            this.gbLoadData.Controls.Add(this.label1);
-            this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
-            this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
-            this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
-            this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLoadData.ForeColor = System.Drawing.Color.White;
-            this.gbLoadData.Location = new System.Drawing.Point(600, 336);
-            this.gbLoadData.Name = "gbLoadData";
-            this.gbLoadData.Size = new System.Drawing.Size(406, 124);
-            this.gbLoadData.TabIndex = 56;
-            this.gbLoadData.Text = "กำลังโหลดข้อมูล";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(124, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 39);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "กำลังโหลดข้อมูล............";
-            // 
-            // guna2CircleProgressBar1
-            // 
-            this.guna2CircleProgressBar1.Animated = true;
-            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2CircleProgressBar1.FillThickness = 15;
-            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(14, 16);
-            this.guna2CircleProgressBar1.Minimum = 0;
-            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.ProgressEndCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2CircleProgressBar1.ProgressStartCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2CircleProgressBar1.ProgressThickness = 15;
-            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(89, 89);
-            this.guna2CircleProgressBar1.TabIndex = 0;
-            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.Value = 50;
-            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1557, 5);
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Navy;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1562, 8);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 11;
@@ -1608,6 +1562,38 @@ namespace FutureFlex
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.White;
+            this.label42.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label42.ForeColor = System.Drawing.Color.Navy;
+            this.label42.Location = new System.Drawing.Point(9, 8);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(238, 51);
+            this.label42.TabIndex = 23;
+            this.label42.Text = "ชั่งสินค้า PO ใหม่";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.White;
+            this.label43.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label43.ForeColor = System.Drawing.Color.Navy;
+            this.label43.Location = new System.Drawing.Point(18, 59);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(207, 25);
+            this.label43.TabIndex = 58;
+            this.label43.Text = "สำหรับชั่งสินค้า PO ใหม่หรือ JIT ";
             // 
             // cl_del
             // 
@@ -1832,21 +1818,32 @@ namespace FutureFlex
             this.cl_numbox.ReadOnly = true;
             this.cl_numbox.Visible = false;
             // 
+            // cl_numrollAll
+            // 
+            this.cl_numrollAll.DataPropertyName = "wdt_numrollAll";
+            this.cl_numrollAll.HeaderText = "จำนวนม้วนทั้งหมด";
+            this.cl_numrollAll.Name = "cl_numrollAll";
+            this.cl_numrollAll.ReadOnly = true;
+            this.cl_numrollAll.Visible = false;
+            // 
             // cl_numroll
             // 
             this.cl_numroll.DataPropertyName = "wdt_numroll";
-            this.cl_numroll.HeaderText = "จำนวนม้วน";
+            this.cl_numroll.HeaderText = "จำนวนม้วนต่อLOT";
             this.cl_numroll.Name = "cl_numroll";
             this.cl_numroll.ReadOnly = true;
-            this.cl_numroll.Visible = false;
             // 
             // frmWeightNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1613, 876);
-            this.Controls.Add(this.gbMain);
+            this.ClientSize = new System.Drawing.Size(1613, 870);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.guna2ControlBox1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label42);
+            this.Controls.Add(this.pnMain);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1861,7 +1858,6 @@ namespace FutureFlex
             this.gbCounty.PerformLayout();
             this.gbType.ResumeLayout(false);
             this.gbType.PerformLayout();
-            this.gbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnMain.ResumeLayout(false);
             this.pnMain.PerformLayout();
@@ -1873,10 +1869,11 @@ namespace FutureFlex
             this.gbSide.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.gbLoadData.ResumeLayout(false);
             this.gbLoadData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1887,7 +1884,6 @@ namespace FutureFlex
         private System.Windows.Forms.RadioButton rdInCounty;
         private System.Windows.Forms.RadioButton rdTypeRoll;
         private System.Windows.Forms.RadioButton rdTypeBox;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2GroupBox gbSide;
         private System.Windows.Forms.RadioButton rdBackSide;
         private System.Windows.Forms.RadioButton rdFrontSide;
@@ -1903,7 +1899,6 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2TextBox txtWghCors;
         private Guna.UI2.WinForms.Guna2GroupBox gbData;
         private System.Windows.Forms.DataGridView dgvDetail;
-        private Guna.UI2.WinForms.Guna2GroupBox gbMain;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbTotalWgh;
         private System.Windows.Forms.Label label10;
@@ -1917,7 +1912,7 @@ namespace FutureFlex
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2TextBox txtNumRoll;
+        private Guna.UI2.WinForms.Guna2TextBox txtNumRollAll;
         private Guna.UI2.WinForms.Guna2TextBox txtWghPaper;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
@@ -1953,7 +1948,6 @@ namespace FutureFlex
         private System.Windows.Forms.RadioButton radioButton3;
         private Bunifu.UI.WinForms.BunifuCheckBox cbPrint;
         private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnStart;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtPchRoll;
         private System.Windows.Forms.Label label2;
@@ -1966,6 +1960,12 @@ namespace FutureFlex
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private Guna.UI2.WinForms.Guna2GradientButton btnStart;
+        private Guna.UI2.WinForms.Guna2TextBox txtNumRoll;
+        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.DataGridViewButtonColumn cl_del;
         private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
         private System.Windows.Forms.DataGridViewButtonColumn cl_print;
@@ -1991,6 +1991,7 @@ namespace FutureFlex
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_meter_kg_in_roll;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_pch;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numbox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_numrollAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numroll;
     }
 }
