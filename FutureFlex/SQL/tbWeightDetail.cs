@@ -30,13 +30,14 @@ namespace FutureFlex.SQL
         public static decimal wgh_joint { get; set; }
         public static decimal wgh_meter_kg_in_roll { get; set; }
         public static int numbox { get; set; }
-        public static int numroll { get; set; }
+        public static int numrollAll { get; set; }  // จำนวนม้วนทั้งหมด
+        public static decimal numroll { get; set; } // จำนวนม้วนต่อLOT
         public static int pch { get; set; }
         public static string lot { get; set; }
         public static string oparator { get; set; }
 
         /// <summary>
-        /// สำหรับแสดงข้อมูล PO 
+        /// สำหรับแสดงข้อมูล PO ทุกเงื่อนไข
         /// </summary>
         /// <param name="po"></param>
         /// <returns></returns>
@@ -97,9 +98,8 @@ namespace FutureFlex.SQL
         }
 
         /// <summary>
-        /// สำหรับแสดงข้อมูล PO 
+        /// สำหรับแสดงข้อมูล PO  ที่ยังไม่ส่งข้อมูลไปที่ ODOO
         /// </summary>
-        /// <param name="po"></param>
         /// <returns></returns>
         public static DataTable SELECT_PO_NOT_SEND_ODOO()
         {
@@ -150,7 +150,7 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sql = $"SELECT * FROM {tbName} WHERE wdt_statusOdoo = 'NOT SEND'";
+                sql = $"SELECT wdt_po FROM {tbName} WHERE wdt_statusOdoo = 'NOT SEND'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -172,7 +172,7 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sql = $"SELECT * FROM {tbName} WHERE wdt_printed = 'NOT PRINT'";
+                sql = $"SELECT wdt_po FROM {tbName} WHERE wdt_printed = 'NOT PRINT'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -308,6 +308,7 @@ $" WHERE a.wgh_GV = '{gvid}'";
                 Log.Information($"-- จำนวนรอยต่อ : {wgh_joint}");
                 Log.Information($"-- จำนวนเมตร : {wgh_meter_kg_in_roll}");
                 Log.Information($"-- จำนวนกล่อง : {numbox}");
+                Log.Information($"-- จำนวนม้วน(ทั้งหมด) : {numrollAll}");
                 Log.Information($"-- จำนวนม้วน : {numroll}");
                 Log.Information($"-- จำนวนใบ : {pch}");
                 Log.Information($"-- LOT : {lot}");
@@ -331,10 +332,10 @@ $" WHERE a.wgh_GV = '{gvid}'";
                 cmd.Parameters.Add(new SqlParameter("@wgh_joint", wgh_joint));
                 cmd.Parameters.Add(new SqlParameter("@numMeter", wgh_meter_kg_in_roll));
                 cmd.Parameters.Add(new SqlParameter("@numBox", numbox));
+                cmd.Parameters.Add(new SqlParameter("@numRollAll", numrollAll));
                 cmd.Parameters.Add(new SqlParameter("@numRoll", numroll));
 
                 cmd.Parameters.Add(new SqlParameter("@pch", pch));
-
 
                 cmd.Parameters.Add(new SqlParameter("@lot", lot));
                 cmd.Parameters.Add(new SqlParameter("@oparator", oparator));
