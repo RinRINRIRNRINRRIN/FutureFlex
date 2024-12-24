@@ -1,4 +1,5 @@
 ﻿using Bunifu.UI.WinForms;
+using Guna.UI2.WinForms;
 using System;
 using System.Configuration;
 using System.IO.Ports;
@@ -26,17 +27,17 @@ namespace FutureFlex
         private void frmSetting_Load(object sender, EventArgs e)
         {
             // ดึงค่า COM BUADRATE มาแสดงที่ Combobox
-            cbbWGHBAUTRATE.Items.Add(WGH_BUADRATE);
-            cbbWGHCOM.Items.Add(WGH_COM);
+            cbbWGHB.Items.Add(WGH_BUADRATE);
+            cbbWGHC.Items.Add(WGH_COM);
 
-            cbbWGHCOM.SelectedIndex = 0;
-            cbbWGHBAUTRATE.SelectedIndex = 0;
+            cbbWGHC.SelectedIndex = 0;
+            cbbWGHB.SelectedIndex = 0;
         }
 
 
         private void GET_SERIALPORT(object sender, EventArgs e)
         {
-            ComboBox cbb = sender as ComboBox;
+            Guna2ComboBox cbb = sender as Guna2ComboBox;
 
             string[] a = SerialPort.GetPortNames();
 
@@ -49,7 +50,7 @@ namespace FutureFlex
 
         private void GET_BUADRATE(object sender, EventArgs e)
         {
-            ComboBox cbb = sender as ComboBox;
+            Guna2ComboBox cbb = sender as Guna2ComboBox;
 
             cbb.Items.Clear();
             cbb.Items.Add(9600);
@@ -58,7 +59,7 @@ namespace FutureFlex
 
         private void CLEAR_COMBOBOX(object sender, EventArgs e)
         {
-            ComboBox cbb = sender as ComboBox;
+            Guna2ComboBox cbb = sender as Guna2ComboBox;
 
             if (cbb.Text == "")
             {
@@ -77,9 +78,9 @@ namespace FutureFlex
             }
         }
 
-        private void btnHistory_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (var item in gbWGH.Controls.OfType<ComboBox>())
+            foreach (var item in this.Controls.OfType<ComboBox>())
             {
                 if (item.Text.Contains("--"))
                 {
@@ -88,8 +89,8 @@ namespace FutureFlex
                 }
             }
 
-            config.AppSettings.Settings["WGH_COM"].Value = cbbWGHCOM.Text;
-            config.AppSettings.Settings["WGH_BAUDRATE"].Value = cbbWGHBAUTRATE.Text;
+            config.AppSettings.Settings["WGH_COM"].Value = cbbWGHC.Text;
+            config.AppSettings.Settings["WGH_BAUDRATE"].Value = cbbWGHB.Text;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
 
