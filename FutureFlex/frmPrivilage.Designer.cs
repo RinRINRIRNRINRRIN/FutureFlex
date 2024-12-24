@@ -30,32 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrivilage));
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState19 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState20 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState21 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState22 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState23 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState24 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState25 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState26 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState27 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState28 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState29 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState30 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState31 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState32 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState33 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState34 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState35 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState36 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
-            this.gbMain = new Guna.UI2.WinForms.Guna2GroupBox();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState7 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState8 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState9 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState10 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState11 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState12 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState13 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState14 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState15 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState16 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState17 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState18 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             this.gbPrivilage = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tgsAccEdit = new Bunifu.UI.WinForms.BunifuToggleSwitch();
             this.tgsAccPri = new Bunifu.UI.WinForms.BunifuToggleSwitch();
@@ -103,36 +102,19 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.gnTran = new Guna.UI2.WinForms.Guna2Transition();
-            this.gbMain.SuspendLayout();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.gbPrivilage.SuspendLayout();
             this.pnDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.gbEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbMain
-            // 
-            this.gbMain.BorderColor = System.Drawing.Color.SteelBlue;
-            this.gbMain.BorderRadius = 6;
-            this.gbMain.Controls.Add(this.gbPrivilage);
-            this.gbMain.Controls.Add(this.pnDetail);
-            this.gbMain.Controls.Add(this.gbEmployee);
-            this.gbMain.Controls.Add(this.guna2ControlBox1);
-            this.gbMain.CustomBorderColor = System.Drawing.Color.SteelBlue;
-            this.gnTran.SetDecoration(this.gbMain, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.gbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbMain.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMain.ForeColor = System.Drawing.Color.White;
-            this.gbMain.Location = new System.Drawing.Point(0, 0);
-            this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(928, 892);
-            this.gbMain.TabIndex = 0;
-            this.gbMain.Text = "จัดการผู้ใช้งานระบบ";
-            // 
             // gbPrivilage
             // 
-            this.gbPrivilage.BorderColor = System.Drawing.Color.SteelBlue;
-            this.gbPrivilage.BorderRadius = 6;
+            this.gbPrivilage.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.gbPrivilage.BorderRadius = 3;
             this.gbPrivilage.Controls.Add(this.tgsAccEdit);
             this.gbPrivilage.Controls.Add(this.tgsAccPri);
             this.gbPrivilage.Controls.Add(this.tgsAccDel);
@@ -152,11 +134,11 @@
             this.gbPrivilage.Controls.Add(this.cbReprintJIT);
             this.gbPrivilage.Controls.Add(this.cbWeight);
             this.gbPrivilage.Controls.Add(this.tgsWghEdit);
-            this.gbPrivilage.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.gbPrivilage.CustomBorderColor = System.Drawing.Color.MidnightBlue;
             this.gnTran.SetDecoration(this.gbPrivilage, Guna.UI2.AnimatorNS.DecorationType.None);
             this.gbPrivilage.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPrivilage.ForeColor = System.Drawing.Color.White;
-            this.gbPrivilage.Location = new System.Drawing.Point(470, 564);
+            this.gbPrivilage.Location = new System.Drawing.Point(882, 68);
             this.gbPrivilage.Name = "gbPrivilage";
             this.gbPrivilage.Size = new System.Drawing.Size(362, 309);
             this.gbPrivilage.TabIndex = 0;
@@ -179,33 +161,33 @@
             this.tgsAccEdit.TabIndex = 0;
             this.tgsAccEdit.Tag = "account";
             this.tgsAccEdit.ThumbMargin = 3;
-            toggleState19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState19.BackColorInner = System.Drawing.Color.White;
-            toggleState19.BorderColor = System.Drawing.Color.Red;
-            toggleState19.BorderColorInner = System.Drawing.Color.White;
-            toggleState19.BorderRadius = 17;
-            toggleState19.BorderRadiusInner = 11;
-            toggleState19.BorderThickness = 1;
-            toggleState19.BorderThicknessInner = 1;
-            this.tgsAccEdit.ToggleStateDisabled = toggleState19;
-            toggleState20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState20.BackColorInner = System.Drawing.Color.White;
-            toggleState20.BorderColor = System.Drawing.Color.Red;
-            toggleState20.BorderColorInner = System.Drawing.Color.White;
-            toggleState20.BorderRadius = 17;
-            toggleState20.BorderRadiusInner = 11;
-            toggleState20.BorderThickness = 1;
-            toggleState20.BorderThicknessInner = 1;
-            this.tgsAccEdit.ToggleStateOff = toggleState20;
-            toggleState21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState21.BackColorInner = System.Drawing.Color.White;
-            toggleState21.BorderColor = System.Drawing.Color.Green;
-            toggleState21.BorderColorInner = System.Drawing.Color.White;
-            toggleState21.BorderRadius = 17;
-            toggleState21.BorderRadiusInner = 11;
-            toggleState21.BorderThickness = 1;
-            toggleState21.BorderThicknessInner = 1;
-            this.tgsAccEdit.ToggleStateOn = toggleState21;
+            toggleState1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState1.BackColorInner = System.Drawing.Color.White;
+            toggleState1.BorderColor = System.Drawing.Color.Red;
+            toggleState1.BorderColorInner = System.Drawing.Color.White;
+            toggleState1.BorderRadius = 17;
+            toggleState1.BorderRadiusInner = 11;
+            toggleState1.BorderThickness = 1;
+            toggleState1.BorderThicknessInner = 1;
+            this.tgsAccEdit.ToggleStateDisabled = toggleState1;
+            toggleState2.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState2.BackColorInner = System.Drawing.Color.White;
+            toggleState2.BorderColor = System.Drawing.Color.White;
+            toggleState2.BorderColorInner = System.Drawing.Color.White;
+            toggleState2.BorderRadius = 17;
+            toggleState2.BorderRadiusInner = 11;
+            toggleState2.BorderThickness = 1;
+            toggleState2.BorderThicknessInner = 1;
+            this.tgsAccEdit.ToggleStateOff = toggleState2;
+            toggleState3.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState3.BackColorInner = System.Drawing.Color.White;
+            toggleState3.BorderColor = System.Drawing.Color.White;
+            toggleState3.BorderColorInner = System.Drawing.Color.White;
+            toggleState3.BorderRadius = 17;
+            toggleState3.BorderRadiusInner = 11;
+            toggleState3.BorderThickness = 1;
+            toggleState3.BorderThicknessInner = 1;
+            this.tgsAccEdit.ToggleStateOn = toggleState3;
             this.tgsAccEdit.Value = false;
             this.tgsAccEdit.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -225,33 +207,33 @@
             this.tgsAccPri.TabIndex = 0;
             this.tgsAccPri.Tag = "account";
             this.tgsAccPri.ThumbMargin = 3;
-            toggleState22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState22.BackColorInner = System.Drawing.Color.White;
-            toggleState22.BorderColor = System.Drawing.Color.Red;
-            toggleState22.BorderColorInner = System.Drawing.Color.White;
-            toggleState22.BorderRadius = 17;
-            toggleState22.BorderRadiusInner = 11;
-            toggleState22.BorderThickness = 1;
-            toggleState22.BorderThicknessInner = 1;
-            this.tgsAccPri.ToggleStateDisabled = toggleState22;
-            toggleState23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState23.BackColorInner = System.Drawing.Color.White;
-            toggleState23.BorderColor = System.Drawing.Color.Red;
-            toggleState23.BorderColorInner = System.Drawing.Color.White;
-            toggleState23.BorderRadius = 17;
-            toggleState23.BorderRadiusInner = 11;
-            toggleState23.BorderThickness = 1;
-            toggleState23.BorderThicknessInner = 1;
-            this.tgsAccPri.ToggleStateOff = toggleState23;
-            toggleState24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState24.BackColorInner = System.Drawing.Color.White;
-            toggleState24.BorderColor = System.Drawing.Color.Green;
-            toggleState24.BorderColorInner = System.Drawing.Color.White;
-            toggleState24.BorderRadius = 17;
-            toggleState24.BorderRadiusInner = 11;
-            toggleState24.BorderThickness = 1;
-            toggleState24.BorderThicknessInner = 1;
-            this.tgsAccPri.ToggleStateOn = toggleState24;
+            toggleState4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState4.BackColorInner = System.Drawing.Color.White;
+            toggleState4.BorderColor = System.Drawing.Color.Red;
+            toggleState4.BorderColorInner = System.Drawing.Color.White;
+            toggleState4.BorderRadius = 17;
+            toggleState4.BorderRadiusInner = 11;
+            toggleState4.BorderThickness = 1;
+            toggleState4.BorderThicknessInner = 1;
+            this.tgsAccPri.ToggleStateDisabled = toggleState4;
+            toggleState5.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState5.BackColorInner = System.Drawing.Color.White;
+            toggleState5.BorderColor = System.Drawing.Color.White;
+            toggleState5.BorderColorInner = System.Drawing.Color.White;
+            toggleState5.BorderRadius = 17;
+            toggleState5.BorderRadiusInner = 11;
+            toggleState5.BorderThickness = 1;
+            toggleState5.BorderThicknessInner = 1;
+            this.tgsAccPri.ToggleStateOff = toggleState5;
+            toggleState6.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState6.BackColorInner = System.Drawing.Color.White;
+            toggleState6.BorderColor = System.Drawing.Color.White;
+            toggleState6.BorderColorInner = System.Drawing.Color.White;
+            toggleState6.BorderRadius = 17;
+            toggleState6.BorderRadiusInner = 11;
+            toggleState6.BorderThickness = 1;
+            toggleState6.BorderThicknessInner = 1;
+            this.tgsAccPri.ToggleStateOn = toggleState6;
             this.tgsAccPri.Value = false;
             this.tgsAccPri.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -271,33 +253,33 @@
             this.tgsAccDel.TabIndex = 0;
             this.tgsAccDel.Tag = "account";
             this.tgsAccDel.ThumbMargin = 3;
-            toggleState25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState25.BackColorInner = System.Drawing.Color.White;
-            toggleState25.BorderColor = System.Drawing.Color.Red;
-            toggleState25.BorderColorInner = System.Drawing.Color.White;
-            toggleState25.BorderRadius = 17;
-            toggleState25.BorderRadiusInner = 11;
-            toggleState25.BorderThickness = 1;
-            toggleState25.BorderThicknessInner = 1;
-            this.tgsAccDel.ToggleStateDisabled = toggleState25;
-            toggleState26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState26.BackColorInner = System.Drawing.Color.White;
-            toggleState26.BorderColor = System.Drawing.Color.Red;
-            toggleState26.BorderColorInner = System.Drawing.Color.White;
-            toggleState26.BorderRadius = 17;
-            toggleState26.BorderRadiusInner = 11;
-            toggleState26.BorderThickness = 1;
-            toggleState26.BorderThicknessInner = 1;
-            this.tgsAccDel.ToggleStateOff = toggleState26;
-            toggleState27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState27.BackColorInner = System.Drawing.Color.White;
-            toggleState27.BorderColor = System.Drawing.Color.Green;
-            toggleState27.BorderColorInner = System.Drawing.Color.White;
-            toggleState27.BorderRadius = 17;
-            toggleState27.BorderRadiusInner = 11;
-            toggleState27.BorderThickness = 1;
-            toggleState27.BorderThicknessInner = 1;
-            this.tgsAccDel.ToggleStateOn = toggleState27;
+            toggleState7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState7.BackColorInner = System.Drawing.Color.White;
+            toggleState7.BorderColor = System.Drawing.Color.Red;
+            toggleState7.BorderColorInner = System.Drawing.Color.White;
+            toggleState7.BorderRadius = 17;
+            toggleState7.BorderRadiusInner = 11;
+            toggleState7.BorderThickness = 1;
+            toggleState7.BorderThicknessInner = 1;
+            this.tgsAccDel.ToggleStateDisabled = toggleState7;
+            toggleState8.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState8.BackColorInner = System.Drawing.Color.White;
+            toggleState8.BorderColor = System.Drawing.Color.White;
+            toggleState8.BorderColorInner = System.Drawing.Color.White;
+            toggleState8.BorderRadius = 17;
+            toggleState8.BorderRadiusInner = 11;
+            toggleState8.BorderThickness = 1;
+            toggleState8.BorderThicknessInner = 1;
+            this.tgsAccDel.ToggleStateOff = toggleState8;
+            toggleState9.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState9.BackColorInner = System.Drawing.Color.White;
+            toggleState9.BorderColor = System.Drawing.Color.White;
+            toggleState9.BorderColorInner = System.Drawing.Color.White;
+            toggleState9.BorderRadius = 17;
+            toggleState9.BorderRadiusInner = 11;
+            toggleState9.BorderThickness = 1;
+            toggleState9.BorderThicknessInner = 1;
+            this.tgsAccDel.ToggleStateOn = toggleState9;
             this.tgsAccDel.Value = false;
             this.tgsAccDel.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -317,33 +299,33 @@
             this.tgsAccAdd.TabIndex = 0;
             this.tgsAccAdd.Tag = "account";
             this.tgsAccAdd.ThumbMargin = 3;
-            toggleState28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState28.BackColorInner = System.Drawing.Color.White;
-            toggleState28.BorderColor = System.Drawing.Color.Red;
-            toggleState28.BorderColorInner = System.Drawing.Color.White;
-            toggleState28.BorderRadius = 17;
-            toggleState28.BorderRadiusInner = 11;
-            toggleState28.BorderThickness = 1;
-            toggleState28.BorderThicknessInner = 1;
-            this.tgsAccAdd.ToggleStateDisabled = toggleState28;
-            toggleState29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState29.BackColorInner = System.Drawing.Color.White;
-            toggleState29.BorderColor = System.Drawing.Color.Red;
-            toggleState29.BorderColorInner = System.Drawing.Color.White;
-            toggleState29.BorderRadius = 17;
-            toggleState29.BorderRadiusInner = 11;
-            toggleState29.BorderThickness = 1;
-            toggleState29.BorderThicknessInner = 1;
-            this.tgsAccAdd.ToggleStateOff = toggleState29;
-            toggleState30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState30.BackColorInner = System.Drawing.Color.White;
-            toggleState30.BorderColor = System.Drawing.Color.Green;
-            toggleState30.BorderColorInner = System.Drawing.Color.White;
-            toggleState30.BorderRadius = 17;
-            toggleState30.BorderRadiusInner = 11;
-            toggleState30.BorderThickness = 1;
-            toggleState30.BorderThicknessInner = 1;
-            this.tgsAccAdd.ToggleStateOn = toggleState30;
+            toggleState10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState10.BackColorInner = System.Drawing.Color.White;
+            toggleState10.BorderColor = System.Drawing.Color.Red;
+            toggleState10.BorderColorInner = System.Drawing.Color.White;
+            toggleState10.BorderRadius = 17;
+            toggleState10.BorderRadiusInner = 11;
+            toggleState10.BorderThickness = 1;
+            toggleState10.BorderThicknessInner = 1;
+            this.tgsAccAdd.ToggleStateDisabled = toggleState10;
+            toggleState11.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState11.BackColorInner = System.Drawing.Color.White;
+            toggleState11.BorderColor = System.Drawing.Color.White;
+            toggleState11.BorderColorInner = System.Drawing.Color.White;
+            toggleState11.BorderRadius = 17;
+            toggleState11.BorderRadiusInner = 11;
+            toggleState11.BorderThickness = 1;
+            toggleState11.BorderThicknessInner = 1;
+            this.tgsAccAdd.ToggleStateOff = toggleState11;
+            toggleState12.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState12.BackColorInner = System.Drawing.Color.White;
+            toggleState12.BorderColor = System.Drawing.Color.White;
+            toggleState12.BorderColorInner = System.Drawing.Color.White;
+            toggleState12.BorderRadius = 17;
+            toggleState12.BorderRadiusInner = 11;
+            toggleState12.BorderThickness = 1;
+            toggleState12.BorderThicknessInner = 1;
+            this.tgsAccAdd.ToggleStateOn = toggleState12;
             this.tgsAccAdd.Value = false;
             this.tgsAccAdd.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -398,8 +380,8 @@
             // guna2Button1
             // 
             this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button1.BorderColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.guna2Button1.BorderColor = System.Drawing.Color.MidnightBlue;
             this.guna2Button1.BorderRadius = 6;
             this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -408,7 +390,7 @@
             this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button1.FillColor = System.Drawing.Color.MidnightBlue;
             this.guna2Button1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Location = new System.Drawing.Point(310, 5);
@@ -447,33 +429,33 @@
             this.tgsWghDel.TabIndex = 0;
             this.tgsWghDel.Tag = "weight";
             this.tgsWghDel.ThumbMargin = 3;
-            toggleState31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState31.BackColorInner = System.Drawing.Color.White;
-            toggleState31.BorderColor = System.Drawing.Color.Red;
-            toggleState31.BorderColorInner = System.Drawing.Color.White;
-            toggleState31.BorderRadius = 17;
-            toggleState31.BorderRadiusInner = 11;
-            toggleState31.BorderThickness = 1;
-            toggleState31.BorderThicknessInner = 1;
-            this.tgsWghDel.ToggleStateDisabled = toggleState31;
-            toggleState32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState32.BackColorInner = System.Drawing.Color.White;
-            toggleState32.BorderColor = System.Drawing.Color.Red;
-            toggleState32.BorderColorInner = System.Drawing.Color.White;
-            toggleState32.BorderRadius = 17;
-            toggleState32.BorderRadiusInner = 11;
-            toggleState32.BorderThickness = 1;
-            toggleState32.BorderThicknessInner = 1;
-            this.tgsWghDel.ToggleStateOff = toggleState32;
-            toggleState33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState33.BackColorInner = System.Drawing.Color.White;
-            toggleState33.BorderColor = System.Drawing.Color.Green;
-            toggleState33.BorderColorInner = System.Drawing.Color.White;
-            toggleState33.BorderRadius = 17;
-            toggleState33.BorderRadiusInner = 11;
-            toggleState33.BorderThickness = 1;
-            toggleState33.BorderThicknessInner = 1;
-            this.tgsWghDel.ToggleStateOn = toggleState33;
+            toggleState13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState13.BackColorInner = System.Drawing.Color.White;
+            toggleState13.BorderColor = System.Drawing.Color.Red;
+            toggleState13.BorderColorInner = System.Drawing.Color.White;
+            toggleState13.BorderRadius = 17;
+            toggleState13.BorderRadiusInner = 11;
+            toggleState13.BorderThickness = 1;
+            toggleState13.BorderThicknessInner = 1;
+            this.tgsWghDel.ToggleStateDisabled = toggleState13;
+            toggleState14.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState14.BackColorInner = System.Drawing.Color.White;
+            toggleState14.BorderColor = System.Drawing.Color.White;
+            toggleState14.BorderColorInner = System.Drawing.Color.White;
+            toggleState14.BorderRadius = 17;
+            toggleState14.BorderRadiusInner = 11;
+            toggleState14.BorderThickness = 1;
+            toggleState14.BorderThicknessInner = 1;
+            this.tgsWghDel.ToggleStateOff = toggleState14;
+            toggleState15.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState15.BackColorInner = System.Drawing.Color.White;
+            toggleState15.BorderColor = System.Drawing.Color.White;
+            toggleState15.BorderColorInner = System.Drawing.Color.White;
+            toggleState15.BorderRadius = 17;
+            toggleState15.BorderRadiusInner = 11;
+            toggleState15.BorderThickness = 1;
+            toggleState15.BorderThicknessInner = 1;
+            this.tgsWghDel.ToggleStateOn = toggleState15;
             this.tgsWghDel.Value = false;
             this.tgsWghDel.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -643,33 +625,33 @@
             this.tgsWghEdit.TabIndex = 0;
             this.tgsWghEdit.Tag = "weight";
             this.tgsWghEdit.ThumbMargin = 3;
-            toggleState34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState34.BackColorInner = System.Drawing.Color.White;
-            toggleState34.BorderColor = System.Drawing.Color.Red;
-            toggleState34.BorderColorInner = System.Drawing.Color.White;
-            toggleState34.BorderRadius = 17;
-            toggleState34.BorderRadiusInner = 11;
-            toggleState34.BorderThickness = 1;
-            toggleState34.BorderThicknessInner = 1;
-            this.tgsWghEdit.ToggleStateDisabled = toggleState34;
-            toggleState35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            toggleState35.BackColorInner = System.Drawing.Color.White;
-            toggleState35.BorderColor = System.Drawing.Color.Red;
-            toggleState35.BorderColorInner = System.Drawing.Color.White;
-            toggleState35.BorderRadius = 17;
-            toggleState35.BorderRadiusInner = 11;
-            toggleState35.BorderThickness = 1;
-            toggleState35.BorderThicknessInner = 1;
-            this.tgsWghEdit.ToggleStateOff = toggleState35;
-            toggleState36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            toggleState36.BackColorInner = System.Drawing.Color.White;
-            toggleState36.BorderColor = System.Drawing.Color.Green;
-            toggleState36.BorderColorInner = System.Drawing.Color.White;
-            toggleState36.BorderRadius = 17;
-            toggleState36.BorderRadiusInner = 11;
-            toggleState36.BorderThickness = 1;
-            toggleState36.BorderThicknessInner = 1;
-            this.tgsWghEdit.ToggleStateOn = toggleState36;
+            toggleState16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            toggleState16.BackColorInner = System.Drawing.Color.White;
+            toggleState16.BorderColor = System.Drawing.Color.Red;
+            toggleState16.BorderColorInner = System.Drawing.Color.White;
+            toggleState16.BorderRadius = 17;
+            toggleState16.BorderRadiusInner = 11;
+            toggleState16.BorderThickness = 1;
+            toggleState16.BorderThicknessInner = 1;
+            this.tgsWghEdit.ToggleStateDisabled = toggleState16;
+            toggleState17.BackColor = System.Drawing.Color.DarkViolet;
+            toggleState17.BackColorInner = System.Drawing.Color.White;
+            toggleState17.BorderColor = System.Drawing.Color.White;
+            toggleState17.BorderColorInner = System.Drawing.Color.White;
+            toggleState17.BorderRadius = 17;
+            toggleState17.BorderRadiusInner = 11;
+            toggleState17.BorderThickness = 1;
+            toggleState17.BorderThicknessInner = 1;
+            this.tgsWghEdit.ToggleStateOff = toggleState17;
+            toggleState18.BackColor = System.Drawing.Color.RoyalBlue;
+            toggleState18.BackColorInner = System.Drawing.Color.White;
+            toggleState18.BorderColor = System.Drawing.Color.White;
+            toggleState18.BorderColorInner = System.Drawing.Color.White;
+            toggleState18.BorderRadius = 17;
+            toggleState18.BorderRadiusInner = 11;
+            toggleState18.BorderThickness = 1;
+            toggleState18.BorderThicknessInner = 1;
+            this.tgsWghEdit.ToggleStateOn = toggleState18;
             this.tgsWghEdit.Value = false;
             this.tgsWghEdit.CheckedChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuToggleSwitch.CheckedChangedEventArgs>(this.TOGLE_CHECK);
             // 
@@ -680,7 +662,7 @@
             this.pnDetail.Controls.Add(this.btnAddAccount);
             this.pnDetail.Controls.Add(this.cbbType);
             this.gnTran.SetDecoration(this.pnDetail, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.pnDetail.Location = new System.Drawing.Point(10, 47);
+            this.pnDetail.Location = new System.Drawing.Point(12, 81);
             this.pnDetail.Name = "pnDetail";
             this.pnDetail.Size = new System.Drawing.Size(864, 511);
             this.pnDetail.TabIndex = 0;
@@ -719,19 +701,19 @@
             // 
             this.dgvEmployee.AllowUserToAddRows = false;
             this.dgvEmployee.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
             this.dgvEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.dgvEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmployee.ColumnHeadersHeight = 29;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -743,14 +725,14 @@
             this.cl_emp_name,
             this.cl_emp_state});
             this.gnTran.SetDecoration(this.dgvEmployee, Guna.UI2.AnimatorNS.DecorationType.None);
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployee.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvEmployee.Location = new System.Drawing.Point(9, 59);
             this.dgvEmployee.Name = "dgvEmployee";
@@ -783,9 +765,9 @@
             // 
             // cl_del
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            this.cl_del.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            this.cl_del.DefaultCellStyle = dataGridViewCellStyle3;
             this.cl_del.HeaderText = "";
             this.cl_del.Name = "cl_del";
             this.cl_del.ReadOnly = true;
@@ -798,9 +780,9 @@
             // 
             // cl_edit
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Olive;
-            this.cl_edit.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Olive;
+            this.cl_edit.DefaultCellStyle = dataGridViewCellStyle4;
             this.cl_edit.HeaderText = "";
             this.cl_edit.Name = "cl_edit";
             this.cl_edit.ReadOnly = true;
@@ -813,9 +795,9 @@
             // 
             // cl_privilage
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Navy;
-            this.cl_privilage.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Navy;
+            this.cl_privilage.DefaultCellStyle = dataGridViewCellStyle5;
             this.cl_privilage.HeaderText = "";
             this.cl_privilage.Name = "cl_privilage";
             this.cl_privilage.ReadOnly = true;
@@ -921,8 +903,8 @@
             // 
             // gbEmployee
             // 
-            this.gbEmployee.BorderColor = System.Drawing.Color.SteelBlue;
-            this.gbEmployee.BorderRadius = 6;
+            this.gbEmployee.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.gbEmployee.BorderRadius = 3;
             this.gbEmployee.Controls.Add(this.guna2Button2);
             this.gbEmployee.Controls.Add(this.btnSaveEmployee);
             this.gbEmployee.Controls.Add(this.cbShowPassword);
@@ -934,11 +916,11 @@
             this.gbEmployee.Controls.Add(this.txtPassword);
             this.gbEmployee.Controls.Add(this.label4);
             this.gbEmployee.Controls.Add(this.txtUsername);
-            this.gbEmployee.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.gbEmployee.CustomBorderColor = System.Drawing.Color.MidnightBlue;
             this.gnTran.SetDecoration(this.gbEmployee, Guna.UI2.AnimatorNS.DecorationType.None);
             this.gbEmployee.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEmployee.ForeColor = System.Drawing.Color.White;
-            this.gbEmployee.Location = new System.Drawing.Point(19, 564);
+            this.gbEmployee.Location = new System.Drawing.Point(882, 383);
             this.gbEmployee.Name = "gbEmployee";
             this.gbEmployee.Size = new System.Drawing.Size(378, 281);
             this.gbEmployee.TabIndex = 0;
@@ -948,8 +930,8 @@
             // guna2Button2
             // 
             this.guna2Button2.Animated = true;
-            this.guna2Button2.BackColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button2.BorderColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.guna2Button2.BorderColor = System.Drawing.Color.MidnightBlue;
             this.guna2Button2.BorderRadius = 6;
             this.guna2Button2.BorderThickness = 1;
             this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -958,7 +940,7 @@
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.SteelBlue;
+            this.guna2Button2.FillColor = System.Drawing.Color.MidnightBlue;
             this.guna2Button2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.Location = new System.Drawing.Point(329, 3);
@@ -1161,9 +1143,9 @@
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gnTran.SetDecoration(this.guna2ControlBox1, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.SteelBlue;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(874, 7);
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.MidnightBlue;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1241, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 15;
@@ -1172,36 +1154,73 @@
             // guna2DragControl1
             // 
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.gbMain;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // gnTran
             // 
             this.gnTran.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.gnTran.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.gnTran.DefaultAnimation = animation1;
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.gnTran.SetDecoration(this.label11, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label11.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Navy;
+            this.label11.Location = new System.Drawing.Point(10, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(213, 25);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "ผู้ใช้งานระบบ สิทธิ์การใช้งานระบบ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.gnTran.SetDecoration(this.label12, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.label12.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label12.ForeColor = System.Drawing.Color.Navy;
+            this.label12.Location = new System.Drawing.Point(3, 2);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(279, 51);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "จัดการผู้ใช้งานระบบ";
             // 
             // frmPrivilage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(928, 892);
-            this.Controls.Add(this.gbMain);
+            this.ClientSize = new System.Drawing.Size(1289, 975);
+            this.Controls.Add(this.gbPrivilage);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.gbEmployee);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.guna2ControlBox1);
+            this.Controls.Add(this.pnDetail);
             this.gnTran.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             this.Font = new System.Drawing.Font("Athiti", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1210,7 +1229,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrivilage";
             this.Load += new System.EventHandler(this.frmPrivilage_Load);
-            this.gbMain.ResumeLayout(false);
             this.gbPrivilage.ResumeLayout(false);
             this.gbPrivilage.PerformLayout();
             this.pnDetail.ResumeLayout(false);
@@ -1218,12 +1236,11 @@
             this.gbEmployee.ResumeLayout(false);
             this.gbEmployee.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2GroupBox gbMain;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Label label3;
         private Bunifu.UI.WinForms.BunifuToggleSwitch tgsWghDel;
@@ -1271,5 +1288,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_emp_password;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_emp_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_emp_state;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

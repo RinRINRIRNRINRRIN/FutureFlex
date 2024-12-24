@@ -27,8 +27,8 @@ namespace FutureFlex
         {
             // คืนค่าปุ่ม
             ClearFromMenuAndDetail();
-            int x = (gbMain.Width - gb.Width) / 2;
-            int y = (gbMain.Height - gb.Height) / 2;
+            int x = (this.Width - gb.Width) / 2;
+            int y = (this.Height - gb.Height) / 2;
             gb.Location = new System.Drawing.Point(x, y);
             gnTran.ShowSync(gb);
             await Task.Delay(100);
