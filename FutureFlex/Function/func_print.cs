@@ -67,8 +67,16 @@ namespace FutureFlex.Function
                     #region Body
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 57));
                     e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
+                    Console.WriteLine(MRP.product_name.Length);
                     e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
-                    e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                    if (MRP.product_name.Length >= 25)
+                    {
+                        e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                    }
                     e.Graphics.DrawString($"{_lot}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(0, 80));
 
 
@@ -193,6 +201,8 @@ namespace FutureFlex.Function
             }
             catch (Exception ex)
             {
+                Log.Error("Error Print " + ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 

@@ -289,19 +289,23 @@ namespace FutureFlex
 
             foreach (DataRow rw in tb.Rows)
             {
+                string po = rw["wdt_po"].ToString();
                 _opNew = rw["wdt_po"].ToString();
 
-                bool isSame = false;
-                for (int i = 0; i < cbbPO.Items.Count; i++)
+                if (po != "JIT")
                 {
-                    if (_opNew == cbbPO.Items[i].ToString())
+                    bool isSame = false;
+                    for (int i = 0; i < cbbPO.Items.Count; i++)
                     {
-                        isSame = true;
+                        if (_opNew == cbbPO.Items[i].ToString())
+                        {
+                            isSame = true;
+                        }
                     }
-                }
-                if (!isSame)
-                {
-                    cbbPO.Items.Add(_opNew);
+                    if (!isSame)
+                    {
+                        cbbPO.Items.Add(_opNew);
+                    }
                 }
             }
         }
