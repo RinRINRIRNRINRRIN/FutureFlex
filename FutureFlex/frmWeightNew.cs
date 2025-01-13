@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FutureFlex
@@ -20,6 +21,8 @@ namespace FutureFlex
             InitializeComponent();
 
             ClearForm();
+
+            ShowLoadData();
 
             this.FormBorderStyle = FormBorderStyle.None;
             dgvDetail.ColumnHeadersDefaultCellStyle.Font = new Font("Athiti", 12, System.Drawing.FontStyle.Regular);
@@ -35,7 +38,7 @@ namespace FutureFlex
         string statusType = "";     ///// ใช่้สำหรับเก็บค่า การเลือกประเภท จาก Groupbox 
         string statusCounty = "";   ///// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
         string statusSide = "";     ///// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
-        bool statusPrint = false;    // ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
+        bool statusPrint = false;   // ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
 
         bool isStart = false; // สำหรับเก็บค่าว่า เริ่มหรือยัง
 
@@ -163,12 +166,10 @@ namespace FutureFlex
 
         void ShowLoadData()
         {
-            pnMain.Visible = false;
             int x = (this.Width - gbLoadData.Width) / 2;
             int y = (this.Height - gbLoadData.Height) / 2;
 
             gbLoadData.Location = new System.Drawing.Point(x, y);
-            gbLoadData.Visible = true;
         }
 
         #endregion
@@ -366,11 +367,15 @@ namespace FutureFlex
                         Log.Information($"== ผู้ใช้เลือกแก้ไขข้อมูล");
                         string _employee = dgvDetail.Rows[e.RowIndex].Cells["cl_employee"].Value.ToString();
                         // เช็คว่าคนที่จะแก้ไขต้องเป็นเดียวกัน
-                        if (_employee != tbEmployeeSQL.emp_name)
+                        if (tbEmployeeSQL.emp_username != "sa")
                         {
-                            sb.Show(this, "ไม่สามารถแก้ไขการชั่งของคนอื่นได้", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
-                            return;
+                            if (_employee != tbEmployeeSQL.emp_name)
+                            {
+                                sb.Show(this, "ไม่สามารถแก้ไขการชั่งของคนอื่นได้", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                                return;
+                            }
                         }
+
                         _id = Convert.ToInt16(dgvDetail.Rows[e.RowIndex].Cells["cl_id"].Value.ToString());
                         tbWeightDetail.seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
                         tbWeightDetail.lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
@@ -565,22 +570,25 @@ namespace FutureFlex
             //DefinePrintParameter();
             // Print Sticker
             SetPaperAndPrint();
-
-            // แสดงข้อมูล
-            if (cbbPO.Text == "JIT" || cbbPO.Text == "ไม่มีPO")
-            {
-                tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
-            }
-            else
-            {
-                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
-            }
-
             BeginInvoke(new MethodInvoker(delegate ()
             {
+                string stateCbb = cbbPO.Text;
+                // แสดงข้อมูล
+                if (stateCbb == "JIT" || stateCbb == "ไม่มีPO")
+                {
+                    tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO();
+                }
+                else
+                {
+                    tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+                }
+
+
                 dgvDetail.DataSource = tb;
                 dgvDetail.Enabled = true;
             }));
+
+
             #endregion
         }
         //============================================================================================================================================================= End  input data form RS232
@@ -783,19 +791,17 @@ namespace FutureFlex
                 // เครียฟอร์ม
                 ClearForm();
 
-                pnMain.Visible = false;
                 //แสดง Loader
-                ShowLoadData();
+                pnMain.Visible = false;
+                gbLoadData.Visible = true;
 
                 if (!await MRP.GET_MRP($"GV-{txtJobNo.Text}"))
                 {
                     pnMain.Visible = true;
+                    gbLoadData.Visible = false;
                     sb.Show(this, MRP.err, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     return;
                 }
-
-                pnMain.Visible = true;
-                gbLoadData.Visible = false;
 
                 // define label
                 label7.Text = $"{MRP.name}";
@@ -811,7 +817,10 @@ namespace FutureFlex
                 label40.Text = $"{MRP.mo_po_new.ToString("#,###,###")}";
                 label39.Text = $"{MRP.mo_order_qty.ToString("#,###,###")}";
 
+                await Task.Delay(1000);
 
+                pnMain.Visible = true;
+                gbLoadData.Visible = false;
                 // define combobox
                 string[] a = MRP.mo_pono.Split(',');
                 cbbPO.Items.Clear();
