@@ -14,7 +14,7 @@ namespace FutureFlex.API
         {
             try
             {
-                Log.Information("== เช็ค token");
+                Log.Information($"=================================================================  เช็ค token");
                 var options = new RestClientOptions(tbOdoo.server)
                 {
                     MaxTimeout = -1,
@@ -38,7 +38,7 @@ namespace FutureFlex.API
             catch (Exception ex)
             {
                 ERR = ex.Message;
-                Log.Information($"take_token_key | Authenticaion : {ERR}");
+                Log.Error($"take_token_key | Authenticaion : {ERR}");
                 return false;
             }
             Log.Information($"- เช็ค Token สำเร็จ");
