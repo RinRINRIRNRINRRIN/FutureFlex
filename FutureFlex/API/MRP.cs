@@ -20,7 +20,6 @@ namespace FutureFlex.API
         public static int mo_station_id { get; set; }
         public static string mo_station_name { get; set; }
         public static int partner_id { get; set; }
-
         public static string partner_name { get; set; }
         public static string customer_product_code { get; set; }
         public static int product_id { get; set; }  // รหัสสินค้า
@@ -50,8 +49,6 @@ namespace FutureFlex.API
         public static string uom_id { get; set; } // หน่วย FG(สั่งซื้อ)
         public static double mo_po_new { get; set; } // จำนวนสั่งซื้อ (ใบ)
         public static double mo_order_qty { get; set; } // จำนวนสั่งซื้อ (ใบ) +%
-
-
         public static string err { get; set; }
 
 
@@ -220,14 +217,6 @@ namespace FutureFlex.API
                 }
 
 
-                var options = new RestClientOptions(tbOdoo.server)
-                {
-                    MaxTimeout = -1,
-                };
-                var client = new RestClient(options);
-                var request = new RestRequest("/api/mrp/create", Method.Post);
-                request.AddHeader("token", Authentication.access_token);
-                request.AddHeader("Content-Type", "text/plain");
                 Log.Information("==================================================== SEND TO ODOO");
                 Log.Information($"mrp_request_id : {gv_id}");
                 Log.Information($"weigh_in_line_id : {wgh_id}");
@@ -250,6 +239,14 @@ namespace FutureFlex.API
                 Log.Information($"weight_seq : {seq}");
                 Log.Information($"count_total : {count_total}");
                 Log.Information($"qty_roll : {qty_roll}");
+                var options = new RestClientOptions(tbOdoo.server)
+                {
+                    MaxTimeout = -1,
+                };
+                var client = new RestClient(options);
+                var request = new RestRequest("/api/mrp/create", Method.Post);
+                request.AddHeader("token", Authentication.access_token);
+                request.AddHeader("Content-Type", "text/plain");
                 #region Body
                 var body = "{\n" +
                   $"    |mrp_request_id|:|{gv_id}|,\n" +
@@ -271,7 +268,7 @@ namespace FutureFlex.API
                   $"    |qty_meter_kg_in_roll|:{meterRoll},\n" +
                   $"    |weight_lot|:|{lot}|,\n" +
                   $"    |weight_seq|:|{seq}|,\n" +
-                  $"    |count_total|: {count_total}," +
+                  $"    |count_total|: {count_total},\n" +
                   $"    |qty_roll|:{qty_roll}" +
                   "}";
                 #endregion
@@ -310,6 +307,8 @@ namespace FutureFlex.API
                 Console.Write(ex.Message);
                 return false;
             }
+            Console.WriteLine($"SEND SUCCESS RTFG NAME : {id}");
+            Log.Information($"SEND SUCCESS RTFG NAME : {id}");
             return true;
         }
 
