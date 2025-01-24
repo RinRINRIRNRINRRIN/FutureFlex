@@ -27,6 +27,14 @@ namespace FutureFlex.API
         public static double product_qty { get; set; } // จำนวนสั่งผลิต
         public static string default_code { get; set; }
         public static string product_name { get; set; }
+        /// <summary>
+        /// ความกว้างม้วน 
+        /// </summary>
+        public static double product_roll_width { get; set; }
+        /// <summary>
+        /// ความยาวม้วนเต็ม (นำไปคำนวนกับจำนวนม้วนของ prodcut)
+        /// </summary>
+        public static double product_roll_length { get; set; }
         public static string mo_gusset { get; set; }
         public static string mo_film { get; set; }  // โครงสร้าง
         public static string mo_film_total { get; set; }
@@ -45,6 +53,7 @@ namespace FutureFlex.API
 
 
         public static string err { get; set; }
+
 
 
         public static void ClearProp()
@@ -146,6 +155,8 @@ namespace FutureFlex.API
                     product_id = (int)value["product_id"];
                     default_code = value["default_code"].ToString();
                     product_name = value["product_name"].ToString();
+                    product_roll_width = double.Parse(value["product_roll_width"].ToString());
+                    product_roll_length = double.Parse(value["product_roll_length"].ToString());
                     mo_gusset = value["mo_gusset"].ToString();
                     mo_film = value["mo_film"].ToString();
                     mo_film_total = value["mo_film_total"].ToString();
