@@ -20,22 +20,6 @@ namespace FutureFlex.SQL
 
 
         #region SELECT
-        public static DataTable SELECT_ALL_DATA()
-        {
-            try
-            {
-                sql = $"SELECT * FROM {tbName} ORDER BY wgh_GV DESC";
-                da = new SqlDataAdapter(sql, con);
-                tb = new DataTable();
-                da.Fill(tb);
-            }
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return tb;
-            }
-            return tb;
-        }
 
         /// <summary>
         /// สำหรับค้นหาข้อมูล  GV  นั้น ๆ 
@@ -59,29 +43,6 @@ namespace FutureFlex.SQL
             return tb;
         }
 
-
-
-        public static DataTable SELECT_SUCCESS()
-        {
-            try
-            {
-                sql = $"SELECT * FROM {tbName} WHERE wgh_statusOdoo = 1";
-                da = new SqlDataAdapter(sql, con);
-                tb = new DataTable();
-                da.Fill(tb);
-
-                if (tb.Rows.Count == 0)
-                {
-                    return tb;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return tb;
-            }
-            return tb;
-        }
 
         /// <summary>
         /// สำหรับแสดงข้อมูลการชั่งที่ยังไม่ส่งไปหา Odoo
