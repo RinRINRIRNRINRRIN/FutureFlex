@@ -62,29 +62,7 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sql = $"SELECT wdt_GVID FROM {tbName} WHERE  wdt_date BETWEEN '{start}' and '{end}'";
-                da = new SqlDataAdapter(sql, con);
-                tb = new DataTable();
-                da.Fill(tb);
-            }
-            catch (Exception ex)
-            {
-                ERR = ex.Message;
-                return tb;
-            }
-            return tb;
-        }
-
-
-        /// <summary>
-        /// สำหรับแสดง GV ทั้งหมด
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable SELECT_ALL_GV()
-        {
-            try
-            {
-                sql = $"SELECT wdt_GVID FROM {tbName}";
+                sql = $"SELECT wdt_gv_name FROM {tbName} WHERE  wdt_date BETWEEN '{start}' and '{end}'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -121,12 +99,42 @@ namespace FutureFlex.SQL
             return tb;
         }
 
-        public static DataTable SELECT_JIT_NOT_SEND_ODOO()
+        public static DataTable SELECT_JIT_AND_PO_NOT_SEND_ODOO()
         {
             try
             {
                 Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
-                sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_GVID ='{MRP.name}' and wdt_statusOdoo = 'NOT SEND'";
+                //sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_GVID ='{MRP.name}' and wdt_statusOdoo = 'NOT SEND'";
+                sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_gv_name = '{MRP.name}' and wdt_rtfg_name = ''";
+                da = new SqlDataAdapter(sql, con);
+                tb = new DataTable();
+                da.Fill(tb);
+            }
+            catch (System.Exception ex)
+            {
+                ERR = ex.Message;
+                Log.Error($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo ไม่สำเร็จ");
+                return tb;
+            }
+            Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo สำเร็จ");
+            return tb;
+        }
+
+        public static DataTable SELECT_JIT_NOT_SEND_ODOO(string gvOrRTFG)
+        {
+            try
+            {
+                Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
+                //sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_GVID ='{MRP.name}' and wdt_statusOdoo = 'NOT SEND'";
+                switch (gvOrRTFG)
+                {
+                    case "GV":
+                        sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name = ''";
+                        break;
+                    case "RTFG":
+                        sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name != ''";
+                        break;
+                }
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -146,11 +154,19 @@ namespace FutureFlex.SQL
         /// สำหรับแสดงข้อมูล po ทั้งหมดที่ยังไม่ได้ส่งไปหา odoo
         /// </summary>
         /// <returns></returns>
-        public static DataTable SELECT_ODOO_DONT_SEND()
+        public static DataTable SELECT_ODOO_DONT_SEND(string gvOrRTFG)
         {
             try
             {
-                sql = $"SELECT wdt_po FROM {tbName} WHERE wdt_statusOdoo = 'NOT SEND'";
+                switch (gvOrRTFG)
+                {
+                    case "GV":
+                        sql = $"SELECT wdt_po FROM {tbName} WHERE wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name = ''";
+                        break;
+                    case "RTFG":
+                        sql = $"SELECT wdt_po FROM {tbName} WHERE wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name != ''";
+                        break;
+                }
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -193,17 +209,18 @@ namespace FutureFlex.SQL
         {
             try
             {
-                sql = $"SELECT b.wdt_seq," +
+                sql = $"SELECT b.wdt_seqNew," +
 "a.wgh_product," +
 "a.wgh_productID," +
 "a.wgh_customer," +
-"b.wdt_GVID," +
+"b.wdt_gv_name," +
 "b.wdt_po," +
 "a.wgh_structure," +
 "a.wgh_typeSuccess," +
 "b.wdt_wgh_paper_plastic," +
 "b.wdt_wgh_core_total," +
 "b.wdt_numroll," +
+"b.wdt_numrollAll," +
 "b.wdt_numbox," +
 "b.wdt_pch," +
 "b.wdt_net," +
@@ -217,8 +234,8 @@ namespace FutureFlex.SQL
 "b.wdt_meter_kg_in_roll" +
 " FROM tbWeightDetail b" +
 " LEFT JOIN tbWeight a" +
-" ON b.wdt_GVID = a.wgh_GV" +
-$" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
+" ON b.wdt_gv_name = a.wgh_GV" +
+$" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND' and b.wdt_printed = 'NOT PRINT'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
@@ -244,7 +261,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
 "a.wgh_product," +
 "a.wgh_productID," +
 "a.wgh_customer," +
-"b.wdt_GVID," +
+"b.wdt_gv_name," +
 "b.wdt_date," +
 "b.wdt_po," +
 "a.wgh_structure," +
@@ -267,7 +284,7 @@ $" WHERE b.wdt_po = '{PO}' and b.wdt_statusOdoo ='SEND'";
 "b.wdt_meter_kg_in_roll" +
 " FROM tbWeightDetail b" +
 " LEFT JOIN tbWeight a" +
-" ON b.wdt_GVID = a.wgh_GV" +
+" ON b.wdt_gv_name = a.wgh_GV" +
 $" WHERE a.wgh_GV = '{gvid}'";
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
@@ -295,7 +312,10 @@ $" WHERE a.wgh_GV = '{gvid}'";
                 Log.Information($"== INSERTING DATA");
 
                 sql = "InsertWithSeq";
-                Log.Information($"-- ชื่อ GV : {MRP.name}");
+                Log.Information($"-- ชื่อ GV NAME: {MRP.name}");
+                Log.Information($"-- ชื่อ GV ID: {MRP.id}");
+                Log.Information($"-- ชื่อ RTFG NAME : {RTFG.Name}");
+                Log.Information($"-- ชื่อ RTFG ID : {RTFG.Rtfg_ID}");
                 Log.Information($"-- po : {PO}");
                 Log.Information($"-- ประเทศ : {country}");
                 Log.Information($"-- ประเภท : {type}");
@@ -316,7 +336,10 @@ $" WHERE a.wgh_GV = '{gvid}'";
 
                 cmd = new SqlCommand(sql, con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@gvid", MRP.name));
+                cmd.Parameters.Add(new SqlParameter("@gv_name", MRP.name));
+                cmd.Parameters.Add(new SqlParameter("@gv_id", MRP.id));
+                cmd.Parameters.Add(new SqlParameter("@rtfg_name", RTFG.Name));
+                cmd.Parameters.Add(new SqlParameter("@rtfg_id", RTFG.Rtfg_ID));
                 cmd.Parameters.Add(new SqlParameter("@po", PO));
 
                 cmd.Parameters.Add(new SqlParameter("@country", country));
