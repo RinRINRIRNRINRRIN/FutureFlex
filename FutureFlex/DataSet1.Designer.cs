@@ -287,9 +287,7 @@ namespace FutureFlex {
             
             private global::System.Data.DataColumn columnwdt_net;
             
-            private global::System.Data.DataColumn columnwdt_tare;
-            
-            private global::System.Data.DataColumn columnwdt_gross;
+            private global::System.Data.DataColumn columnwdt_numPch;
             
             private global::System.Data.DataColumn columnwdt_lot;
             
@@ -362,17 +360,9 @@ namespace FutureFlex {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn wdt_tareColumn {
+            public global::System.Data.DataColumn wdt_numPchColumn {
                 get {
-                    return this.columnwdt_tare;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn wdt_grossColumn {
-                get {
-                    return this.columnwdt_gross;
+                    return this.columnwdt_numPch;
                 }
             }
             
@@ -429,15 +419,14 @@ namespace FutureFlex {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbWeightDetailRow AddtbWeightDetailRow(string wdt_gvid, string wdt_po, string wdt_seq, string wdt_net, string wdt_tare, string wdt_gross, string wdt_lot, string wdt_employee) {
+            public tbWeightDetailRow AddtbWeightDetailRow(string wdt_gvid, string wdt_po, string wdt_seq, string wdt_net, string wdt_numPch, string wdt_lot, string wdt_employee) {
                 tbWeightDetailRow rowtbWeightDetailRow = ((tbWeightDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         wdt_gvid,
                         wdt_po,
                         wdt_seq,
                         wdt_net,
-                        wdt_tare,
-                        wdt_gross,
+                        wdt_numPch,
                         wdt_lot,
                         wdt_employee};
                 rowtbWeightDetailRow.ItemArray = columnValuesArray;
@@ -466,8 +455,7 @@ namespace FutureFlex {
                 this.columnwdt_po = base.Columns["wdt_po"];
                 this.columnwdt_seq = base.Columns["wdt_seq"];
                 this.columnwdt_net = base.Columns["wdt_net"];
-                this.columnwdt_tare = base.Columns["wdt_tare"];
-                this.columnwdt_gross = base.Columns["wdt_gross"];
+                this.columnwdt_numPch = base.Columns["wdt_numPch"];
                 this.columnwdt_lot = base.Columns["wdt_lot"];
                 this.columnwdt_employee = base.Columns["wdt_employee"];
             }
@@ -483,10 +471,8 @@ namespace FutureFlex {
                 base.Columns.Add(this.columnwdt_seq);
                 this.columnwdt_net = new global::System.Data.DataColumn("wdt_net", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwdt_net);
-                this.columnwdt_tare = new global::System.Data.DataColumn("wdt_tare", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwdt_tare);
-                this.columnwdt_gross = new global::System.Data.DataColumn("wdt_gross", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwdt_gross);
+                this.columnwdt_numPch = new global::System.Data.DataColumn("wdt_numPch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwdt_numPch);
                 this.columnwdt_lot = new global::System.Data.DataColumn("wdt_lot", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnwdt_lot);
                 this.columnwdt_employee = new global::System.Data.DataColumn("wdt_employee", typeof(string), null, global::System.Data.MappingType.Element);
@@ -697,33 +683,17 @@ namespace FutureFlex {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string wdt_tare {
+            public string wdt_numPch {
                 get {
                     try {
-                        return ((string)(this[this.tabletbWeightDetail.wdt_tareColumn]));
+                        return ((string)(this[this.tabletbWeightDetail.wdt_numPchColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'wdt_tare\' in table \'tbWeightDetail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'wdt_numPch\' in table \'tbWeightDetail\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbWeightDetail.wdt_tareColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string wdt_gross {
-                get {
-                    try {
-                        return ((string)(this[this.tabletbWeightDetail.wdt_grossColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'wdt_gross\' in table \'tbWeightDetail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletbWeightDetail.wdt_grossColumn] = value;
+                    this[this.tabletbWeightDetail.wdt_numPchColumn] = value;
                 }
             }
             
@@ -809,26 +779,14 @@ namespace FutureFlex {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iswdt_tareNull() {
-                return this.IsNull(this.tabletbWeightDetail.wdt_tareColumn);
+            public bool Iswdt_numPchNull() {
+                return this.IsNull(this.tabletbWeightDetail.wdt_numPchColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setwdt_tareNull() {
-                this[this.tabletbWeightDetail.wdt_tareColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iswdt_grossNull() {
-                return this.IsNull(this.tabletbWeightDetail.wdt_grossColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setwdt_grossNull() {
-                this[this.tabletbWeightDetail.wdt_grossColumn] = global::System.Convert.DBNull;
+            public void Setwdt_numPchNull() {
+                this[this.tabletbWeightDetail.wdt_numPchColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
