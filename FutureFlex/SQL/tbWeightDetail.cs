@@ -129,10 +129,10 @@ namespace FutureFlex.SQL
                 switch (gvOrRTFG)
                 {
                     case "GV":
-                        sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name = ''";
+                        sql = $"SELECT * FROM {tbName}  WHERE wdt_gv_name = '{MRP.name}' and  wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name = ''";
                         break;
                     case "RTFG":
-                        sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name != ''";
+                        sql = $"SELECT * FROM {tbName}  WHERE wdt_rtfg_name = '{RTFG.Name}' and  wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_rtfg_name != ''";
                         break;
                 }
                 da = new SqlDataAdapter(sql, con);
@@ -213,6 +213,7 @@ namespace FutureFlex.SQL
 "a.wgh_product," +
 "a.wgh_productID," +
 "a.wgh_customer," +
+"a.wgh_customer_productID," +
 "b.wdt_gv_name," +
 "b.wdt_po," +
 "a.wgh_structure," +
