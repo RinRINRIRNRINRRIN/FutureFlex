@@ -492,7 +492,6 @@
             this.btnPrint.Size = new System.Drawing.Size(270, 43);
             this.btnPrint.TabIndex = 74;
             this.btnPrint.Text = "พิมพ์";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnExport
             // 
@@ -514,7 +513,6 @@
             this.btnExport.Size = new System.Drawing.Size(270, 43);
             this.btnExport.TabIndex = 75;
             this.btnExport.Text = "Export";
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // guna2GradientButton1
             // 

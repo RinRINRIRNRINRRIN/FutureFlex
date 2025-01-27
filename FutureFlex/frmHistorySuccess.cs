@@ -25,6 +25,9 @@ namespace FutureFlex
         private void frmHistorySuccess_Load(object sender, EventArgs e)
         {
             btnSearch.DefaultCellStyle.ForeColor = Color.Black;
+
+            dtpStart.Value = DateTime.Now;
+            dtpStop.Value = DateTime.Now;
         }
 
 
@@ -188,7 +191,7 @@ namespace FutureFlex
             foreach (DataRow rw in tb.Rows)
             {
                 bool isHave = false;
-                string _gv = rw["wdt_GVID"].ToString();
+                string _gv = rw["wdt_gv_name"].ToString();
 
                 for (int i = 0; i < gv.Count; i++)
                 {
@@ -205,16 +208,6 @@ namespace FutureFlex
                     cbbPO.Items.Add(_gv);
                 }
             }
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
