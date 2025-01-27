@@ -29,7 +29,8 @@ namespace FutureFlex.Function
         public static string _operator { get; set; } // ชื่อผู้คุมเครื่อง
         public static string _lot { get; set; }
 
-        public static void FormatPrint(PrintPageEventArgs e)
+        public static string ERR { get; set; }
+        public static bool FormatPrint(PrintPageEventArgs e)
         {
             try
             {
@@ -65,29 +66,36 @@ namespace FutureFlex.Function
                     #endregion
 
                     #region Body
-                    e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 57));
-                    e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 57));
-                    Console.WriteLine(MRP.product_name.Length);
+                    e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 70));
+                    e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 70));
                     e.Graphics.DrawString($"[สินค้า] : ___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 35));
-                    if (MRP.product_name.Length >= 25)
+                    string defualtCodeWithProductname = $"{MRP.default_code} {MRP.product_name}";
+                    int defualtCodeWithProductnameLength = defualtCodeWithProductname.Length;
+
+                    if (defualtCodeWithProductname.Length >= 28)
                     {
-                        e.Graphics.DrawString($"{MRP.product_name.Substring(0, 25)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                        e.Graphics.DrawString($"{defualtCodeWithProductname.Substring(0, 28)}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                        int total = defualtCodeWithProductname.Length - 28;
+                        e.Graphics.DrawString($"{defualtCodeWithProductname.Substring(28, total)}", fontDetail, Brushes.Black, new System.Drawing.Point(0, 50));
+                        e.Graphics.DrawString($"___________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(0, 50));
+
                     }
                     else
                     {
-                        e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+                        e.Graphics.DrawString($"{defualtCodeWithProductname}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 35));
+
                     }
-                    e.Graphics.DrawString($"{_lot}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(0, 80));
+                    e.Graphics.DrawString($"{_lot}                  ", fontDetail, Brushes.Black, new System.Drawing.Point(0, 90));
 
 
                     switch (_statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
                     {
                         case "box":
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
-                            e.Graphics.DrawString($"[จำนวน]_____ใบ.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{_pchBox}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
+                            e.Graphics.DrawString($"[จำนวน]________ใบ.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
+                            e.Graphics.DrawString($"{double.Parse(_pchBox).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 130));
-                            e.Graphics.DrawString($"{_net}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
+                            e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
                             e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
                             break;   //กรณีเลือกกล่อง
@@ -95,11 +103,11 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
 
                             e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{_numMeter}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 110));
+                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
-                            e.Graphics.DrawString($"{_pchRoll}", fontDetail, Brushes.Black, new System.Drawing.Point(30, 125));
+                            e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(30, 125));
                             e.Graphics.DrawString($"_____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 140));
-                            e.Graphics.DrawString($"{_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(30, 140));
+                            e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")} ", fontDetail, Brushes.Black, new System.Drawing.Point(30, 140));
                             e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
                             break;  //กรณีเลือกม้วน  
@@ -138,7 +146,7 @@ namespace FutureFlex.Function
 
                     #region Body
                     e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-                    e.Graphics.DrawString($"{MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 55));
+                    e.Graphics.DrawString($"{MRP.default_code} {MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 55));
                     Console.WriteLine(MRP.product_name.Length);
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
                     e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
@@ -150,30 +158,36 @@ namespace FutureFlex.Function
                     e.Graphics.DrawString($"{MRP.name}                                  {tbWeightDetail.PO}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
                     e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
                     e.Graphics.DrawString($"{MRP.mo_film}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 127));
-                    e.Graphics.DrawString($"[ขนาด] :________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
+                    e.Graphics.DrawString($"[ขนาด] :__________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
                     e.Graphics.DrawString($"{MRP.mo_work}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 145));
 
                     switch (_statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
                     {
                         case "box":
                             e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                            e.Graphics.DrawString($"{_pchBox}                    {_net}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
+                            e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###.00")}               {_net}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
                             e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
+                            e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 214));
+                            e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 214));
+
                             break;   //กรณีเลือกกล่อง
                         case "roll":
                             e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
                             e.Graphics.DrawString($"{_wghPaper}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 163));
                             e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                             e.Graphics.DrawString($"{_wghCore}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
-                            e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                            e.Graphics.DrawString($"{_numMeter}           {_pchRoll}            {_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(90, 199));
+                            e.Graphics.DrawString($"[จำนวนสุทธิ]_______ม.________ใบ______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
+                            e.Graphics.DrawString($"{int.Parse(_numMeter).ToString("#,###.00")}       {int.Parse(_pchRoll).ToString("#,###.00")}      {_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
                             e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 235));
+                            e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 255));
+                            e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 255));
+
                             break;  //กรณีเลือกม้วน  
                     }
                     #endregion
@@ -203,8 +217,12 @@ namespace FutureFlex.Function
             {
                 Log.Error("Error Print " + ex.Message);
                 Console.WriteLine(ex.Message);
+                ERR = ex.Message;
+                return false;
             }
+            return true;
         }
+
 
         public static bool SetPrinter(PrintDocument printDocument, string mode)
         {
