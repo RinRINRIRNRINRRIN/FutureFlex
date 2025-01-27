@@ -100,8 +100,28 @@ namespace FutureFlex.Function
         {
             try
             {
+                Console.WriteLine("Sending data");
                 byte[] data = Encoding.UTF8.GetBytes(message);
+                stream.WriteTimeout = 2000;
                 await stream.WriteAsync(data, 0, data.Length);
+                Console.WriteLine("Message sent to server.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending data: {ex.Message}");
+                ERR = ex.Message;
+                return false;
+            }
+            return true;
+        }
+
+        public static bool SendDataAsyncTest(string message)
+        {
+            try
+            {
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                stream.WriteTimeout = 2000;
+                stream.Write(data, 0, data.Length);
                 Console.WriteLine("Message sent to server.");
             }
             catch (Exception ex)
