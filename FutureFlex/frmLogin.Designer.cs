@@ -44,6 +44,7 @@ namespace FutureFlex
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new Guna.UI2.WinForms.Guna2GradientButton();
             this.md = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +59,7 @@ namespace FutureFlex
             this.gbConnection.CustomBorderColor = System.Drawing.Color.Navy;
             this.gbConnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbConnection.ForeColor = System.Drawing.Color.White;
-            this.gbConnection.Location = new System.Drawing.Point(19, 201);
+            this.gbConnection.Location = new System.Drawing.Point(20, 201);
             this.gbConnection.Name = "gbConnection";
             this.gbConnection.Size = new System.Drawing.Size(215, 106);
             this.gbConnection.TabIndex = 7;
@@ -102,11 +103,11 @@ namespace FutureFlex
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(81, 372);
+            this.label5.Location = new System.Drawing.Point(84, 390);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.Size = new System.Drawing.Size(84, 21);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Version  1.1.0";
+            this.label5.Text = "Version  1.2.0";
             // 
             // guna2BorderlessForm1
             // 
@@ -274,6 +275,19 @@ namespace FutureFlex
             this.md.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             this.md.Text = null;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(3, 369);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(252, 21);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "SS6708270";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -281,7 +295,8 @@ namespace FutureFlex
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(257, 401);
+            this.ClientSize = new System.Drawing.Size(257, 419);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.gbConnection);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
@@ -300,6 +315,7 @@ namespace FutureFlex
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.gbConnection.ResumeLayout(false);
             this.gbConnection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -322,5 +338,6 @@ namespace FutureFlex
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2GradientButton btnExit;
         private Guna.UI2.WinForms.Guna2MessageDialog md;
+        private System.Windows.Forms.Label label3;
     }
 }
