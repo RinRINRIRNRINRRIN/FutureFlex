@@ -315,7 +315,6 @@ namespace FutureFlex
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.gbConnection.ResumeLayout(false);
             this.gbConnection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();

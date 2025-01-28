@@ -16,6 +16,7 @@ namespace FutureFlex
 
             Log.Logger = new LoggerConfiguration()
 .WriteTo.File(Application.StartupPath + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
+.WriteTo.Console(Serilog.Events.LogEventLevel.Debug)
 .CreateLogger();
 
 
