@@ -300,6 +300,18 @@
     <Compile Include="frmRTFG.Designer.cs">
       <DependentUpon>frmRTFG.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRTFGList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRTFGList.Designer.cs">
+      <DependentUpon>frmRTFGList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTcpClientServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTcpClientServer.Designer.cs">
+      <DependentUpon>frmTcpClientServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +320,7 @@
     </Compile>
     <Compile Include="Function\func_print.cs" />
     <Compile Include="Function\func_serialport.cs" />
+    <Compile Include="Function\func_tcpClient.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SQL\tbEmployeeSQL.cs" />
     <Compile Include="SQL\tbForSendSQL.cs" />
@@ -397,9 +410,15 @@
     <EmbeddedResource Include="frmRTFG.resx">
       <DependentUpon>frmRTFG.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRTFGList.resx">
+      <DependentUpon>frmRTFGList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTcpClientServer.resx">
+      <DependentUpon>frmTcpClientServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
