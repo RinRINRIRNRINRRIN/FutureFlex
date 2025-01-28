@@ -63,11 +63,13 @@ namespace FutureFlex
                     frm4.ShowDialog();
                     break;
                 case "RTFG":
-                    md.Buttons = MessageDialogButtons.OK;
-                    md.Icon = MessageDialogIcon.Information;
-                    md.Show("Coming soon", "RTFG");
+                    //md.Buttons = MessageDialogButtons.OK;
+                    //md.Icon = MessageDialogIcon.Information;
+                    //md.Show("Coming soon", "RTFG");
                     //frmRTFG frm5 = new frmRTFG();
                     //frm5.ShowDialog();
+                    frmRTFGList frmRTFGList = new frmRTFGList();
+                    frmRTFGList.ShowDialog();
                     break;
             }
         }
@@ -78,6 +80,11 @@ namespace FutureFlex
             {
                 frmConnect frmConnect = new frmConnect();
                 frmConnect.ShowDialog();
+            }
+            else if (e.KeyCode == Keys.F8)
+            {
+                frmTcpClientServer frmTcpClientServer = new frmTcpClientServer();
+                frmTcpClientServer.ShowDialog();
             }
         }
 

@@ -368,7 +368,7 @@ namespace FutureFlex
             this.btnRTFG.Size = new System.Drawing.Size(160, 39);
             this.btnRTFG.TabIndex = 23;
             this.btnRTFG.Tag = "RTFG";
-            this.btnRTFG.Text = "คืนสินค้า";
+            this.btnRTFG.Text = "สินค้าส่งคืน";
             this.btnRTFG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRTFG.Click += new System.EventHandler(this.MenuSelect);
             // 
