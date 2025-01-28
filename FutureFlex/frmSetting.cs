@@ -14,6 +14,7 @@ namespace FutureFlex
 
         string WGH_COM = ConfigurationManager.AppSettings["WGH_COM"];
         string WGH_BUADRATE = ConfigurationManager.AppSettings["WGH_BAUDRATE"];
+        string ipserver = ConfigurationManager.AppSettings["IP_SERVER"];
 
 
         Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -32,6 +33,8 @@ namespace FutureFlex
 
             cbbWGHC.SelectedIndex = 0;
             cbbWGHB.SelectedIndex = 0;
+
+            txtIp.Text = ipserver;
         }
 
 
@@ -84,17 +87,30 @@ namespace FutureFlex
             {
                 if (item.Text.Contains("--"))
                 {
-                    sk.Show(this, "กรุณาเลือก COM หรือ BUADRATE ก่อนการบันทึก", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    msg.Buttons = MessageDialogButtons.OK;
+                    msg.Icon = MessageDialogIcon.Warning;
+                    msg.Show("Please select COM and BUADRATE before to save", "COM and BAUDRATE");
                     return;
                 }
             }
 
+            if (txtIp.Text == "")
+            {
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Show("Please fill ip server before to save", "IP Server");
+                return;
+            }
+
             config.AppSettings.Settings["WGH_COM"].Value = cbbWGHC.Text;
             config.AppSettings.Settings["WGH_BAUDRATE"].Value = cbbWGHB.Text;
+            config.AppSettings.Settings["IP_SERVER"].Value = txtIp.Text;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
 
-            MessageBox.Show("บันทึกการตั้งค่าสำเร็จระบบจะปิดโปรแกรม กรุณาเปิดการใช้งานใหม่อีกครั้ง", "Setting Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            msg.Buttons = MessageDialogButtons.OK;
+            msg.Icon = MessageDialogIcon.Information;
+            msg.Show("Save setting success program will close please open again", "Save setting");
             Application.Exit();
         }
     }

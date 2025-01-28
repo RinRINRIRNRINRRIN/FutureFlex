@@ -39,13 +39,17 @@ namespace FutureFlex
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbbWGHB = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIp = new Guna.UI2.WinForms.Guna2TextBox();
+            this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.SuspendLayout();
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(22, 173);
+            this.label14.Location = new System.Drawing.Point(22, 151);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(97, 25);
             this.label14.TabIndex = 15;
@@ -55,7 +59,7 @@ namespace FutureFlex
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(22, 105);
+            this.label15.Location = new System.Drawing.Point(22, 86);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(56, 25);
             this.label15.TabIndex = 12;
@@ -87,7 +91,7 @@ namespace FutureFlex
             this.btnSave.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
             this.btnSave.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
             this.btnSave.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnSave.Location = new System.Drawing.Point(42, 237);
+            this.btnSave.Location = new System.Drawing.Point(42, 286);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(164, 35);
             this.btnSave.TabIndex = 77;
@@ -106,7 +110,7 @@ namespace FutureFlex
             this.cbbWGHC.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbWGHC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbWGHC.ItemHeight = 30;
-            this.cbbWGHC.Location = new System.Drawing.Point(27, 134);
+            this.cbbWGHC.Location = new System.Drawing.Point(27, 110);
             this.cbbWGHC.Name = "cbbWGHC";
             this.cbbWGHC.Size = new System.Drawing.Size(202, 36);
             this.cbbWGHC.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -159,7 +163,7 @@ namespace FutureFlex
             this.cbbWGHB.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbWGHB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbWGHB.ItemHeight = 30;
-            this.cbbWGHB.Location = new System.Drawing.Point(27, 195);
+            this.cbbWGHB.Location = new System.Drawing.Point(27, 173);
             this.cbbWGHB.Name = "cbbWGHB";
             this.cbbWGHB.Size = new System.Drawing.Size(202, 36);
             this.cbbWGHB.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -168,12 +172,66 @@ namespace FutureFlex
             this.cbbWGHB.DropDown += new System.EventHandler(this.GET_BUADRATE);
             this.cbbWGHB.DropDownClosed += new System.EventHandler(this.CLEAR_COMBOBOX);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Gray;
+            this.label1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(5, 212);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 5);
+            this.label1.TabIndex = 82;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(22, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 25);
+            this.label2.TabIndex = 83;
+            this.label2.Text = "IP server :";
+            // 
+            // txtIp
+            // 
+            this.txtIp.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIp.DefaultText = "";
+            this.txtIp.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIp.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIp.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIp.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIp.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIp.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIp.ForeColor = System.Drawing.Color.Black;
+            this.txtIp.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIp.Location = new System.Drawing.Point(10, 247);
+            this.txtIp.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txtIp.Name = "txtIp";
+            this.txtIp.PasswordChar = '\0';
+            this.txtIp.PlaceholderText = "";
+            this.txtIp.SelectedText = "";
+            this.txtIp.Size = new System.Drawing.Size(229, 31);
+            this.txtIp.TabIndex = 84;
+            this.txtIp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // msg
+            // 
+            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msg.Caption = null;
+            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.msg.Parent = this;
+            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msg.Text = null;
+            // 
             // frmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(251, 298);
+            this.ClientSize = new System.Drawing.Size(251, 327);
+            this.Controls.Add(this.txtIp);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbWGHB);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -205,5 +263,9 @@ namespace FutureFlex
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2ComboBox cbbWGHB;
+        private Guna.UI2.WinForms.Guna2TextBox txtIp;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2MessageDialog msg;
     }
 }
