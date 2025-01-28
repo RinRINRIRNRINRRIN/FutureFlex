@@ -31,15 +31,15 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWeightNew));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCounty = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdOutCounty = new System.Windows.Forms.RadioButton();
             this.rdInCounty = new System.Windows.Forms.RadioButton();
@@ -50,6 +50,8 @@ namespace FutureFlex
             this.pnMain = new System.Windows.Forms.Panel();
             this.btnStart = new Guna.UI2.WinForms.Guna2GradientButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -121,7 +123,11 @@ namespace FutureFlex
             this.cl_print = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wdt_seqNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_gvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_gv_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_rtfg_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_rtfg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +161,7 @@ namespace FutureFlex
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
+            this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -319,6 +326,8 @@ namespace FutureFlex
             // 
             this.gbData.BorderColor = System.Drawing.Color.Navy;
             this.gbData.BorderRadius = 3;
+            this.gbData.Controls.Add(this.label45);
+            this.gbData.Controls.Add(this.label46);
             this.gbData.Controls.Add(this.label41);
             this.gbData.Controls.Add(this.label40);
             this.gbData.Controls.Add(this.label39);
@@ -362,6 +371,29 @@ namespace FutureFlex
             this.gbData.Text = "รายละเอียดการชั่ง";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
             // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.ForeColor = System.Drawing.Color.Black;
+            this.label45.Location = new System.Drawing.Point(423, 298);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(48, 25);
+            this.label45.TabIndex = 17;
+            this.label45.Tag = "value";
+            this.label45.Text = ".........";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.Black;
+            this.label46.Location = new System.Drawing.Point(301, 299);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(124, 25);
+            this.label46.TabIndex = 18;
+            this.label46.Text = "จำนวนม้วนเต็ม :";
+            // 
             // label41
             // 
             this.label41.AutoSize = true;
@@ -391,7 +423,7 @@ namespace FutureFlex
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.Black;
-            this.label39.Location = new System.Drawing.Point(353, 324);
+            this.label39.Location = new System.Drawing.Point(423, 324);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(48, 25);
             this.label39.TabIndex = 14;
@@ -403,7 +435,7 @@ namespace FutureFlex
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(240, 324);
+            this.label38.Location = new System.Drawing.Point(310, 324);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(115, 25);
             this.label38.TabIndex = 13;
@@ -436,7 +468,7 @@ namespace FutureFlex
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(353, 273);
+            this.label31.Location = new System.Drawing.Point(423, 97);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(48, 25);
             this.label31.TabIndex = 1;
@@ -448,7 +480,7 @@ namespace FutureFlex
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(273, 274);
+            this.label5.Location = new System.Drawing.Point(343, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 10;
@@ -526,9 +558,9 @@ namespace FutureFlex
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.label28);
-            this.panel2.Location = new System.Drawing.Point(25, 458);
+            this.panel2.Location = new System.Drawing.Point(3, 463);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(522, 202);
+            this.panel2.Size = new System.Drawing.Size(575, 202);
             this.panel2.TabIndex = 0;
             // 
             // txtNumRoll
@@ -536,7 +568,7 @@ namespace FutureFlex
             this.txtNumRoll.BorderColor = System.Drawing.Color.Navy;
             this.txtNumRoll.BorderRadius = 8;
             this.txtNumRoll.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumRoll.DefaultText = "0";
+            this.txtNumRoll.DefaultText = "1";
             this.txtNumRoll.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtNumRoll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtNumRoll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -545,18 +577,20 @@ namespace FutureFlex
             this.txtNumRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumRoll.ForeColor = System.Drawing.Color.Black;
             this.txtNumRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumRoll.Location = new System.Drawing.Point(398, 92);
+            this.txtNumRoll.Location = new System.Drawing.Point(437, 92);
             this.txtNumRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNumRoll.Name = "txtNumRoll";
             this.txtNumRoll.PasswordChar = '\0';
             this.txtNumRoll.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.txtNumRoll.PlaceholderText = "จำนวน ใบ";
+            this.txtNumRoll.ReadOnly = true;
             this.txtNumRoll.SelectedText = "";
-            this.txtNumRoll.Size = new System.Drawing.Size(80, 33);
+            this.txtNumRoll.Size = new System.Drawing.Size(70, 33);
             this.txtNumRoll.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtNumRoll.TabIndex = 12;
             this.txtNumRoll.Tag = "roll";
             this.txtNumRoll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNumRoll.TextChanged += new System.EventHandler(this.txtNumRoll_TextChanged);
             this.txtNumRoll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyIn);
             // 
             // label44
@@ -564,7 +598,7 @@ namespace FutureFlex
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(393, 66);
+            this.label44.Location = new System.Drawing.Point(432, 66);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(78, 25);
             this.label44.TabIndex = 11;
@@ -575,11 +609,11 @@ namespace FutureFlex
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(391, 127);
+            this.label4.Location = new System.Drawing.Point(430, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 25);
+            this.label4.Size = new System.Drawing.Size(100, 25);
             this.label4.TabIndex = 10;
-            this.label4.Text = "จำนวนใบ";
+            this.label4.Text = "จำนวนใบ/ม้วน";
             // 
             // txtPchRoll
             // 
@@ -595,7 +629,7 @@ namespace FutureFlex
             this.txtPchRoll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPchRoll.ForeColor = System.Drawing.Color.Black;
             this.txtPchRoll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPchRoll.Location = new System.Drawing.Point(398, 152);
+            this.txtPchRoll.Location = new System.Drawing.Point(437, 152);
             this.txtPchRoll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPchRoll.Name = "txtPchRoll";
             this.txtPchRoll.PasswordChar = '\0';
@@ -613,11 +647,11 @@ namespace FutureFlex
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(388, 7);
+            this.label2.Location = new System.Drawing.Point(427, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 25);
+            this.label2.Size = new System.Drawing.Size(107, 25);
             this.label2.TabIndex = 8;
-            this.label2.Text = "จำนวนใบ";
+            this.label2.Text = "จำนวนใบ/กล่อง";
             // 
             // txtPchBox
             // 
@@ -633,7 +667,7 @@ namespace FutureFlex
             this.txtPchBox.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPchBox.ForeColor = System.Drawing.Color.Black;
             this.txtPchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPchBox.Location = new System.Drawing.Point(398, 30);
+            this.txtPchBox.Location = new System.Drawing.Point(437, 30);
             this.txtPchBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtPchBox.Name = "txtPchBox";
             this.txtPchBox.PasswordChar = '\0';
@@ -651,7 +685,7 @@ namespace FutureFlex
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(3, 7);
+            this.label6.Location = new System.Drawing.Point(42, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(222, 25);
             this.label6.TabIndex = 0;
@@ -671,7 +705,7 @@ namespace FutureFlex
             this.txtWghCors.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWghCors.ForeColor = System.Drawing.Color.Black;
             this.txtWghCors.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWghCors.Location = new System.Drawing.Point(8, 89);
+            this.txtWghCors.Location = new System.Drawing.Point(47, 89);
             this.txtWghCors.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtWghCors.Name = "txtWghCors";
             this.txtWghCors.PasswordChar = '\0';
@@ -699,7 +733,7 @@ namespace FutureFlex
             this.txtJoint.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtJoint.ForeColor = System.Drawing.Color.Black;
             this.txtJoint.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJoint.Location = new System.Drawing.Point(8, 153);
+            this.txtJoint.Location = new System.Drawing.Point(47, 153);
             this.txtJoint.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtJoint.Name = "txtJoint";
             this.txtJoint.PasswordChar = '\0';
@@ -727,7 +761,7 @@ namespace FutureFlex
             this.txtNumBox.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumBox.ForeColor = System.Drawing.Color.Black;
             this.txtNumBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumBox.Location = new System.Drawing.Point(236, 30);
+            this.txtNumBox.Location = new System.Drawing.Point(275, 30);
             this.txtNumBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNumBox.Name = "txtNumBox";
             this.txtNumBox.PasswordChar = '\0';
@@ -755,7 +789,7 @@ namespace FutureFlex
             this.txtNunMeter.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNunMeter.ForeColor = System.Drawing.Color.Black;
             this.txtNunMeter.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNunMeter.Location = new System.Drawing.Point(234, 152);
+            this.txtNunMeter.Location = new System.Drawing.Point(273, 152);
             this.txtNunMeter.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNunMeter.Name = "txtNunMeter";
             this.txtNunMeter.PasswordChar = '\0';
@@ -784,7 +818,7 @@ namespace FutureFlex
             this.txtNumRollAll.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumRollAll.ForeColor = System.Drawing.Color.Black;
             this.txtNumRollAll.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNumRollAll.Location = new System.Drawing.Point(236, 92);
+            this.txtNumRollAll.Location = new System.Drawing.Point(275, 92);
             this.txtNumRollAll.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtNumRollAll.Name = "txtNumRollAll";
             this.txtNumRollAll.PasswordChar = '\0';
@@ -812,7 +846,7 @@ namespace FutureFlex
             this.txtWghPaper.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWghPaper.ForeColor = System.Drawing.Color.Black;
             this.txtWghPaper.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWghPaper.Location = new System.Drawing.Point(8, 28);
+            this.txtWghPaper.Location = new System.Drawing.Point(47, 28);
             this.txtWghPaper.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtWghPaper.Name = "txtWghPaper";
             this.txtWghPaper.PasswordChar = '\0';
@@ -831,7 +865,7 @@ namespace FutureFlex
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(3, 127);
+            this.label30.Location = new System.Drawing.Point(42, 127);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(93, 25);
             this.label30.TabIndex = 0;
@@ -842,7 +876,7 @@ namespace FutureFlex
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(3, 66);
+            this.label26.Location = new System.Drawing.Point(42, 66);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(164, 25);
             this.label26.TabIndex = 0;
@@ -853,7 +887,7 @@ namespace FutureFlex
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(231, 66);
+            this.label29.Location = new System.Drawing.Point(270, 66);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(132, 25);
             this.label29.TabIndex = 0;
@@ -864,7 +898,7 @@ namespace FutureFlex
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(231, 7);
+            this.label27.Location = new System.Drawing.Point(270, 7);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(85, 25);
             this.label27.TabIndex = 0;
@@ -875,7 +909,7 @@ namespace FutureFlex
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(231, 126);
+            this.label28.Location = new System.Drawing.Point(270, 126);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 25);
             this.label28.TabIndex = 0;
@@ -1377,22 +1411,22 @@ namespace FutureFlex
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.ColumnHeadersHeight = 50;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1401,7 +1435,11 @@ namespace FutureFlex
             this.cl_print,
             this.cl_id,
             this.cl_seq,
+            this.cl_wdt_seqNew,
             this.cl_gvid,
+            this.cl_gv_name,
+            this.cl_rtfg_name,
+            this.cl_rtfg_id,
             this.cl_po,
             this.cl_net,
             this.cl_tare,
@@ -1423,32 +1461,32 @@ namespace FutureFlex
             this.cl_numbox,
             this.cl_numrollAll,
             this.cl_numroll});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetail.Enabled = false;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
             this.dgvDetail.Location = new System.Drawing.Point(600, 146);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
@@ -1502,24 +1540,56 @@ namespace FutureFlex
             // 
             // cl_seq
             // 
-            this.cl_seq.DataPropertyName = "wdt_seq";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle12;
+            this.cl_seq.DataPropertyName = "wdt_seqOrigin";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle3;
             this.cl_seq.HeaderText = "ลำดับ";
             this.cl_seq.Name = "cl_seq";
             this.cl_seq.ReadOnly = true;
             this.cl_seq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cl_seq.Width = 80;
             // 
+            // cl_wdt_seqNew
+            // 
+            this.cl_wdt_seqNew.DataPropertyName = "wdt_seqNew";
+            this.cl_wdt_seqNew.HeaderText = "wdt_seqNew";
+            this.cl_wdt_seqNew.Name = "cl_wdt_seqNew";
+            this.cl_wdt_seqNew.ReadOnly = true;
+            this.cl_wdt_seqNew.Visible = false;
+            // 
             // cl_gvid
             // 
-            this.cl_gvid.DataPropertyName = "wdt_GVID";
-            this.cl_gvid.HeaderText = "GVID";
+            this.cl_gvid.DataPropertyName = "wdt_gv_id";
+            this.cl_gvid.HeaderText = "GV ID";
             this.cl_gvid.Name = "cl_gvid";
             this.cl_gvid.ReadOnly = true;
             this.cl_gvid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cl_gvid.Visible = false;
             this.cl_gvid.Width = 150;
+            // 
+            // cl_gv_name
+            // 
+            this.cl_gv_name.DataPropertyName = "wdt_gv_name";
+            this.cl_gv_name.HeaderText = "GV Name";
+            this.cl_gv_name.Name = "cl_gv_name";
+            this.cl_gv_name.ReadOnly = true;
+            this.cl_gv_name.Visible = false;
+            // 
+            // cl_rtfg_name
+            // 
+            this.cl_rtfg_name.DataPropertyName = "wdt_rtfg_name";
+            this.cl_rtfg_name.HeaderText = "RTFG Name";
+            this.cl_rtfg_name.Name = "cl_rtfg_name";
+            this.cl_rtfg_name.ReadOnly = true;
+            this.cl_rtfg_name.Visible = false;
+            // 
+            // cl_rtfg_id
+            // 
+            this.cl_rtfg_id.DataPropertyName = "wdt_rtfg_id";
+            this.cl_rtfg_id.HeaderText = "RTFG ID";
+            this.cl_rtfg_id.Name = "cl_rtfg_id";
+            this.cl_rtfg_id.ReadOnly = true;
+            this.cl_rtfg_id.Visible = false;
             // 
             // cl_po
             // 
@@ -1534,8 +1604,8 @@ namespace FutureFlex
             // cl_net
             // 
             this.cl_net.DataPropertyName = "wdt_net";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_net.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_net.DefaultCellStyle = dataGridViewCellStyle4;
             this.cl_net.HeaderText = "NET";
             this.cl_net.Name = "cl_net";
             this.cl_net.ReadOnly = true;
@@ -1544,22 +1614,24 @@ namespace FutureFlex
             // cl_tare
             // 
             this.cl_tare.DataPropertyName = "wdt_tare";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle5;
             this.cl_tare.HeaderText = "TARE";
             this.cl_tare.Name = "cl_tare";
             this.cl_tare.ReadOnly = true;
             this.cl_tare.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_tare.Visible = false;
             // 
             // cl_gross
             // 
             this.cl_gross.DataPropertyName = "wdt_gross";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle6;
             this.cl_gross.HeaderText = "GROSS";
             this.cl_gross.Name = "cl_gross";
             this.cl_gross.ReadOnly = true;
             this.cl_gross.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_gross.Visible = false;
             // 
             // cl_lot
             // 
@@ -1697,6 +1769,7 @@ namespace FutureFlex
             this.cl_numroll.HeaderText = "จำนวนม้วนต่อLOT";
             this.cl_numroll.Name = "cl_numroll";
             this.cl_numroll.ReadOnly = true;
+            this.cl_numroll.Visible = false;
             // 
             // lbGrossWgh
             // 
@@ -1816,7 +1889,7 @@ namespace FutureFlex
             this.label42.BackColor = System.Drawing.Color.White;
             this.label42.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label42.ForeColor = System.Drawing.Color.Navy;
-            this.label42.Location = new System.Drawing.Point(9, 8);
+            this.label42.Location = new System.Drawing.Point(9, 3);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(238, 51);
             this.label42.TabIndex = 23;
@@ -1828,11 +1901,20 @@ namespace FutureFlex
             this.label43.BackColor = System.Drawing.Color.White;
             this.label43.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label43.ForeColor = System.Drawing.Color.Navy;
-            this.label43.Location = new System.Drawing.Point(18, 59);
+            this.label43.Location = new System.Drawing.Point(18, 54);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(207, 25);
+            this.label43.Size = new System.Drawing.Size(342, 25);
             this.label43.TabIndex = 58;
-            this.label43.Text = "สำหรับชั่งสินค้า PO ใหม่หรือ JIT ";
+            this.label43.Text = "สำหรับชั่งสินค้า PO (ชั่งเพื่อส่ง) สำหรับ JIT (ชั่งเพื่อเก็บ)";
+            // 
+            // msg
+            // 
+            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msg.Caption = null;
+            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.msg.Parent = this;
+            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msg.Text = null;
             // 
             // frmWeightNew
             // 
@@ -1968,12 +2050,19 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2GradientButton btnStart;
         private Guna.UI2.WinForms.Guna2TextBox txtNumRoll;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private Guna.UI2.WinForms.Guna2MessageDialog msg;
         private System.Windows.Forms.DataGridViewButtonColumn cl_del;
         private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
         private System.Windows.Forms.DataGridViewButtonColumn cl_print;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_seq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_seqNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_gvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_gv_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_po;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_net;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_tare;
