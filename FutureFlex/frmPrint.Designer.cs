@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrint));
             this.guna2NotificationPaint1 = new Guna.UI2.WinForms.Guna2NotificationPaint(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.cbbPO = new Guna.UI2.WinForms.Guna2ComboBox();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.sb = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -46,17 +44,6 @@
             this.guna2NotificationPaint1.Alignment = Guna.UI2.WinForms.Enums.CustomContentAlignment.TopRight;
             this.guna2NotificationPaint1.FillColor = System.Drawing.Color.Red;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 21);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "เลือก PO ที่ต้องการพิมพ์";
-            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -67,37 +54,19 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 12;
             // 
-            // cbbPO
-            // 
-            this.cbbPO.BackColor = System.Drawing.Color.Transparent;
-            this.cbbPO.BorderColor = System.Drawing.Color.Navy;
-            this.cbbPO.BorderRadius = 6;
-            this.cbbPO.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPO.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbPO.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbPO.ForeColor = System.Drawing.Color.Black;
-            this.cbbPO.ItemHeight = 30;
-            this.cbbPO.Location = new System.Drawing.Point(12, 100);
-            this.cbbPO.Name = "cbbPO";
-            this.cbbPO.Size = new System.Drawing.Size(280, 36);
-            this.cbbPO.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.cbbPO.TabIndex = 18;
-            this.cbbPO.DropDown += new System.EventHandler(this.cbbPO_DropDown);
-            this.cbbPO.SelectedIndexChanged += new System.EventHandler(this.cbbPO_SelectedIndexChanged);
-            // 
             // reportViewer1
             // 
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FutureFlex.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 145);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 72);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1364, 620);
+            this.reportViewer1.Size = new System.Drawing.Size(1364, 693);
             this.reportViewer1.TabIndex = 16;
+            this.reportViewer1.Print += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_Print);
+            this.reportViewer1.PrintingBegin += new Microsoft.Reporting.WinForms.ReportPrintEventHandler(this.reportViewer1_PrintingBegin);
             // 
             // sb
             // 
@@ -209,9 +178,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.cbbPO);
             this.Controls.Add(this.reportViewer1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPrint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -226,11 +193,9 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2NotificationPaint guna2NotificationPaint1;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Bunifu.UI.WinForms.BunifuSnackbar sb;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
