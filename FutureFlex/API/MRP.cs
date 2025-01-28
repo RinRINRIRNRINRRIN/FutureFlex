@@ -106,7 +106,6 @@ namespace FutureFlex.API
                 request.AddHeader("token", Authentication.access_token);
                 request.AddHeader("mrnumber", gv);
                 RestResponse response = await client.ExecuteAsync(request);
-                Console.WriteLine(response.Content);
                 Log.Information($"- response \n {response.Content}");
                 if (response.Content == "[]")
                 {
@@ -123,7 +122,6 @@ namespace FutureFlex.API
                         request.AddHeader("token", Authentication.access_token);
                         request.AddHeader("mrnumber", gv);
                         response = await client.ExecuteAsync(request);
-                        Console.WriteLine(response.Content);
                     }
                 }
                 else if (response.StatusCode != System.Net.HttpStatusCode.OK)
