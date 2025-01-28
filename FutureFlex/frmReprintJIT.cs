@@ -1,13 +1,14 @@
 ﻿using Bunifu.UI.WinForms;
+using FutureFlex.API;
 using FutureFlex.Function;
 using FutureFlex.SQL;
+using Guna.UI2.WinForms;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ZXing;
 
 namespace FutureFlex
 {
@@ -20,13 +21,15 @@ namespace FutureFlex
         }
 
         string lot = ""; // สำหรับบอกว่าจะปริ้นที่ lot ไหน
+        string gv_old = "";
+        string gv_new = "";
         BunifuSnackbar sb = new BunifuSnackbar();
         private void frmReprintJIT_Load(object sender, EventArgs e)
         {
             // กำหนดค่าให้กับ serialport
         }
 
-        void PrintData(string _lot, string _mode)
+        async void PrintData(string _lot, string _mode)
         {
             if (cbPrint.Checked)
             {
@@ -42,25 +45,36 @@ namespace FutureFlex
                     string lot = rw.Cells["cl_wdt_lot"].Value.ToString();
                     if (_lot == lot)
                     {
-                        if (tbWeightDetail.UPDATE_STATUS_PRINT(_lot))
+                        func_print._seq = rw.Cells["cl_wdt_seq"].Value.ToString();
+                        func_print._statusType = rw.Cells["cl_wdt_type"].Value.ToString();
+                        func_print._net = rw.Cells["cl_wdt_net"].Value.ToString();
+                        func_print._numBox = rw.Cells["cl_wdt_numbox"].Value.ToString();
+                        func_print._numRoll = rw.Cells["cl_wdt_numrollAll"].Value.ToString();
+                        func_print._numMeter = rw.Cells["cl_wdt_meter_kg_in_roll"].Value.ToString();
+                        func_print._pchBox = rw.Cells["cl_wdt_pch"].Value.ToString();
+                        func_print._pchRoll = rw.Cells["cl_wdt_pch"].Value.ToString();
+                        func_print._wghPaper = rw.Cells["cl_wdt_wgh_paper_plastic"].Value.ToString();
+                        func_print._wghCore = rw.Cells["cl_wdt_wgh_core_total"].Value.ToString();
+                        func_print.pictureBox1 = pictureBox1;
+                        func_print._operator = rw.Cells["cl_wgh_operator"].Value.ToString();
+                        func_print._lot = lot;
+
+                        string gv_name = rw.Cells["cl_wdt_gv_name"].Value.ToString();
+
+                        if (gv_name != gv_old)
                         {
-                            if (radioButton3.Checked)
-                            {
-                                printDocument1.Print();
-                            }
-                            else if (radioButton4.Checked)
-                            {
-                                printPreviewDialog1.ShowDialog();
-                            }
-                            rw.DefaultCellStyle.BackColor = Color.Green;
-                            sb.Show(this, $"สำเร็จ", BunifuSnackbar.MessageTypes.Success, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                        }
-                        else
-                        {
-                            sb.Show(this, $"พบข้อผิดผลาด {tbWeightDetail.PO}", BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
-                            rw.DefaultCellStyle.BackColor = Color.Red;
+                            await MRP.GET_MRP(gv_name);
+                            gv_old = gv_name;
                         }
 
+                        if (radioButton3.Checked)
+                        {
+                            printDocument1.Print();
+                        }
+                        else if (radioButton4.Checked)
+                        {
+                            printPreviewDialog1.ShowDialog();
+                        }
                         break;
                     }
                 }
@@ -96,128 +110,24 @@ namespace FutureFlex
         }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            try
+
+            if (!func_print.FormatPrint(e))
             {
-                Font fontHeader = new Font("Tahoma", 14, System.Drawing.FontStyle.Bold);
-                Font fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
-                Font fontDetail = new Font("Tahoma", 8, System.Drawing.FontStyle.Regular);
-
-                foreach (DataGridViewRow rw in dgvDetail.Rows)
-                {
-                    string customer = rw.Cells["cl_wgh_customer"].Value.ToString();
-                    string _po = rw.Cells["cl_wdt_po"].Value.ToString();
-                    string _gvname = rw.Cells["cl_wdt_gv_name"].Value.ToString();
-                    string _seq = rw.Cells["cl_wdt_seq"].Value.ToString();
-                    string _type = rw.Cells["cl_wdt_type"].Value.ToString();
-                    string _totalBox = rw.Cells["cl_wdt_numbox"].Value.ToString();
-                    string _totalRoll = rw.Cells["cl_wdt_numrollAll"].Value.ToString();
-                    string _net = rw.Cells["cl_wdt_net"].Value.ToString();
-                    string _tare = rw.Cells["cl_wdt_tare"].Value.ToString();
-                    string _gross = rw.Cells["cl_wdt_gross"].Value.ToString();
-                    string _employee = rw.Cells["cl_wgh_operator"].Value.ToString();
-                    string _date = rw.Cells["cl_wgh_date"].Value.ToString();
-                    string _productName = rw.Cells["cl_wgh_product"].Value.ToString();
-                    string _productID = rw.Cells["cl_wgh_customer_productID"].Value.ToString();
-                    string _defaultCode = rw.Cells["cl_wgh_productID"].Value.ToString();
-                    string _typeSuccess = rw.Cells["cl_wgh_typeSuccess"].Value.ToString();
-                    string _structure = rw.Cells["cl_wgh_structure"].Value.ToString();
-                    double _numMeter = double.Parse(rw.Cells["cl_wdt_meter_kg_in_roll"].Value.ToString());
-                    int _pch = int.Parse(rw.Cells["cl_wdt_pch"].Value.ToString());
-                    string _operator = rw.Cells["cl_wgh_operator"].Value.ToString();
-                    string _wghPaper = rw.Cells["cl_wdt_wgh_paper_plastic"].Value.ToString();
-                    string _wghCore = rw.Cells["cl_wdt_wgh_core_total"].Value.ToString();
-                    string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
-
-                    if (_lot == lot)
-                    {
-                        switch (_type)
-                        {
-                            case "box":
-                                _seq = $"{_seq}/{_totalBox}";
-                                break;
-                            case "roll":
-                                _seq = $"{_seq}/{_totalRoll}";
-                                break;
-                        }
-
-                        #region Header
-                        e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 50, 50);
-                        e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 15));
-                        e.Graphics.DrawString($"NO : {_seq}", new Font("Tahoma", 12, System.Drawing.FontStyle.Regular), Brushes.Black, new System.Drawing.Point(290, 5));
-                        #endregion
-
-                        #region Body
-                        e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-                        e.Graphics.DrawString($"{_defaultCode} {_productName}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 55));
-
-                        e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
-                        e.Graphics.DrawString($"{_productID}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
-
-
-                        e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
-                        e.Graphics.DrawString($"{customer}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 91));
-                        e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
-                        e.Graphics.DrawString($"{_gvname}                                  {_po}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
-                        e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
-                        e.Graphics.DrawString($"{_structure}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 127));
-                        e.Graphics.DrawString($"[ขนาด] :________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
-                        e.Graphics.DrawString($"{_typeSuccess}", fontDetail, Brushes.Black, new System.Drawing.Point(60, 145));
-
-                        switch (_type) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
-                        {
-                            case "box":
-                                e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                                e.Graphics.DrawString($"{_pch.ToString("#,###")}                {double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
-                                e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                                e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
-                                e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                                e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
-                                e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 214));
-                                e.Graphics.DrawString($"{_defaultCode}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 214));
-                                break;   //กรณีเลือกกล่อง
-                            case "roll":
-                                e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                                e.Graphics.DrawString($"{_wghPaper}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 163));
-                                e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
-                                e.Graphics.DrawString($"{_wghCore}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
-                                e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                                e.Graphics.DrawString($"{_numMeter.ToString("#,###,###.00")}        {_pch.ToString("#,###")}       {double.Parse(_net).ToString("#,###.00")} ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
-                                e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
-                                e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
-                                e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
-                                e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 235));
-                                e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 255));
-                                e.Graphics.DrawString($"{_defaultCode}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 255));
-
-                                break;  //กรณีเลือกม้วน  
-                        }
-
-                        #region Footer
-                        // ตั้งค่า Format Barcode
-                        BarcodeWriter writer = new BarcodeWriter()
-                        {
-                            Format = BarcodeFormat.QR_CODE
-                        };
-
-                        PictureBox pictureBox = new PictureBox()
-                        {
-                            SizeMode = PictureBoxSizeMode.StretchImage
-                        };
-                        // Generage QR Code
-                        pictureBox.Image = writer.Write($"{_lot}");
-                        e.Graphics.DrawImage(pictureBox.Image, 275, 150, 120, 120);
-
-                        string barCodeStr = $"{_lot}";
-                        e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
-                        e.Graphics.DrawString("FM-DL-003 REV.1", fontDetail, Brushes.Black, new System.Drawing.Point(5, 270));
-                        #endregion
-                    }
-                }
-                #endregion
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show($"Can't print \n {func_print.ERR}", "Error print printDocument1_PrintPage");
+                return;
             }
-            catch (InvalidPrinterException ex)
+
+            tbWeightDetail.UPDATE_STATUS_PRINT(lot);
+            foreach (DataGridViewRow rw in dgvDetail.Rows)
             {
-                Console.WriteLine(ex.Message);
+                string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
+                if (_lot == lot)
+                {
+                    rw.DefaultCellStyle.BackColor = Color.Green;
+                    return;
+                }
             }
         }
 
@@ -328,8 +238,8 @@ namespace FutureFlex
 
         private void printDocument1_EndPrint(object sender, PrintEventArgs e)
         {
-            Console.WriteLine("EndPrint");
-            printPreviewDialog1.Close();
+            //Console.WriteLine("EndPrint");
+            //printPreviewDialog1.Close();
         }
     }
 }
