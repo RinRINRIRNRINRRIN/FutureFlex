@@ -106,22 +106,23 @@ namespace FutureFlex
                 {
                     string customer = rw.Cells["cl_wgh_customer"].Value.ToString();
                     string _po = rw.Cells["cl_wdt_po"].Value.ToString();
-                    string _gvname = rw.Cells["cl_wdt_gvid"].Value.ToString();
+                    string _gvname = rw.Cells["cl_wdt_gv_name"].Value.ToString();
                     string _seq = rw.Cells["cl_wdt_seq"].Value.ToString();
                     string _type = rw.Cells["cl_wdt_type"].Value.ToString();
                     string _totalBox = rw.Cells["cl_wdt_numbox"].Value.ToString();
-                    string _totalRoll = rw.Cells["cl_wdt_numroll"].Value.ToString();
+                    string _totalRoll = rw.Cells["cl_wdt_numrollAll"].Value.ToString();
                     string _net = rw.Cells["cl_wdt_net"].Value.ToString();
                     string _tare = rw.Cells["cl_wdt_tare"].Value.ToString();
                     string _gross = rw.Cells["cl_wdt_gross"].Value.ToString();
                     string _employee = rw.Cells["cl_wgh_operator"].Value.ToString();
                     string _date = rw.Cells["cl_wgh_date"].Value.ToString();
                     string _productName = rw.Cells["cl_wgh_product"].Value.ToString();
-                    string _productID = rw.Cells["cl_wgh_productID"].Value.ToString();
+                    string _productID = rw.Cells["cl_wgh_customer_productID"].Value.ToString();
+                    string _defaultCode = rw.Cells["cl_wgh_productID"].Value.ToString();
                     string _typeSuccess = rw.Cells["cl_wgh_typeSuccess"].Value.ToString();
                     string _structure = rw.Cells["cl_wgh_structure"].Value.ToString();
-                    string _numMeter = rw.Cells["cl_wdt_meter_kg_in_roll"].Value.ToString();
-                    string _pch = rw.Cells["cl_wdt_pch"].Value.ToString();
+                    double _numMeter = double.Parse(rw.Cells["cl_wdt_meter_kg_in_roll"].Value.ToString());
+                    int _pch = int.Parse(rw.Cells["cl_wdt_pch"].Value.ToString());
                     string _operator = rw.Cells["cl_wgh_operator"].Value.ToString();
                     string _wghPaper = rw.Cells["cl_wdt_wgh_paper_plastic"].Value.ToString();
                     string _wghCore = rw.Cells["cl_wdt_wgh_core_total"].Value.ToString();
@@ -129,7 +130,6 @@ namespace FutureFlex
 
                     if (_lot == lot)
                     {
-
                         switch (_type)
                         {
                             case "box":
@@ -148,7 +148,7 @@ namespace FutureFlex
 
                         #region Body
                         e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-                        e.Graphics.DrawString($"{_productName}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 55));
+                        e.Graphics.DrawString($"{_defaultCode} {_productName}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 55));
 
                         e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
                         e.Graphics.DrawString($"{_productID}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
@@ -167,11 +167,13 @@ namespace FutureFlex
                         {
                             case "box":
                                 e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                                e.Graphics.DrawString($"{_pch}                    {_net}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
+                                e.Graphics.DrawString($"{_pch.ToString("#,###")}                {double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
                                 e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                                 e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
                                 e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
                                 e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
+                                e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 214));
+                                e.Graphics.DrawString($"{_defaultCode}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 214));
                                 break;   //กรณีเลือกกล่อง
                             case "roll":
                                 e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
@@ -179,11 +181,14 @@ namespace FutureFlex
                                 e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                                 e.Graphics.DrawString($"{_wghCore}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
                                 e.Graphics.DrawString($"[จำนวนสุทธิ]________ม.______ใบ_______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                                e.Graphics.DrawString($"{_numMeter}           {_pch}            {_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(90, 199));
+                                e.Graphics.DrawString($"{_numMeter.ToString("#,###,###.00")}        {_pch.ToString("#,###")}       {double.Parse(_net).ToString("#,###.00")} ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
                                 e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
                                 e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                                 e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
                                 e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 235));
+                                e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 255));
+                                e.Graphics.DrawString($"{_defaultCode}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 255));
+
                                 break;  //กรณีเลือกม้วน  
                         }
 
@@ -217,7 +222,7 @@ namespace FutureFlex
         }
 
 
-        private async void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
             //if (txtLot.Text.Length == 28)
             //{
@@ -319,6 +324,12 @@ namespace FutureFlex
             }
             // แสดงข้อมูล PO ที่ส่งไปหา Odoo เรียบร้ิยแล้ว
             ShowData();
+        }
+
+        private void printDocument1_EndPrint(object sender, PrintEventArgs e)
+        {
+            Console.WriteLine("EndPrint");
+            printPreviewDialog1.Close();
         }
     }
 }

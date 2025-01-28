@@ -47,9 +47,14 @@
             this.lblQRCODE = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.cl_print = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cl_wdt_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_wdt_gvid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wdt_gv_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,16 +70,13 @@
             this.cl_wdt_wgh_paper_plastic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_wgh_core_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_wdt_numrollAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_pch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wgh_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_print = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wgh_operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.cl_wgh_customer_productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -304,7 +306,7 @@
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_print,
             this.cl_wdt_seq,
-            this.cl_wdt_gvid,
+            this.cl_wdt_gv_name,
             this.cl_wdt_po,
             this.cl_wdt_net,
             this.cl_wdt_tare,
@@ -320,11 +322,13 @@
             this.cl_wdt_wgh_paper_plastic,
             this.cl_wdt_wgh_core_total,
             this.cl_wdt_numroll,
+            this.cl_wdt_numrollAll,
             this.cl_wdt_numbox,
             this.cl_wdt_pch,
             this.cl_wgh_date,
             this.cl_wdt_print,
-            this.cl_wgh_operator});
+            this.cl_wgh_operator,
+            this.cl_wgh_customer_productID});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -361,6 +365,54 @@
             this.dgvDetail.TabIndex = 1;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_EndPrint);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.ForeColor = System.Drawing.Color.Navy;
+            this.label9.Location = new System.Drawing.Point(5, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(201, 25);
+            this.label9.TabIndex = 57;
+            this.label9.Text = "ปริ้นรายการ JIT เป็นรายการ PO";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.White;
+            this.label10.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label10.ForeColor = System.Drawing.Color.Navy;
+            this.label10.Location = new System.Drawing.Point(5, -3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(201, 51);
+            this.label10.TabIndex = 56;
+            this.label10.Text = "REPRINT JIT";
+            // 
             // cl_print
             // 
             this.cl_print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -373,22 +425,22 @@
             // 
             // cl_wdt_seq
             // 
-            this.cl_wdt_seq.DataPropertyName = "wdt_seq";
+            this.cl_wdt_seq.DataPropertyName = "wdt_seqNew";
             this.cl_wdt_seq.HeaderText = "ลำดับ";
             this.cl_wdt_seq.Name = "cl_wdt_seq";
             this.cl_wdt_seq.ReadOnly = true;
             this.cl_wdt_seq.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cl_wdt_seq.Width = 80;
             // 
-            // cl_wdt_gvid
+            // cl_wdt_gv_name
             // 
-            this.cl_wdt_gvid.DataPropertyName = "wdt_GVID";
-            this.cl_wdt_gvid.HeaderText = "GVID";
-            this.cl_wdt_gvid.Name = "cl_wdt_gvid";
-            this.cl_wdt_gvid.ReadOnly = true;
-            this.cl_wdt_gvid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_wdt_gvid.Visible = false;
-            this.cl_wdt_gvid.Width = 150;
+            this.cl_wdt_gv_name.DataPropertyName = "wdt_gv_name";
+            this.cl_wdt_gv_name.HeaderText = "GVID";
+            this.cl_wdt_gv_name.Name = "cl_wdt_gv_name";
+            this.cl_wdt_gv_name.ReadOnly = true;
+            this.cl_wdt_gv_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_wdt_gv_name.Visible = false;
+            this.cl_wdt_gv_name.Width = 150;
             // 
             // cl_wdt_po
             // 
@@ -513,6 +565,14 @@
             this.cl_wdt_numroll.ReadOnly = true;
             this.cl_wdt_numroll.Visible = false;
             // 
+            // cl_wdt_numrollAll
+            // 
+            this.cl_wdt_numrollAll.DataPropertyName = "wdt_numrollAll";
+            this.cl_wdt_numrollAll.HeaderText = "wdt_numrollAll";
+            this.cl_wdt_numrollAll.Name = "cl_wdt_numrollAll";
+            this.cl_wdt_numrollAll.ReadOnly = true;
+            this.cl_wdt_numrollAll.Visible = false;
+            // 
             // cl_wdt_numbox
             // 
             this.cl_wdt_numbox.DataPropertyName = "wdt_numbox";
@@ -553,52 +613,13 @@
             this.cl_wgh_operator.ReadOnly = true;
             this.cl_wgh_operator.Visible = false;
             // 
-            // printPreviewDialog1
+            // cl_wgh_customer_productID
             // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorColor = System.Drawing.Color.Teal;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(5, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(201, 25);
-            this.label9.TabIndex = 57;
-            this.label9.Text = "ปริ้นรายการ JIT เป็นรายการ PO";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(5, -3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 51);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "REPRINT JIT";
+            this.cl_wgh_customer_productID.DataPropertyName = "wgh_customer_productID";
+            this.cl_wgh_customer_productID.HeaderText = "wgh_customer_productID";
+            this.cl_wgh_customer_productID.Name = "cl_wgh_customer_productID";
+            this.cl_wgh_customer_productID.ReadOnly = true;
+            this.cl_wgh_customer_productID.Visible = false;
             // 
             // frmReprintJIT
             // 
@@ -649,9 +670,12 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbPO;
         private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewButtonColumn cl_print;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_seq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_gvid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_gv_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_po;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_net;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_tare;
@@ -667,13 +691,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_wgh_paper_plastic;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_wgh_core_total;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numroll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numrollAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_pch;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_print;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_operator;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_wgh_customer_productID;
     }
 }
