@@ -261,7 +261,6 @@ namespace FutureFlex
                 await Task.Delay(1000);
                 gbLoadData.Visible = false;
                 pnMain.Visible = true;
-                sb.Show(this, "เชื่อมต่อ server futureflex สำเร็จ", BunifuSnackbar.MessageTypes.Success, 2000, "", BunifuSnackbar.Positions.TopCenter);
                 // เปิดการอ่านค่าจาก Server
                 _ = Task.Run(() =>
                 {
@@ -404,9 +403,9 @@ namespace FutureFlex
 
                     if (txtNunMeter.Text != "0")
                     {
-                        string[] a = label15.Text.Split(' ');
-                        string b = a[2];
-                        double c = double.Parse(b) / 1000;
+                        string[] a = label15.Text.Split('X');
+                        string[] b = a[0].Split(' ');
+                        double c = double.Parse(b[0].Trim()) / 1000;
                         double d = double.Parse(txtNunMeter.Text) / c;
                         string[] f = d.ToString().Split('.');
                         txtPchRoll.Text = f[0];
@@ -422,10 +421,10 @@ namespace FutureFlex
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                Log.Error($"ERROR txtNunRoll_TextChanged : {ex.Message}");
+                return;
             }
 
         }
@@ -727,7 +726,10 @@ namespace FutureFlex
         {
             if (!func_print.FormatPrint(e))
             {
-                MessageBox.Show("ไม่สามารถปริ้นได้\n" + func_print.ERR);
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show($"Can't print \n {func_print.ERR}", "Error print printDocument1_PrintPage");
+                return;
             }
         }
 
@@ -837,9 +839,9 @@ namespace FutureFlex
             }
         }
 
-        private void frmWeightNew_FormClosing(object sender, FormClosingEventArgs e)
+        private async void frmWeightNew_FormClosing(object sender, FormClosingEventArgs e)
         {
-            func_tcpClient.Disconnect();
+            await func_tcpClient.Disconnect();
             spScale.Close();
         }
 
