@@ -39,7 +39,7 @@ namespace FutureFlex.Function
                 Font fontDetail;
 
                 // Create __seq
-                if (tbWeightDetail.PO != "JIT" && tbWeightDetail.PO != "ไม่มี PO")
+                if (tbWeightDetail.PO != "JIT")
                 {
                     if (_statusType == "box")
                     {
@@ -132,22 +132,32 @@ namespace FutureFlex.Function
                     e.Graphics.DrawString(barCodeStr, fontHead, Brushes.Black, new System.Drawing.Point(180, 270));
                     e.Graphics.DrawString("FM-DL-012 Rev.0", fontDetail, Brushes.Black, new System.Drawing.Point(0, 180));
                 }
-                else // แบบมี PO และ ไม่มี PO
+                else // แบบมี PO
                 {
                     fontHeader = new Font("Tahoma", 14, System.Drawing.FontStyle.Bold);
                     fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
                     fontDetail = new Font("Tahoma", 8, System.Drawing.FontStyle.Regular);
 
                     #region Header
-                    e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 50, 50);
-                    e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 15));
+                    e.Graphics.DrawImage(pictureBox1.Image, 5, -3, 30, 30);
+                    e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(60, 3));
                     e.Graphics.DrawString($"NO : {_seq}", new Font("Tahoma", 12, System.Drawing.FontStyle.Regular), Brushes.Black, new System.Drawing.Point(290, 5));
                     #endregion
 
                     #region Body
-                    e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
-                    e.Graphics.DrawString($"{MRP.default_code} {MRP.product_name}", fontDetail, Brushes.Black, new System.Drawing.Point(65, 55));
-                    Console.WriteLine(MRP.product_name.Length);
+                    string defaultPlusProductName = $"{MRP.default_code} {MRP.product_name}";
+                    if (defaultPlusProductName.Length > 53)
+                    {
+                        e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 40));
+                        e.Graphics.DrawString($"{defaultPlusProductName.Substring(0, 53)} ", fontDetail, Brushes.Black, new System.Drawing.Point(70, 40));
+                        e.Graphics.DrawString($"__________________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
+                        e.Graphics.DrawString($"{defaultPlusProductName.Substring(53, defaultPlusProductName.Length - 53)} ", fontDetail, Brushes.Black, new System.Drawing.Point(5, 55));
+                    }
+                    else
+                    {
+                        e.Graphics.DrawString($"[สินค้า] : __________________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 55));
+                        e.Graphics.DrawString($"{defaultPlusProductName} ", fontDetail, Brushes.Black, new System.Drawing.Point(70, 55));
+                    }
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
                     e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
 
@@ -170,8 +180,6 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
                             e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
-                            e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 214));
-                            e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 214));
 
                             break;   //กรณีเลือกกล่อง
                         case "roll":
@@ -185,8 +193,6 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
                             e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 235));
-                            e.Graphics.DrawString($"[FGCode] : _____________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 255));
-                            e.Graphics.DrawString($"{MRP.default_code}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 255));
 
                             break;  //กรณีเลือกม้วน  
                     }
