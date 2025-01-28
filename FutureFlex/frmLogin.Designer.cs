@@ -105,9 +105,9 @@ namespace FutureFlex
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(84, 390);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 21);
+            this.label5.Size = new System.Drawing.Size(81, 21);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Version  1.2.0";
+            this.label5.Text = "Version  1.2.1";
             // 
             // guna2BorderlessForm1
             // 
