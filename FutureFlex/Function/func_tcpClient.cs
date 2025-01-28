@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Configuration;
 using System.Net.Sockets;
 using System.Text;
@@ -25,7 +26,7 @@ namespace FutureFlex.Function
             {
                 client = new TcpClient();
                 await client.ConnectAsync(IpServer, 5000);
-                Console.WriteLine("Connected to server.");
+                Log.Information("Connected to server.");
                 stream = client.GetStream();
                 ConnectState = true;
                 ErrState = false;
