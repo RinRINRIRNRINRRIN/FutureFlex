@@ -65,7 +65,33 @@ namespace FutureFlex
                 }
             return true;
 
+        }
+
+        async void Check(string value)
+        {
+            gbWeightPoOrJit.Visible = false;
+            gbLoadData.Visible = true;
+            switch (value)
+            {
+                case "JIT":
+                    if (!await GetJit($"RTFG{txtRTFG.Text}"))
+                    {
                 gbLoadData.Visible = false;
+                        gbWeightPoOrJit.Visible = true;
+                        return;
+                    }
+                    break;
+                case "PO":
+                    if (!await GetPO())
+                    {
+                        gbLoadData.Visible = false;
+                        gbWeightPoOrJit.Visible = true;
+                        return;
+                    }
+                    break;
+            }
+            gbLoadData.Visible = false;
+            gbWeightPoOrJit.Visible = false;
                 panel1.Visible = true;
             }
         }
