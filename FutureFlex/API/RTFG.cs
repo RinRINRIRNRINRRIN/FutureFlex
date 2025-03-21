@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -11,34 +10,32 @@ namespace FutureFlex.API
 {
     internal class RTFG
     {
-
-        public static int Rtfg_ID { get; set; }
+        public static int Id { get; set; }
         public static string Name { get; set; }
-        public static string EffectiveDate { get; set; }
-        public static string State { get; set; }
-        public static int Do_id { get; set; }
-        public static string Do_no { get; set; }
-        public static int Product_id { get; set; }
-        public static string Customer_product_code { get; set; }
-        public static string Default_code { get; set; }
-        public static string Product_Name { get; set; }
-        /// <summary>
-        /// ความกว้างม้วน 
-        /// </summary>
-        public static double product_roll_width { get; set; }
-        /// <summary>
-        /// ความยาวม้วนเต็ม (นำไปคำนวนกับจำนวนม้วนของ prodcut)
-        /// </summary>
-        public static double product_roll_length { get; set; }
-        public static string Product_uom_name { get; set; }
-        public static string Po_customer { get; set; }
-        public static double Return_qty_pch { get; set; }
-        public static double Return_qty_weight { get; set; }
-        public static string Gv_return { get; set; }
-        public static List<string> Gv_list_return { get; set; } = new List<string>();
-        public static DataTable Mrp_list_return { get; set; } = new DataTable();
 
         public static string ERR { get; set; }
+
+        /// <summary>
+        /// กรณีคืนสินค้าในรูปแบบ PO จะต้องใช้ new po มาแสดงที่ sticket
+        /// </summary>
+        public static string new_sale_name { get; set; }
+
+        /// <summary>
+        /// เลขที่ PO ใหม่
+        /// </summary>
+        public static string new_po_customer { get; set; }
+
+        /// <summary>
+        /// เก็บค่านำจวนใบที่ต้องคืน
+        /// </summary>
+        public static double Return_qty_pch { get; set; }
+        public static double Return_qty_weight { get; set; }
+        public static double product_roll_length { get; set; }
+
+
+        public static DataTable Mrp_list_return { get; set; } = new DataTable();
+
+
 
         /// <summary>
         /// สำหรับการสร้าง datatable ใหม่เพื่อเก็บข้อมูล
@@ -69,10 +66,16 @@ namespace FutureFlex.API
                 throw;
             }
         }
+        public static string Mo_pono { get; set; }
+        public static int Mo_so_id { get; set; }
+        public static string Mo_so_no { get; set; }
+        public static int Partner_id { get; set; }
+        public static string Partner_name { get; set; }
+
 
         /// <summary>
         /// สำหรับดึงข้อมูล RTFG
-        /// </summary>
+            /// </summary>
         /// <param name="rtfg_number">เลขที่ RTFG</param>
         /// <returns></returns>
         public static async Task<bool> Get_rtfg(string rtfg_number)
