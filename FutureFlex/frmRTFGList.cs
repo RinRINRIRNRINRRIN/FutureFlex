@@ -20,7 +20,12 @@ namespace FutureFlex
             gbLoadData.Location = new System.Drawing.Point(x, y);
         }
 
-        void Showdata()
+        /// <summary>
+        /// เก็บว่าต้องการชั่ง PO หรือ JIT
+        /// </summary>
+        public string weightTyep { get; set; }
+
+        async Task<bool> GetPO()
         {
             lblName.Text = RTFG.Name;
             lblPurchaseOrder.Text = RTFG.Po_customer;
