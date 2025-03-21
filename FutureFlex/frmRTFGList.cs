@@ -27,18 +27,20 @@ namespace FutureFlex
 
         async Task<bool> GetPO()
         {
-            lblName.Text = RTFG.Name;
-            lblPurchaseOrder.Text = RTFG.Po_customer;
-            lblDeliveryOrder.Text = RTFG.Do_no;
-            lblReturnQtyPch.Text = RTFG.Return_qty_pch.ToString();
-            lblRetrunQtyWeight.Text = RTFG.Return_qty_weight.ToString() + " Kg.";
-            lblDate.Text = RTFG.EffectiveDate;
-            Console.WriteLine($"======================================  Import datatable to datagridview");
-            for (int i = 0; i < RTFG.Mrp_list_return.Columns.Count; i++)
+            await Task.Delay(1000);
+
+            if (await RTFG.PO.Return_list(txtPO.Text))
             {
-                Console.WriteLine($"Column name : {RTFG.Mrp_list_return.Columns[i].ColumnName}");
-            }
             dgvDetail.DataSource = RTFG.Mrp_list_return;
+        }
+            else
+            {
+                msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+                msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                msg.Show($"Not found {txtPO.Text}", "Not found RTFG Number");
+                return false;
+            }
+            return true;
         }
 
         private async void txtJobNo_KeyDown(object sender, KeyEventArgs e)
