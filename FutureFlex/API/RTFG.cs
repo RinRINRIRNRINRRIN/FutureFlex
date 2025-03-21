@@ -139,56 +139,89 @@ namespace FutureFlex.API
                 return true;
             }
 
-                JArray key = JArray.Parse(response.Content);
 
-                foreach (JObject value in key.Children<JObject>())
+        }
+
+
+        /// <summary>
+        /// สำหรับดึงข้อมูลไปชั่งเพื่อเก็บ
+        /// </summary>
+        public static class JIT
                 {
-                    Rtfg_ID = int.Parse(value["rtfg_id"].ToString());
-                    Name = value["name"].ToString();
-                    EffectiveDate = value["effective_date"].ToString();
-                    State = value["state"].ToString();
-                    Do_id = int.Parse(value["do_id"].ToString());
-                    Do_no = value["do_no"].ToString();
-                    Product_id = int.Parse(value["product_id"].ToString());
-                    Customer_product_code = value["customer_product_code"].ToString();
-                    Default_code = value["default_code"].ToString();
-                    Product_Name = value["product_name"].ToString();
-                    product_roll_width = double.Parse(value["product_roll_width"].ToString());
-                    product_roll_length = double.Parse(value["product_roll_length"].ToString());
-                    Product_uom_name = value["product_uom_name"].ToString();
-                    Po_customer = value["po_customer"].ToString();
-                    Return_qty_pch = double.Parse(value["return_qty_pch"].ToString());
-                    Return_qty_weight = double.Parse(value["return_qty_weight"].ToString());
-                    Gv_return = value["gv_return"].ToString();
 
-                    key = JArray.Parse(value["gv_list_return"].ToString());
-                    for (int i = 0; i < key.Count; i++)
+            public static string Mo_pono { get; set; }
+            public static int Mo_so_id { get; set; }
+            public static string Mo_so_no { get; set; }
+            public static int Partner_id { get; set; }
+            public static string Partner_name { get; set; }
+
+
+            /// <summary>
+            /// สำหรับแสดงรายละเอียด RTFG
+            /// </summary>
+            /// <param name="rtfg_num">เลขที่ RTFG</param>
+            /// <returns></returns>
+            public static async Task<bool> Return_num(string rtfg_num)
                     {
-                        Gv_list_return.Add(key[i].ToString());
-                        Console.WriteLine(key[i].ToString());
+                Log.Information($"=================================================================  ดึงข้อมูล RTFG จาก po {rtfg_num}");
+                try
+                {
+                    CreateDataTable();
+                    var options = new RestClientOptions(tbOdoo.server)
+                    {
+                        MaxTimeout = 3000,
+                    };
+                    var client = new RestClient(options);
+                    var request = new RestRequest("/api/return_num", Method.Get);
+                    request.AddHeader("key", tbOdoo.key);
+                    request.AddHeader("return_num", rtfg_num);
+                    RestResponse response = await client.ExecuteAsync(request);
+                    Console.WriteLine(response.Content);
+
+                    JObject keys = new JObject();
+                    JArray jArray = new JArray();
+                    if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                    {
+                        keys = JObject.Parse(response.Content);
+                        ERR = $"เกิดข้อผิดผลาด Response code : {response.StatusCode}\nMessage : {keys["message"]}";
+                        return false;
                     }
 
-                    key = JArray.Parse(value["mrp_list_return"].ToString());
-                    foreach (var item in key.Children<JObject>())
+                    if (response.StatusCode != System.Net.HttpStatusCode.OK)
                     {
-                        int id = int.Parse(item["id"].ToString());
+                        ERR = "เกิดข้อผิดผลาด" + "Response  code : " + response.StatusCode;
+                        return false;
+                    }
+
+                    jArray = JArray.Parse(response.Content);
+                    foreach (JObject value in jArray.Children<JObject>())
+                    {
+
+                        Id = int.Parse(value["rtfg_id"].ToString());
+                        Name = value["name"].ToString();
+                        Return_qty_pch = double.Parse(value["return_qty_pch"].ToString());
+                        Return_qty_weight = double.Parse(value["return_qty_weight"].ToString());
+                        new_sale_name = value["new_sale_name"].ToString();
+                        new_po_customer = value["new_po_customer"].ToString();
+
+                        JArray jArray1 = JArray.Parse(value["mrp_list_return"].ToString());
+                        foreach (JObject item in jArray1.Children<JObject>())
+                        {
+                            string id = item["id"].ToString();
                         string name = item["name"].ToString();
-                        string mo_date = item["mo_date"].ToString();
-                        string mo_date_delivery = item["mo_date_delivery"].ToString();
-                        string mo_film = item["mo_film"].ToString();
-                        string mo_film_total = item["mo_film_total"].ToString();
-                        string mo_work = item["mo_work"].ToString();
-                        string partner_name = item["partner_name"].ToString();
-                        string product_name = item["product_name"].ToString();
-                        string mo_type = item["mo_type"].ToString();
-                        string uom_id = item["uom_id"].ToString();
-                        Mrp_list_return.Rows.Add(id, name, mo_date, mo_date_delivery, mo_film, mo_film_total, mo_work, partner_name, product_name, mo_type, uom_id);
+                            string parter = item["partner_name"].ToString();
+                            string product = item["product_name"].ToString();
+                            string uom = item["product_uom_name"].ToString();
+                            Mrp_list_return.Rows.Add(id, name, parter, product, uom);
                     }
+                        break;
                 }
+
             }
-            catch (System.Exception ex)
+                catch (Exception ex)
             {
                 ERR = ex.Message;
+
                 return false;
             }
             return true;
