@@ -170,10 +170,54 @@ namespace FutureFlex.API
             return true;
         }
 
+        public async static Task<bool> GET_MRP(string gv)
+        {
+            Log.Information($"== ดึงข้อมูลจาก odoo ค้นหาจาก {gv}");
+
+            try
+            {
+                var options = new RestClientOptions(tbOdoo.server)
+                {
+                    MaxTimeout = -1,
+                };
+                var client = new RestClient(options);
+                var request = new RestRequest("/api/gv_num", Method.Get);
+                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("gv_num", gv);
+                RestResponse response = await client.ExecuteAsync(request);
+                Log.Information($"- response \n {response.Content}");
+
+
+                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                {
+                    err = "Not found";
+                    return false;
+                }
+
+
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    err = $"Incorrent \nStatus Code : {response.StatusCode}";
+                    return false;
+                }
+
 
                 JArray key = JArray.Parse(response.Content);
+                // Loop อ่านค่าจาก็ key
+
+
                 foreach (JObject value in key.Children<JObject>())
                 {
+                    Log.Information("==================================================== GET  ODOO");
+                    foreach (JProperty property in value.Children<JProperty>())
+                    {
+                        string propertyName = property.Name;
+                        JToken propertyValue = property.Value;
+
+                        Log.Information($"{propertyName} : {propertyValue}");
+                    }
+
+
                     id = value["id"].ToString();
                     name = value["name"].ToString();
                     mo_date = value["mo_date"].ToString();
@@ -197,6 +241,7 @@ namespace FutureFlex.API
                     mo_film_total = value["mo_film_total"].ToString();
                     mo_type = value["mo_type"].ToString();
                     mo_work = value["mo_work"].ToString();
+                    mo_block = value["mo_block"].ToString();
                     product_qty = (double)value["product_qty"];
                     done_qty = (double)value["done_qty"];
                     manufactured_qty = (double)value["manufactured_qty"];
@@ -207,6 +252,10 @@ namespace FutureFlex.API
                     uom_id = value["uom_id"].ToString();
                     mo_po_new = (double)value["mo_po_new"];
                     mo_order_qty = (double)value["mo_order_qty"];
+                    pch_width = double.Parse(value["pch_width"].ToString());
+                    pch_length = double.Parse(value["pch_length"].ToString());
+                    shrink_mm = double.Parse(value["shrink_mm"].ToString());
+                    break;
                 }
             }
             catch (System.Exception ex)
