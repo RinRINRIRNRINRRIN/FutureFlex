@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using Serilog;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FutureFlex.API
@@ -145,7 +146,7 @@ namespace FutureFlex.API
                 JArray jArray = JArray.Parse(key["GV"].ToString());
                 gvAndPo.Clear();
                 foreach (var item in jArray)
-                    {
+                {
                     foreach (JProperty property in item.Children<JProperty>())
                     {
                         string propertyName = property.Name;
@@ -160,11 +161,11 @@ namespace FutureFlex.API
                 }
             }
             catch (System.Exception ex)
-                {
+            {
                 err = $"เกิดข้อผิดผลาด {ex.Message}";
                 Log.Error($"GET_MRP | MRP : {err}");
-                    return false;
-                }
+                return false;
+            }
             Log.Information($"- ดึงข้อมูลจาก odoo สำเร็จ");
             return true;
         }
