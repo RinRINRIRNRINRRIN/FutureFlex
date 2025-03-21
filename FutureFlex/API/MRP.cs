@@ -38,19 +38,44 @@ namespace FutureFlex.API
         public static string mo_film { get; set; }  // โครงสร้าง
         public static string mo_film_total { get; set; }
         public static string mo_type { get; set; }  // ลักษณะงาน
+
+        /// <summary>
+        /// ขนาดสำเร็จ
+        /// </summary>
         public static string mo_work { get; set; } // ขนาดสำเร็จ
+
+        /// <summary>
+        /// ขนาดเพื่อหด
+        /// </summary>
+        public static string mo_block { get; set; }
         public static double done_qty { get; set; }
         public static double manufactured_qty { get; set; }
         public static double pending_qty { get; set; }
         public static int product_uom_id { get; set; }
         public static string product_uom_name { get; set; }  // หน่วยงาน
 
+        /// <summary>
+        /// ขนาดงานใบ กว้าง
+        /// </summary>
+        public static double pch_width { get; set; }
+
+        /// <summary>
+        /// ขนาดงานใบ ยาว
+        /// </summary>
+        public static double pch_length { get; set; }
+
+
+        /// <summary>
+        /// ขนาดเพื่อหด
+        /// </summary>
+        public static double shrink_mm { get; set; }
         public static double mo_po_qty { get; set; } // จำนวนสั้งซื้อ
         public static string uom_id { get; set; } // หน่วย FG(สั่งซื้อ)
         public static double mo_po_new { get; set; } // จำนวนสั่งซื้อ (ใบ)
         public static double mo_order_qty { get; set; } // จำนวนสั่งซื้อ (ใบ) +%
         public static string err { get; set; }
 
+        public static List<string> gvAndPo = new List<string>();
 
 
         public static void ClearProp()
