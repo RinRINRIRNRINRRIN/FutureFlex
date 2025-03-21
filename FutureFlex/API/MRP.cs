@@ -77,7 +77,6 @@ namespace FutureFlex.API
 
         public static List<string> gvAndPo = new List<string>();
 
-
         public static void ClearProp()
         {
             Log.Information("== เครีย์ property MRP");
@@ -287,7 +286,7 @@ namespace FutureFlex.API
         /// <param name="weightPaper"></param>
         /// <param name="weightCore"></param>
         /// <param name="joint"></param>
-        /// <param name="qty_pch">จำนวนใบ ไม่มีจะเลือกกล่องหรือม้วนให้คีย์ตัวนี้</param>
+        /// <param name="qty_pch">จำนวนใบ ไม่ว่าจะเลือกกล่องหรือม้วนให้คีย์ตัวนี้</param>
         /// <param name="meterRoll">ใส่เฉพาะกรณีเลือกงานม้วน ให้ใส่จำนวนเมตร</param>
         /// <param name="lot">เลขที่</param>
         /// <param name="seq">ลำดับกล่องลำดับม้วน</param>
@@ -298,12 +297,6 @@ namespace FutureFlex.API
         {
             try
             {
-                if (!await Authentication.CHECK_TOKEN())
-                {
-                    return false;
-                }
-
-
                 Log.Information("==================================================== SEND TO ODOO");
                 Log.Information($"mrp_request_id : {gv_id}");
                 Log.Information($"weigh_in_line_id : {wgh_id}");
@@ -331,9 +324,14 @@ namespace FutureFlex.API
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
-                var request = new RestRequest("/api/mrp/create", Method.Post);
-                request.AddHeader("token", Authentication.access_token);
+                var request = new RestRequest("/api/gv_num", Method.Post);
+                request.AddHeader("key", tbOdoo.key);
                 request.AddHeader("Content-Type", "text/plain");
+
+                if (qty_roll == 0 && type == "roll")
+                {
+                    qty_roll = 1;
+                }
                 #region Body
                 var body = "{\n" +
                   $"    |mrp_request_id|:|{gv_id}|,\n" +
@@ -363,27 +361,14 @@ namespace FutureFlex.API
                 request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
                 RestResponse response = await client.ExecuteAsync(request);
                 Log.Information($"{response.Content}");
-                Console.WriteLine(response.Content);
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                JObject key1 = new JObject();
+                JArray jArray = new JArray();
+                if (response.StatusCode != System.Net.HttpStatusCode.Created)
                 {
-                    if (await Authentication.take_token_key())
-                    {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("Content-Type", "text/plain");
-                        request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
-                        response = await client.ExecuteAsync(request);
-                        Log.Information($"{response.Content}");
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                        {
-                            return false;
-                        }
-                    }
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
-                {
-                    JObject key1 = JObject.Parse(response.Content);
-                    err = key1["message"].ToString();
+                    key1 = JObject.Parse(response.Content);
+                    jArray = JArray.Parse(key1["data"].ToString());
+                    err = jArray["message"].ToString();
                     return false;
                 }
             }
@@ -394,7 +379,6 @@ namespace FutureFlex.API
                 Console.Write(ex.Message);
                 return false;
             }
-            Console.WriteLine($"SEND SUCCESS RTFG NAME : {id}");
             Log.Information($"SEND SUCCESS RTFG NAME : {id}");
             return true;
         }
