@@ -111,14 +111,9 @@ namespace FutureFlex.API
         }
 
 
-        public async static Task<bool> GET_MRP(string gv)
+        public async static Task<bool> GET_PO(string po)
         {
-            Log.Information($"== ดึงข้อมูลจาก odoo ค้นหาจาก {gv}");
-            if (!await Authentication.CHECK_TOKEN())
-            {
-                err = Authentication.ERR;
-                return false;
-            }
+            Log.Information($"======================================================  GET PO {po}");
 
             try
             {
@@ -127,11 +122,11 @@ namespace FutureFlex.API
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
-                var request = new RestRequest("/api/mrp", Method.Get);
-                request.AddHeader("token", Authentication.access_token);
-                request.AddHeader("mrnumber", gv);
+                var request = new RestRequest("/api/gv_list", Method.Get);
+                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("po_num", po);
                 RestResponse response = await client.ExecuteAsync(request);
-                Log.Information($"- response \n {response.Content}");
+                Log.Information($"response \n {response.Content}");
                 if (response.Content == "[]")
                 {
                     err = "ไม่พบรายการที่เลือก";
@@ -139,21 +134,41 @@ namespace FutureFlex.API
                     return false;
                 }
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    Log.Information($"- token หมดอายุ");
-                    if (await Authentication.take_token_key())
-                    {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("mrnumber", gv);
-                        response = await client.ExecuteAsync(request);
-                    }
-                }
-                else if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
                     err = "เกิดข้อผิดผลาด";
                     return false;
                 }
+
+
+                JObject key = JObject.Parse(response.Content);
+
+                JArray jArray = JArray.Parse(key["GV"].ToString());
+                gvAndPo.Clear();
+                foreach (var item in jArray)
+                    {
+                    foreach (JProperty property in item.Children<JProperty>())
+                    {
+                        string propertyName = property.Name;
+                        JToken propertyValue = property.Value;
+
+                        Log.Information($"{propertyName} : {propertyValue}");
+                    }
+
+                    string gv = item["name"].ToString();
+                    string so = item["mo_so_no"].ToString();
+                    gvAndPo.Add($"{gv}|{so}");
+                }
+            }
+            catch (System.Exception ex)
+                {
+                err = $"เกิดข้อผิดผลาด {ex.Message}";
+                Log.Error($"GET_MRP | MRP : {err}");
+                    return false;
+                }
+            Log.Information($"- ดึงข้อมูลจาก odoo สำเร็จ");
+            return true;
+        }
 
 
                 JArray key = JArray.Parse(response.Content);
