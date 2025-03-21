@@ -43,23 +43,27 @@ namespace FutureFlex
             return true;
         }
 
-        private async void txtJobNo_KeyDown(object sender, KeyEventArgs e)
+
+        /// <summary>
+        /// ชั่งเพื่อเก็บ
+        /// </summary>
+        async Task<bool> GetJit(string rtfg)
         {
-            if (e.KeyCode == Keys.Enter)
+            await Task.Delay(1000);
+
+            if (await RTFG.JIT.Return_num(rtfg))
             {
-                panel1.Visible = false;
-                gbLoadData.Visible = true;
-                await Task.Delay(500);
-                if (await RTFG.Get_rtfg($"RTFG{txtJobNo.Text}"))
-                {
-                    Showdata();
+
+                dgvDetail.DataSource = RTFG.Mrp_list_return;
                 }
                 else
                 {
                     msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
                     msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-                    msg.Show($"Not found {txtJobNo.Text}", "Not found RTFG Number");
+                msg.Show($"Not found {txtRTFG.Text}", "Not found RTFG Number");
+                return false;
                 }
+            return true;
 
                 gbLoadData.Visible = false;
                 panel1.Visible = true;
