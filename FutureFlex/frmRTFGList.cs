@@ -10,6 +10,14 @@ namespace FutureFlex
         public frmRTFGList()
         {
             InitializeComponent();
+            int x = (this.Width - gbWeightPoOrJit.Width) / 2;
+            int y = (this.Height - gbWeightPoOrJit.Height) / 2;
+            gbWeightPoOrJit.Location = new System.Drawing.Point(x, y);
+
+            x = (this.Width - gbLoadData.Width) / 2;
+            y = (this.Height - gbLoadData.Height) / 2;
+
+            gbLoadData.Location = new System.Drawing.Point(x, y);
         }
 
         void Showdata()
