@@ -45,19 +45,29 @@ namespace FutureFlex.API
         /// </summary>
         static void CreateDataTable()
         {
+            try
+            {
+                if (Mrp_list_return.Columns.Count > 1)
+                {
+                    if (Mrp_list_return.Rows.Count != 0)
+                    {
             Mrp_list_return.Rows.Clear();
-            Mrp_list_return.Columns.Clear();
+                    }
+                }
+                else if (Mrp_list_return.Columns.Count == 0)
+                {
             Mrp_list_return.Columns.Add("id");
             Mrp_list_return.Columns.Add("name");
-            Mrp_list_return.Columns.Add("mo_date");
-            Mrp_list_return.Columns.Add("mo_date_delivery");
-            Mrp_list_return.Columns.Add("mo_film");
-            Mrp_list_return.Columns.Add("mo_film_total");
-            Mrp_list_return.Columns.Add("mo_work");
             Mrp_list_return.Columns.Add("partner_name");
             Mrp_list_return.Columns.Add("product_name");
-            Mrp_list_return.Columns.Add("mo_type");
             Mrp_list_return.Columns.Add("uom");
+        }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message + " | " + "RTFG CreateDataTable");
+                throw;
+            }
         }
 
         /// <summary>
