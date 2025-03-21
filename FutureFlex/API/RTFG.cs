@@ -74,58 +74,70 @@ namespace FutureFlex.API
 
 
         /// <summary>
-        /// สำหรับดึงข้อมูล RTFG
+        /// สำหรับดึงข้อมูลไปชั่งเพื่อขาย
             /// </summary>
-        /// <param name="rtfg_number">เลขที่ RTFG</param>
-        /// <returns></returns>
-        public static async Task<bool> Get_rtfg(string rtfg_number)
+        public static class PO
         {
-            Log.Information($"=================================================================  ดึงข้อมูล RTFG จากเลข {rtfg_number}");
-
-            // Clear dataTable and create
-            CreateDataTable();
+            /// <summary>
+            /// สำหรับแสดงรายการ rtfg ที่ผูกกับ po
+            /// </summary>
+            /// <param name="po_num">เลขที่ PO</param>
+        /// <returns></returns>
+            public static async Task<bool> Return_list(string po_num)
+        {
             try
             {
-                if (!await Authentication.CHECK_TOKEN())
-                {
-                    ERR = Authentication.ERR;
-                    return false;
-                }
+                    CreateDataTable();
+                    JObject keys = new JObject();
+                    JArray jArray = new JArray();
 
                 var options = new RestClientOptions(tbOdoo.server)
                 {
-                    MaxTimeout = -1,
+                        MaxTimeout = 3000,
                 };
                 var client = new RestClient(options);
-                var request = new RestRequest("/api/return", Method.Get);
-                request.AddHeader("token", Authentication.access_token);
-                request.AddHeader("rtfg_number", rtfg_number);
+                    var request = new RestRequest("/api/return_list", Method.Get);
+                    request.AddHeader("key", tbOdoo.key);
+                    request.AddHeader("po_num", po_num);
                 RestResponse response = await client.ExecuteAsync(request);
                 Console.WriteLine(response.Content);
 
-                if (response.Content == "[]")
+                    if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
                 {
-                    ERR = "ไม่พบรายการที่เลือก";
-                    Log.Information($"- ไม่พบรายการ");
+                        keys = JObject.Parse(response.Content);
+                        ERR = $"เกิดข้อผิดผลาด Response code : {response.StatusCode}\nMessage : {keys["message"]}";
                     return false;
                 }
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 {
-                    Log.Information($"- token หมดอายุ");
-                    if (await Authentication.take_token_key())
+                        ERR = "เกิดข้อผิดผลาด" + "Response  code : " + response.StatusCode;
+                        return false;
+                    }
+
+                    keys = JObject.Parse(response.Content);
+                    jArray = JArray.Parse(keys["RTFG"].ToString());
+
+                    foreach (JObject value in jArray.Children<JObject>())
                     {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("mrnumber", rtfg_number);
-                        response = await client.ExecuteAsync(request);
-                        Console.WriteLine(response.Content);
+                        Id = int.Parse(value["id"].ToString());
+                        Name = value["name"].ToString();
+                        Mo_pono = value["mo_pono"].ToString();
+                        Mo_so_id = int.Parse(value["mo_so_id"].ToString());
+                        Mo_so_no = value["mo_so_no"].ToString();
+                        Partner_id = int.Parse(value["partner_id"].ToString());
+                        Partner_name = value["partner_name"].ToString();
+                        Mrp_list_return.Rows.Add(Id, Name, Partner_name, "");
+                        break;
                     }
                 }
-                else if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                catch (System.Exception ex)
                 {
-                    ERR = "เกิดข้อผิดผลาด" + "Response  code : " + response.StatusCode;
+                    ERR = ex.Message;
                     return false;
                 }
+                return true;
+            }
 
                 JArray key = JArray.Parse(response.Content);
 
