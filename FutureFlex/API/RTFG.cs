@@ -227,15 +227,49 @@ namespace FutureFlex.API
             return true;
         }
 
-        public static async Task<bool> CREATE_RTFG(string rtfg_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total, double qty_roll)
+
+
+        }
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// ส่งข้อมูลหา odoo
+        /// </summary>
+        /// <param name="rtfg_id">id ของ RTFG</param>
+        /// <param name="wgh_id">weight id ของ ไทยเครื่องชั่งจะอยู่ใน database เป็น Auto incresment</param>
+        /// <param name="machineOperator"></param>
+        /// <param name="country"></param>
+        /// <param name="type"></param>
+        /// <param name="side"></param>
+        /// <param name="po"></param>
+        /// <param name="date"></param>
+        /// <param name="net"></param>
+        /// <param name="tare"></param>
+        /// <param name="gross"></param>
+        /// <param name="weightPaper"></param>
+        /// <param name="weightCore"></param>
+        /// <param name="joint"></param>
+        /// <param name="qty_pch"></param>
+        /// <param name="meterRoll"></param>
+        /// <param name="lot"></param>
+        /// <param name="seq"></param>
+        /// <param name="count_total"></param>
+        /// <param name="qty_roll">จำนวนม้วน/LOT</param>
+        /// <returns></returns>
+        public static async Task<bool> CREATE_RTFG(string rtfg_name, int rtfg_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total, double qty_roll)
         {
             try
             {
-                if (!await Authentication.CHECK_TOKEN())
-                {
-                    return false;
-                }
+
                 Log.Information("==================================================== SEND TO ODOO");
+                Log.Information($"rtfg_name : {rtfg_name}");
                 Log.Information($"rtfg_id : {rtfg_id}");
                 Log.Information($"weigh_in_line_id : {wgh_id}");
                 Log.Information($"emp_name_weigh_in : {machineOperator}");
@@ -264,8 +298,9 @@ namespace FutureFlex.API
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
-                var request = new RestRequest("/api/rtfg/create", Method.Post);
-                request.AddHeader("token", Authentication.access_token);
+                var request = new RestRequest("/api/return_num", Method.Post);
+                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("return_num", rtfg_id);
                 request.AddHeader("Content-Type", "text/plain");
                 var body = "{\n" +
                  $"    |rtfg_id|:|{rtfg_id}|,\n" +
@@ -296,22 +331,7 @@ namespace FutureFlex.API
                 Console.WriteLine(response.Content);
                 Log.Information($"Response : {response.Content}");
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    if (await Authentication.take_token_key())
-                    {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("Content-Type", "text/plain");
-                        request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
-                        response = await client.ExecuteAsync(request);
-                        Log.Information($"{response.Content}");
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                        {
-                            return false;
-                        }
-                    }
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
                 {
                     JObject key1 = JObject.Parse(response.Content);
                     ERR = key1["message"].ToString();
