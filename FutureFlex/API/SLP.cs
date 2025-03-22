@@ -38,10 +38,16 @@ namespace FutureFlex.API
         /// รอยต่อ
         /// </summary>
         public static int joint { get; set; }
+
         /// <summary>
-        /// จำนวนใบ ไม่ว่าจะกล่องหรือม้วน ให้เช็คแยกจาก ประเภทหรือ select_type
+        /// จำนวนใบที่ต้องการแบ่ง
         /// </summary>
-        public static int qty_pch { get; set; }
+        public static double total_pch { get; set; } = 0;
+        /// <summary>
+        /// จำนวนเมตรที่ต้องการแบ่ง
+        /// </summary>
+        public static double total_meter { get; set; } = 0;
+
         /// <summary>
         /// เลือกประเทศ ovs = นอกประเภท , dom = ในประเทศ
         /// </summary>
