@@ -244,14 +244,10 @@ namespace FutureFlex.API
         }
 
 
-        public static async Task<bool> CREATE(string spl_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total, double qty_roll)
+        public static async Task<bool> CREATE(string spl_name, string spl_id, string wgh_id, string machineOperator, string country, string type, string side, string po, string date, string net, string tare, string gross, string weightPaper, string weightCore, string joint, string qty_pch, string meterRoll, string lot, string seq, string count_total, double qty_roll)
         {
             try
             {
-                if (!await Authentication.CHECK_TOKEN())
-                {
-                    return false;
-                }
                 Log.Information("==================================================== SEND TO ODOO");
                 Log.Information($"spl_id : {spl_id}");
                 Log.Information($"weigh_in_line_id : {wgh_id}");
@@ -275,17 +271,22 @@ namespace FutureFlex.API
                 Log.Information($"count_total : {count_total}");
                 Log.Information($"qty_roll : {qty_roll}");
 
+                if (qty_roll == 0 && type == "roll")
+                {
+                    qty_roll = 1;
+                }
 
                 var options = new RestClientOptions(tbOdoo.server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
-                var request = new RestRequest("/api/spl/create", Method.Post);
-                request.AddHeader("token", Authentication.access_token);
+                var request = new RestRequest("/api/split_num", Method.Post);
+                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("split_num", spl_name);
                 request.AddHeader("Content-Type", "text/plain");
                 var body = "{\n" +
-                $"    |spl_id|:|{spl_id}|,\n" +
+                $"    |split_id|:|{spl_id}|,\n" +
                 $"    |weigh_in_line_id|:|{wgh_id}|,\n" +
                 $"    |emp_name_weigh_in|:|{machineOperator}|,\n" +
                 $"    |select_country|:|{country}|,\n" +
@@ -313,22 +314,7 @@ namespace FutureFlex.API
                 Console.WriteLine(response.Content);
                 Log.Information($"Response : {response.Content}");
 
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    if (await Authentication.take_token_key())
-                    {
-                        request.AddHeader("token", Authentication.access_token);
-                        request.AddHeader("Content-Type", "text/plain");
-                        request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
-                        response = await client.ExecuteAsync(request);
-                        Log.Information($"{response.Content}");
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                        {
-                            return false;
-                        }
-                    }
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
                 {
                     JObject key1 = JObject.Parse(response.Content);
                     ERR = key1["message"].ToString();
