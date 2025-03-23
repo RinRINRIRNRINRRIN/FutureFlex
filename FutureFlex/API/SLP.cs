@@ -43,6 +43,7 @@ namespace FutureFlex.API
         /// จำนวนใบที่ต้องการแบ่ง
         /// </summary>
         public static double total_pch { get; set; } = 0;
+
         /// <summary>
         /// จำนวนเมตรที่ต้องการแบ่ง
         /// </summary>
@@ -213,11 +214,12 @@ namespace FutureFlex.API
 
                     Id = int.Parse(value["split_id"].ToString());
                     Name = value["name"].ToString();
-                    Return_qty_pch = double.Parse(value["return_qty_pch"].ToString());
-                    Return_qty_weight = double.Parse(value["return_qty_weight"].ToString());
+                    // Return_qty_pch = double.Parse(value["return_qty_pch"].ToString());
+                    // Return_qty_weight = double.Parse(value["return_qty_weight"].ToString());
                     new_sale_name = value["new_sale_name"].ToString();
                     new_po_customer = value["new_po_customer"].ToString();
-
+                    total_pch = double.Parse(value["total_pch"].ToString());
+                    total_meter = double.Parse(value["total_meter"].ToString());
                     JArray jArray1 = JArray.Parse(value["mrp_list_return"].ToString());
                     foreach (JObject item in jArray1.Children<JObject>())
                     {
