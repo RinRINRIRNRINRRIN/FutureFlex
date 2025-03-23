@@ -48,17 +48,17 @@ namespace FutureFlex.API
                 {
                     if (Mrp_list_return.Rows.Count != 0)
                     {
-            Mrp_list_return.Rows.Clear();
+                        Mrp_list_return.Rows.Clear();
                     }
                 }
                 else if (Mrp_list_return.Columns.Count == 0)
                 {
-            Mrp_list_return.Columns.Add("id");
-            Mrp_list_return.Columns.Add("name");
-            Mrp_list_return.Columns.Add("partner_name");
-            Mrp_list_return.Columns.Add("product_name");
-            Mrp_list_return.Columns.Add("uom");
-        }
+                    Mrp_list_return.Columns.Add("id");
+                    Mrp_list_return.Columns.Add("name");
+                    Mrp_list_return.Columns.Add("partner_name");
+                    Mrp_list_return.Columns.Add("product_name");
+                    Mrp_list_return.Columns.Add("uom");
+                }
             }
             catch (Exception ex)
             {
@@ -75,42 +75,42 @@ namespace FutureFlex.API
 
         /// <summary>
         /// สำหรับดึงข้อมูลไปชั่งเพื่อขาย
-            /// </summary>
+        /// </summary>
         public static class PO
         {
             /// <summary>
             /// สำหรับแสดงรายการ rtfg ที่ผูกกับ po
             /// </summary>
             /// <param name="po_num">เลขที่ PO</param>
-        /// <returns></returns>
+            /// <returns></returns>
             public static async Task<bool> Return_list(string po_num)
-        {
-            try
             {
+                try
+                {
                     CreateDataTable();
                     JObject keys = new JObject();
                     JArray jArray = new JArray();
 
-                var options = new RestClientOptions(tbOdoo.server)
-                {
+                    var options = new RestClientOptions(tbOdoo.server)
+                    {
                         MaxTimeout = 3000,
-                };
-                var client = new RestClient(options);
+                    };
+                    var client = new RestClient(options);
                     var request = new RestRequest("/api/return_list", Method.Get);
                     request.AddHeader("key", tbOdoo.key);
                     request.AddHeader("po_num", po_num);
-                RestResponse response = await client.ExecuteAsync(request);
-                Console.WriteLine(response.Content);
+                    RestResponse response = await client.ExecuteAsync(request);
+                    Console.WriteLine(response.Content);
 
                     if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
-                {
+                    {
                         keys = JObject.Parse(response.Content);
                         ERR = $"เกิดข้อผิดผลาด Response code : {response.StatusCode}\nMessage : {keys["message"]}";
-                    return false;
-                }
+                        return false;
+                    }
 
                     if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                {
+                    {
                         ERR = "เกิดข้อผิดผลาด" + "Response  code : " + response.StatusCode;
                         return false;
                     }
@@ -147,7 +147,7 @@ namespace FutureFlex.API
         /// สำหรับดึงข้อมูลไปชั่งเพื่อเก็บ
         /// </summary>
         public static class JIT
-                {
+        {
 
             public static string Mo_pono { get; set; }
             public static int Mo_so_id { get; set; }
@@ -162,7 +162,7 @@ namespace FutureFlex.API
             /// <param name="rtfg_num">เลขที่ RTFG</param>
             /// <returns></returns>
             public static async Task<bool> Return_num(string rtfg_num)
-                    {
+            {
                 Log.Information($"=================================================================  ดึงข้อมูล RTFG จาก po {rtfg_num}");
                 try
                 {
@@ -208,24 +208,24 @@ namespace FutureFlex.API
                         foreach (JObject item in jArray1.Children<JObject>())
                         {
                             string id = item["id"].ToString();
-                        string name = item["name"].ToString();
+                            string name = item["name"].ToString();
                             string parter = item["partner_name"].ToString();
                             string product = item["product_name"].ToString();
                             string uom = item["product_uom_name"].ToString();
                             Mrp_list_return.Rows.Add(id, name, parter, product, uom);
-                    }
+                        }
                         break;
+                    }
+
                 }
-
-            }
                 catch (Exception ex)
-            {
-                ERR = ex.Message;
+                {
+                    ERR = ex.Message;
 
-                return false;
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
 
 
 
