@@ -291,7 +291,10 @@ namespace FutureFlex.API
                 Log.Information($"weight_seq : {seq}");
                 Log.Information($"count_total : {count_total}");
                 Log.Information($"qty_roll : {qty_roll}");
-
+                if (qty_roll == 0 && type == "roll")
+                {
+                    qty_roll = 1;
+                }
 
                 var options = new RestClientOptions(tbOdoo.server)
                 {
