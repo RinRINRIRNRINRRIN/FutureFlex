@@ -14,7 +14,7 @@ namespace FutureFlex.SQL
         static string user = ConfigurationManager.AppSettings["USER_LOCAL"];
         static string pass = ConfigurationManager.AppSettings["PASS_LOCAL"];
         static string db = ConfigurationManager.AppSettings["DB_LOCAL"];
-
+        public static string ERR { get; set; }
         public static SqlConnection con = new SqlConnection();
 
 
