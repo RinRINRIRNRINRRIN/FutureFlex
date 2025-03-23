@@ -22,6 +22,5 @@ namespace FutureFlex.Function
         {
             get { return int.Parse(ConfigurationManager.AppSettings["SCN_BAUDRATE"]); }
         }
-
     }
 }
