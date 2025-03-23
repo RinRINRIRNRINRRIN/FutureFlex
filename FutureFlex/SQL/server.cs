@@ -27,6 +27,7 @@ namespace FutureFlex.SQL
             }
             catch (System.Exception ex)
             {
+                ERR = ex.Message;
                 Log.Error($"ConnectDatabase {ex.Message}");
                 Console.WriteLine($"ConnectDatabase {ex.Message}");
                 return false;
