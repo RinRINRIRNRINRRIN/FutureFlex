@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using FutureFlex.Models;
+using Serilog;
 using System;
 using System.Data;
 using System.Data.SqlClient;
