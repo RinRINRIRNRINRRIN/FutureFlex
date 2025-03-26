@@ -84,7 +84,6 @@ namespace FutureFlex.Function
                 Font fontHeader;
                 Font fontHead;
                 Font fontDetail;
-
                 // Create __seq
                 if (tbWeightDetail.PO != "JIT")
                 {
@@ -99,6 +98,11 @@ namespace FutureFlex.Function
                     }
                 }
 
+                string[] sep_p = _seq.Split('/');
+                if (sep_p.Length == 3)
+                {
+                    _seq = $"{sep_p[0]}/{sep_p[1]}";
+                }
 
                 Log.Information($"SEQ : {_seq}");
                 Log.Information($"customer_product_code : {MRP.customer_product_code}");
@@ -163,7 +167,6 @@ namespace FutureFlex.Function
                             Log.Information($"Net : {_net} (double)");
                             Log.Information($"MFG : {DateTime.Now.ToString("dd/MM/yyyy")}");
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
-
                             e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
                             e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
