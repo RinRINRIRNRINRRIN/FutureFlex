@@ -13,9 +13,7 @@ namespace FutureFlex.SQL
         static SqlCommand cmd;
         static SqlDataAdapter da;
         static DataTable tb;
-        public static string emp_username { get; set; }
-        public static string emp_name { get; set; }
-        public static string emp_password { get; set; }
+
         public static string ERR { get; set; }
 
         #region "SELECTDATA"
