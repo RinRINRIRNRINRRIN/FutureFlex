@@ -318,51 +318,51 @@ namespace FutureFlex.Function
             try
             {
                 Log.Information("==================================================== ตั้งค่ากระดาษ");
-            int widthInHundredthsOfInch = 0;
-            int heightInHundredthsOfInch = 0;
-            PaperSize customPaperSize;
+                int widthInHundredthsOfInch = 0;
+                int heightInHundredthsOfInch = 0;
+                PaperSize customPaperSize;
 
-            if (mode == "JIT")
-            {
-                // ปร้ินตามชื่อของปร้ินเตอร์
-                //printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
-                //if (!CheckPrinterStatus("ZEBRA_JIT"))
-                //{
-                //    return false;
-                //}
+                if (mode == "JIT")
+                {
+                    // ปร้ินตามชื่อของปร้ินเตอร์
+                    //printDocument.PrinterSettings.PrinterName = "ZEBRA_JIT";
+                    //if (!CheckPrinterStatus("ZEBRA_JIT"))
+                    //{
+                    //    return false;
+                    //}
 
-                // Convert millimeters to hundredths of an inch
-                widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
-                heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
+                    // Convert millimeters to hundredths of an inch
+                    widthInHundredthsOfInch = (int)(55 / 25.4 * 100);
+                    heightInHundredthsOfInch = (int)(50 / 25.4 * 100);
 
-                // Create a custom paper size
-                customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                printDocument.DefaultPageSettings.PaperSize = customPaperSize;
+                    // Create a custom paper size
+                    customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                    printDocument.DefaultPageSettings.PaperSize = customPaperSize;
 
-                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 55*50");
-            }
-            else
-            {
-                //printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
-                //if (!CheckPrinterStatus("ZEBRA_PO"))
-                //{
-                //    return false;
-                //}
-                // สำหรับเครื่อง TDP-247
-                // Convert millimeters to hundredths of an inch
-                //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
-                //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                // Convert millimeters to hundredths of an inch
+                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 55*50");
+                }
+                else
+                {
+                    //printDocument.PrinterSettings.PrinterName = "ZEBRA_PO";
+                    //if (!CheckPrinterStatus("ZEBRA_PO"))
+                    //{
+                    //    return false;
+                    //}
+                    // สำหรับเครื่อง TDP-247
+                    // Convert millimeters to hundredths of an inch
+                    //int widthInHundredthsOfInch = (int)(105 / 25.4 * 100);
+                    //int heightInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                    // Convert millimeters to hundredths of an inch
 
-                // สำหรับเครื่อง Zebra
-                widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
-                heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
+                    // สำหรับเครื่อง Zebra
+                    widthInHundredthsOfInch = (int)(75 / 25.4 * 100);
+                    heightInHundredthsOfInch = (int)(101 / 25.4 * 100);
 
-                // Create a custom paper size
-                customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
-                printDocument.DefaultPageSettings.PaperSize = customPaperSize;
-                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
-            }
+                    // Create a custom paper size
+                    customPaperSize = new PaperSize("Custom", widthInHundredthsOfInch, heightInHundredthsOfInch);
+                    printDocument.DefaultPageSettings.PaperSize = customPaperSize;
+                    Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
+                }
             }
             catch (Exception ex)
             {
