@@ -78,6 +78,7 @@ namespace FutureFlex.Function
         /// <returns></returns>
         public static bool FormatPrint(PrintPageEventArgs e)
         {
+            Log.Information($"==================================================== Print data : {tbWeightDetail.PO}");
             try
             {
                 Font fontHeader;
@@ -99,7 +100,15 @@ namespace FutureFlex.Function
                 }
 
 
-                if (tbWeightDetail.PO == "JIT") // JIT
+                Log.Information($"SEQ : {_seq}");
+                Log.Information($"customer_product_code : {MRP.customer_product_code}");
+                Log.Information($"default_code : {MRP.default_code}");
+                Log.Information($"product_name : {MRP.product_name}");
+                Log.Information($"lot : {_lot}");
+                Log.Information($"Stauts Type : {_statusType}");
+
+
+                if (printType == "JIT") // JIT
                 {
                     fontHeader = new Font("Tahoma", 10, System.Drawing.FontStyle.Bold);
                     fontHead = new Font("Tahoma", 8, System.Drawing.FontStyle.Bold);
@@ -137,15 +146,22 @@ namespace FutureFlex.Function
                     switch (_statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
                     {
                         case "box":
+                            Log.Information($"จำนวนใบ : {_pchBox} (double)");
+                            Log.Information($"Net : {_net} (double)");
+                            Log.Information($"MFG : {DateTime.Now.ToString("dd/MM/yyyy")}");
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
                             e.Graphics.DrawString($"[จำนวน]________ใบ.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{double.Parse(_pchBox).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
+                            e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 130));
                             e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
                             e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
                             break;   //กรณีเลือกกล่อง
                         case "roll":
+                            Log.Information($"จำนวนม : {_numMeter} (double)");
+                            Log.Information($"ใบ : {_pchRoll} (int)");
+                            Log.Information($"Net : {_net} (double)");
+                            Log.Information($"MFG : {DateTime.Now.ToString("dd/MM/yyyy")}");
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
 
                             e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
@@ -207,7 +223,11 @@ namespace FutureFlex.Function
                     e.Graphics.DrawString($"[รหัสสินค้า] : ___________________________________________________________________________________________________________ ", fontHead, Brushes.Black, new System.Drawing.Point(5, 73));
                     e.Graphics.DrawString($"{MRP.customer_product_code}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 73));
 
-
+                    Log.Information($"บริษัท : {MRP.partner_name}");
+                    Log.Information($"ใบสั่งงาน : {MRP.name}");
+                    Log.Information($"ใบสั่งซ์้อ : {tbWeightDetail.PO}");
+                    Log.Information($"โครงสร้าง : {MRP.mo_film}");
+                    Log.Information($"ขนาด : {MRP.mo_work}");
                     e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
                     e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 91));
                     e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
@@ -220,6 +240,10 @@ namespace FutureFlex.Function
                     switch (_statusType) // เช็คว่าผู้ใช้เลือกการชั่งแบบ กล่องหรือม้วน
                     {
                         case "box":
+                            Log.Information($"จำนวนใบ : {_pchBox} (int)");
+                            Log.Information($"Net : {_net} ");
+                            Log.Information($"วันเดือนปีที่ผลิต: {DateTime.Now.ToString("dd/MM/yyyy")} ");
+                            Log.Information($"เจ้าหน้าที่คุมเครื่อง: {_operator} ");
                             e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
                             e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###.00")}               {_net}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
@@ -229,6 +253,12 @@ namespace FutureFlex.Function
 
                             break;   //กรณีเลือกกล่อง
                         case "roll":
+                            Log.Information($"นน.กระดาษ/นน.พลาสติก : {_wghPaper} ");
+                            Log.Information($"นน.แกน/นน.รวม : {_wghCore} ");
+                            Log.Information($"จำนวนสุทธิ ม : {_numMeter} (double)");
+                            Log.Information($"ใบ : {_pchRoll} (int)");
+                            Log.Information($"วันเดือนปีที่ผลิต: {DateTime.Now.ToString("dd/MM/yyyy")} ");
+                            Log.Information($"เจ้าหน้าที่คุมเครื่อง: {_operator} ");
                             e.Graphics.DrawString($"[นน.กระดาษ/นน.พลาสติก] :________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
                             e.Graphics.DrawString($"{_wghPaper}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 163));
                             e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
@@ -267,8 +297,7 @@ namespace FutureFlex.Function
             }
             catch (Exception ex)
             {
-                Log.Error("Error Print " + ex.Message);
-                Console.WriteLine(ex.Message);
+                Log.Error("FormatPrint : " + ex.Message);
                 ERR = ex.Message;
                 return false;
             }
@@ -278,8 +307,9 @@ namespace FutureFlex.Function
 
         public static bool SetPrinter(PrintDocument printDocument, string mode)
         {
-
-            Log.Information("== ตั้งค่ากระดาษ");
+            try
+            {
+                Log.Information("==================================================== ตั้งค่ากระดาษ");
             int widthInHundredthsOfInch = 0;
             int heightInHundredthsOfInch = 0;
             PaperSize customPaperSize;
@@ -325,6 +355,13 @@ namespace FutureFlex.Function
                 printDocument.DefaultPageSettings.PaperSize = customPaperSize;
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล 100*75");
             }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"SetPrinter : {ex.Message}");
+                return false;
+            }
+
             return true;
         }
 
