@@ -233,7 +233,7 @@ namespace FutureFlex.Function
                     e.Graphics.DrawString($"[บริษัท] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 91));
                     e.Graphics.DrawString($"{MRP.partner_name}", fontDetail, Brushes.Black, new System.Drawing.Point(70, 91));
                     e.Graphics.DrawString($"[ใบสั่งงาน] : ________________ [ใบสั่งซื้อ] : _______________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 109));
-                    e.Graphics.DrawString($"{MRP.name}                                  {tbWeightDetail.PO}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
+                    e.Graphics.DrawString($"{MRP.name}                                  {MRP.mo_pono}", fontDetail, Brushes.Black, new System.Drawing.Point(80, 109));
                     e.Graphics.DrawString($"[โครงสร้าง] : ______________________________________________________________________________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 127));
                     e.Graphics.DrawString($"{MRP.mo_film}", fontDetail, Brushes.Black, new System.Drawing.Point(90, 127));
                     e.Graphics.DrawString($"[ขนาด] :__________________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 145));
