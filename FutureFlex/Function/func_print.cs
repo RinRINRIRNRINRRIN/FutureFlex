@@ -121,7 +121,6 @@ namespace FutureFlex.Function
                     #region Header
                     e.Graphics.DrawImage(pictureBox1.Image, 0, 5, 30, 30);
                     e.Graphics.DrawString("FUTURE FLEX CO.,LTD", fontHeader, Brushes.Black, new System.Drawing.Point(30, 15));
-
                     #endregion
 
                     #region Body
