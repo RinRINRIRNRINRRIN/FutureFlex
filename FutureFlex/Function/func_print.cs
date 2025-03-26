@@ -12,24 +12,70 @@ namespace FutureFlex.Function
 {
     internal class func_print
     {
-
-        //string _statusSide { get; set; }   // ด้าน
-        //string _statusCounty { get; set; } // ประเทศ
-        public static string _statusType { get; set; }   // ประเภท
-        public static string _seq { get; set; }  // ลำดับ
-        public static string _net { get; set; }  // น้ำหนักสุทธิ์
-        public static string _numBox { get; set; }  // จำนวนกล่อง
-        public static string _numRoll { get; set; }  // จำนวนม้วน
-        public static string _numMeter { get; set; } // จำนวนเมตร
-        public static string _pchBox { get; set; }  // จำนวนใบของกล่อง
-        public static string _pchRoll { get; set; }  // จำนวนใบของม้วน
-        public static string _wghPaper { get; set; }  // น้ำหนักกระดาษ
-        public static string _wghCore { get; set; }  // น้ำหนักแกน
-        public static PictureBox pictureBox1 { get; set; }  // เก็บรูปภาพ 
-        public static string _operator { get; set; } // ชื่อผู้คุมเครื่อง
+        /// <summary>
+        /// ประเภท
+        /// </summary>
+        public static string _statusType { get; set; }
+        /// <summary>
+        /// ลำดัล
+        /// </summary>
+        public static string _seq { get; set; }
+        /// <summary>
+        /// น้ำหนักสุทธิ
+        /// </summary>
+        public static string _net { get; set; }
+        /// <summary>
+        /// จำนวนกล่องทั้งหมด
+        /// </summary>
+        public static string _numBox { get; set; }
+        /// <summary>
+        /// จำนวนม้วนทั้งหมด
+        /// </summary>
+        public static string _numRoll { get; set; }
+        /// <summary>
+        /// จำนวนม
+        /// </summary>
+        public static string _numMeter { get; set; }
+        /// <summary>
+        /// จำนวนใบของกล่อง
+        /// </summary>
+        public static string _pchBox { get; set; }
+        /// <summary>
+        /// จำนวนใบของกล่อง
+        /// </summary>
+        public static string _pchRoll { get; set; }
+        /// <summary>
+        /// น้ำหนักกระดาษ
+        /// </summary>
+        public static string _wghPaper { get; set; }
+        /// <summary>
+        /// น้ำหนักแกน
+        /// </summary>
+        public static string _wghCore { get; set; }
+        /// <summary>
+        /// รูปภาพ
+        /// </summary>
+        public static PictureBox pictureBox1 { get; set; }
+        /// <summary>
+        /// คนคุมเครื่อง
+        /// </summary>
+        public static string _operator { get; set; }
+        /// <summary>
+        /// สำหรับกำหนดค่าว่าจะปร้ินแบบใบใหญ่หรือใบเล็ก (po = ใบใหญ่ , JIT = ใบเล็ก)
+        /// </summary>
+        public static string printType { get; set; }
+        /// <summary>
+        /// เลขที่ lot
+        /// </summary>
         public static string _lot { get; set; }
 
         public static string ERR { get; set; }
+
+        /// <summary>
+        /// สำหรับการพิมพ์
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         public static bool FormatPrint(PrintPageEventArgs e)
         {
             try
