@@ -85,7 +85,7 @@ namespace FutureFlex.Function
                 Font fontHead;
                 Font fontDetail;
                 // Create __seq
-                if (tbWeightDetail.PO != "JIT")
+                if (printType != "JIT")
                 {
                     if (_statusType == "box")
                     {
@@ -266,8 +266,14 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"{_wghPaper}", fontDetail, Brushes.Black, new System.Drawing.Point(170, 163));
                             e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                             e.Graphics.DrawString($"{_wghCore}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
-                            e.Graphics.DrawString($"[จำนวนสุทธิ]_______ม.________ใบ______kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                            e.Graphics.DrawString($"{int.Parse(_numMeter).ToString("#,###.00")}       {int.Parse(_pchRoll).ToString("#,###.00")}      {_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
+                            e.Graphics.DrawString($"[จำนวนสุทธิ]", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
+                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
+                            e.Graphics.DrawString($"ม.", fontHead, Brushes.Black, new System.Drawing.Point(125, 199));
+                            e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(140, 199));
+                            e.Graphics.DrawString($"ใบ", fontHead, Brushes.Black, new System.Drawing.Point(190, 199));
+                            e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(210, 199));
+                            e.Graphics.DrawString($"kg.", fontHead, Brushes.Black, new System.Drawing.Point(250, 199));
+                            e.Graphics.DrawString($"______    ________    ___________", fontHead, Brushes.Black, new System.Drawing.Point(75, 199));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
