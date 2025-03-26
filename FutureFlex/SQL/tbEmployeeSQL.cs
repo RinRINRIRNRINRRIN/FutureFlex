@@ -80,9 +80,9 @@ namespace FutureFlex.SQL
                     {
                         if (username == Convert.ToString(rw["emp_username"]) && password == Convert.ToString(rw["emp_password"]))
                         {
-                            emp_username = Convert.ToString(rw["emp_username"]);
-                            emp_name = Convert.ToString(rw["emp_name"]);
-                            emp_password = Convert.ToString(rw["emp_password"]);
+                            EmployeeModel.emp_username = Convert.ToString(rw["emp_username"]);
+                            EmployeeModel.emp_name = Convert.ToString(rw["emp_name"]);
+                            EmployeeModel.emp_password = Convert.ToString(rw["emp_password"]);
                         }
                     }
 
@@ -99,7 +99,7 @@ namespace FutureFlex.SQL
                 Log.Error(ex.Message);
                 return false;
             }
-            Log.Information($"Login success {emp_name}");
+            Log.Information($"Login success {EmployeeModel.emp_name}");
             return true;
         }
         #endregion
