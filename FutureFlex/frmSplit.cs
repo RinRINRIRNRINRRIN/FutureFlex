@@ -1,0 +1,632 @@
+﻿using FutureFlex.API;
+using FutureFlex.Function;
+using FutureFlex.SQL;
+using Guna.UI2.WinForms;
+using Serilog;
+using System;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FutureFlex
+{
+    public partial class frmSplit : Form
+    {
+        public frmSplit()
+        {
+            InitializeComponent();
+
+            int x = (this.Width - gbLoadData.Width) / 2;
+            int y = (this.Height - gbLoadData.Height) / 2;
+
+            gbLoadData.Location = new System.Drawing.Point(x, y);
+        }
+
+        public string weightType { get; set; }
+
+        /// <summary>
+        /// เก็บข้อมูลว่าเป็นงาน กล่องหรือม้วน
+        /// </summary>
+        private string statusType { get; set; }
+
+        private string statusCounty { get; set; }   ///// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
+        private string statusSide { get; set; }    ///// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
+        void SetPaperAndPrint()
+        {
+            // Set paper 
+            if (cbPrint.Checked)
+            {
+                Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
+
+                // Check print is online?
+                if (!func_print.SetPrinter(printDocument1, weightType))
+                {
+
+                    msg.Icon = MessageDialogIcon.Error;
+                    msg.Buttons = MessageDialogButtons.OK;
+                    msg.Show("Can't connect a printer", "Fails to connect printer");
+
+                    return;
+                }
+
+                if (!radioButton4.Checked) // AutoPrint
+                {
+                    try
+                    {
+                        printDocument1.Print();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        printPreviewDialog1.ShowDialog();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        msg.Icon = MessageDialogIcon.Warning;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show("Please close the dialog before", "Close form print");
+
+                        return;
+                    }
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// สำหรับกำหนดค่า comport 
+        /// </summary>
+        void DefineComport()
+        {
+            saScale.PortName = func_serialport.COM_SCALE;
+            saScale.BaudRate = func_serialport.BAUDRATE_SCALE;
+            saScale.Open();
+
+            Log.Information($"== Serial port open");
+            Log.Information($"-- COM SCALE : {saScale.PortName}");
+            Log.Information($"-- COM BAUDRATE : {saScale.BaudRate}");
+            Log.Information($"Scale is connected");
+        }
+
+        void DefineParameterBeforeWeight()
+        {
+            // แสดงข้อมูลจาก Property
+            lblName.Text = SLP.Name;
+            lblDate.Text = MRP.mo_date;
+            lblDateDelivery.Text = MRP.mo_date_delivery;
+            lblMoFilm.Text = MRP.mo_film;
+            lblMoBlock.Text = MRP.mo_block;
+            lblMoWork.Text = MRP.mo_work;
+            lblPartner.Text = MRP.partner_name;
+            lblProduct.Text = MRP.product_name;
+            lblProductUomName.Text = MRP.product_uom_name;
+            lblMoType.Text = MRP.mo_type;
+            lblRetrunQtyPch.Text = SLP.Return_qty_pch.ToString();
+            lblReturnQtyWeight.Text = SLP.Return_qty_weight.ToString();
+            label41.Text = MRP.mo_po_qty.ToString();
+            //label21.Text = MRP.mo_station_name;
+            label31.Text = MRP.product_roll_length + " เมตร";
+            lblReturnQtyWeight.Text = SLP.Return_qty_weight.ToString() + " Kg";
+        }
+
+
+        /// <summary>
+        /// สำหรับเปิดปิด textbox
+        /// </summary>
+        /// <param name="BoxOrRoll">roll or box</param>
+        void EnableAndDisableData(string BoxOrRoll)
+        {
+            foreach (var txt in panel2.Controls.OfType<Guna.UI2.WinForms.Guna2TextBox>())
+            {
+                if (txt.Tag.ToString() == BoxOrRoll)
+                {
+                    txt.Text = "0";
+                    txt.Enabled = true;
+                }
+                else
+                {
+                    txt.Enabled = false;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// กำหนดค่าตัวแปลก่อนทำการปริ้น
+        /// </summary>
+        void DefinePrintParameter(string seq, string statusType, string net, string numBox, string numRoll, string numMeter, string pchBox, string pchRoll, string wghPaper, string wghCore, string opareter, string lot, string printType)
+        {
+
+            // Print paper
+            func_print._seq = seq;
+            func_print._statusType = statusType;
+            func_print._net = net;
+            func_print._numBox = numBox;
+            func_print._numRoll = numRoll;
+            func_print._numMeter = numMeter;
+            func_print._pchBox = pchBox;
+            func_print._pchRoll = pchRoll;
+            func_print._wghPaper = wghPaper;
+            func_print._wghCore = wghCore;
+            func_print.pictureBox1 = pictureBox1;
+            func_print._operator = opareter;
+            func_print._lot = lot;
+            func_print.printType = printType;
+            MRP.mo_pono = SLP.new_po_customer;
+        }
+
+
+
+
+        private void KeyIn(object sender, KeyPressEventArgs e)
+        {
+            Guna2TextBox txt = sender as Guna2TextBox;
+
+            // ตรวจสอบว่าตัวอักษรที่ผู้ใช้ป้อนเป็นตัวเลขหรือจุดทศนิยมหรือไม่
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Please fill number only", "Numberic only");
+                e.Handled = true; // ไม่อนุญาตให้ป้อนตัวอักษรนี้
+            }
+
+            // ถ้ามีจุดทศนิยมอยู่แล้ว และผู้ใช้ป้อนจุดทศนิยมอีก หรือ ถ้าจุดทศนิยมอยู่ที่ตำแหน่งแรก
+            if ((e.KeyChar == '.') && ((sender as Guna.UI2.WinForms.Guna2TextBox).Text.IndexOf('.') > -1 || (sender as Guna.UI2.WinForms.Guna2TextBox).Text.Length == 0))
+            {
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Please fill number only", "Numberic only");
+                e.Handled = true;
+            }
+        }
+
+
+
+
+        private async void frmSplit_Load(object sender, System.EventArgs e)
+        {
+            Log.Information($"==================================================   frmRTFGis open");
+            pnMain.Visible = false;
+            gbLoadData.Visible = true;
+            switch (weightType)
+            {
+                case "PO":
+                    lblWeightType.Text = $"ชั่งเพื่อขาย PO : {SLP.new_po_customer}";
+                    break;
+                default:
+                    lblWeightType.Text = $"ชั่งเพื่อเก็บ : {weightType}";
+                    break;
+            }
+            // เชื่อมต่อ TcpServer ก่อน
+            if (!await func_tcpClient.Connect())
+            {
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Can't connect to server futureflex", "Fails to connect server");
+                gbLoadData.Visible = false;
+                this.Close();
+                return;
+            }
+
+            await Task.Delay(500);
+            label1.Text = "กำลังกำหนดข้อมูลการชั่ง";
+            // กำหนดข้อมูลการชั่ง
+            DefineParameterBeforeWeight();
+
+            await Task.Delay(500);
+            label1.Text = "กำลังกำหนดค่า comport";
+            // กำหนดค่าให้กับ serialport
+            DefineComport();
+
+            await Task.Delay(500);
+            label1.Text = "กำลังแสดงข้อมูล";
+
+
+            gbLoadData.Visible = false;
+            pnMain.Visible = true;
+        }
+
+        private void txtNumWant_TextChanged(object sender, System.EventArgs e)
+        {
+            if (txtNumWant.Text != "")
+            {
+                double a = 0;
+                double b = 0;
+
+                switch (statusType)
+                {
+                    case "box":
+                        a = double.Parse(txtNumMetOrBoxPch.Text);
+                        b = double.Parse(txtNumWant.Text);
+
+                        double numPch = a - b;
+                        txtSumPch.Text = numPch.ToString();
+                        break;
+                    case "roll":
+
+                        a = double.Parse(txtNumMetOrBoxPch.Text);
+                        b = double.Parse(txtNumWant.Text);
+
+                        double NumMeter = a - b;
+                        txtSumMeter.Text = NumMeter.ToString();
+
+                        if (txtNunMeter.Text != "0")
+                        {
+                            double c = MRP.pch_length / 1000;
+                            double d = NumMeter / c;
+                            string[] f = d.ToString().Split('.');
+                            txtSumPch.Text = f[0];
+                        }
+
+                        if (MRP.product_roll_length != 0)
+                        {
+                            double numMetPerRoll = MRP.product_roll_length;
+                            double total = NumMeter / numMetPerRoll;
+                            txtSumRollPerLot.Text = total.ToString("F2");
+                        }
+                        else
+                        {
+                            txtSumRollPerLot.Text = "0";
+                        }
+                        break;
+                }
+            }
+        }
+
+        private void btnStart_Click(object sender, System.EventArgs e)
+        {
+            Console.WriteLine(weightType);
+            // หากมีข้อมูลการชั่งที่ค้างยังไม่ส่งจะต้องชั่งต่อไม่ได้
+            if (dgvDetail.Rows.Count == 1)
+            {
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Can't start please send the data to odoo first", "Send the data to odoo");
+                return;
+            }
+            switch (statusType)
+            {
+                case "box":
+                    if (SLP.total_pch == 0)
+                    {
+                        msg.Icon = MessageDialogIcon.Warning;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show("Can't start because Pch num is 0 Pcs", "Pch num is 0");
+                        return;
+                    }
+                    break;
+                case "roll":
+                    if (SLP.total_meter == 0)
+                    {
+                        msg.Icon = MessageDialogIcon.Warning;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show("Can't start because Pch num is 0 m.", "Pch meter is 0");
+                        return;
+                    }
+                    break;
+            }
+
+            switch (btnStart.Text)
+            {
+                case "เริ่มชั่งสินค้า":
+                    btnStart.Text = "ยกเลิกชั่งสินค้า";
+                    break;
+                case "ยกเลิกชั่งสินค้า":
+                    btnStart.Text = "เริ่มชั่งสินค้า";
+                    break;
+
+            }
+        }
+
+        private void saScale_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            if (btnStart.Text == "ยกเลิกชั่งสินค้า")  // จะรับข้เอมูลเมื่อมีการกดเริ่มชั่งสินค้าเท่าไรห่
+            {
+                // เช็คว่ามีข้อมูลที่ data grid แล้วหรือยัวง
+                if (dgvDetail.Rows.Count == 1)
+                {
+                    return;
+                }
+
+                // ดึงข้อมูลจาก เครื่องชั่ง
+                string a = saScale.ReadLine();
+                Log.Information($"== SERIAL {a}");
+                string[] b = a.Split(',');
+
+                Log.Information($"- NET {b[2]}");
+                Log.Information($"- TARE {b[3]}");
+                Log.Information($"- GROSS {b[4]}");
+
+                string net = b[2].Trim();
+                string tare = b[3].Trim();
+                string gross = b[4].Trim();
+
+                // สดงข้อมูลน้ำหนักที่อ่านมาได้
+                BeginInvoke(new MethodInvoker(delegate ()
+                {
+                    lbTareWgh.Text = tare;
+                    lbGrossWgh.Text = gross;
+                }));
+
+                // ตำนวนน้ำหนัก
+                switch (statusType)
+                {
+                    case "box":
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            lbNetWgh.Text = net;
+                        }));
+                        break;
+                    case "roll":
+                        double cors = Convert.ToDouble(txtWghCors.Text);
+                        net = Convert.ToString(Convert.ToDouble(net) - cors);
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            lbNetWgh.Text = net;
+                        }));
+                        Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {net}");
+                        break;
+                }
+
+                // insert new data
+                string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+                string _Time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+
+                string _lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}";
+                double _net = double.Parse(net);
+                double _tare = double.Parse(tare);
+                double _gross = double.Parse(gross);
+                double _wgh_paper_plasic = double.Parse(txtWghPaper.Text);
+                double _wgh_core = double.Parse(txtWghCors.Text);
+                double _wgh_joint = double.Parse(txtJoint.Text);
+                int _numBox = int.Parse(txtNumBox.Text);
+                int _numRollAll = int.Parse(txtNumRollAll.Text);
+                double _numRoll = double.Parse(txtNumRoll.Text);
+                double _wgh_meter_kg_in_rolll = 0;
+                int _pch = 0;
+                switch (statusType)
+                {
+                    case "box":
+                        _wgh_meter_kg_in_rolll = 0;
+                        _pch = int.Parse(txtNumWant.Text);
+                        break;
+                    case "roll":
+                        _wgh_meter_kg_in_rolll = double.Parse(txtSumMeter.Text);
+                        _pch = int.Parse(txtNumWant.Text);
+                        break;
+                }
+                string printType = "";
+                switch (weightType)
+                {
+                    case "PO":
+                        printType = "L";
+                        break;
+                    case "JIT":
+                        printType = "S";
+                        break;
+                }
+
+                DataTable tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, SLP.Name, SLP.Id, SLP.new_po_customer, SLP.new_sale_name, statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "SPL", printType);
+                // บันทึกข้อมูล
+                if (tb.Rows.Count == 0)
+                {
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        msg.Icon = MessageDialogIcon.Error;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show($"Save weight error \nError : {tbWeightDetail.ERR}", "Save Error");
+                    }));
+                    return;
+                }
+                // loop อ่านค่าจาก datatable
+
+                foreach (DataRow rw in tb.Rows)
+                {
+                    string Seq = rw["wdt_seqOrigin"].ToString();
+                    string Lot = rw["wdt_lot"].ToString();
+                    string Id = rw["id"].ToString();
+                    DefinePrintParameter(Seq, statusType, lbNetWgh.Text, txtNumBox.Text, txtNumRollAll.Text, txtNunMeter.Text, _pch.ToString(), txtPchRoll.Text, txtWghPaper.Text, txtWghCors.Text, txtOperator.Text, Lot, weightType);
+
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        dgvDetail.Rows.Add("", "", Id, Seq, Lot);
+                    }));
+                    break;
+
+                }
+
+
+
+                // Print Sticker
+                _ = Task.Run(() =>
+                {
+                    SetPaperAndPrint();
+                });
+
+                return;
+            }
+
+        }
+
+        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string cl_name = dgvDetail.Columns[e.ColumnIndex].Name;
+            switch (cl_name)
+            {
+                case "cl_del":
+                    msg.Icon = MessageDialogIcon.Question;
+                    msg.Buttons = MessageDialogButtons.YesNo;
+                    DialogResult dg = msg.Show($"Do you want delete \nLot New : {SLP.lot_name} ?", "Delete lot new");
+                    if (dg == DialogResult.Yes)
+                    {
+                        if (tbWeightDetail.DELETE(dgvDetail.Rows[e.RowIndex].Cells["cl_weight_id"].Value.ToString()))
+                        {
+                            dgvDetail.Rows.RemoveAt(0);
+                        }
+                        else
+                        {
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Icon = MessageDialogIcon.Error;
+                            msg.Show($"Delete fails \nError : {tbWeightDetail.ERR}", "Delete error");
+                            return;
+                        }
+                    }
+                    break;
+                case "cl_print":
+                    int id = 0;
+                    foreach (DataGridViewRow rw in dgvDetail.Rows)
+                    {
+                        // Print data 
+                        id = int.Parse(rw.Cells["cl_weight_id"].Value.ToString());
+                        func_print._seq = rw.Cells["cl_seq"].Value.ToString();
+                        func_print._lot = rw.Cells["cl_newLot"].Value.ToString();
+                        break;
+                    }
+                    func_print._statusType = SLP.select_type;
+                    func_print._net = lbNetWgh.Text;
+                    func_print._numBox = txtNumBox.Text;
+                    func_print._numRoll = txtNumRollAll.Text;
+                    func_print._numMeter = txtNumWant.Text;
+                    func_print._pchBox = txtSumPch.Text;
+                    func_print._pchRoll = txtSumPch.Text;
+                    func_print._wghPaper = txtWghPaper.Text;
+                    func_print._wghCore = txtWghCors.Text;
+                    func_print.pictureBox1 = pictureBox1;
+                    func_print._operator = txtOperator.Text;
+
+                    // Print Sticker
+                    _ = Task.Run(() =>
+                    {
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            SetPaperAndPrint();
+                        }));
+                    });
+                    break;
+            }
+        }
+
+        private void frmSplit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saScale.Close();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            func_print.FormatPrint(e);
+        }
+
+        private void txtNunMeter_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNunMeter.Text != "")
+                {
+
+                    if (txtNunMeter.Text != "0")
+                    {
+                        string a = MRP.pch_length.ToString();
+
+                        if (MRP.shrink_mm != 0)
+                        {
+                            double aa = MRP.pch_length + MRP.shrink_mm;
+                            a = aa.ToString();
+                        }
+
+
+                        double c = double.Parse(a) / 1000;
+                        double d = double.Parse(txtNunMeter.Text) / c;
+
+                        double total = Math.Round(d);
+                        txtPchRoll.Text = total.ToString();
+                    }
+
+
+
+                    // ถ้าจะนวนความยาวม้วนเต็มทั้งหมด เป็น 0 ไม่ต้องคำนวนต่อ
+                    if (MRP.product_roll_length != 0)
+                    {
+                        double numMetPerRoll = MRP.product_roll_length;
+                        double numMet = double.Parse(txtNunMeter.Text);
+                        double total = numMet / numMetPerRoll;
+                        txtNumRoll.Text = total.ToString("F2");
+                    }
+                    txtNumWant.Text = txtNunMeter.Text;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        private void rdTypeBox_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rdbName = sender as RadioButton;
+            switch (rdbName.Name)
+            {
+                case "rdTypeRoll":
+                    statusType = "roll";
+                    gbSide.Enabled = true;
+                    txtNumBox.Enabled = false;
+                    EnableAndDisableData("roll");
+                    txtNumMetOrBoxPch.Text = SLP.total_meter.ToString();
+                    label15.Text = "จำนวนแมตรตั้งต้น";
+                    label8.Text = "จำนวนเมตรที่ต้องการใช้";
+
+                    break;
+                case "rdTypeBox":
+                    btnReprint.Text = "น้ำหนักสุทธิ - น้ำหนักแกน";
+                    statusType = "box";
+                    btnReprint.Text = "NET WEIGHT";
+                    rdNot.Checked = true;
+                    gbSide.Enabled = false;
+                    EnableAndDisableData("box");
+                    txtNumMetOrBoxPch.Text = SLP.total_pch.ToString();
+                    label15.Text = "จำนวนใบตั้งต้น";
+                    label8.Text = "จำนวนเมตรที่ต้องการใช้";
+                    break;
+
+            }
+        }
+
+        private void pnMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gbType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectSide(object sender, EventArgs e)
+        {
+
+            RadioButton rdb = sender as RadioButton;
+            if (rdb.Checked)
+                statusSide = rdb.Tag.ToString();
+
+        }
+
+        private void SelectCountry(object sender, EventArgs e)
+        {
+            RadioButton rdb = sender as RadioButton;
+            if (rdb.Checked)
+            {
+                statusCounty = rdb.Tag.ToString();
+            }
+        }
+    }
+}
