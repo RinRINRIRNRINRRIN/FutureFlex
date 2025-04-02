@@ -167,7 +167,7 @@ namespace FutureFlex.Function
                             Log.Information($"MFG : {DateTime.Now.ToString("dd/MM/yyyy")}");
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
                             e.Graphics.DrawString($"[จำนวน]________ม.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
-                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
+                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
                             e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(30, 125));
                             e.Graphics.DrawString($"_____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 140));
