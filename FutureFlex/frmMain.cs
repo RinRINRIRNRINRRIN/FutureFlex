@@ -40,10 +40,15 @@ namespace FutureFlex
         private void MenuSelect(object sender, EventArgs e)
         {
             Guna2Button btn = sender as Guna2Button;
+
             switch (btn.Tag)
             {
-                case "weight":
-                    frmWeightNew frm = new frmWeightNew();
+                case "weightJIT":
+                    frmWeightJIT frmJIT = new frmWeightJIT();
+                    frmJIT.ShowDialog();
+                    break;
+                case "weightPO":
+                    frmWeightJIT frm = new frmWeightJIT();
                     frm.ShowDialog();
                     break;
                 case "reprintJIT":
@@ -63,13 +68,12 @@ namespace FutureFlex
                     frm4.ShowDialog();
                     break;
                 case "RTFG":
-                    //md.Buttons = MessageDialogButtons.OK;
-                    //md.Icon = MessageDialogIcon.Information;
-                    //md.Show("Coming soon", "RTFG");
-                    //frmRTFG frm5 = new frmRTFG();
-                    //frm5.ShowDialog();
                     frmRTFGList frmRTFGList = new frmRTFGList();
                     frmRTFGList.ShowDialog();
+                    break;
+                case "split":
+                    frmSPLList frmSPLList = new frmSPLList();
+                    frmSPLList.ShowDialog();
                     break;
             }
         }
