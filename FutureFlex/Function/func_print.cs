@@ -247,17 +247,17 @@ namespace FutureFlex.Function
                             Log.Information($"วันเดือนปีที่ผลิต: {DateTime.Now.ToString("dd/MM/yyyy")} ");
                             Log.Information($"เจ้าหน้าที่คุมเครื่อง: {_operator} ");
                             e.Graphics.DrawString($"[จำนวน] :__________ใบ__________kg.", fontHead, Brushes.Black, new System.Drawing.Point(5, 163));
-                            e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###.00")}               {_net}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
+                            e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 163));
+                            e.Graphics.DrawString($"{_net}", fontDetail, Brushes.Black, new System.Drawing.Point(160, 163));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ________________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(110, 181));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
                             e.Graphics.DrawString($"{_operator}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 199));
-
-                            break;   //กรณีเลือกกล่อง
+                            break;
                         case "roll":
                             Log.Information($"นน.กระดาษ/นน.พลาสติก : {_wghPaper} ");
                             Log.Information($"นน.แกน/นน.รวม : {_wghCore} ");
-                            Log.Information($"จำนวนสุทธิ ม : {_numMeter} (double)");
+                            Log.Information($"จำนวนสุทธิ ม : {_numMeter} (double) ");
                             Log.Information($"ใบ : {_pchRoll} (int)");
                             Log.Information($"วันเดือนปีที่ผลิต: {DateTime.Now.ToString("dd/MM/yyyy")} ");
                             Log.Information($"เจ้าหน้าที่คุมเครื่อง: {_operator} ");
@@ -266,13 +266,13 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"[นน.แกน/นน.รวม] :______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 181));
                             e.Graphics.DrawString($"{_wghCore}", fontDetail, Brushes.Black, new System.Drawing.Point(120, 181));
                             e.Graphics.DrawString($"[จำนวนสุทธิ]", fontHead, Brushes.Black, new System.Drawing.Point(5, 199));
-                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
+                            e.Graphics.DrawString($"{double.Parse(_numMeter).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(75, 199));
                             e.Graphics.DrawString($"ม.", fontHead, Brushes.Black, new System.Drawing.Point(125, 199));
-                            e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(140, 199));
+                            e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(140, 199));
                             e.Graphics.DrawString($"ใบ", fontHead, Brushes.Black, new System.Drawing.Point(190, 199));
                             e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(210, 199));
                             e.Graphics.DrawString($"kg.", fontHead, Brushes.Black, new System.Drawing.Point(250, 199));
-                            e.Graphics.DrawString($"______    ________    ___________", fontHead, Brushes.Black, new System.Drawing.Point(75, 199));
+                            e.Graphics.DrawString($"______    ________    _________", fontHead, Brushes.Black, new System.Drawing.Point(75, 199));
                             e.Graphics.DrawString($"[วันเดือนปีที่ผลิต] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 217));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(130, 217));
                             e.Graphics.DrawString($"[เจ้าหน้าที่คุมเครื่อง] : ____________________", fontHead, Brushes.Black, new System.Drawing.Point(5, 235));
