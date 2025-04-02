@@ -17,13 +17,13 @@ namespace FutureFlex
             InitializeComponent();
         }
 
-        #region "FUNCSION LOCAL"
 
-        #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             // นำชื่อผู้ใช้มาแสดงที่โปรแกรม
-            tsShowEmp_name.Text = tbEmployeeSQL.emp_name;
+            tsShowEmp_name.Text = EmployeeModel.emp_name;
             tShowServerName.Text = server.serverLocal;
             Log.Information($"server name : {tShowServerName.Text}");
             Log.Information($"employee name : {tsShowEmp_name.Text}");
