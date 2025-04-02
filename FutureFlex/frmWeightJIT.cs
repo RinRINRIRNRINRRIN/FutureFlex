@@ -628,40 +628,6 @@ namespace FutureFlex
             }
             else // INSERT
             {
-                // เช็คว่าครบจำนวนที่จะต้องชั่งหรือยัง
-                if (tbWeightDetail.PO != "JIT")
-                {
-                    // เช็คว่าเป็นเป็นงานม้วนหรือกล่อง
-                    switch (statusType)
-                    {
-                        case "box":
-                            if (tb.Rows.Count >= int.Parse(txtNumBox.Text))
-                            {
-                                BeginInvoke(new MethodInvoker(delegate ()
-                                {
-                                    msg.Icon = MessageDialogIcon.Warning;
-                                    msg.Buttons = MessageDialogButtons.OK;
-                                    msg.Show("Total box is full", "Box is full");
-                                }));
-                                return;
-                            }
-                            break;
-                        case "roll":
-                            if (tb.Rows.Count >= int.Parse(txtNumRollAll.Text))
-                            {
-                                BeginInvoke(new MethodInvoker(delegate ()
-                                {
-                                    msg.Icon = MessageDialogIcon.Warning;
-                                    msg.Buttons = MessageDialogButtons.OK;
-                                    msg.Show("Total rolls is full", "Rolls is full");
-                                }));
-                                return;
-                            }
-                            break;
-                    }
-                }
-
-
                 #region SAVE DATA
 
                 string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
