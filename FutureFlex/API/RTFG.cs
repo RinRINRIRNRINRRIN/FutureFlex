@@ -296,6 +296,11 @@ namespace FutureFlex.API
                     qty_roll = 1;
                 }
 
+                if (po == "")
+                {
+                    po = "JIT";
+                }
+
                 var options = new RestClientOptions(tbOdoo.server)
                 {
                     MaxTimeout = -1,
