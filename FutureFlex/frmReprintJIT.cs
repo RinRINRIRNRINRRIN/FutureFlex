@@ -133,24 +133,6 @@ namespace FutureFlex
         }
 
 
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtLot.Text.Length == 28)
-            //{
-            //    foreach (DataGridViewRow rw in dgvDetail.Rows)
-            //    {
-            //        string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
-            //        if (txtLot.Text == _lot)
-            //        {
-            //            lot = txtLot.Text;
-            //            await Task.Delay(500);
-            //            PrintData(lot);
-            //            break;
-            //        }
-            //    }
-            //}
-        }
-
         private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
