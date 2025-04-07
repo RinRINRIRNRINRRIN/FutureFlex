@@ -37,7 +37,7 @@ namespace FutureFlex
                 // Set printer
                 if (!func_print.SetPrinter(printDocument1, _mode))
                 {
-                    sb.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                    bunifuSnackbar1.Show(this, "ไม่สามารถเชื่อมต่อ printer ได้", BunifuSnackbar.MessageTypes.Warning, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                     return;
                 }
 
@@ -89,7 +89,7 @@ namespace FutureFlex
             // เช็คว่ามีข้อมูลหรือไม่
             if (tb.Rows.Count == 0)
             {
-                sb.Show(this, "ไม่พบรายการ PO ที่ต้องการจะ reprint ใหม่", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                bunifuSnackbar1.Show(this, "ไม่พบรายการ PO ที่ต้องการจะ reprint ใหม่", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
                 return;
             }
 
@@ -164,7 +164,7 @@ namespace FutureFlex
             }
             catch (Exception ex)
             {
-                sb.Show(this, $"DATAGRIDVIEW {ex.Message}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                bunifuSnackbar1.Show(this, $"DATAGRIDVIEW {ex.Message}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
                 return;
             }
         }
@@ -230,7 +230,7 @@ namespace FutureFlex
         {
             if (cbbPO.Text == "JIT")
             {
-                sb.Show(this, "ไม่สามารถ reprint jit", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                bunifuSnackbar1.Show(this, "ไม่สามารถ reprint jit", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
                 return;
             }
             // แสดงข้อมูล PO ที่ส่งไปหา Odoo เรียบร้ิยแล้ว
