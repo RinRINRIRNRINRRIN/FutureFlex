@@ -179,8 +179,12 @@ namespace FutureFlex
         {
             if (e.KeyCode == Keys.Enter)
             {
-                label1.Text = $"DATA : {txtLot.Text}";
-                lot = txtLot.Text;
+                await Task.Delay(150);
+                lot = txtLot.Text.ToUpper();
+                if (lot.Contains("GV"))
+                {
+                    label1.Text = $"DATA : {lot}";
+
                 txtLot.Clear();
                 foreach (DataGridViewRow rw in dgvDetail.Rows)
                 {
@@ -191,6 +195,12 @@ namespace FutureFlex
                         PrintData(lot, "PO");
                         break;
                     }
+                    }
+                    lblQRCODE.Focus();
+                }
+                else
+                {
+                    bunifuSnackbar1.Show(this, "Please check input language", BunifuSnackbar.MessageTypes.Warning, 2000, "OK", BunifuSnackbar.Positions.TopCenter);
                 }
             }
         }
