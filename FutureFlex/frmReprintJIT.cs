@@ -7,6 +7,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +26,8 @@ namespace FutureFlex
         string gv_new = "";
         private void frmReprintJIT_Load(object sender, EventArgs e)
         {
-            // กำหนดค่าให้กับ serialport
+            // กำหนดค่าให้คอมพิวเตอร์เป็นภาษาอังกฤษ
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("en-US"));
         }
 
         async void PrintData(string _lot, string _mode)
