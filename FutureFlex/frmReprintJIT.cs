@@ -23,7 +23,6 @@ namespace FutureFlex
         string lot = ""; // สำหรับบอกว่าจะปริ้นที่ lot ไหน
         string gv_old = "";
         string gv_new = "";
-        BunifuSnackbar sb = new BunifuSnackbar();
         private void frmReprintJIT_Load(object sender, EventArgs e)
         {
             // กำหนดค่าให้กับ serialport
