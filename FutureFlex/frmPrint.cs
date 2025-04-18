@@ -136,7 +136,7 @@ namespace FutureFlex
 
             // เช็คว่ามีม้วนไหม
             foreach (DataRow rw in tb.Rows)
-                {
+            {
                 if (rw["wdt_type"].ToString() == "roll")
                 {
                     tbBox.Rows.Add("", "", "ม้วน", "", "", "", "");
@@ -161,7 +161,7 @@ namespace FutureFlex
                             tbRoll.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
                         }
                     }
-                        break;
+                    break;
                 }
             }
 
@@ -179,7 +179,7 @@ namespace FutureFlex
                 _employee = rw["employee"].ToString();
 
                 dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
-                }
+            }
 
 
             // รวม tbBox and tbRoll to tbWeight
