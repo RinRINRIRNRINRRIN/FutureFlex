@@ -325,7 +325,6 @@ namespace FutureFlex
                 {
                     cbbSo.Items.Add(MRP.gvAndPo[i]);
                 }
-
             }
         }
 
@@ -418,9 +417,11 @@ namespace FutureFlex
             else if (statusType == "roll")
             {
                 double cors = Convert.ToDouble(txtWghCors.Text);
-                net = Convert.ToString(Convert.ToDouble(net) - cors);
+                double _net = double.Parse(net) - cors;
+                net = _net.ToString("#,###.00");
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
+
                     lbNetWgh.Text = net;
                 }));
                 Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {net}");
@@ -437,6 +438,10 @@ namespace FutureFlex
                 {
                     isEdit = false;
                     _id = 0;
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        dgvDetail.Enabled = true;
+                    }));
                 }
                 else
                 {
@@ -556,62 +561,62 @@ namespace FutureFlex
         {
             try
             {
-            Guna2GradientButton btn = sender as Guna2GradientButton;
-            switch (btn.Text)
-            {
-                case "เริ่มชั่งสินค้า":
-                    Log.Information($"== เริ่มชั่งสินค้า");
-                    // เช็คว่าเลือกข้อมูลครบหรือไม่
-                    if (statusCounty == "" || statusSide == "" || statusType == "" || cbbSo.Text == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
-                    {
-                        Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
-                        Log.Information($"- ประเทศ : {statusCounty}");
-                        Log.Information($"- ประเภท : {statusType}");
-                        Log.Information($"- ด้าน : {statusSide}");
-                        Log.Information($"- so : {MRP.mo_so_no}");
-                        Log.Information($"- PO : {MRP.mo_po}");
-                        Log.Information($"- GV : {MRP.name}");
-                        Log.Information($"- จำนวนม้วน : {txtNumRoll.Text}");
-                        Log.Information($"- จำนวนม้วนทั้งหมด : {txtNumRollAll.Text}");
-                        msg.Icon = MessageDialogIcon.Warning;
-                        msg.Buttons = MessageDialogButtons.OK;
-                        msg.Show("Please check the data County,Type,Side", "Check data before save");
-                        return;
-                    }
+                Guna2GradientButton btn = sender as Guna2GradientButton;
+                switch (btn.Text)
+                {
+                    case "เริ่มชั่งสินค้า":
+                        Log.Information($"== เริ่มชั่งสินค้า");
+                        // เช็คว่าเลือกข้อมูลครบหรือไม่
+                        if (statusCounty == "" || statusSide == "" || statusType == "" || cbbSo.Text == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
+                        {
+                            Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
+                            Log.Information($"- ประเทศ : {statusCounty}");
+                            Log.Information($"- ประเภท : {statusType}");
+                            Log.Information($"- ด้าน : {statusSide}");
+                            Log.Information($"- so : {MRP.mo_so_no}");
+                            Log.Information($"- PO : {MRP.mo_po}");
+                            Log.Information($"- GV : {MRP.name}");
+                            Log.Information($"- จำนวนม้วน : {txtNumRoll.Text}");
+                            Log.Information($"- จำนวนม้วนทั้งหมด : {txtNumRollAll.Text}");
+                            msg.Icon = MessageDialogIcon.Warning;
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Show("Please check the data County,Type,Side", "Check data before save");
+                            return;
+                        }
 
                         //เช็คว่าวันที่เป็น False หรือไม่
-                    if (MRP.mo_date == "False")
-                    {
-                        msg.Icon = MessageDialogIcon.Warning;
-                        msg.Buttons = MessageDialogButtons.OK;
-                        msg.Show("Can't start because not have Production Date", "Date is incorrect format");
-                        return;
-                    }
+                        if (MRP.mo_date == "False")
+                        {
+                            msg.Icon = MessageDialogIcon.Warning;
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Show("Can't start because not have Production Date", "Date is incorrect format");
+                            return;
+                        }
 
-                    // นำ GV ไปหาในระบบก่อน
-                    DataTable tb = tbWeight.SELECT_SEARCH();
-                    if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
-                    {
-                        //บันทึกข้อมูลไปที่ tbWeight
-                        if (!tbWeight.INSERT_ALL_DATA())
+                        // นำ GV ไปหาในระบบก่อน
+                        DataTable tb = tbWeight.SELECT_SEARCH();
+                        if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
                         {
-                            msg.Icon = MessageDialogIcon.Error;
-                            msg.Buttons = MessageDialogButtons.OK;
-                            msg.Show($"Incorrect {tbWeight.ERR}", "Error insert");
-                            return;
+                            //บันทึกข้อมูลไปที่ tbWeight
+                            if (!tbWeight.INSERT_ALL_DATA())
+                            {
+                                msg.Icon = MessageDialogIcon.Error;
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Show($"Incorrect {tbWeight.ERR}", "Error insert");
+                                return;
+                            }
                         }
-                    }
-                    else // UPDATE
-                    {
-                        // อัพเดทข้อมูล
-                        if (!tbWeight.UPDATE_ALL_DATA())
+                        else // UPDATE
                         {
-                            msg.Icon = MessageDialogIcon.Error;
-                            msg.Buttons = MessageDialogButtons.OK;
-                            msg.Show($"Incorrect {tbWeight.ERR}", "Error update");
-                            return;
+                            // อัพเดทข้อมูล
+                            if (!tbWeight.UPDATE_ALL_DATA())
+                            {
+                                msg.Icon = MessageDialogIcon.Error;
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Show($"Incorrect {tbWeight.ERR}", "Error update");
+                                return;
+                            }
                         }
-                    }
 
                         // Connect port 
                         if (spScale.IsOpen)
@@ -627,25 +632,25 @@ namespace FutureFlex
                         Log.Information($"-- COM SCALE : {spScale.PortName}");
                         Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
                         Log.Information($"Scale is connected");
-                    // ปิดปุ่ต่่าง ๆ 
-                    isStart = true;
+                        // ปิดปุ่ต่่าง ๆ 
+                        isStart = true;
 
-                    btn.Text = "หยุดชั่งสินค้า";
-                    txtPo.Enabled = false;
-                    cbbSo.Enabled = false;
-                    dgvDetail.Enabled = true;
-                    break;
-                case "หยุดชั่งสินค้า":
-                    isStart = false;
+                        btn.Text = "หยุดชั่งสินค้า";
+                        txtPo.Enabled = false;
+                        cbbSo.Enabled = false;
+                        dgvDetail.Enabled = true;
+                        break;
+                    case "หยุดชั่งสินค้า":
+                        isStart = false;
                         spScale.Close();
 
-                    btn.Text = "เริ่มชั่งสินค้า";
-                    txtPo.Enabled = true;
-                    cbbSo.Enabled = true;
-                    dgvDetail.Enabled = false;
-                    Log.Information($"== หยุดชั่งสินค้า");
-                    break;
-            }
+                        btn.Text = "เริ่มชั่งสินค้า";
+                        txtPo.Enabled = true;
+                        cbbSo.Enabled = true;
+                        dgvDetail.Enabled = false;
+                        Log.Information($"== หยุดชั่งสินค้า");
+                        break;
+                }
 
             }
             catch (Exception ex)
@@ -653,7 +658,7 @@ namespace FutureFlex
                 msg.Icon = MessageDialogIcon.Error;
                 msg.Buttons = MessageDialogButtons.OK;
                 msg.Show(ex.Message, "Error");
-        }
+            }
         }
 
         private void SelectCountry(object sender, EventArgs e)
