@@ -85,8 +85,14 @@ namespace FutureFlex
         /// <summary>
         /// สำหรับกำหนดค่า comport 
         /// </summary>
-        void DefineComport()
+        bool DefineComport()
         {
+            try
+            {
+                if (saScale.IsOpen)
+        {
+                    saScale.Close();
+                }
             saScale.PortName = func_serialport.COM_SCALE;
             saScale.BaudRate = func_serialport.BAUDRATE_SCALE;
             saScale.Open();
@@ -95,6 +101,16 @@ namespace FutureFlex
             Log.Information($"-- COM SCALE : {saScale.PortName}");
             Log.Information($"-- COM BAUDRATE : {saScale.BaudRate}");
             Log.Information($"Scale is connected");
+        }
+            catch (Exception ex)
+            {
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show(ex.Message, "Error");
+                return false;
+            }
+
+            return true;
         }
 
         void DefineParameterBeforeWeight()
