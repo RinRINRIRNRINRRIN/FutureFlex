@@ -434,22 +434,25 @@ namespace FutureFlex
                         _pch = int.Parse(txtNumWant.Text);
                         break;
                     case "roll":
-                        _wgh_meter_kg_in_rolll = double.Parse(txtSumMeter.Text);
-                        _pch = int.Parse(txtNumWant.Text);
+                        _wgh_meter_kg_in_rolll = double.Parse(txtNunMeter.Text);
+                        _pch = int.Parse(txtPchRoll.Text);
                         break;
                 }
                 string printType = "";
+                DataTable tb = new DataTable();
                 switch (weightType)
                 {
                     case "PO":
                         printType = "L";
+                        tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, SLP.Name, SLP.Id, SLP.new_po_customer, SLP.new_sale_name, statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "SPL", printType);
+
                         break;
                     case "JIT":
                         printType = "S";
+                        tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, SLP.Name, SLP.Id, "", "", statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "SPL", printType);
                         break;
                 }
 
-                DataTable tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, SLP.Name, SLP.Id, SLP.new_po_customer, SLP.new_sale_name, statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "SPL", printType);
                 // บันทึกข้อมูล
                 if (tb.Rows.Count == 0)
                 {
