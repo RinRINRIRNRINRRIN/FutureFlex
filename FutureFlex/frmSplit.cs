@@ -240,11 +240,6 @@ namespace FutureFlex
             DefineParameterBeforeWeight();
 
             await Task.Delay(500);
-            label1.Text = "กำลังกำหนดค่า comport";
-            // กำหนดค่าให้กับ serialport
-            DefineComport();
-
-            await Task.Delay(500);
             label1.Text = "กำลังแสดงข้อมูล";
 
 
