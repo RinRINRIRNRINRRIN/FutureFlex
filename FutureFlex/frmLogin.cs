@@ -89,6 +89,29 @@ namespace FutureFlex
             return true;
         }
 
+        /// <summary>
+        /// สำหรับเช็คว่าโปรแกมมีเปิดซ้ำไหม
+        /// </summary>
+        /// <returns></returns>
+        bool CHECK_PROGRAM()
+        {
+            try
+            {
+                Process[] a = Process.GetProcessesByName("FutureFlex");
+
+                if (a.Length > 1)
+                {
+                    return false;
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+                return false;
+            }
+            return true;
+        }
+
         private async void frmLogin_Load(object sender, EventArgs e)
         {
             Log.Information("=================================================================  Open program");
