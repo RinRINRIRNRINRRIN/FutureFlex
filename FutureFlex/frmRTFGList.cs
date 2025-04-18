@@ -106,40 +106,63 @@ namespace FutureFlex
 
         private void frmRTFGList_Load(object sender, System.EventArgs e)
         {
-            // จัดหน้าจอ
-            int x = (this.Width - gbLoadData.Width) / 2;
-            int y = (this.Height - gbLoadData.Height) / 2;
-            gbLoadData.Location = new System.Drawing.Point(x, y);
-            gbLoadData.Visible = false;
+            gbWeightPoOrJit.Visible = true;
         }
 
-        private void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 switch (dgvDetail.Columns[e.ColumnIndex].Name)
                 {
                     case "cl_rtfg":
-                        frmRTFG frm = new frmRTFG();
-                        frm.Rtfg_id = RTFG.Rtfg_ID;
-                        frm.Rtfg_name = RTFG.Name;
-                        frm.mo_file = MRP.mo_film;
-                        frm.Gv_id = dgvDetail.Rows[e.RowIndex].Cells["cl_name"].Value.ToString();
-                        frm.mo_date = dgvDetail.Rows[e.RowIndex].Cells["cl_mo_date"].Value.ToString();
-                        frm.mo_date_delivery = dgvDetail.Rows[e.RowIndex].Cells["cl_mo_date_delivery"].Value.ToString();
-                        frm.mo_work = dgvDetail.Rows[e.RowIndex].Cells["cl_mo_work"].Value.ToString();
-                        frm.partner_name = dgvDetail.Rows[e.RowIndex].Cells["cl_partner"].Value.ToString();
-                        frm.product_uom_name = RTFG.Product_uom_name;
-                        frm.product_name = dgvDetail.Rows[e.RowIndex].Cells["cl_product"].Value.ToString();
-                        frm.mo_type = dgvDetail.Rows[e.RowIndex].Cells["cl_mo_type"].Value.ToString();
-                        frm.uom_id = dgvDetail.Rows[e.RowIndex].Cells["cl_uom"].Value.ToString();
-                        frm.ReturnQtyPch = RTFG.Return_qty_pch.ToString();
-                        frm.ReturnQtyWeight = RTFG.Return_qty_weight.ToString();
-                        frm.ShowDialog();
+                        string value = dgvDetail.Rows[e.RowIndex].Cells["cl_name"].Value.ToString();
+                        if (value.Contains("GV"))
+                        {
+                            // ลองดึงข้อมูลเพื่อไปกำหนดหน้าชั่งหากพบข้อมูล
+                            if (!await MRP.GET_MRP($"{value}"))
+                            {
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Icon = MessageDialogIcon.Warning;
+                                msg.Show($"Not found : {value}", "Not found");
+                                return;
+                            }
+                        }
+                        if (value.Contains("RTFG"))
+                        {
+
+                            panel1.Visible = false;
+                            gbLoadData.Visible = true;
+                            // ลองดึงข้อมูลเพื่อไปกำหนดหน้าชั่งหากพบข้อมูล
+                            if (!await RTFG.JIT.Return_num(value))
+                            {
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Icon = MessageDialogIcon.Warning;
+                                msg.Show($"Not found : {value}", "Not found");
+                                return;
+                            }
+
+                            await GetJit(value);
+
+                            panel1.Visible = true;
+                            gbLoadData.Visible = false;
+
+
+                            return;
+                        }
+
+
+                        // แสดงหน้าชั่ง
+                        frmRTFG frmRTFG = new frmRTFG();
+                        frmRTFG.weightType = weightTyep;
+                        frmRTFG.ShowDialog();
+
                         break;
+
+
                 }
             }
-            catch (System.Exception ex)
+            catch
             {
 
 
