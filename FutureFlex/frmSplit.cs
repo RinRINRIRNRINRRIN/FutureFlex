@@ -296,7 +296,6 @@ namespace FutureFlex
 
         private void btnStart_Click(object sender, System.EventArgs e)
         {
-            Console.WriteLine(weightType);
             // หากมีข้อมูลการชั่งที่ค้างยังไม่ส่งจะต้องชั่งต่อไม่ได้
             if (dgvDetail.Rows.Count == 1)
             {
@@ -305,6 +304,16 @@ namespace FutureFlex
                 msg.Show("Can't start please send the data to odoo first", "Send the data to odoo");
                 return;
             }
+
+            if (statusCounty == null || statusSide == null || statusType == null)
+            {
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Please check County , Side , Type before start", "Check the information");
+                return;
+            }
+
+
             switch (statusType)
             {
                 case "box":
