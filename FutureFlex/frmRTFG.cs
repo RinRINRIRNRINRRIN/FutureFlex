@@ -100,15 +100,16 @@ namespace FutureFlex
         /// </summary>
         void ShowDataGridAndCountPchOrWeight()
         {
+            try
+            {
             // แสดงข้อมูล
-            tbWeightDetail.PO = "JIT";
-            DataTable tb1 = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO("RTFG");
+                DataTable tb1 = tbWeightDetail.SELECT_RTFG_NOT_SEND_ODOO(statusType, RTFG.new_sale_name, weightType);
             BeginInvoke(new MethodInvoker(delegate ()
             {
                 dgvDetail.DataSource = tb1;
 
                 // เช็คว่าจะต้องแสดงจำนวนทั้งหมดในรูปแบบ ใบหรือกิโล
-                switch (product_uom_name)
+                    switch (MRP.product_uom_name)
                 {
                     case "ใบ(s)":
                         lblPchTotal.Text = "จำนวนใบทั้งหมด : ";
@@ -140,6 +141,13 @@ namespace FutureFlex
                         break;
                 }
             }));
+        }
+            catch
+            {
+
+
+            }
+
         }
 
         void EnableAndDisableData(string BoxOrRoll)
