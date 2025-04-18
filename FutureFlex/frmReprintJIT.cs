@@ -46,6 +46,14 @@ namespace FutureFlex
                     string lot = rw.Cells["cl_wdt_lot"].Value.ToString();
                     if (_lot == lot)
                     {
+                        string type = rw.Cells["cl_wdt_type"].Value.ToString();
+                        switch (type)
+                        {
+                            case "box":
+                                break;
+                            case "roll":
+                                break;
+                        }
                         func_print._seq = rw.Cells["cl_wdt_seq"].Value.ToString();
                         func_print._statusType = rw.Cells["cl_wdt_type"].Value.ToString();
                         func_print._net = rw.Cells["cl_wdt_net"].Value.ToString();
@@ -58,13 +66,15 @@ namespace FutureFlex
                         func_print._wghCore = rw.Cells["cl_wdt_wgh_core_total"].Value.ToString();
                         func_print.pictureBox1 = pictureBox1;
                         func_print._operator = rw.Cells["cl_wgh_operator"].Value.ToString();
+                        func_print.printType = "PO";
                         func_print._lot = lot;
+                        MRP.mo_pono = rw.Cells["cl_wdt_po"].Value.ToString();
 
                         string gv_name = rw.Cells["cl_wdt_gv_name"].Value.ToString();
 
                         if (gv_name != gv_old)
                         {
-                            await MRP.GET_MRP(gv_name);
+                            await MRP.GET_MRP($"{gv_name}");
                             gv_old = gv_name;
                         }
 
@@ -167,16 +177,16 @@ namespace FutureFlex
                 {
                     label1.Text = $"DATA : {lot}";
 
-                txtLot.Clear();
-                foreach (DataGridViewRow rw in dgvDetail.Rows)
-                {
-                    string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
-                    if (lot == _lot)
+                    txtLot.Clear();
+                    foreach (DataGridViewRow rw in dgvDetail.Rows)
                     {
-                        await Task.Delay(500);
-                        PrintData(lot, "PO");
-                        break;
-                    }
+                        string _lot = rw.Cells["cl_wdt_lot"].Value.ToString();
+                        if (lot == _lot)
+                        {
+                            await Task.Delay(500);
+                            PrintData(lot, "PO");
+                            break;
+                        }
                     }
                     await Task.Delay(1000);
                     lblQRCODE.Focus();
@@ -187,7 +197,6 @@ namespace FutureFlex
                 }
             }
         }
-
         private void cbbPO_DropDown(object sender, EventArgs e)
         {
             cbbPO.Items.Clear();
