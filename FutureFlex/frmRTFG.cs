@@ -710,17 +710,19 @@ namespace FutureFlex
                 }
                 else
                 {
-                    double _net = 0;
+                    double znet = 0;
                     for (int i = 0; i < dgvDetail.Rows.Count; i++)
                     {
-                        _net += double.Parse(dgvDetail.Rows[i].Cells["cl_net"].Value.ToString());
+                        znet += double.Parse(dgvDetail.Rows[i].Cells["cl_net"].Value.ToString());
                     }
 
-                    if ((_net + double.Parse(net)) > double.Parse(lblReturnQtyWeight.Text))
+                    if ((znet + double.Parse(net)) > RTFG.Return_qty_weight)
                     {
                         BeginInvoke(new MethodInvoker(delegate ()
                         {
-                            sb.Show(this, "จำนวนน้ำหนักคืนสินค้าครบแล้ว", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                            msg.Icon = MessageDialogIcon.Error;
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Show($"Product is full", "Product is full");
                         }));
                         return;
                     }
