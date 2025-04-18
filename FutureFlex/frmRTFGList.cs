@@ -180,6 +180,36 @@ namespace FutureFlex
 
             Check(weightTyep);
             }
+
+        private void guna2RadioButton2_CheckedChanged(object sender, System.EventArgs e)
+        {
+            Guna2RadioButton rdb = sender as Guna2RadioButton;
+            if (rdb.Checked)
+            {
+                switch (rdb.Tag.ToString())
+                {
+                    case "JIT":
+
+                        txtRTFG.Enabled = true;
+                        txtPO.Enabled = false;
+                        gbData.Text = "รายการ RTFG";
+                        dgvDetail.Columns["cl_name"].HeaderText = "GV NAME";
+                        break;
+                    case "PO":
+                        txtRTFG.Enabled = false;
+                        txtPO.Enabled = true;
+                        gbData.Text = "รายการ GV";
+                        dgvDetail.Columns["cl_name"].HeaderText = "RTFG NAME";
+                        break;
+                }
+                weightTyep = rdb.Tag.ToString();
+            }
+        }
+
+        private void guna2GradientButton1_Click(object sender, System.EventArgs e)
+        {
+            panel1.Visible = false;
+            gbWeightPoOrJit.Visible = true;
         }
     }
 }
