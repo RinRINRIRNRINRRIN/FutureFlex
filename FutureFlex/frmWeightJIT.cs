@@ -36,42 +36,29 @@ namespace FutureFlex
         /// ใช่้สำหรับเก็บค่า การเลือกประเภท จาก Groupbox 
         /// </summary>
         string statusType { get; set; }
-
-
-
         /// <summary>
         /// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
         /// </summary>
         string statusCounty { get; set; }
-
-
         /// <summary>
         /// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
         /// </summary>
         string statusSide { get; set; }
-
-
         /// <summary>
         /// ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
         /// </summary>
         bool statusPrint { get; set; } = false;
-
-
         /// <summary>
         /// สำหรับเก็บค่าว่า เริ่มหรือยัง
         /// </summary>
         bool isStart { get; set; } = false;
-
-
         /// <summary>
         /// สำหรับเช็คว่ามีค่าที่จะต้อง UPDATE หรือไม่
         /// </summary>
         int _id { get; set; } = 0;
-
         /// <summary>
         /// สำหรับเช็คว่ามีการ แก้ไข หรือไม่
         /// </summary>
-
         bool isEdit { get; set; } = false; // 
 
 
