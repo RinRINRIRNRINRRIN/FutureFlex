@@ -339,12 +339,17 @@ namespace FutureFlex
             switch (btnStart.Text)
             {
                 case "เริ่มชั่งสินค้า":
+                    // กำหนดค่าให้กับ serialport
+                    if (!DefineComport())
+                    {
+                        return;
+                    }
                     btnStart.Text = "ยกเลิกชั่งสินค้า";
                     break;
                 case "ยกเลิกชั่งสินค้า":
+                    saScale.Close();
                     btnStart.Text = "เริ่มชั่งสินค้า";
                     break;
-
             }
         }
 
