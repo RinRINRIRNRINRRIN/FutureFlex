@@ -616,6 +616,20 @@ namespace FutureFlex
                         }
                     }
 
+                        // Connect port 
+                        if (spScale.IsOpen)
+                        {
+                            spScale.Close();
+                        }
+
+                        // กำหนดค่าให้กับ serialpor
+                        spScale.PortName = func_serialport.COM_SCALE;
+                        spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
+                        spScale.Open();
+                        Log.Information($"==================================================== Serial port open");
+                        Log.Information($"-- COM SCALE : {spScale.PortName}");
+                        Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
+                        Log.Information($"Scale is connected");
                     // ปิดปุ่ต่่าง ๆ 
                     isStart = true;
 
@@ -626,6 +640,7 @@ namespace FutureFlex
                     break;
                 case "หยุดชั่งสินค้า":
                     isStart = false;
+                        spScale.Close();
 
                     btn.Text = "เริ่มชั่งสินค้า";
                     txtPo.Enabled = true;
