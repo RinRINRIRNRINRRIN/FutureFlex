@@ -564,7 +564,11 @@ namespace FutureFlex
                             return;
                         }
                     }
-
+                    // กำหนดค่าให้กับ serialport
+                    if (!DefineComport())
+                    {
+                        return;
+                    }
                     // ปิดปุ่ต่่าง ๆ 
                     isStart = true;
 
