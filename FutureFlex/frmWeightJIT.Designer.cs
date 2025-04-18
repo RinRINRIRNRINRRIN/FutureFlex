@@ -31,15 +31,15 @@ namespace FutureFlex
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWeightJIT));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCounty = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdOutCounty = new System.Windows.Forms.RadioButton();
             this.rdInCounty = new System.Windows.Forms.RadioButton();
@@ -50,21 +50,35 @@ namespace FutureFlex
             this.pnMain = new System.Windows.Forms.Panel();
             this.btnStart = new Guna.UI2.WinForms.Guna2GradientButton();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.lblMoBlock = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNumRoll = new Guna.UI2.WinForms.Guna2TextBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -84,22 +98,9 @@ namespace FutureFlex
             this.label29 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.txtOperator = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.txtJobNo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.gbSide = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdBackSide = new System.Windows.Forms.RadioButton();
             this.rdFrontSide = new System.Windows.Forms.RadioButton();
@@ -160,18 +161,17 @@ namespace FutureFlex
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.gbCounty.SuspendLayout();
             this.gbType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnMain.SuspendLayout();
             this.gbData.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbSide.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.gbLoadData.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbCounty
@@ -340,16 +340,74 @@ namespace FutureFlex
             this.gbData.Text = "รายละเอียดการชั่ง";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lblMoBlock);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label45);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label46);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.label41);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.label40);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.label39);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label38);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.label37);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label36);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label31);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Location = new System.Drawing.Point(3, 96);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(575, 268);
+            this.panel1.TabIndex = 52;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(32, 11);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(84, 25);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "เลขที่ GV :";
+            // 
             // lblMoBlock
             // 
             this.lblMoBlock.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoBlock.ForeColor = System.Drawing.Color.Black;
             this.lblMoBlock.Location = new System.Drawing.Point(423, 111);
             this.lblMoBlock.Name = "lblMoBlock";
-            this.lblMoBlock.Size = new System.Drawing.Size(147, 100);
+            this.lblMoBlock.Size = new System.Drawing.Size(147, 25);
             this.lblMoBlock.TabIndex = 19;
             this.lblMoBlock.Tag = "value";
             this.lblMoBlock.Text = ".........";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(26, 187);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 25);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "วันที่จัดส่ง :";
             // 
             // label12
             // 
@@ -361,6 +419,17 @@ namespace FutureFlex
             this.label12.Size = new System.Drawing.Size(106, 25);
             this.label12.TabIndex = 20;
             this.label12.Text = "ขนาดเพื่อหด :";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(7, 161);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 25);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "สถานที่จัดส่ง :";
             // 
             // label45
             // 
@@ -374,6 +443,17 @@ namespace FutureFlex
             this.label45.Tag = "value";
             this.label45.Text = ".........";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(54, 35);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 25);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "บริษัท :";
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -384,6 +464,17 @@ namespace FutureFlex
             this.label46.Size = new System.Drawing.Size(124, 25);
             this.label46.TabIndex = 18;
             this.label46.Text = "จำนวนม้วนเต็ม :";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(55, 60);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(61, 25);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "สินค้า :";
             // 
             // label41
             // 
@@ -397,6 +488,17 @@ namespace FutureFlex
             this.label41.Tag = "value";
             this.label41.Text = ".........";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(15, 111);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(101, 25);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "ขนาดสำเร็จ :";
+            // 
             // label40
             // 
             this.label40.AutoSize = true;
@@ -408,6 +510,17 @@ namespace FutureFlex
             this.label40.TabIndex = 15;
             this.label40.Tag = "value";
             this.label40.Text = ".........";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(12, 86);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(104, 25);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "ลักษณะงาน :";
             // 
             // label39
             // 
@@ -421,6 +534,17 @@ namespace FutureFlex
             this.label39.Tag = "value";
             this.label39.Text = ".........";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(24, 136);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(92, 25);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "โครงสร้าง :";
+            // 
             // label38
             // 
             this.label38.AutoSize = true;
@@ -431,6 +555,18 @@ namespace FutureFlex
             this.label38.Size = new System.Drawing.Size(115, 25);
             this.label38.TabIndex = 13;
             this.label38.Text = "จำนวนใบ +% :";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(122, 186);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(48, 25);
+            this.label23.TabIndex = 0;
+            this.label23.Tag = "value";
+            this.label23.Text = ".........";
             // 
             // label37
             // 
@@ -443,6 +579,18 @@ namespace FutureFlex
             this.label37.TabIndex = 12;
             this.label37.Text = "จำนวนใบ :";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(122, 161);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 25);
+            this.label21.TabIndex = 0;
+            this.label21.Tag = "value";
+            this.label21.Text = ".........";
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -453,6 +601,18 @@ namespace FutureFlex
             this.label36.Size = new System.Drawing.Size(107, 25);
             this.label36.TabIndex = 11;
             this.label36.Text = "จำนวนสั่งซื้อ :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(122, 136);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 25);
+            this.label17.TabIndex = 0;
+            this.label17.Tag = "value";
+            this.label17.Text = ".........";
             // 
             // label31
             // 
@@ -466,6 +626,18 @@ namespace FutureFlex
             this.label31.Tag = "value";
             this.label31.Text = ".........";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(122, 111);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 25);
+            this.label15.TabIndex = 0;
+            this.label15.Tag = "value";
+            this.label15.Text = ".........";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -476,6 +648,18 @@ namespace FutureFlex
             this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 10;
             this.label5.Text = "วันที่ผลิต :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(122, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 25);
+            this.label13.TabIndex = 0;
+            this.label13.Tag = "value";
+            this.label13.Text = ".........";
             // 
             // label7
             // 
@@ -489,18 +673,6 @@ namespace FutureFlex
             this.label7.Tag = "value";
             this.label7.Text = ".........";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(122, 35);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Tag = "value";
-            this.label8.Text = ".........";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -512,6 +684,18 @@ namespace FutureFlex
             this.label11.TabIndex = 0;
             this.label11.Tag = "value";
             this.label11.Text = ".........";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(122, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 25);
+            this.label8.TabIndex = 0;
+            this.label8.Tag = "value";
+            this.label8.Text = ".........";
             // 
             // panel2
             // 
@@ -889,18 +1073,6 @@ namespace FutureFlex
             this.label28.TabIndex = 0;
             this.label28.Text = "จำนวนเมตร / ม้วน";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(122, 86);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 25);
-            this.label13.TabIndex = 0;
-            this.label13.Tag = "value";
-            this.label13.Text = ".........";
-            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -911,18 +1083,6 @@ namespace FutureFlex
             this.label35.Size = new System.Drawing.Size(77, 25);
             this.label35.TabIndex = 0;
             this.label35.Text = "พนักงาน : ";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(122, 111);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 25);
-            this.label15.TabIndex = 0;
-            this.label15.Tag = "value";
-            this.label15.Text = ".........";
             // 
             // txtOperator
             // 
@@ -949,30 +1109,6 @@ namespace FutureFlex
             this.txtOperator.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtOperator.TabIndex = 9;
             this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(122, 136);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 25);
-            this.label17.TabIndex = 0;
-            this.label17.Tag = "value";
-            this.label17.Text = ".........";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(122, 161);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 25);
-            this.label21.TabIndex = 0;
-            this.label21.Tag = "value";
-            this.label21.Text = ".........";
             // 
             // txtJobNo
             // 
@@ -1002,106 +1138,6 @@ namespace FutureFlex
             this.txtJobNo.TabIndex = 0;
             this.txtJobNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
             this.txtJobNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtJobNo_KeyPress);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(122, 186);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 25);
-            this.label23.TabIndex = 0;
-            this.label23.Tag = "value";
-            this.label23.Text = ".........";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(32, 11);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 25);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "เลขที่ GV :";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(24, 136);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(92, 25);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "โครงสร้าง :";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(12, 86);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(104, 25);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "ลักษณะงาน :";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(15, 111);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 25);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "ขนาดสำเร็จ :";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(55, 60);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(61, 25);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "สินค้า :";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(54, 35);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 25);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "บริษัท :";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(7, 161);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(109, 25);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "สถานที่จัดส่ง :";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(26, 187);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 25);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "วันที่จัดส่ง :";
             // 
             // gbSide
             // 
@@ -1323,22 +1359,22 @@ namespace FutureFlex
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetail.ColumnHeadersHeight = 50;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1375,32 +1411,32 @@ namespace FutureFlex
             this.cl_numbox,
             this.cl_numrollAll,
             this.cl_numroll});
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetail.Enabled = false;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
             this.dgvDetail.Location = new System.Drawing.Point(600, 146);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvDetail.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDetail.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.dgvDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
@@ -1455,8 +1491,8 @@ namespace FutureFlex
             // cl_seq
             // 
             this.cl_seq.DataPropertyName = "wdt_seqOrigin";
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_seq.DefaultCellStyle = dataGridViewCellStyle3;
             this.cl_seq.HeaderText = "ลำดับ";
             this.cl_seq.Name = "cl_seq";
             this.cl_seq.ReadOnly = true;
@@ -1536,8 +1572,8 @@ namespace FutureFlex
             // cl_net
             // 
             this.cl_net.DataPropertyName = "wdt_net";
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_net.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_net.DefaultCellStyle = dataGridViewCellStyle4;
             this.cl_net.HeaderText = "NET";
             this.cl_net.Name = "cl_net";
             this.cl_net.ReadOnly = true;
@@ -1546,8 +1582,8 @@ namespace FutureFlex
             // cl_tare
             // 
             this.cl_tare.DataPropertyName = "wdt_tare";
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_tare.DefaultCellStyle = dataGridViewCellStyle5;
             this.cl_tare.HeaderText = "TARE";
             this.cl_tare.Name = "cl_tare";
             this.cl_tare.ReadOnly = true;
@@ -1557,8 +1593,8 @@ namespace FutureFlex
             // cl_gross
             // 
             this.cl_gross.DataPropertyName = "wdt_gross";
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cl_gross.DefaultCellStyle = dataGridViewCellStyle6;
             this.cl_gross.HeaderText = "GROSS";
             this.cl_gross.Name = "cl_gross";
             this.cl_gross.ReadOnly = true;
@@ -1790,7 +1826,7 @@ namespace FutureFlex
             // spScale
             // 
             this.spScale.PortName = "COM12";
-            this.spScale.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            this.spScale.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.spScale_DataReceived);
             // 
             // printDocument1
             // 
@@ -1849,42 +1885,6 @@ namespace FutureFlex
             this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msg.Text = null;
             // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.lblMoBlock);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label45);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label46);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label41);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.label40);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.label39);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label38);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label37);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label36);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label31);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(3, 96);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 268);
-            this.panel1.TabIndex = 52;
-            // 
             // frmWeightJIT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
@@ -1916,6 +1916,8 @@ namespace FutureFlex
             this.pnMain.PerformLayout();
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.gbSide.ResumeLayout(false);
@@ -1925,8 +1927,6 @@ namespace FutureFlex
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.gbLoadData.ResumeLayout(false);
             this.gbLoadData.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

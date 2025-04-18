@@ -702,69 +702,69 @@ namespace FutureFlex
         {
             try
             {
-            Guna2GradientButton btn = sender as Guna2GradientButton;
-            switch (btn.Text)
-            {
-                case "เริ่มชั่งสินค้า":
+                Guna2GradientButton btn = sender as Guna2GradientButton;
+                switch (btn.Text)
+                {
+                    case "เริ่มชั่งสินค้า":
 
 
 
-                    Log.Information($"== เริ่มชั่งสินค้า");
-                    // เช็คว่าเลือกข้อมูลครบหรือไม่
-                    if (statusCounty == "" || statusSide == "" || statusType == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
-                    {
-                        Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
-                        Log.Information($"- ประเทศ : {statusCounty}");
-                        Log.Information($"- ประเภท : {statusType}");
-                        Log.Information($"- ด้าน : {statusSide}");
-                        Log.Information($"- PO : JIT");
-                        Log.Information($"- GV : {MRP.name}");
-                        Log.Information($"- จำนวนม้วน : {txtNumRoll.Text}");
-                        Log.Information($"- จำนวนม้วนทั้งหมด : {txtNumRollAll.Text}");
-                        msg.Icon = MessageDialogIcon.Warning;
-                        msg.Buttons = MessageDialogButtons.OK;
-                        msg.Show("Please check the data County,Type,Side", "Check data before save");
-                        return;
-                    }
-
-                    // เช็คว่าวันที่เป็น False หรือไม่
-                    if (MRP.mo_date == "False")
-                    {
-                        msg.Icon = MessageDialogIcon.Warning;
-                        msg.Buttons = MessageDialogButtons.OK;
-                        msg.Show("Can't start because not have Production Date", "Date is incorrect format");
-                        return;
-                    }
-
-
-                    tbWeightDetail.PO = "JIT";
-                    tbWeightDetail.country = statusCounty;
-                    tbWeightDetail.type = statusType;
-                    tbWeightDetail.side = statusSide;
-                    // นำ GV ไปหาในระบบก่อน
-                    DataTable tb = tbWeight.SELECT_SEARCH();
-                    if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
-                    {
-                        //บันทึกข้อมูลไปที่ tbWeight
-                        if (!tbWeight.INSERT_ALL_DATA())
+                        Log.Information($"== เริ่มชั่งสินค้า");
+                        // เช็คว่าเลือกข้อมูลครบหรือไม่
+                        if (statusCounty == "" || statusSide == "" || statusType == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
                         {
-                            msg.Icon = MessageDialogIcon.Error;
+                            Log.Information($"== พบข้อมูลการชั่งไม่ครบ");
+                            Log.Information($"- ประเทศ : {statusCounty}");
+                            Log.Information($"- ประเภท : {statusType}");
+                            Log.Information($"- ด้าน : {statusSide}");
+                            Log.Information($"- PO : JIT");
+                            Log.Information($"- GV : {MRP.name}");
+                            Log.Information($"- จำนวนม้วน : {txtNumRoll.Text}");
+                            Log.Information($"- จำนวนม้วนทั้งหมด : {txtNumRollAll.Text}");
+                            msg.Icon = MessageDialogIcon.Warning;
                             msg.Buttons = MessageDialogButtons.OK;
-                            msg.Show($"Incorrect {tbWeight.ERR}", "Error insert");
+                            msg.Show("Please check the data County,Type,Side", "Check data before save");
                             return;
                         }
-                    }
-                    else // UPDATE
-                    {
-                        // อัพเดทข้อมูล
-                        if (!tbWeight.UPDATE_ALL_DATA())
+
+                        // เช็คว่าวันที่เป็น False หรือไม่
+                        if (MRP.mo_date == "False")
                         {
-                            msg.Icon = MessageDialogIcon.Error;
+                            msg.Icon = MessageDialogIcon.Warning;
                             msg.Buttons = MessageDialogButtons.OK;
-                            msg.Show($"Incorrect {tbWeight.ERR}", "Error update");
+                            msg.Show("Can't start because not have Production Date", "Date is incorrect format");
                             return;
                         }
-                    }
+
+
+                        tbWeightDetail.PO = "JIT";
+                        tbWeightDetail.country = statusCounty;
+                        tbWeightDetail.type = statusType;
+                        tbWeightDetail.side = statusSide;
+                        // นำ GV ไปหาในระบบก่อน
+                        DataTable tb = tbWeight.SELECT_SEARCH();
+                        if (tb.Rows.Count == 0) // หากไม่พบในระบบ ให้ INSERT
+                        {
+                            //บันทึกข้อมูลไปที่ tbWeight
+                            if (!tbWeight.INSERT_ALL_DATA())
+                            {
+                                msg.Icon = MessageDialogIcon.Error;
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Show($"Incorrect {tbWeight.ERR}", "Error insert");
+                                return;
+                            }
+                        }
+                        else // UPDATE
+                        {
+                            // อัพเดทข้อมูล
+                            if (!tbWeight.UPDATE_ALL_DATA())
+                            {
+                                msg.Icon = MessageDialogIcon.Error;
+                                msg.Buttons = MessageDialogButtons.OK;
+                                msg.Show($"Incorrect {tbWeight.ERR}", "Error update");
+                                return;
+                            }
+                        }
 
                         if (spScale.IsOpen)
                         {
@@ -778,21 +778,21 @@ namespace FutureFlex
                         Log.Information($"-- COM SCALE : {spScale.PortName}");
                         Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
                         Log.Information($"Scale is connected");
-                    // ปิดปุ่ต่่าง ๆ 
-                    isStart = true;
+                        // ปิดปุ่ต่่าง ๆ 
+                        isStart = true;
 
-                    btn.Text = "หยุดชั่งสินค้า";
-                    txtJobNo.Enabled = false;
-                    dgvDetail.Enabled = true;
-                    break;
-                case "หยุดชั่งสินค้า":
-                    isStart = false;
-
-                    btn.Text = "เริ่มชั่งสินค้า";
-                    txtJobNo.Enabled = true;
-                    dgvDetail.Enabled = false;
-                    Log.Information($"== หยุดชั่งสินค้า");
-                    break;
+                        btn.Text = "หยุดชั่งสินค้า";
+                        txtJobNo.Enabled = false;
+                        dgvDetail.Enabled = true;
+                        break;
+                    case "หยุดชั่งสินค้า":
+                        isStart = false;
+                        spScale.Close();
+                        btn.Text = "เริ่มชั่งสินค้า";
+                        txtJobNo.Enabled = true;
+                        dgvDetail.Enabled = false;
+                        Log.Information($"== หยุดชั่งสินค้า");
+                        break;
                 }
             }
             catch (Exception ex)
@@ -922,7 +922,7 @@ namespace FutureFlex
                             _wgh_meter_kg_in_rolll = double.Parse(txtNunMeter.Text);
                             _pch = int.Parse(txtPchRoll.Text);
                             break;
-            }
+                    }
 
                     tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, "", 0, "", "", statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "JIT", "S");
                     #endregion
@@ -937,7 +937,7 @@ namespace FutureFlex
                         msg.Show($"Save weight error \nError : {tbWeightDetail.ERR}", "Save Error");
                     }));
                     return;
-        }
+                }
 
                 // loop อ่านค่าจาก datatable
                 foreach (DataRow rw in tb.Rows)
