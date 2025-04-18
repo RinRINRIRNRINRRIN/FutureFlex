@@ -86,6 +86,15 @@ namespace FutureFlex
                 frmTcpClientServer frmTcpClientServer = new frmTcpClientServer();
                 frmTcpClientServer.ShowDialog();
             }
+            if (e.KeyCode == Keys.F9)
+            {
+                var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                md.Icon = Guna.UI2.WinForms.MessageDialogIcon.Information;
+                md.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+                md.Show("Version info\n" +
+                    "Program version : 1.3.2\n" +
+                    $"Program build version : {version}", "Program information");
+            }
         }
 
         private void btnPO_Click(object sender, EventArgs e)
