@@ -406,6 +406,10 @@ namespace FutureFlex
             });
 
             await Task.Delay(500);
+            label7.Text = "กำลังแสดงข้อมูล";
+            DefineParameterBeforeWeight();
+
+            await Task.Delay(500);
             label7.Text = "กำลังกำหนดค่าสิทธิ์การใช้งาน";
             // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
             DefinePrivilage();
