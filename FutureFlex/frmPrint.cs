@@ -41,6 +41,9 @@ namespace FutureFlex
         private void frmPrint_Load(object sender, EventArgs e)
         {
             // กำหนด PO
+            CreateColumne(tbBox);
+            CreateColumne(tbRoll);
+
             tbWeightDetail.PO = PO;
             DataTable tb = new DataTable();
 
@@ -53,13 +56,14 @@ namespace FutureFlex
             int totalList = 0;
             double totalNet = 0;
 
-            if (PO == "JIT" || PO == "ไม่มีPO")
+
+            if (PO == "JIT")
             {
-                tb = tbWeightDetail.SELECT_JIT_NOT_SEND_ODOO(GvOrRTFG);
+                tb = tbWeightDetail.SELECT_GVorRTFGor_SPL_formHistorySuccess(type, GV_name, "JIT");
             }
             else
             {
-                tb = tbWeightDetail.SELECT_PO_NOT_SEND_ODOO();
+                tb = tbWeightDetail.SearchPoAndWeightType(PO, type);
             }
 
             // Get data tbweight
@@ -67,14 +71,20 @@ namespace FutureFlex
             {
                 string _gvname = rw["wdt_gv_name"].ToString();
                 string _rtfg = rw["wdt_rtfg_name"].ToString();
-                if (_rtfg == "")
-                {
-                    GvOrRTFGNumber = _gvname;
-                }
-                else
+                string _spl_name = rw["wdt_spl_name"].ToString();
+                if (_rtfg != "")
                 {
                     GvOrRTFGNumber = _rtfg;
                 }
+                else if (_spl_name != "")
+                {
+                    GvOrRTFGNumber = _spl_name;
+                }
+                else
+                {
+                    GvOrRTFGNumber = _gvname;
+                }
+                // Get ดึงข้อมูลหลักของ tbweight
                 DataTable tb1 = tbWeight.SELECT_SELECT_GV(_gvname);
                 foreach (DataRow rw1 in tb1.Rows)
                 {
@@ -87,33 +97,107 @@ namespace FutureFlex
             }
 
             DataSet1 dataSet1 = new DataSet1();
-            // Get data tbweightDetail
+
+            string _gvid = "";
+            string _po = "";
+            string _seq = "";
+            string _net = "";
+            string numPch = "";
+            string _lot = "";
+            string _employee = "";
+            // เช็คว่ามีกล่องไหม
             foreach (DataRow rw in tb.Rows)
             {
-                string _gvid = rw["wdt_gv_name"].ToString();
-                string _po = rw["wdt_po"].ToString();
-                string _seq = rw["wdt_seqOrigin"].ToString();
-                string _net = rw["wdt_net"].ToString();
-
-                string numPch = "";
-                switch (rw["wdt_type"].ToString())
+                if (rw["wdt_type"].ToString() == "box")
                 {
-                    case "box":
-                        numPch = $"{double.Parse(rw["wdt_pch"].ToString()).ToString("#,###")} ใบ";
-                        break;
-                    case "roll":
+                    tbBox.Rows.Add("", "", "กล่อง", "", "", "", "");
+                    // loop get box
+                    foreach (DataRow rw2 in tb.Rows)
+                    {
+                        if (rw2["wdt_type"].ToString() == "box")
+                        {
+                            _gvid = rw2["wdt_gv_name"].ToString();
+                            _po = rw2["wdt_po"].ToString();
+                            _seq = rw2["wdt_seqOrigin"].ToString();
+                            _net = rw2["wdt_net"].ToString();
 
-                        numPch = $"{double.Parse(rw["wdt_meter_kg_in_roll"].ToString()).ToString("#,###.00")}ม./{double.Parse(rw["wdt_pch"].ToString()).ToString("#,###")}ใบ";
+                            numPch = $"{double.Parse(rw2["wdt_pch"].ToString()).ToString("#,###")} ใบ";
+                            _lot = rw2["wdt_lot"].ToString();
+                            _employee = rw2["wdt_employee"].ToString();
+
+                            totalPch = totalPch + double.Parse(rw2["wdt_pch"].ToString());
+                            totalNet = totalNet + double.Parse(rw2["wdt_net"].ToString());
+                            tbBox.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
+                        }
+                    }
+                    break;
+                }
+            }
+
+            // เช็คว่ามีม้วนไหม
+            foreach (DataRow rw in tb.Rows)
+                {
+                if (rw["wdt_type"].ToString() == "roll")
+                {
+                    tbBox.Rows.Add("", "", "ม้วน", "", "", "", "");
+                    // loop get box
+                    foreach (DataRow rw2 in tb.Rows)
+                    {
+                        if (rw2["wdt_type"].ToString() == "roll")
+                        {
+                            _gvid = rw2["wdt_gv_name"].ToString();
+                            _po = rw2["wdt_po"].ToString();
+                            _seq = rw2["wdt_seqOrigin"].ToString();
+                            _net = rw2["wdt_net"].ToString();
+                            Console.WriteLine(double.Parse(rw2["wdt_meter_kg_in_roll"].ToString()).ToString("#,###"));
+                            Console.WriteLine(double.Parse(rw2["wdt_pch"].ToString()).ToString("#,###"));
+                            numPch = $"{double.Parse(rw2["wdt_meter_kg_in_roll"].ToString()).ToString("#,###")}ม./{double.Parse(rw2["wdt_pch"].ToString()).ToString("#,###")}ใบ";
+                            _lot = rw2["wdt_lot"].ToString();
+                            _employee = rw2["wdt_employee"].ToString();
+
+
+                            totalPch = totalPch + double.Parse(rw2["wdt_pch"].ToString());
+                            totalNet = totalNet + double.Parse(rw2["wdt_net"].ToString());
+                            tbRoll.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
+                        }
+                    }
                         break;
                 }
+            }
 
-                string _lot = rw["wdt_lot"].ToString();
-                string _employee = rw["wdt_employee"].ToString();
 
-                totalPch = totalPch + double.Parse(rw["wdt_pch"].ToString());
-                totalNet = totalNet + double.Parse(rw["wdt_net"].ToString());
+            // รวม tbBox and tbRoll to tbWeight
+            foreach (DataRow rw in tbBox.Rows)
+            {
+                _gvid = rw["gv_name"].ToString();
+                _po = rw["po"].ToString();
+                _seq = rw["seq"].ToString();
+                _net = rw["net"].ToString();
+
+                numPch = rw["numPch"].ToString();
+                _lot = rw["lot"].ToString();
+                _employee = rw["employee"].ToString();
+
+                dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
+                }
+
+
+            // รวม tbBox and tbRoll to tbWeight
+            foreach (DataRow rw in tbRoll.Rows)
+            {
+                _gvid = rw["gv_name"].ToString();
+                _po = rw["po"].ToString();
+                _seq = rw["seq"].ToString();
+                _net = rw["net"].ToString();
+
+                numPch = rw["numPch"].ToString();
+                _lot = rw["lot"].ToString();
+                _employee = rw["employee"].ToString();
+
                 dataSet1.tbWeightDetail.Rows.Add(_gvid, _po, _seq, _net, numPch, _lot, _employee);
             }
+
+
             totalList = tb.Rows.Count;
 
 
@@ -126,17 +210,7 @@ namespace FutureFlex
             ReportParameter _totalPch = new ReportParameter("totalPch", totalPch.ToString("#,###"));  // กำหนดค่า parameter 
             ReportParameter _totalNet = new ReportParameter("totalNet", totalNet.ToString("#,###.00"));  // กำหนดค่า parameter 
             ReportParameter _GvOrRTFGNumber = new ReportParameter("rtpGvOrRTFGNumber", GvOrRTFGNumber);
-            bool _gvRtft = false;
-            switch (GvOrRTFG)
-            {
-                case "GV":
-                    _gvRtft = true;
-                    break;
-                case "RTFG":
-                    _gvRtft = false;
-                    break;
-            }
-            ReportParameter _GvOrRtfg = new ReportParameter("GvOrRTFG", _gvRtft.ToString());
+            ReportParameter _GvOrRtfg = new ReportParameter("GvOrRTFG", type);
 
             reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _productName });
             reportViewer1.LocalReport.SetParameters(new ReportParameter[] { _customerName });
@@ -155,12 +229,10 @@ namespace FutureFlex
             this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
             // รีเฟรช ReportViewer
             this.reportViewer1.RefreshReport();
-
         }
 
         private void reportViewer1_PrintingBegin(object sender, ReportPrintEventArgs e)
         {
-
             Console.WriteLine("PrintBegin");
             this.Close();
         }
