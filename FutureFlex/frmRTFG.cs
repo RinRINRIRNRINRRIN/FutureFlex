@@ -25,21 +25,6 @@ namespace FutureFlex
         }
 
 
-        public int Rtfg_id { get; set; }
-        public string Rtfg_name { get; set; }
-        public string Gv_id { get; set; }
-        public string mo_date { get; set; }
-        public string mo_date_delivery { get; set; }
-        public string mo_file { get; set; }
-        public string mo_file_total { get; set; }
-        public string mo_work { get; set; }
-        public string partner_name { get; set; }
-        public string product_uom_name { get; set; }
-        public string product_name { get; set; }
-        public string mo_type { get; set; }
-        public string uom_id { get; set; }
-        public string ReturnQtyPch { get; set; }
-        public string ReturnQtyWeight { get; set; }
         /// <summary>
         /// เก็บข้อมูลว่าเป็นงาน กล่องหรือม้วน
         /// </summary>
