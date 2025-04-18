@@ -205,23 +205,24 @@ namespace FutureFlex
         /// <summary>
         /// กำหนดค่าตัวแปลก่อนทำการปริ้น
         /// </summary>
-        void DefinePrintParameter()
+        void DefinePrintParameter(string seq, string statusType, string net, string numBox, string numRoll, string numMeter, string pchBox, string pchRoll, string wghPaper, string wghCore, string opareter, string lot, string printType)
         {
 
             // Print paper
-            func_print._seq = tbWeightDetail.seq;
+            func_print._seq = seq;
             func_print._statusType = statusType;
-            func_print._net = lbNetWgh.Text;
-            func_print._numBox = txtNumBox.Text;
-            func_print._numRoll = txtNumRollAll.Text;
-            func_print._numMeter = txtNunMeter.Text;
-            func_print._pchBox = txtPchBox.Text;
-            func_print._pchRoll = txtPchRoll.Text;
-            func_print._wghPaper = txtWghPaper.Text;
-            func_print._wghCore = txtWghCors.Text;
+            func_print._net = net;
+            func_print._numBox = numBox;
+            func_print._numRoll = numRoll;
+            func_print._numMeter = numMeter;
+            func_print._pchBox = pchBox;
+            func_print._pchRoll = pchRoll;
+            func_print._wghPaper = wghPaper;
+            func_print._wghCore = wghCore;
             func_print.pictureBox1 = pictureBox1;
-            func_print._operator = txtOperator.Text;
-            func_print._lot = tbWeightDetail.lot;
+            func_print._operator = opareter;
+            func_print._lot = lot;
+            func_print.printType = printType;
         }
 
         private void KeyIn(object sender, KeyPressEventArgs e)
