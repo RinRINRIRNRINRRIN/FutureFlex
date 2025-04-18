@@ -1,4 +1,5 @@
-﻿using FutureFlex.SQL;
+﻿using FutureFlex.Models;
+using FutureFlex.SQL;
 using Guna.UI2.WinForms;
 using Serilog;
 using System;
