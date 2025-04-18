@@ -94,6 +94,14 @@ namespace FutureFlex
             gbWeightPoOrJit.Visible = false;
                 panel1.Visible = true;
             }
+
+        private void txtJobNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Guna2TextBox btn = sender as Guna2TextBox;
+                Check(btn.Tag.ToString());
+        }
         }
 
         private void frmRTFGList_Load(object sender, System.EventArgs e)
