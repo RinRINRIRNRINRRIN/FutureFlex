@@ -647,12 +647,13 @@ namespace FutureFlex
             else if (statusType == "roll")
             {
                 double cors = Convert.ToDouble(txtWghCors.Text);
-                double tt = Convert.ToDouble(net) - cors;
+                double _net = double.Parse(net) - cors;
+                net = _net.ToString("#,###.00");
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
-                    lbNetWgh.Text = Convert.ToString(tt);
+                    lbNetWgh.Text = net;
                 }));
-                Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {tt}");
+                Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {net}");
             }
             #endregion
             DataTable tb = new DataTable();
