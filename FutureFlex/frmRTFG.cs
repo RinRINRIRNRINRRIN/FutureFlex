@@ -374,9 +374,18 @@ namespace FutureFlex
 
         private async void frmRTFG_Load(object sender, EventArgs e)
         {
-            Log.Information($"==================================================   frmWeightNew is open");
-            panel1.Visible = false;
+            Log.Information($"==================================================   frmRTFGis open");
+            pnMain.Visible = false;
             gbLoadData.Visible = true;
+            switch (weightType)
+            {
+                case "PO":
+                    lblWeightType.Text = $"ชั่งเพื่อขาย PO : {RTFG.new_po_customer}";
+                    break;
+                default:
+                    lblWeightType.Text = $"ชั่งเพื่อเก็บ : {weightType}";
+                    break;
+            }
             // เชื่อมต่อ TcpServer ก่อน
             if (!await func_tcpClient.Connect())
             {
