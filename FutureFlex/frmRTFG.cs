@@ -382,7 +382,7 @@ namespace FutureFlex
             {
                 msg.Icon = MessageDialogIcon.Error;
                 msg.Buttons = MessageDialogButtons.OK;
-                msg.Show("Can't connect to server futureflex", "Fails to connect server");
+                msg.Show("Can't connect to server futureflex", "TCP Server Error");
                 gbLoadData.Visible = false;
                 this.Close();
                 return;
