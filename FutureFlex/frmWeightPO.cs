@@ -18,10 +18,7 @@ namespace FutureFlex
         public frmWeightPO()
         {
             InitializeComponent();
-
-
             ClearForm();
-
             ShowLoadData();
 
             this.FormBorderStyle = FormBorderStyle.None;
@@ -34,8 +31,8 @@ namespace FutureFlex
             cbbSo.SelectedIndex = 0;
         }
 
-        string statusType { get; set; }    ///// ใช่้สำหรับเก็บค่า การเลือกประเภท จาก Groupbox 
-        string statusCounty { get; set; } ///// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
+        string statusType { get; set; }     ///// ใช่้สำหรับเก็บค่า การเลือกประเภท จาก Groupbox 
+        string statusCounty { get; set; }   ///// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
         string statusSide { get; set; }     ///// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
         bool statusPrint { get; set; } = false;   // ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
 
