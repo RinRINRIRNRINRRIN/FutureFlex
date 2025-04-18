@@ -1,6 +1,7 @@
 ﻿using Bunifu.UI.WinForms;
 using FutureFlex.API;
 using FutureFlex.Function;
+using FutureFlex.Models;
 using FutureFlex.SQL;
 using Guna.UI2.WinForms;
 using Serilog;
@@ -102,46 +103,46 @@ namespace FutureFlex
         {
             try
             {
-            // แสดงข้อมูล
+                // แสดงข้อมูล
                 DataTable tb1 = tbWeightDetail.SELECT_RTFG_NOT_SEND_ODOO(statusType, RTFG.new_sale_name, weightType);
-            BeginInvoke(new MethodInvoker(delegate ()
-            {
-                dgvDetail.DataSource = tb1;
-
-                // เช็คว่าจะต้องแสดงจำนวนทั้งหมดในรูปแบบ ใบหรือกิโล
-                    switch (MRP.product_uom_name)
+                BeginInvoke(new MethodInvoker(delegate ()
                 {
-                    case "ใบ(s)":
-                        lblPchTotal.Text = "จำนวนใบทั้งหมด : ";
-                        // ลูปเอาน้ำหนักทั้งหมดจากตาราง
-                        foreach (DataGridViewRow rw in dgvDetail.Rows)
-                        {
-                            double _net = 0;
-                            for (int i = 0; i < dgvDetail.Rows.Count; i++)
-                            {
-                                _net += double.Parse(dgvDetail.Rows[i].Cells["cl_pch"].Value.ToString());
-                            }
+                    dgvDetail.DataSource = tb1;
 
-                            lblCountTotal.Text = $"{_net} s";
-                        }
-                        break;
-                    default:
-                        // ลูปเอาน้ำหนักทั้งหมดจากตาราง
-                        foreach (DataGridViewRow rw in dgvDetail.Rows)
-                        {
-                            double _net = 0;
-                            for (int i = 0; i < dgvDetail.Rows.Count; i++)
+                    // เช็คว่าจะต้องแสดงจำนวนทั้งหมดในรูปแบบ ใบหรือกิโล
+                    switch (MRP.product_uom_name)
+                    {
+                        case "ใบ(s)":
+                            lblPchTotal.Text = "จำนวนใบทั้งหมด : ";
+                            // ลูปเอาน้ำหนักทั้งหมดจากตาราง
+                            foreach (DataGridViewRow rw in dgvDetail.Rows)
                             {
-                                _net += double.Parse(dgvDetail.Rows[i].Cells["cl_net"].Value.ToString());
-                            }
+                                double _net = 0;
+                                for (int i = 0; i < dgvDetail.Rows.Count; i++)
+                                {
+                                    _net += double.Parse(dgvDetail.Rows[i].Cells["cl_pch"].Value.ToString());
+                                }
 
-                            lblCountTotal.Text = $"{_net} Kg";
-                        }
-                        lblPchTotal.Text = "จำนวนกิโลทั้งหมด : ";
-                        break;
-                }
-            }));
-        }
+                                lblCountTotal.Text = $"{_net} s";
+                            }
+                            break;
+                        default:
+                            // ลูปเอาน้ำหนักทั้งหมดจากตาราง
+                            foreach (DataGridViewRow rw in dgvDetail.Rows)
+                            {
+                                double _net = 0;
+                                for (int i = 0; i < dgvDetail.Rows.Count; i++)
+                                {
+                                    _net += double.Parse(dgvDetail.Rows[i].Cells["cl_net"].Value.ToString());
+                                }
+
+                                lblCountTotal.Text = $"{_net} Kg";
+                            }
+                            lblPchTotal.Text = "จำนวนกิโลทั้งหมด : ";
+                            break;
+                    }
+                }));
+            }
             catch
             {
 
@@ -174,7 +175,7 @@ namespace FutureFlex
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
 
                 // Check print is online?
-                if (!func_print.SetPrinter(printDocument1, tbWeightDetail.PO))
+                if (!func_print.SetPrinter(printDocument1, weightType))
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
@@ -195,7 +196,7 @@ namespace FutureFlex
                     }
                     catch (Exception ex)
                     {
-                        sb.Show(this, "กรุณาปิด หน้าต่างการพิมพ์ " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
+                        //sb.Show(this, "กรุณาปิด หน้าต่างการพิมพ์ " + ex.Message, BunifuSnackbar.MessageTypes.Error, 3000, "OK", BunifuSnackbar.Positions.TopCenter);
                         return;
                     }
                 }
@@ -229,7 +230,7 @@ namespace FutureFlex
         {
             Guna2TextBox txt = sender as Guna2TextBox;
 
-            if (tbWeightDetail.PO == "JIT" || tbWeightDetail.PO == "ไม่มี PO")  // หากผู้ใช้เลือก JIT จะไม่สามารถคีย์ จำนวนกล่องจำนวนม้วนได้
+            if (weightType == "JIT")  // หากผู้ใช้เลือก JIT จะไม่สามารถคีย์ จำนวนกล่องจำนวนม้วนได้
             {
                 switch (txt.Name)
                 {
@@ -262,6 +263,10 @@ namespace FutureFlex
             }
         }
 
+
+        /// <summary>
+        /// ดึงข้อมูลจาก TCP SERVER
+        /// </summary>
         async void GetMessage()
         {
             string old_data = "";
@@ -457,9 +462,9 @@ namespace FutureFlex
                         Log.Information($"== ผู้ใช้เลือกแก้ไขข้อมูล");
                         string _employee = dgvDetail.Rows[e.RowIndex].Cells["cl_employee"].Value.ToString();
                         // เช็คว่าคนที่จะแก้ไขต้องเป็นเดียวกัน
-                        if (tbEmployeeSQL.emp_username != "sa")
+                        if (EmployeeModel.emp_username != "sa")
                         {
-                            if (_employee != tbEmployeeSQL.emp_name)
+                            if (_employee != EmployeeModel.emp_name)
                             {
                                 sb.Show(this, "ไม่สามารถแก้ไขการชั่งของคนอื่นได้", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
                                 return;
@@ -504,24 +509,24 @@ namespace FutureFlex
             RadioButton rdbName = sender as RadioButton;
             if (rdbName.Checked)
             {
-            switch (rdbName.Name)
-            {
-                case "rdTypeRoll":
-                    statusType = "roll";
-                    gbSide.Enabled = true;
-                    txtNumBox.Enabled = false;
-                    EnableAndDisableData("roll");
-                    break;
-                case "rdTypeBox":
-                    btnReprint.Text = "น้ำหนักสุทธิ - น้ำหนักแกน";
-                    statusType = "box";
-                    btnReprint.Text = "NET WEIGHT";
-                    rdNot.Checked = true;
-                    gbSide.Enabled = false;
-                    EnableAndDisableData("box");
-                    break;
+                switch (rdbName.Name)
+                {
+                    case "rdTypeRoll":
+                        statusType = "roll";
+                        gbSide.Enabled = true;
+                        txtNumBox.Enabled = false;
+                        EnableAndDisableData("roll");
+                        break;
+                    case "rdTypeBox":
+                        btnReprint.Text = "น้ำหนักสุทธิ - น้ำหนักแกน";
+                        statusType = "box";
+                        btnReprint.Text = "NET WEIGHT";
+                        rdNot.Checked = true;
+                        gbSide.Enabled = false;
+                        EnableAndDisableData("box");
+                        break;
                 }
-                        ShowDataGridAndCountPchOrWeight();
+                ShowDataGridAndCountPchOrWeight();
             }
         }
 
@@ -805,8 +810,8 @@ namespace FutureFlex
             // Print Sticker
             _ = Task.Run(() =>
             {
-            SetPaperAndPrint();
-            ShowDataGridAndCountPchOrWeight();
+                SetPaperAndPrint();
+                ShowDataGridAndCountPchOrWeight();
             });
             #endregion
         }
@@ -890,7 +895,7 @@ namespace FutureFlex
                         }
 
                         double c = double.Parse(a) / 1000;
-                    double d = double.Parse(txtNunMeter.Text) / c;
+                        double d = double.Parse(txtNunMeter.Text) / c;
 
                         double total = Math.Truncate(d);
                         txtPchRoll.Text = total.ToString();
@@ -899,10 +904,10 @@ namespace FutureFlex
                     // ถ้าจะนวนความยาวม้วนเต็มทั้งหมด เป็น 0 ไม่ต้องคำนวนต่อ
                     if (MRP.product_roll_length != 0)
                     {
-                    double numMetPerRoll = MRP.product_roll_length;
-                    double numMet = double.Parse(txtNunMeter.Text);
-                    double total = numMet / numMetPerRoll;
-                    txtNumRoll.Text = total.ToString("F2");
+                        double numMetPerRoll = MRP.product_roll_length;
+                        double numMet = double.Parse(txtNunMeter.Text);
+                        double total = numMet / numMetPerRoll;
+                        txtNumRoll.Text = total.ToString("F2");
                     }
                 }
             }

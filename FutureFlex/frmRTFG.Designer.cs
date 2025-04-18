@@ -40,12 +40,40 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRTFG));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.label42 = new System.Windows.Forms.Label();
             this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNewSaleOrder = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblMoBlock = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.lblProductUomName = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
+            this.lblDateDelivery = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblMoFilm = new System.Windows.Forms.Label();
+            this.lblMoWork = new System.Windows.Forms.Label();
+            this.lblMoType = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.lblProduct = new System.Windows.Forms.Label();
+            this.lblRetrunQtyPch = new System.Windows.Forms.Label();
+            this.lblPartner = new System.Windows.Forms.Label();
+            this.lblReturnQtyWeight = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNumRoll = new Guna.UI2.WinForms.Guna2TextBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -68,7 +96,6 @@
             this.gbType = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdTypeRoll = new System.Windows.Forms.RadioButton();
             this.rdTypeBox = new System.Windows.Forms.RadioButton();
-            this.lblRtfg = new System.Windows.Forms.Label();
             this.gbCounty = new Guna.UI2.WinForms.Guna2GroupBox();
             this.rdOutCounty = new System.Windows.Forms.RadioButton();
             this.rdInCounty = new System.Windows.Forms.RadioButton();
@@ -76,33 +103,8 @@
             this.rdBackSide = new System.Windows.Forms.RadioButton();
             this.rdFrontSide = new System.Windows.Forms.RadioButton();
             this.rdNot = new System.Windows.Forms.RadioButton();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.lblRetrunQtyPch = new System.Windows.Forms.Label();
-            this.lblReturnQtyWeight = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblGv = new System.Windows.Forms.Label();
-            this.lblPartner = new System.Windows.Forms.Label();
-            this.lblProduct = new System.Windows.Forms.Label();
-            this.lblMoType = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.lblMoWork = new System.Windows.Forms.Label();
             this.txtOperator = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblMoFilm = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lblDateDelivery = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
             this.cl_del = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -115,6 +117,8 @@
             this.cl_gv_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_rtfg_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_rtfg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_spl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_spl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_net = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_tare = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,14 +157,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPchTotal = new System.Windows.Forms.Label();
             this.lblCountTotal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnMain = new System.Windows.Forms.Panel();
             this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblWeightType = new System.Windows.Forms.Label();
             this.gbData.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbType.SuspendLayout();
             this.gbCounty.SuspendLayout();
@@ -168,7 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnMain.SuspendLayout();
             this.gbLoadData.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,58 +185,17 @@
             this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Teal;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.White;
-            this.label42.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label42.ForeColor = System.Drawing.Color.Navy;
-            this.label42.Location = new System.Drawing.Point(3, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(167, 51);
-            this.label42.TabIndex = 59;
-            this.label42.Text = "ส่งสินค้าคืน";
-            // 
             // gbData
             // 
             this.gbData.BorderColor = System.Drawing.Color.MidnightBlue;
             this.gbData.BorderRadius = 3;
-            this.gbData.Controls.Add(this.label8);
-            this.gbData.Controls.Add(this.label46);
-            this.gbData.Controls.Add(this.lblProductUomName);
-            this.gbData.Controls.Add(this.label45);
+            this.gbData.Controls.Add(this.panel1);
             this.gbData.Controls.Add(this.panel2);
             this.gbData.Controls.Add(this.gbType);
-            this.gbData.Controls.Add(this.lblRtfg);
             this.gbData.Controls.Add(this.gbCounty);
             this.gbData.Controls.Add(this.gbSide);
-            this.gbData.Controls.Add(this.label12);
-            this.gbData.Controls.Add(this.label41);
-            this.gbData.Controls.Add(this.lblRetrunQtyPch);
-            this.gbData.Controls.Add(this.lblReturnQtyWeight);
-            this.gbData.Controls.Add(this.label38);
-            this.gbData.Controls.Add(this.label37);
-            this.gbData.Controls.Add(this.label36);
-            this.gbData.Controls.Add(this.lblDate);
-            this.gbData.Controls.Add(this.label5);
-            this.gbData.Controls.Add(this.lblGv);
-            this.gbData.Controls.Add(this.lblPartner);
-            this.gbData.Controls.Add(this.lblProduct);
-            this.gbData.Controls.Add(this.lblMoType);
             this.gbData.Controls.Add(this.label35);
-            this.gbData.Controls.Add(this.lblMoWork);
             this.gbData.Controls.Add(this.txtOperator);
-            this.gbData.Controls.Add(this.lblMoFilm);
-            this.gbData.Controls.Add(this.label21);
-            this.gbData.Controls.Add(this.lblDateDelivery);
-            this.gbData.Controls.Add(this.label14);
-            this.gbData.Controls.Add(this.label22);
-            this.gbData.Controls.Add(this.label24);
-            this.gbData.Controls.Add(this.label25);
-            this.gbData.Controls.Add(this.label20);
-            this.gbData.Controls.Add(this.label19);
-            this.gbData.Controls.Add(this.label18);
-            this.gbData.Controls.Add(this.label16);
             this.gbData.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(76)))), ((int)(((byte)(183)))));
             this.gbData.CustomBorderThickness = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.gbData.Font = new System.Drawing.Font("Athiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,51 +207,413 @@
             this.gbData.Text = "ข้อมูลการคืนสินค้า";
             this.gbData.TextOffset = new System.Drawing.Point(0, -5);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.lblNewSaleOrder);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.lblMoBlock);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.label46);
+            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.lblProductUomName);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.label45);
+            this.panel1.Controls.Add(this.lblDateDelivery);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.lblMoFilm);
+            this.panel1.Controls.Add(this.lblMoWork);
+            this.panel1.Controls.Add(this.lblMoType);
+            this.panel1.Controls.Add(this.label41);
+            this.panel1.Controls.Add(this.lblProduct);
+            this.panel1.Controls.Add(this.lblRetrunQtyPch);
+            this.panel1.Controls.Add(this.lblPartner);
+            this.panel1.Controls.Add(this.lblReturnQtyWeight);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label38);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Controls.Add(this.label37);
+            this.panel1.Controls.Add(this.label36);
+            this.panel1.Location = new System.Drawing.Point(6, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(554, 329);
+            this.panel1.TabIndex = 77;
+            // 
+            // lblNewSaleOrder
+            // 
+            this.lblNewSaleOrder.AutoSize = true;
+            this.lblNewSaleOrder.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewSaleOrder.ForeColor = System.Drawing.Color.Black;
+            this.lblNewSaleOrder.Location = new System.Drawing.Point(121, 200);
+            this.lblNewSaleOrder.Name = "lblNewSaleOrder";
+            this.lblNewSaleOrder.Size = new System.Drawing.Size(48, 25);
+            this.lblNewSaleOrder.TabIndex = 27;
+            this.lblNewSaleOrder.Tag = "value";
+            this.lblNewSaleOrder.Text = ".........";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(33, 200);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 25);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "เลขที่ SO : ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(3, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(121, 25);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "เลขที่คืนสินค้า : ";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.Black;
+            this.lblName.Location = new System.Drawing.Point(123, 5);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(48, 25);
+            this.lblName.TabIndex = 25;
+            this.lblName.Tag = "value";
+            this.lblName.Text = ".........";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(28, 229);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 25);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "วันที่จัดส่ง :";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(8, 170);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 25);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "สถานที่จัดส่ง :";
+            // 
+            // lblMoBlock
+            // 
+            this.lblMoBlock.AutoSize = true;
+            this.lblMoBlock.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoBlock.ForeColor = System.Drawing.Color.Black;
+            this.lblMoBlock.Location = new System.Drawing.Point(439, 117);
+            this.lblMoBlock.Name = "lblMoBlock";
+            this.lblMoBlock.Size = new System.Drawing.Size(48, 25);
+            this.lblMoBlock.TabIndex = 23;
+            this.lblMoBlock.Tag = "value";
+            this.lblMoBlock.Text = ".........";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(56, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 25);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "บริษัท :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(327, 117);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(106, 25);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "ขนาดเพื่อหด :";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(57, 61);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(61, 25);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "สินค้า :";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(439, 192);
+            this.label8.Location = new System.Drawing.Point(433, 205);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 25);
             this.label8.TabIndex = 21;
             this.label8.Tag = "value";
             this.label8.Text = ".........";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(17, 117);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(101, 25);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "ขนาดสำเร็จ :";
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.Black;
-            this.label46.Location = new System.Drawing.Point(319, 193);
+            this.label46.Location = new System.Drawing.Point(309, 206);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(124, 25);
             this.label46.TabIndex = 22;
             this.label46.Text = "จำนวนม้วนเต็ม :";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(14, 89);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(104, 25);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "ลักษณะงาน :";
             // 
             // lblProductUomName
             // 
             this.lblProductUomName.AutoSize = true;
             this.lblProductUomName.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductUomName.ForeColor = System.Drawing.Color.Black;
-            this.lblProductUomName.Location = new System.Drawing.Point(439, 244);
+            this.lblProductUomName.Location = new System.Drawing.Point(433, 257);
             this.lblProductUomName.Name = "lblProductUomName";
             this.lblProductUomName.Size = new System.Drawing.Size(48, 25);
             this.lblProductUomName.TabIndex = 20;
             this.lblProductUomName.Tag = "value";
             this.lblProductUomName.Text = ".........";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(25, 142);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(92, 25);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "โครงสร้าง :";
+            // 
             // label45
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label45.ForeColor = System.Drawing.Color.Black;
-            this.label45.Location = new System.Drawing.Point(352, 244);
+            this.label45.Location = new System.Drawing.Point(346, 257);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(89, 25);
             this.label45.TabIndex = 19;
             this.label45.Text = "หน่วยขาย :";
+            // 
+            // lblDateDelivery
+            // 
+            this.lblDateDelivery.AutoSize = true;
+            this.lblDateDelivery.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDelivery.ForeColor = System.Drawing.Color.Black;
+            this.lblDateDelivery.Location = new System.Drawing.Point(123, 229);
+            this.lblDateDelivery.Name = "lblDateDelivery";
+            this.lblDateDelivery.Size = new System.Drawing.Size(48, 25);
+            this.lblDateDelivery.TabIndex = 0;
+            this.lblDateDelivery.Tag = "value";
+            this.lblDateDelivery.Text = ".........";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(122, 170);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 25);
+            this.label21.TabIndex = 0;
+            this.label21.Tag = "value";
+            this.label21.Text = ".........";
+            // 
+            // lblMoFilm
+            // 
+            this.lblMoFilm.AutoSize = true;
+            this.lblMoFilm.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoFilm.ForeColor = System.Drawing.Color.Black;
+            this.lblMoFilm.Location = new System.Drawing.Point(122, 142);
+            this.lblMoFilm.Name = "lblMoFilm";
+            this.lblMoFilm.Size = new System.Drawing.Size(48, 25);
+            this.lblMoFilm.TabIndex = 0;
+            this.lblMoFilm.Tag = "value";
+            this.lblMoFilm.Text = ".........";
+            // 
+            // lblMoWork
+            // 
+            this.lblMoWork.AutoSize = true;
+            this.lblMoWork.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoWork.ForeColor = System.Drawing.Color.Black;
+            this.lblMoWork.Location = new System.Drawing.Point(123, 117);
+            this.lblMoWork.Name = "lblMoWork";
+            this.lblMoWork.Size = new System.Drawing.Size(48, 25);
+            this.lblMoWork.TabIndex = 0;
+            this.lblMoWork.Tag = "value";
+            this.lblMoWork.Text = ".........";
+            // 
+            // lblMoType
+            // 
+            this.lblMoType.AutoSize = true;
+            this.lblMoType.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoType.ForeColor = System.Drawing.Color.Black;
+            this.lblMoType.Location = new System.Drawing.Point(123, 89);
+            this.lblMoType.Name = "lblMoType";
+            this.lblMoType.Size = new System.Drawing.Size(48, 25);
+            this.lblMoType.TabIndex = 0;
+            this.lblMoType.Tag = "value";
+            this.lblMoType.Text = ".........";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(123, 257);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(48, 25);
+            this.label41.TabIndex = 16;
+            this.label41.Tag = "value";
+            this.label41.Text = ".........";
+            // 
+            // lblProduct
+            // 
+            this.lblProduct.AutoSize = true;
+            this.lblProduct.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProduct.ForeColor = System.Drawing.Color.Black;
+            this.lblProduct.Location = new System.Drawing.Point(123, 61);
+            this.lblProduct.Name = "lblProduct";
+            this.lblProduct.Size = new System.Drawing.Size(48, 25);
+            this.lblProduct.TabIndex = 0;
+            this.lblProduct.Tag = "value";
+            this.lblProduct.Text = ".........";
+            // 
+            // lblRetrunQtyPch
+            // 
+            this.lblRetrunQtyPch.AutoSize = true;
+            this.lblRetrunQtyPch.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRetrunQtyPch.ForeColor = System.Drawing.Color.Black;
+            this.lblRetrunQtyPch.Location = new System.Drawing.Point(123, 285);
+            this.lblRetrunQtyPch.Name = "lblRetrunQtyPch";
+            this.lblRetrunQtyPch.Size = new System.Drawing.Size(48, 25);
+            this.lblRetrunQtyPch.TabIndex = 15;
+            this.lblRetrunQtyPch.Tag = "value";
+            this.lblRetrunQtyPch.Text = ".........";
+            // 
+            // lblPartner
+            // 
+            this.lblPartner.AutoSize = true;
+            this.lblPartner.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartner.ForeColor = System.Drawing.Color.Black;
+            this.lblPartner.Location = new System.Drawing.Point(123, 33);
+            this.lblPartner.Name = "lblPartner";
+            this.lblPartner.Size = new System.Drawing.Size(48, 25);
+            this.lblPartner.TabIndex = 0;
+            this.lblPartner.Tag = "value";
+            this.lblPartner.Text = ".........";
+            // 
+            // lblReturnQtyWeight
+            // 
+            this.lblReturnQtyWeight.AutoSize = true;
+            this.lblReturnQtyWeight.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReturnQtyWeight.ForeColor = System.Drawing.Color.Black;
+            this.lblReturnQtyWeight.Location = new System.Drawing.Point(433, 285);
+            this.lblReturnQtyWeight.Name = "lblReturnQtyWeight";
+            this.lblReturnQtyWeight.Size = new System.Drawing.Size(48, 25);
+            this.lblReturnQtyWeight.TabIndex = 14;
+            this.lblReturnQtyWeight.Tag = "value";
+            this.lblReturnQtyWeight.Text = ".........";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(351, 232);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 25);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "วันที่ผลิต :";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(268, 285);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(166, 25);
+            this.label38.TabIndex = 13;
+            this.label38.Text = "จำนวนน้ำหนักทั้งหมด :";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.Black;
+            this.lblDate.Location = new System.Drawing.Point(435, 231);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(48, 25);
+            this.lblDate.TabIndex = 1;
+            this.lblDate.Tag = "value";
+            this.lblDate.Text = ".........";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(31, 285);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(86, 25);
+            this.label37.TabIndex = 12;
+            this.label37.Text = "จำนวนใบ :";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(11, 257);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(107, 25);
+            this.label36.TabIndex = 11;
+            this.label36.Text = "จำนวนสั่งซื้อ :";
             // 
             // panel2
             // 
@@ -309,9 +635,9 @@
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label27);
             this.panel2.Controls.Add(this.label28);
-            this.panel2.Location = new System.Drawing.Point(23, 428);
+            this.panel2.Location = new System.Drawing.Point(36, 468);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(522, 202);
+            this.panel2.Size = new System.Drawing.Size(499, 202);
             this.panel2.TabIndex = 1;
             // 
             // txtNumRoll
@@ -661,9 +987,9 @@
             this.label28.ForeColor = System.Drawing.Color.Black;
             this.label28.Location = new System.Drawing.Point(231, 126);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(82, 25);
+            this.label28.Size = new System.Drawing.Size(125, 25);
             this.label28.TabIndex = 0;
-            this.label28.Text = "จำนวนเมตร";
+            this.label28.Text = "จำนวนเมตร / ม้วน";
             // 
             // gbType
             // 
@@ -675,7 +1001,7 @@
             this.gbType.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbType.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbType.ForeColor = System.Drawing.Color.White;
-            this.gbType.Location = new System.Drawing.Point(194, 313);
+            this.gbType.Location = new System.Drawing.Point(194, 368);
             this.gbType.Name = "gbType";
             this.gbType.Size = new System.Drawing.Size(180, 89);
             this.gbType.TabIndex = 11;
@@ -710,18 +1036,6 @@
             this.rdTypeBox.UseVisualStyleBackColor = true;
             this.rdTypeBox.CheckedChanged += new System.EventHandler(this.RaidoButtonRecheckBoxAndRoll);
             // 
-            // lblRtfg
-            // 
-            this.lblRtfg.AutoSize = true;
-            this.lblRtfg.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRtfg.ForeColor = System.Drawing.Color.Black;
-            this.lblRtfg.Location = new System.Drawing.Point(132, 41);
-            this.lblRtfg.Name = "lblRtfg";
-            this.lblRtfg.Size = new System.Drawing.Size(48, 25);
-            this.lblRtfg.TabIndex = 17;
-            this.lblRtfg.Tag = "value";
-            this.lblRtfg.Text = ".........";
-            // 
             // gbCounty
             // 
             this.gbCounty.BorderColor = System.Drawing.Color.Navy;
@@ -732,7 +1046,7 @@
             this.gbCounty.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbCounty.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCounty.ForeColor = System.Drawing.Color.White;
-            this.gbCounty.Location = new System.Drawing.Point(8, 313);
+            this.gbCounty.Location = new System.Drawing.Point(8, 368);
             this.gbCounty.Name = "gbCounty";
             this.gbCounty.Size = new System.Drawing.Size(180, 89);
             this.gbCounty.TabIndex = 12;
@@ -778,7 +1092,7 @@
             this.gbSide.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.gbSide.Font = new System.Drawing.Font("Athiti Medium", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSide.ForeColor = System.Drawing.Color.White;
-            this.gbSide.Location = new System.Drawing.Point(380, 313);
+            this.gbSide.Location = new System.Drawing.Point(380, 368);
             this.gbSide.Name = "gbSide";
             this.gbSide.Size = new System.Drawing.Size(180, 89);
             this.gbSide.TabIndex = 13;
@@ -830,179 +1144,16 @@
             this.rdNot.UseVisualStyleBackColor = false;
             this.rdNot.CheckedChanged += new System.EventHandler(this.RadioSelectSide);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(22, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 25);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "เลขที่ RTFG :";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(131, 244);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(48, 25);
-            this.label41.TabIndex = 16;
-            this.label41.Tag = "value";
-            this.label41.Text = ".........";
-            // 
-            // lblRetrunQtyPch
-            // 
-            this.lblRetrunQtyPch.AutoSize = true;
-            this.lblRetrunQtyPch.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRetrunQtyPch.ForeColor = System.Drawing.Color.Black;
-            this.lblRetrunQtyPch.Location = new System.Drawing.Point(131, 269);
-            this.lblRetrunQtyPch.Name = "lblRetrunQtyPch";
-            this.lblRetrunQtyPch.Size = new System.Drawing.Size(48, 25);
-            this.lblRetrunQtyPch.TabIndex = 15;
-            this.lblRetrunQtyPch.Tag = "value";
-            this.lblRetrunQtyPch.Text = ".........";
-            // 
-            // lblReturnQtyWeight
-            // 
-            this.lblReturnQtyWeight.AutoSize = true;
-            this.lblReturnQtyWeight.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReturnQtyWeight.ForeColor = System.Drawing.Color.Black;
-            this.lblReturnQtyWeight.Location = new System.Drawing.Point(441, 269);
-            this.lblReturnQtyWeight.Name = "lblReturnQtyWeight";
-            this.lblReturnQtyWeight.Size = new System.Drawing.Size(48, 25);
-            this.lblReturnQtyWeight.TabIndex = 14;
-            this.lblReturnQtyWeight.Tag = "value";
-            this.lblReturnQtyWeight.Text = ".........";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(276, 269);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(166, 25);
-            this.label38.TabIndex = 13;
-            this.label38.Text = "จำนวนน้ำหนักทั้งหมด :";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(39, 269);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(86, 25);
-            this.label37.TabIndex = 12;
-            this.label37.Text = "จำนวนใบ :";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(18, 244);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(107, 25);
-            this.label36.TabIndex = 11;
-            this.label36.Text = "จำนวนสั่งซื้อ :";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDate.Location = new System.Drawing.Point(441, 218);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(48, 25);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Tag = "value";
-            this.lblDate.Text = ".........";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(361, 219);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 25);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "วันที่ผลิต :";
-            // 
-            // lblGv
-            // 
-            this.lblGv.AutoSize = true;
-            this.lblGv.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGv.ForeColor = System.Drawing.Color.Black;
-            this.lblGv.Location = new System.Drawing.Point(441, 41);
-            this.lblGv.Name = "lblGv";
-            this.lblGv.Size = new System.Drawing.Size(48, 25);
-            this.lblGv.TabIndex = 0;
-            this.lblGv.Tag = "value";
-            this.lblGv.Text = ".........";
-            // 
-            // lblPartner
-            // 
-            this.lblPartner.AutoSize = true;
-            this.lblPartner.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartner.ForeColor = System.Drawing.Color.Black;
-            this.lblPartner.Location = new System.Drawing.Point(131, 67);
-            this.lblPartner.Name = "lblPartner";
-            this.lblPartner.Size = new System.Drawing.Size(48, 25);
-            this.lblPartner.TabIndex = 0;
-            this.lblPartner.Tag = "value";
-            this.lblPartner.Text = ".........";
-            // 
-            // lblProduct
-            // 
-            this.lblProduct.AutoSize = true;
-            this.lblProduct.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProduct.ForeColor = System.Drawing.Color.Black;
-            this.lblProduct.Location = new System.Drawing.Point(131, 92);
-            this.lblProduct.Name = "lblProduct";
-            this.lblProduct.Size = new System.Drawing.Size(48, 25);
-            this.lblProduct.TabIndex = 0;
-            this.lblProduct.Tag = "value";
-            this.lblProduct.Text = ".........";
-            // 
-            // lblMoType
-            // 
-            this.lblMoType.AutoSize = true;
-            this.lblMoType.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoType.ForeColor = System.Drawing.Color.Black;
-            this.lblMoType.Location = new System.Drawing.Point(131, 118);
-            this.lblMoType.Name = "lblMoType";
-            this.lblMoType.Size = new System.Drawing.Size(48, 25);
-            this.lblMoType.TabIndex = 0;
-            this.lblMoType.Tag = "value";
-            this.lblMoType.Text = ".........";
-            // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(91, 664);
+            this.label35.Location = new System.Drawing.Point(91, 673);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(77, 25);
             this.label35.TabIndex = 0;
             this.label35.Text = "พนักงาน : ";
-            // 
-            // lblMoWork
-            // 
-            this.lblMoWork.AutoSize = true;
-            this.lblMoWork.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoWork.ForeColor = System.Drawing.Color.Black;
-            this.lblMoWork.Location = new System.Drawing.Point(131, 143);
-            this.lblMoWork.Name = "lblMoWork";
-            this.lblMoWork.Size = new System.Drawing.Size(48, 25);
-            this.lblMoWork.TabIndex = 0;
-            this.lblMoWork.Tag = "value";
-            this.lblMoWork.Text = ".........";
             // 
             // txtOperator
             // 
@@ -1018,7 +1169,7 @@
             this.txtOperator.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOperator.ForeColor = System.Drawing.Color.Black;
             this.txtOperator.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOperator.Location = new System.Drawing.Point(172, 661);
+            this.txtOperator.Location = new System.Drawing.Point(172, 670);
             this.txtOperator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtOperator.Name = "txtOperator";
             this.txtOperator.PasswordChar = '\0';
@@ -1029,130 +1180,6 @@
             this.txtOperator.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtOperator.TabIndex = 9;
             this.txtOperator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblMoFilm
-            // 
-            this.lblMoFilm.AutoSize = true;
-            this.lblMoFilm.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoFilm.ForeColor = System.Drawing.Color.Black;
-            this.lblMoFilm.Location = new System.Drawing.Point(131, 168);
-            this.lblMoFilm.Name = "lblMoFilm";
-            this.lblMoFilm.Size = new System.Drawing.Size(48, 25);
-            this.lblMoFilm.TabIndex = 0;
-            this.lblMoFilm.Tag = "value";
-            this.lblMoFilm.Text = ".........";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(131, 193);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 25);
-            this.label21.TabIndex = 0;
-            this.label21.Tag = "value";
-            this.label21.Text = ".........";
-            // 
-            // lblDateDelivery
-            // 
-            this.lblDateDelivery.AutoSize = true;
-            this.lblDateDelivery.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateDelivery.ForeColor = System.Drawing.Color.Black;
-            this.lblDateDelivery.Location = new System.Drawing.Point(131, 218);
-            this.lblDateDelivery.Name = "lblDateDelivery";
-            this.lblDateDelivery.Size = new System.Drawing.Size(48, 25);
-            this.lblDateDelivery.TabIndex = 0;
-            this.lblDateDelivery.Tag = "value";
-            this.lblDateDelivery.Text = ".........";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(357, 41);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 25);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "เลขที่ GV :";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(33, 168);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(92, 25);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "โครงสร้าง :";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(21, 118);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(104, 25);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "ลักษณะงาน :";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(24, 143);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 25);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "ขนาดสำเร็จ :";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(64, 92);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(61, 25);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "สินค้า :";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(63, 67);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 25);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "บริษัท :";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(16, 193);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(109, 25);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "สถานที่จัดส่ง :";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(35, 219);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 25);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "วันที่จัดส่ง :";
             // 
             // guna2ControlBox1
             // 
@@ -1198,6 +1225,8 @@
             this.cl_gv_name,
             this.cl_rtfg_name,
             this.cl_rtfg_id,
+            this.cl_spl_name,
+            this.cl_spl_id,
             this.cl_po,
             this.cl_net,
             this.cl_tare,
@@ -1348,6 +1377,22 @@
             this.cl_rtfg_id.Name = "cl_rtfg_id";
             this.cl_rtfg_id.ReadOnly = true;
             this.cl_rtfg_id.Visible = false;
+            // 
+            // cl_spl_name
+            // 
+            this.cl_spl_name.DataPropertyName = "wdt_spl_name";
+            this.cl_spl_name.HeaderText = "SPL Name";
+            this.cl_spl_name.Name = "cl_spl_name";
+            this.cl_spl_name.ReadOnly = true;
+            this.cl_spl_name.Visible = false;
+            // 
+            // cl_spl_id
+            // 
+            this.cl_spl_id.DataPropertyName = "wdt_spl_id";
+            this.cl_spl_id.HeaderText = "SPL ID";
+            this.cl_spl_id.Name = "cl_spl_id";
+            this.cl_spl_id.ReadOnly = true;
+            this.cl_spl_id.Visible = false;
             // 
             // cl_po
             // 
@@ -1740,7 +1785,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1412, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(1433, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1768,18 +1813,6 @@
             this.lblCountTotal.TabIndex = 76;
             this.lblCountTotal.Text = "......";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Athiti", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(155, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 51);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "-JIT";
-            // 
             // msg
             // 
             this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
@@ -1789,25 +1822,25 @@
             this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msg.Text = null;
             // 
-            // panel1
+            // pnMain
             // 
-            this.panel1.Controls.Add(this.lblCountTotal);
-            this.panel1.Controls.Add(this.cbPrint);
-            this.panel1.Controls.Add(this.lblPchTotal);
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.lbNetWgh);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btnReprint);
-            this.panel1.Controls.Add(this.lbGrossWgh);
-            this.panel1.Controls.Add(this.lbTareWgh);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.dgvDetail);
-            this.panel1.Controls.Add(this.gbData);
-            this.panel1.Location = new System.Drawing.Point(4, 77);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1566, 782);
-            this.panel1.TabIndex = 78;
+            this.pnMain.Controls.Add(this.lblCountTotal);
+            this.pnMain.Controls.Add(this.cbPrint);
+            this.pnMain.Controls.Add(this.lblPchTotal);
+            this.pnMain.Controls.Add(this.btnStart);
+            this.pnMain.Controls.Add(this.lbNetWgh);
+            this.pnMain.Controls.Add(this.label9);
+            this.pnMain.Controls.Add(this.label3);
+            this.pnMain.Controls.Add(this.btnReprint);
+            this.pnMain.Controls.Add(this.lbGrossWgh);
+            this.pnMain.Controls.Add(this.lbTareWgh);
+            this.pnMain.Controls.Add(this.groupBox2);
+            this.pnMain.Controls.Add(this.dgvDetail);
+            this.pnMain.Controls.Add(this.gbData);
+            this.pnMain.Location = new System.Drawing.Point(4, 77);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1566, 782);
+            this.pnMain.TabIndex = 78;
             // 
             // gbLoadData
             // 
@@ -1866,9 +1899,21 @@
             this.label10.ForeColor = System.Drawing.Color.Navy;
             this.label10.Location = new System.Drawing.Point(11, 47);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(219, 25);
+            this.label10.Size = new System.Drawing.Size(180, 25);
             this.label10.TabIndex = 80;
-            this.label10.Text = "รายการสินค้า JIT ชั่งเพื่อเก็บเท่านั้น";
+            this.label10.Text = "รายการสินค้าเพื่อทำ CN ใหม่";
+            // 
+            // lblWeightType
+            // 
+            this.lblWeightType.AutoSize = true;
+            this.lblWeightType.BackColor = System.Drawing.Color.White;
+            this.lblWeightType.Font = new System.Drawing.Font("Athiti Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblWeightType.ForeColor = System.Drawing.Color.Navy;
+            this.lblWeightType.Location = new System.Drawing.Point(7, 0);
+            this.lblWeightType.Name = "lblWeightType";
+            this.lblWeightType.Size = new System.Drawing.Size(206, 46);
+            this.lblWeightType.TabIndex = 81;
+            this.lblWeightType.Text = "lblWeightType";
             // 
             // frmRTFG
             // 
@@ -1876,13 +1921,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1571, 863);
+            this.Controls.Add(this.lblWeightType);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.gbLoadData);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.label42);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -1893,6 +1937,8 @@
             this.Load += new System.EventHandler(this.frmRTFG_Load);
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.gbType.ResumeLayout(false);
@@ -1905,8 +1951,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnMain.ResumeLayout(false);
+            this.pnMain.PerformLayout();
             this.gbLoadData.ResumeLayout(false);
             this.gbLoadData.PerformLayout();
             this.ResumeLayout(false);
@@ -1917,7 +1963,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private System.Windows.Forms.Label label42;
         private Guna.UI2.WinForms.Guna2GroupBox gbData;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label lblRetrunQtyPch;
@@ -1927,7 +1972,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblGv;
         private System.Windows.Forms.Label lblPartner;
         private System.Windows.Forms.Label lblProduct;
         private System.Windows.Forms.Label lblMoType;
@@ -1936,7 +1980,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtOperator;
         private System.Windows.Forms.Label lblMoFilm;
         private System.Windows.Forms.Label lblDateDelivery;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -1956,8 +1999,6 @@
         private System.Windows.Forms.Label lbGrossWgh;
         private System.Windows.Forms.Label lbTareWgh;
         private Guna.UI2.WinForms.Guna2GradientButton btnStart;
-        private System.Windows.Forms.Label lblRtfg;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2GroupBox gbType;
@@ -1997,14 +2038,14 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label lblPchTotal;
         private System.Windows.Forms.Label lblCountTotal;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2MessageDialog msg;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnMain;
         private Guna.UI2.WinForms.Guna2GroupBox gbLoadData;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewButtonColumn cl_del;
         private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
         private System.Windows.Forms.DataGridViewButtonColumn cl_print;
@@ -2015,6 +2056,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_gv_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_spl_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_spl_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_po;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_net;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_tare;
@@ -2036,6 +2079,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numroll;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numrollAll;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblMoBlock;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblWeightType;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblNewSaleOrder;
+        private System.Windows.Forms.Label label13;
     }
 }
