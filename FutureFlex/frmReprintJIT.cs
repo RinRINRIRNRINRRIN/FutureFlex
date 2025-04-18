@@ -178,6 +178,7 @@ namespace FutureFlex
                         break;
                     }
                     }
+                    await Task.Delay(1000);
                     lblQRCODE.Focus();
                 }
                 else
