@@ -117,10 +117,10 @@ namespace FutureFlex
             Log.Information("=================================================================  Open program");
 
             // เช็คโปรแกรมว่ามีเปิดซ้ำหรือไม่
-            if (Function.Function.CHECK_PROGRAM())
+            if (CHECK_PROGRAM())
             {
-                int x = (this.Width - gbConnection.Width) / 2;
-                int y = (this.Height - gbConnection.Height) / 2;
+                int x = (panel1.Width - gbConnection.Width) / 2;
+                int y = (panel1.Height - gbConnection.Height) / 2;
                 gbConnection.Location = new System.Drawing.Point(x, y);
                 gbConnection.Show();
                 gbConnection.Visible = true;
@@ -132,15 +132,20 @@ namespace FutureFlex
                     await Task.Delay(900);
                     label1.Text = "Connect success";
                     await Task.Delay(1000);
+                    label1.Text = "Check version software";
+                    //if (CheckVersion())
+                    //{
+                    //}
                     gbConnection.Visible = false;
-
                     txtUsername.Focus();
                 }
                 else
                 {
                     Log.Warning("ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
                     label1.Text = "Connect fail";
-                    MessageBox.Show("ไม่สามารถเชื่อมต่อฐานข้อมูลได้", "Error connect database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    md.Icon = MessageDialogIcon.Error;
+                    md.Buttons = MessageDialogButtons.OK;
+                    md.Show($"Fails to connect database\nError : {server.ERR}", "Error Server");
                     Application.Exit();
                 }
             }
