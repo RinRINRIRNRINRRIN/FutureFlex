@@ -509,28 +509,6 @@ namespace FutureFlex
             }
         }
 
-        private void txtNunMeter_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (txtNunMeter.Text != "0")
-                {
-                    string[] a = lblMoWork.Text.Split(' ');
-                    string b = a[2];
-                    double c = double.Parse(b) / 1000;
-                    double d = double.Parse(txtNunMeter.Text) / c;
-                    string[] f = d.ToString().Split('.');
-                    txtPchRoll.Text = f[0];
-                }
-
-            }
-            catch (Exception)
-            {
-
-
-            }
-        }
 
         private void frmRTFG_FormClosing(object sender, FormClosingEventArgs e)
         {
