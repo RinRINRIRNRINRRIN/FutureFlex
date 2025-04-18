@@ -616,7 +616,6 @@ namespace FutureFlex
 
             #region RECEIVE DATA
             //string data = Function.Function.RS232(spScale);
-
             string net = "";
             string tare = "0.00";
             string gross = "0.00";
@@ -653,7 +652,7 @@ namespace FutureFlex
             {
                 double cors = Convert.ToDouble(txtWghCors.Text);
                 double _net = double.Parse(net) - cors;
-                net = _net.ToString("#,###.00");
+                net = _net.ToString();
                 BeginInvoke(new MethodInvoker(delegate ()
                 {
                     lbNetWgh.Text = net;
@@ -734,7 +733,6 @@ namespace FutureFlex
                 }
 
                 #region SAVE DATA
-
                 // insert new data
                 string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string _Time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
