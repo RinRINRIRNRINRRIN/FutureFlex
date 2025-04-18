@@ -825,7 +825,6 @@ namespace FutureFlex
                 case "rdFrontSide":
                     statusSide = "front";
                     break;
-
             }
         }
 
@@ -880,23 +879,31 @@ namespace FutureFlex
             {
                 if (txtNunMeter.Text != "")
                 {
-                    string[] a = lblMoWork.Text.Split('X');
-                    string[] b = a[1].Split(' ');
-                    double c = double.Parse(b[1].Trim()) / 1000;
+                    if (txtNunMeter.Text != "0")
+                    {
+                        string a = MRP.pch_length.ToString();
+
+                        if (MRP.shrink_mm != 0)
+                        {
+                            double aa = MRP.pch_length + MRP.shrink_mm;
+                            a = aa.ToString();
+                        }
+
+                        double c = double.Parse(a) / 1000;
                     double d = double.Parse(txtNunMeter.Text) / c;
-                    string[] f = d.ToString().Split('.');
-                    txtPchRoll.Text = f[0];
+
+                        double total = Math.Truncate(d);
+                        txtPchRoll.Text = total.ToString();
+                    }
 
                     // ถ้าจะนวนความยาวม้วนเต็มทั้งหมด เป็น 0 ไม่ต้องคำนวนต่อ
-                    if (label8.Text == "0")
+                    if (MRP.product_roll_length != 0)
                     {
-                        return;
-                    }
                     double numMetPerRoll = MRP.product_roll_length;
                     double numMet = double.Parse(txtNunMeter.Text);
                     double total = numMet / numMetPerRoll;
                     txtNumRoll.Text = total.ToString("F2");
-
+                    }
                 }
             }
             catch (Exception)
@@ -904,7 +911,6 @@ namespace FutureFlex
 
 
             }
-
         }
     }
 }
