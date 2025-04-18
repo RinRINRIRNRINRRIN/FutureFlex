@@ -803,11 +803,11 @@ namespace FutureFlex
                 await func_tcpClient.SendDataAsync("GET_DATA");
             });
             // Print Sticker
+            _ = Task.Run(() =>
+            {
             SetPaperAndPrint();
-
-            // รวมน้ำหนัก
             ShowDataGridAndCountPchOrWeight();
-            await func_tcpClient.SendDataAsync("GET_DATA");
+            });
             #endregion
         }
 
