@@ -700,10 +700,15 @@ namespace FutureFlex
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+            try
+            {
             Guna2GradientButton btn = sender as Guna2GradientButton;
             switch (btn.Text)
             {
                 case "เริ่มชั่งสินค้า":
+
+
+
                     Log.Information($"== เริ่มชั่งสินค้า");
                     // เช็คว่าเลือกข้อมูลครบหรือไม่
                     if (statusCounty == "" || statusSide == "" || statusType == "" || txtOperator.Text == "" || txtNumRoll.Text == "")
@@ -761,6 +766,18 @@ namespace FutureFlex
                         }
                     }
 
+                        if (spScale.IsOpen)
+                        {
+                            spScale.Close();
+                        }
+                        // กำหนดค่าให้กับ serialpor
+                        spScale.PortName = func_serialport.COM_SCALE;
+                        spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
+                        spScale.Open();
+                        Log.Information($"==================================================== Serial port open");
+                        Log.Information($"-- COM SCALE : {spScale.PortName}");
+                        Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
+                        Log.Information($"Scale is connected");
                     // ปิดปุ่ต่่าง ๆ 
                     isStart = true;
 
