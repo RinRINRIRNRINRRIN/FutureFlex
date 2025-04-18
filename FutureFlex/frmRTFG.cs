@@ -786,23 +786,17 @@ namespace FutureFlex
                 #endregion
             }
 
+
+            // loop อ่านค่าจาก datatable
             foreach (DataRow rw in tb.Rows)
             {
-                func_print._seq = rw["wdt_seqOrigin"].ToString();
-                func_print._statusType = statusType;
-                func_print._net = lbNetWgh.Text;
-                func_print._numBox = txtNumBox.Text;
-                func_print._numRoll = txtNumRollAll.Text;
-                func_print._numMeter = txtNunMeter.Text;
-                func_print._pchBox = txtPchBox.Text;
-                func_print._pchRoll = txtPchRoll.Text;
-                func_print._wghPaper = txtWghPaper.Text;
-                func_print._wghCore = txtWghCors.Text;
-                func_print.pictureBox1 = pictureBox1;
-                func_print._operator = txtOperator.Text;
-                func_print._lot = rw["wdt_lot"].ToString();
+                string Seq = rw["wdt_seqOrigin"].ToString();
+                string Lot = rw["wdt_lot"].ToString();
+
+                DefinePrintParameter(Seq, statusType, lbNetWgh.Text, txtNumBox.Text, txtNumRollAll.Text, txtNunMeter.Text, txtPchBox.Text, txtPchRoll.Text, txtWghPaper.Text, txtWghCors.Text, txtOperator.Text, Lot, weightType);
                 break;
             }
+
             #region Print Data
             //DefinePrintParameter();
             // Print Sticker
