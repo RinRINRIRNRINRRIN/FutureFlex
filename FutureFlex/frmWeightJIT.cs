@@ -936,8 +936,178 @@ namespace FutureFlex
                     dgvDetail.Enabled = false;
                     Log.Information($"== หยุดชั่งสินค้า");
                     break;
+                }
             }
+            catch (Exception ex)
+            {
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show(ex.Message, "Error");
+            }
+
         }
 
+        private void spScale_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                string aaaaa = spScale.ReadLine();
+                Console.WriteLine(aaaaa);
+                if (!isStart)
+                {
+                    return;
+                }
+
+                #region RECEIVE DATA
+                //string data = Function.Function.RS232(spScale);
+
+                string net = "";
+                string tare = "0.00";
+                string gross = "0.00";
+
+                string a = spScale.ReadLine();
+                string[] b = a.Split('\r');
+                for (int i = 0; i < b.Length; i++)
+                {
+                    if (b[i].Contains("NET"))
+                    {
+                        Console.WriteLine(b[i]);
+                        Console.WriteLine(b[i].Length);
+                        string strSup = b[i].Substring(13, b[i].Length - 13).Trim();
+                        double weight = double.Parse(strSup);
+                        net = strSup;
+                        break;
+                    }
+                }
+                // สดงข้อมูลน้ำหนักที่อ่านมาได้
+                BeginInvoke(new MethodInvoker(delegate ()
+                {
+                    lbTareWgh.Text = tare;
+                    lbGrossWgh.Text = gross;
+                }));
+
+                if (statusType == "box")
+                {
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        lbNetWgh.Text = net;
+                    }));
+                }
+                else if (statusType == "roll")
+                {
+                    double cors = Convert.ToDouble(txtWghCors.Text);
+                    double _net = double.Parse(net) - cors;
+                    net = _net.ToString("#,###.00");
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        lbNetWgh.Text = net;
+                    }));
+                    Log.Information($"- น้ำหนักแกน - น้ำหนักสุทธิ์ {net}");
+                }
+                #endregion
+                DataTable tb = new DataTable();
+
+                // เช็คว่าเป็น UPDATE or INSERT
+                if (isEdit) // UDPATE
+                {
+                    #region UPDATE
+                    tb = tbWeightDetail.UPDATE(_id.ToString(), double.Parse(net), double.Parse(tare), double.Parse(gross));
+                    if (tb.Rows.Count != 0)
+                    {
+                        isEdit = false;
+                        _id = 0;
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            dgvDetail.Enabled = true;
+                        }));
+                    }
+                    else
+                    {
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            msg.Icon = MessageDialogIcon.Error;
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Show($"Error update weight \nError {tbWeightDetail.ERR}", "Update error");
+                        }));
+                        return;
+                    }
+                    #endregion
+                }
+                else // INSERT
+                {
+                    #region SAVE DATA
+
+                    string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+                    string _Time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
+                    string _lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}";
+
+
+                    // insert new data
+                    double _net = double.Parse(net);
+                    double _tare = double.Parse(tare);
+                    double _gross = double.Parse(gross);
+                    double _wgh_paper_plasic = double.Parse(txtWghPaper.Text);
+                    double _wgh_core = double.Parse(txtWghCors.Text);
+                    double _wgh_joint = double.Parse(txtJoint.Text);
+                    int _numBox = int.Parse(txtNumBox.Text);
+                    int _numRollAll = int.Parse(txtNumRollAll.Text);
+                    double _numRoll = double.Parse(txtNumRoll.Text);
+                    double _wgh_meter_kg_in_rolll = 0;
+                    int _pch = 0;
+
+                    switch (statusType)
+                    {
+                        case "box":
+                            _wgh_meter_kg_in_rolll = 0;
+                            _pch = int.Parse(txtPchBox.Text);
+                            break;
+                        case "roll":
+                            _wgh_meter_kg_in_rolll = double.Parse(txtNunMeter.Text);
+                            _pch = int.Parse(txtPchRoll.Text);
+                            break;
+            }
+
+                    tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), "", 0, "", 0, "", "", statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "JIT", "S");
+                    #endregion
+                }
+
+                if (tb.Rows.Count == 0)
+                {
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        msg.Icon = MessageDialogIcon.Error;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show($"Save weight error \nError : {tbWeightDetail.ERR}", "Save Error");
+                    }));
+                    return;
+        }
+
+                // loop อ่านค่าจาก datatable
+                foreach (DataRow rw in tb.Rows)
+                {
+                    string Seq = rw["wdt_seqOrigin"].ToString();
+                    string Lot = rw["wdt_lot"].ToString();
+
+                    DefinePrintParameter(Seq, statusType, lbNetWgh.Text, txtNumBox.Text, txtNumRoll.Text, txtNunMeter.Text, txtPchBox.Text, txtPchRoll.Text, txtWghPaper.Text, txtWghCors.Text, txtOperator.Text, Lot, "JIT");
+                    break;
+                }
+                #region Print Data
+                _ = Task.Run(async () =>
+                {
+                    await func_tcpClient.SendDataAsync("GET_DATA");
+                });
+                // Print Sticker
+                _ = Task.Run(() =>
+                {
+                    SetPaperAndPrint();
+                    ShowDataGridAndCountPchOrWeight();
+                });
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error : weight " + ex.Message);
+            }
+        }
     }
 }
