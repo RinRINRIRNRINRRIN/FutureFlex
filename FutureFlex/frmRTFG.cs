@@ -502,6 +502,8 @@ namespace FutureFlex
         private void RaidoButtonRecheckBoxAndRoll(object sender, EventArgs e)
         {
             RadioButton rdbName = sender as RadioButton;
+            if (rdbName.Checked)
+            {
             switch (rdbName.Name)
             {
                 case "rdTypeRoll":
@@ -518,7 +520,8 @@ namespace FutureFlex
                     gbSide.Enabled = false;
                     EnableAndDisableData("box");
                     break;
-
+                }
+                        ShowDataGridAndCountPchOrWeight();
             }
         }
 
