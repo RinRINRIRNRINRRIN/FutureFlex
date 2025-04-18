@@ -75,6 +75,20 @@ namespace FutureFlex
             }
         }
 
+        bool CheckVersion()
+        {
+            if (!systems.CheckVersion())
+            {
+                msg.Icon = MessageDialogIcon.Information;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Have new version please update", "New version update");
+                Application.Exit();
+                Process.Start("Notepad");
+                return false;
+            }
+            return true;
+        }
+
         private async void frmLogin_Load(object sender, EventArgs e)
         {
             Log.Information("=================================================================  Open program");
