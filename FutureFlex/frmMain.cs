@@ -1,4 +1,5 @@
-﻿using FutureFlex.SQL;
+﻿using FutureFlex.Models;
+using FutureFlex.SQL;
 using Guna.UI2.WinForms;
 using Serilog;
 using System;
@@ -87,5 +88,16 @@ namespace FutureFlex
             }
         }
 
+        private void btnPO_Click(object sender, EventArgs e)
+        {
+            frmWeightPO frmWeightPO = new frmWeightPO();
+            frmWeightPO.ShowDialog();
+        }
+
+        private void btnJIT_Click(object sender, EventArgs e)
+        {
+            frmWeightJIT frmWeightJIT = new frmWeightJIT();
+            frmWeightJIT.ShowDialog();
+        }
     }
 }

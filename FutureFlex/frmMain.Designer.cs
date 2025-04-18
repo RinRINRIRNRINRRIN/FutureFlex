@@ -45,13 +45,15 @@ namespace FutureFlex
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.btnWeight = new Guna.UI2.WinForms.Guna2Button();
             this.btnReprintJIT = new Guna.UI2.WinForms.Guna2Button();
             this.btnHistory = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.btnRTFG = new Guna.UI2.WinForms.Guna2Button();
             this.md = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.btnSplit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPO = new Guna.UI2.WinForms.Guna2Button();
+            this.btnJIT = new Guna.UI2.WinForms.Guna2Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -182,19 +184,17 @@ namespace FutureFlex
             this.btnAccount.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAccount.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAccount.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAccount.Enabled = false;
             this.btnAccount.FillColor = System.Drawing.Color.GhostWhite;
             this.btnAccount.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccount.ForeColor = System.Drawing.Color.Navy;
             this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
             this.btnAccount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAccount.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnAccount.Location = new System.Drawing.Point(903, 57);
+            this.btnAccount.Location = new System.Drawing.Point(1110, 57);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(160, 39);
+            this.btnAccount.Size = new System.Drawing.Size(55, 39);
             this.btnAccount.TabIndex = 5;
             this.btnAccount.Tag = "account";
-            this.btnAccount.Text = "จัดการบัญชีผู้ใช้";
             this.btnAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAccount.Click += new System.EventHandler(this.MenuSelect);
             // 
@@ -209,19 +209,17 @@ namespace FutureFlex
             this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSetting.Enabled = false;
             this.btnSetting.FillColor = System.Drawing.Color.GhostWhite;
             this.btnSetting.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetting.ForeColor = System.Drawing.Color.Navy;
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnSetting.Location = new System.Drawing.Point(1068, 57);
+            this.btnSetting.Location = new System.Drawing.Point(1171, 57);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(160, 39);
+            this.btnSetting.Size = new System.Drawing.Size(55, 39);
             this.btnSetting.TabIndex = 4;
             this.btnSetting.Tag = "setting";
-            this.btnSetting.Text = "ตั้งค่าการใช้งาน";
             this.btnSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSetting.Click += new System.EventHandler(this.MenuSelect);
             // 
@@ -249,32 +247,6 @@ namespace FutureFlex
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
-            // btnWeight
-            // 
-            this.btnWeight.BorderColor = System.Drawing.Color.SlateBlue;
-            this.btnWeight.BorderRadius = 6;
-            this.btnWeight.BorderThickness = 1;
-            this.btnWeight.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWeight.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnWeight.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnWeight.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnWeight.Enabled = false;
-            this.btnWeight.FillColor = System.Drawing.Color.GhostWhite;
-            this.btnWeight.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeight.ForeColor = System.Drawing.Color.Navy;
-            this.btnWeight.Image = ((System.Drawing.Image)(resources.GetObject("btnWeight.Image")));
-            this.btnWeight.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnWeight.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnWeight.Location = new System.Drawing.Point(12, 57);
-            this.btnWeight.Name = "btnWeight";
-            this.btnWeight.Size = new System.Drawing.Size(160, 39);
-            this.btnWeight.TabIndex = 10;
-            this.btnWeight.Tag = "weight";
-            this.btnWeight.Text = "ชั่งรายการสินค้า";
-            this.btnWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnWeight.Click += new System.EventHandler(this.MenuSelect);
-            // 
             // btnReprintJIT
             // 
             this.btnReprintJIT.BorderColor = System.Drawing.Color.SlateBlue;
@@ -285,14 +257,13 @@ namespace FutureFlex
             this.btnReprintJIT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnReprintJIT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnReprintJIT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReprintJIT.Enabled = false;
             this.btnReprintJIT.FillColor = System.Drawing.Color.GhostWhite;
             this.btnReprintJIT.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReprintJIT.ForeColor = System.Drawing.Color.Navy;
             this.btnReprintJIT.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintJIT.Image")));
             this.btnReprintJIT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnReprintJIT.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnReprintJIT.Location = new System.Drawing.Point(341, 57);
+            this.btnReprintJIT.Location = new System.Drawing.Point(736, 57);
             this.btnReprintJIT.Name = "btnReprintJIT";
             this.btnReprintJIT.Size = new System.Drawing.Size(160, 39);
             this.btnReprintJIT.TabIndex = 11;
@@ -311,14 +282,13 @@ namespace FutureFlex
             this.btnHistory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnHistory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnHistory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHistory.Enabled = false;
             this.btnHistory.FillColor = System.Drawing.Color.GhostWhite;
             this.btnHistory.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistory.ForeColor = System.Drawing.Color.Navy;
             this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
             this.btnHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHistory.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnHistory.Location = new System.Drawing.Point(506, 57);
+            this.btnHistory.Location = new System.Drawing.Point(902, 57);
             this.btnHistory.Name = "btnHistory";
             this.btnHistory.Size = new System.Drawing.Size(202, 39);
             this.btnHistory.TabIndex = 12;
@@ -363,7 +333,7 @@ namespace FutureFlex
             this.btnRTFG.Image = ((System.Drawing.Image)(resources.GetObject("btnRTFG.Image")));
             this.btnRTFG.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRTFG.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnRTFG.Location = new System.Drawing.Point(176, 57);
+            this.btnRTFG.Location = new System.Drawing.Point(383, 57);
             this.btnRTFG.Name = "btnRTFG";
             this.btnRTFG.Size = new System.Drawing.Size(160, 39);
             this.btnRTFG.TabIndex = 23;
@@ -381,6 +351,81 @@ namespace FutureFlex
             this.md.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             this.md.Text = null;
             // 
+            // btnSplit
+            // 
+            this.btnSplit.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btnSplit.BorderRadius = 6;
+            this.btnSplit.BorderThickness = 1;
+            this.btnSplit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSplit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSplit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSplit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSplit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSplit.FillColor = System.Drawing.Color.GhostWhite;
+            this.btnSplit.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSplit.ForeColor = System.Drawing.Color.Navy;
+            this.btnSplit.Image = ((System.Drawing.Image)(resources.GetObject("btnSplit.Image")));
+            this.btnSplit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSplit.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSplit.Location = new System.Drawing.Point(549, 57);
+            this.btnSplit.Name = "btnSplit";
+            this.btnSplit.Size = new System.Drawing.Size(181, 39);
+            this.btnSplit.TabIndex = 24;
+            this.btnSplit.Tag = "split";
+            this.btnSplit.Text = "แบ่งม้วน / กล่อง";
+            this.btnSplit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSplit.Click += new System.EventHandler(this.MenuSelect);
+            // 
+            // btnPO
+            // 
+            this.btnPO.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btnPO.BorderRadius = 6;
+            this.btnPO.BorderThickness = 1;
+            this.btnPO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPO.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPO.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPO.FillColor = System.Drawing.Color.GhostWhite;
+            this.btnPO.Font = new System.Drawing.Font("Athiti", 12F);
+            this.btnPO.ForeColor = System.Drawing.Color.Navy;
+            this.btnPO.Image = ((System.Drawing.Image)(resources.GetObject("btnPO.Image")));
+            this.btnPO.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPO.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPO.Location = new System.Drawing.Point(12, 57);
+            this.btnPO.Name = "btnPO";
+            this.btnPO.Size = new System.Drawing.Size(178, 39);
+            this.btnPO.TabIndex = 25;
+            this.btnPO.Tag = "weightPO";
+            this.btnPO.Text = "ชั่งรายการสินค้า PO";
+            this.btnPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnPO.Click += new System.EventHandler(this.btnPO_Click);
+            // 
+            // btnJIT
+            // 
+            this.btnJIT.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btnJIT.BorderRadius = 6;
+            this.btnJIT.BorderThickness = 1;
+            this.btnJIT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJIT.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnJIT.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnJIT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnJIT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnJIT.FillColor = System.Drawing.Color.GhostWhite;
+            this.btnJIT.Font = new System.Drawing.Font("Athiti", 12F);
+            this.btnJIT.ForeColor = System.Drawing.Color.Navy;
+            this.btnJIT.Image = ((System.Drawing.Image)(resources.GetObject("btnJIT.Image")));
+            this.btnJIT.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnJIT.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnJIT.Location = new System.Drawing.Point(196, 57);
+            this.btnJIT.Name = "btnJIT";
+            this.btnJIT.Size = new System.Drawing.Size(181, 39);
+            this.btnJIT.TabIndex = 26;
+            this.btnJIT.Tag = "weightJIT";
+            this.btnJIT.Text = "ชั่งรายการสินค้า JIT";
+            this.btnJIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnJIT.Click += new System.EventHandler(this.btnJIT_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -388,27 +433,28 @@ namespace FutureFlex
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1240, 713);
+            this.Controls.Add(this.btnJIT);
+            this.Controls.Add(this.btnPO);
+            this.Controls.Add(this.btnSplit);
             this.Controls.Add(this.btnRTFG);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnSetting);
+            this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.btnReprintJIT);
-            this.Controls.Add(this.btnWeight);
-            this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.guna2ControlBox3);
             this.Controls.Add(this.guna2ControlBox2);
-            this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Future Flex Ver 0.0.1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
@@ -432,7 +478,6 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2Button btnSetting;
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private Guna.UI2.WinForms.Guna2NotificationPaint notify1;
-        private Guna.UI2.WinForms.Guna2Button btnWeight;
         private Guna.UI2.WinForms.Guna2Button btnReprintJIT;
         private Guna.UI2.WinForms.Guna2Button btnHistory;
         private System.Windows.Forms.ToolStripStatusLabel tShowServerName;
@@ -441,6 +486,9 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Button btnRTFG;
         private Guna.UI2.WinForms.Guna2MessageDialog md;
+        private Guna.UI2.WinForms.Guna2Button btnSplit;
+        private Guna.UI2.WinForms.Guna2Button btnJIT;
+        private Guna.UI2.WinForms.Guna2Button btnPO;
     }
 }
 
