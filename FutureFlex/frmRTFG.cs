@@ -730,38 +730,48 @@ namespace FutureFlex
 
                 #region SAVE DATA
 
+                // insert new data
                 string _date = DateTime.Now.ToString("dd/MM/yy", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string _Time = DateTime.Now.ToString("HH:mm:ss", System.Globalization.CultureInfo.CreateSpecificCulture("EN-en"));
                 string _lot = $"{MRP.name}{_date.Replace("/", "").Trim()}{_Time.Replace(":", "").Trim()}";
 
 
                 // insert new data
-                //tbWeightDetail.seq = _seq;
-                tbWeightDetail.net = decimal.Parse(lbNetWgh.Text);
-                tbWeightDetail.tare = decimal.Parse(lbTareWgh.Text);
-                tbWeightDetail.gross = decimal.Parse(lbGrossWgh.Text);
-                tbWeightDetail.wgh_paper_plastic = decimal.Parse(txtWghPaper.Text);
-                tbWeightDetail.wgh_core_total = decimal.Parse(txtWghCors.Text);
-                tbWeightDetail.wgh_joint = decimal.Parse(txtJoint.Text);
-                tbWeightDetail.numbox = int.Parse(txtNumBox.Text);
-                tbWeightDetail.numrollAll = int.Parse(txtNumRollAll.Text);
-                tbWeightDetail.numroll = decimal.Parse(txtNumRoll.Text);
-
+                double _net = double.Parse(net);
+                double _tare = double.Parse(tare);
+                double _gross = double.Parse(gross);
+                double _wgh_paper_plasic = double.Parse(txtWghPaper.Text);
+                double _wgh_core = double.Parse(txtWghCors.Text);
+                double _wgh_joint = double.Parse(txtJoint.Text);
+                int _numBox = int.Parse(txtNumBox.Text);
+                int _numRollAll = int.Parse(txtNumRollAll.Text);
+                double _numRoll = double.Parse(txtNumRoll.Text);
+                double _wgh_meter_kg_in_rolll = 0;
+                int _pch = 0;
                 switch (statusType)
                 {
                     case "box":
-                        tbWeightDetail.wgh_meter_kg_in_roll = 0;
-                        tbWeightDetail.pch = int.Parse(txtPchBox.Text);
+                        _wgh_meter_kg_in_rolll = 0;
+                        _pch = int.Parse(txtPchBox.Text);
                         break;
                     case "roll":
-                        tbWeightDetail.wgh_meter_kg_in_roll = decimal.Parse(txtNunMeter.Text);
-                        tbWeightDetail.pch = int.Parse(txtPchRoll.Text);
+                        _wgh_meter_kg_in_rolll = double.Parse(txtNunMeter.Text);
+                        _pch = int.Parse(txtPchRoll.Text);
+                        break;
+                }
+                string printType = "";
+                switch (weightType)
+                {
+                    case "PO":
+                        printType = "L";
+                        tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), RTFG.Name, RTFG.Id, "", 0, RTFG.new_po_customer, RTFG.new_sale_name, statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "RTFG", printType);
+                        break;
+                    case "JIT":
+                        printType = "S";
+                        tb = tbWeightDetail.INSERT_DATA(MRP.name, int.Parse(MRP.id), RTFG.Name, RTFG.Id, "", 0, "", "", statusCounty, statusType, statusSide, _net, _tare, _gross, _wgh_paper_plasic, _wgh_core, _wgh_joint, _wgh_meter_kg_in_rolll, _numBox, _numRollAll, _numRoll, _pch, _lot, txtOperator.Text, "RTFG", printType);
                         break;
                 }
 
-                tbWeightDetail.lot = _lot;
-                tbWeightDetail.oparator = txtOperator.Text;
-                tb = tbWeightDetail.INSERT_DATA();
                 // บันทึกข้อมูล
                 if (tb.Rows.Count == 0)
                 {
