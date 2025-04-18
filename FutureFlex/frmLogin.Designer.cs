@@ -45,21 +45,26 @@ namespace FutureFlex
             this.btnExit = new Guna.UI2.WinForms.Guna2GradientButton();
             this.md = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.label3 = new System.Windows.Forms.Label();
+            this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gbConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbConnection
             // 
             this.gbConnection.BackColor = System.Drawing.Color.White;
-            this.gbConnection.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.gbConnection.BorderColor = System.Drawing.Color.SteelBlue;
             this.gbConnection.BorderRadius = 3;
             this.gbConnection.Controls.Add(this.label1);
             this.gbConnection.Controls.Add(this.guna2CircleProgressBar1);
-            this.gbConnection.CustomBorderColor = System.Drawing.Color.Navy;
+            this.gbConnection.CustomBorderColor = System.Drawing.Color.SteelBlue;
             this.gbConnection.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbConnection.ForeColor = System.Drawing.Color.White;
-            this.gbConnection.Location = new System.Drawing.Point(20, 201);
+            this.gbConnection.Location = new System.Drawing.Point(14, 11);
             this.gbConnection.Name = "gbConnection";
             this.gbConnection.Size = new System.Drawing.Size(215, 106);
             this.gbConnection.TabIndex = 7;
@@ -99,15 +104,15 @@ namespace FutureFlex
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(84, 390);
+            this.label5.Location = new System.Drawing.Point(3, 218);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 21);
+            this.label5.Size = new System.Drawing.Size(236, 21);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Version  1.2.1";
+            this.label5.Text = "Version  1.3.1";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2BorderlessForm1
             // 
@@ -132,9 +137,9 @@ namespace FutureFlex
             this.btnLogin.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.btnLogin.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
             this.btnLogin.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnLogin.Location = new System.Drawing.Point(38, 293);
+            this.btnLogin.Location = new System.Drawing.Point(28, 118);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(180, 34);
+            this.btnLogin.Size = new System.Drawing.Size(180, 37);
             this.btnLogin.TabIndex = 14;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
@@ -148,7 +153,7 @@ namespace FutureFlex
             this.cbShowPassword.CheckedState.BorderThickness = 0;
             this.cbShowPassword.CheckedState.FillColor = System.Drawing.Color.Navy;
             this.cbShowPassword.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cbShowPassword.Location = new System.Drawing.Point(44, 259);
+            this.cbShowPassword.Location = new System.Drawing.Point(34, 87);
             this.cbShowPassword.Name = "cbShowPassword";
             this.cbShowPassword.Size = new System.Drawing.Size(114, 25);
             this.cbShowPassword.TabIndex = 15;
@@ -164,10 +169,10 @@ namespace FutureFlex
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.White;
             this.guna2CirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox1.Image")));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(68, 55);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(398, 12);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(109, 102);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2CirclePictureBox1.TabIndex = 8;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -188,7 +193,7 @@ namespace FutureFlex
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtUsername.IconLeft")));
-            this.txtUsername.Location = new System.Drawing.Point(38, 183);
+            this.txtUsername.Location = new System.Drawing.Point(28, 11);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -217,7 +222,7 @@ namespace FutureFlex
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtPassword.IconLeft")));
-            this.txtPassword.Location = new System.Drawing.Point(38, 225);
+            this.txtPassword.Location = new System.Drawing.Point(28, 53);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -236,8 +241,8 @@ namespace FutureFlex
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Athiti Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(18, 1);
+            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label2.Location = new System.Drawing.Point(34, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(227, 51);
             this.label2.TabIndex = 10;
@@ -252,16 +257,16 @@ namespace FutureFlex
             this.btnExit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExit.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnExit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(0)))), ((int)(((byte)(31)))));
-            this.btnExit.FillColor2 = System.Drawing.Color.CornflowerBlue;
+            this.btnExit.FillColor = System.Drawing.Color.SteelBlue;
+            this.btnExit.FillColor2 = System.Drawing.Color.MidnightBlue;
             this.btnExit.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
-            this.btnExit.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
-            this.btnExit.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(0)))), ((int)(((byte)(31)))));
-            this.btnExit.Location = new System.Drawing.Point(38, 330);
+            this.btnExit.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.btnExit.HoverState.FillColor2 = System.Drawing.Color.SteelBlue;
+            this.btnExit.Location = new System.Drawing.Point(64, 161);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(180, 33);
+            this.btnExit.Size = new System.Drawing.Size(105, 33);
             this.btnExit.TabIndex = 16;
             this.btnExit.Text = "EXIT";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -271,7 +276,7 @@ namespace FutureFlex
             this.md.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
             this.md.Caption = null;
             this.md.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
-            this.md.Parent = null;
+            this.md.Parent = this;
             this.md.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             this.md.Text = null;
             // 
@@ -281,12 +286,47 @@ namespace FutureFlex
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 369);
+            this.label3.Location = new System.Drawing.Point(7, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 21);
+            this.label3.Size = new System.Drawing.Size(232, 21);
             this.label3.TabIndex = 17;
             this.label3.Text = "SS6708270";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // msg
+            // 
+            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msg.Caption = null;
+            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.msg.Parent = null;
+            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            this.msg.Text = null;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(12, 55);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(314, 302);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 18;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gbConnection);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.txtUsername);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.cbShowPassword);
+            this.panel1.Location = new System.Drawing.Point(334, 111);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(242, 245);
+            this.panel1.TabIndex = 19;
             // 
             // frmLogin
             // 
@@ -295,17 +335,11 @@ namespace FutureFlex
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(257, 419);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.gbConnection);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnLogin);
+            this.ClientSize = new System.Drawing.Size(591, 366);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2CirclePictureBox1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.cbShowPassword);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -315,9 +349,13 @@ namespace FutureFlex
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.gbConnection.ResumeLayout(false);
             this.gbConnection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +376,8 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2GradientButton btnExit;
         private Guna.UI2.WinForms.Guna2MessageDialog md;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2MessageDialog msg;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

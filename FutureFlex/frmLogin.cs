@@ -2,6 +2,7 @@
 using Guna.UI2.WinForms;
 using Serilog;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,9 +19,7 @@ namespace FutureFlex
 .WriteTo.File(Application.StartupPath + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
 .WriteTo.Console(Serilog.Events.LogEventLevel.Debug)
 .CreateLogger();
-
-
-            this.Size = new System.Drawing.Size(257, 401);
+            label5.Text = $"Version {systems.Versoin}";
         }
 
         void Login()
@@ -162,7 +161,6 @@ namespace FutureFlex
                 Application.Exit();
             }
         }
-
 
         private void txtUsername_KeyDown(object sender, KeyEventArgs e)
         {
