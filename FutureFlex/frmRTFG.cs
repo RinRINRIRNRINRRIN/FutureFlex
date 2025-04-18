@@ -577,7 +577,7 @@ namespace FutureFlex
                     break;
                 case "หยุดคืนสินค้า":
                     isStart = false;
-
+                    spScale.Close();
                     btn.Text = "เริ่มคืนสินค้า";
                     dgvDetail.Enabled = false;
                     Log.Information($"== หยุดคืนสินค้า");
