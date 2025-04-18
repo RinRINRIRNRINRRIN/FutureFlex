@@ -267,17 +267,6 @@ namespace FutureFlex
                     GetMessage();
                 });
 
-                // กำหนดค่าให้กับ serialport
-                spScale.PortName = func_serialport.COM_SCALE;
-                spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
-                spScale.Open();
-
-                Log.Information($"== Serial port open");
-                Log.Information($"-- COM SCALE : {spScale.PortName}");
-                Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
-                Log.Information($"Scale is connected");
-
-                //spScanner.Open();
                 // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
                 if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; }
                 if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
