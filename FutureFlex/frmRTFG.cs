@@ -30,13 +30,38 @@ namespace FutureFlex
         /// </summary>
         private string statusType { get; set; }
 
-        private string statusCounty { get; set; }   ///// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
-        private string statusSide { get; set; }    ///// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
-        private bool statusPrint { get; set; } = false;// ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
+        /// <summary>
+        /// ใช่้สำหรับเก็บค่า การเลือกประเทศ จาก Groupbox 
+        /// </summary>
+        private string statusCounty { get; set; }
 
-        private bool isStart { get; set; } = false; // สำหรับเก็บค่าว่า เริ่มหรือยัง
+        /// <summary>
+        /// ใช่้สำหรับเก็บค่า การเลือกด้าน จาก Groupbox 
+        /// </summary>
+        private string statusSide { get; set; }
 
-        private int _id { get; set; } = 0; // สำหรับเช็คว่ามีค่าที่จะต้อง UPDATE หรือไม่
+
+        /// <summary>
+        /// ใช้สำหรับเก็บค่า การพิมพ์แบบ Auto หรือไม่ | true = AutoPrint ,False = ShowDialog before print
+        /// </summary>
+        private bool statusPrint { get; set; } = false;
+
+        /// <summary>
+        /// การชั่งครั้งนี้เป็น PO หรือ JIT
+        /// </summary>
+        public string weightType { get; set; }
+
+
+        /// <summary>
+        /// สำหรับเก็บค่าว่า เริ่มหรือยัง
+        /// </summary>
+        private bool isStart { get; set; } = false;
+
+        /// <summary>
+        /// สำหรับเช็คว่ามีค่าที่จะต้อง UPDATE หรือไม่
+        /// </summary>
+
+        private int _id { get; set; } = 0;
         private bool isEdit { get; set; } = false; // สำหรับเช็คว่ามีการ แก้ไข หรือไม่
 
         BunifuSnackbar sb = new BunifuSnackbar();
