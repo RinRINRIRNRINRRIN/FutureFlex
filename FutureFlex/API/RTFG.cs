@@ -128,7 +128,6 @@ namespace FutureFlex.API
                         Partner_id = int.Parse(value["partner_id"].ToString());
                         Partner_name = value["partner_name"].ToString();
                         Mrp_list_return.Rows.Add(Id, Name, Partner_name, "");
-                        break;
                     }
                 }
                 catch (System.Exception ex)
