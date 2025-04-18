@@ -330,6 +330,7 @@ namespace FutureFlex
 
         private void saScale_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            Console.WriteLine(saScale.ReadLine());
             if (btnStart.Text == "ยกเลิกชั่งสินค้า")  // จะรับข้เอมูลเมื่อมีการกดเริ่มชั่งสินค้าเท่าไรห่
             {
                 // เช็คว่ามีข้อมูลที่ data grid แล้วหรือยัวง
@@ -338,18 +339,24 @@ namespace FutureFlex
                     return;
                 }
 
-                // ดึงข้อมูลจาก เครื่องชั่ง
+                string net = "";
+                string tare = "0.00";
+                string gross = "0.00";
+
                 string a = saScale.ReadLine();
-                Log.Information($"== SERIAL {a}");
-                string[] b = a.Split(',');
-
-                Log.Information($"- NET {b[2]}");
-                Log.Information($"- TARE {b[3]}");
-                Log.Information($"- GROSS {b[4]}");
-
-                string net = b[2].Trim();
-                string tare = b[3].Trim();
-                string gross = b[4].Trim();
+                string[] b = a.Split('\r');
+                for (int i = 0; i < b.Length; i++)
+                {
+                    if (b[i].Contains("NET"))
+                    {
+                        Console.WriteLine(b[i]);
+                        Console.WriteLine(b[i].Length);
+                        string strSup = b[i].Substring(13, b[i].Length - 13).Trim();
+                        double weight = double.Parse(strSup);
+                        net = strSup;
+                        break;
+                    }
+                }
 
                 // สดงข้อมูลน้ำหนักที่อ่านมาได้
                 BeginInvoke(new MethodInvoker(delegate ()
