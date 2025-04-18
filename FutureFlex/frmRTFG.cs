@@ -585,8 +585,9 @@ namespace FutureFlex
             }
         }
 
-        private async void spScale_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        private void spScale_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            Console.WriteLine(spScale.ReadLine());
             if (!isStart)
             {
                 return;
@@ -595,19 +596,24 @@ namespace FutureFlex
             #region RECEIVE DATA
             //string data = Function.Function.RS232(spScale);
 
+            string net = "";
+            string tare = "0.00";
+            string gross = "0.00";
+
             string a = spScale.ReadLine();
-            Console.WriteLine($"SERIAL {a}");
-            Log.Information($"== SERIAL {a}");
-            string[] b = a.Split(',');
-
-            Log.Information($"- NET {b[2]}");
-            Log.Information($"- TARE {b[3]}");
-            Log.Information($"- GROSS {b[4]}");
-
-            string net = b[2].Trim();
-            string tare = b[3].Trim();
-            string gross = b[4].Trim();
-
+            string[] b = a.Split('\r');
+            for (int i = 0; i < b.Length; i++)
+            {
+                if (b[i].Contains("NET"))
+                {
+                    Console.WriteLine(b[i]);
+                    Console.WriteLine(b[i].Length);
+                    string strSup = b[i].Substring(13, b[i].Length - 13).Trim();
+                    double weight = double.Parse(strSup);
+                    net = strSup;
+                    break;
+                }
+            }
             // สดงข้อมูลน้ำหนักที่อ่านมาได้
             BeginInvoke(new MethodInvoker(delegate ()
             {
