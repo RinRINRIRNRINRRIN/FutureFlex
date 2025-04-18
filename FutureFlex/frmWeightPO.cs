@@ -847,7 +847,6 @@ namespace FutureFlex
             {
                 if (txtNunMeter.Text != "")
                 {
-
                     if (txtNunMeter.Text != "0")
                     {
                         string a = MRP.pch_length.ToString();
@@ -860,8 +859,7 @@ namespace FutureFlex
 
                         double c = double.Parse(a) / 1000;
                         double d = double.Parse(txtNunMeter.Text) / c;
-
-                        double total = Math.Round(d);
+                        double total = Math.Truncate(d);
                         txtPchRoll.Text = total.ToString();
                     }
 
