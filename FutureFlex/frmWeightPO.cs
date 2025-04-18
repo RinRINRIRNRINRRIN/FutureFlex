@@ -112,7 +112,7 @@ namespace FutureFlex
                 Log.Information("- ผู้ใช้เลือกพิมพ์ข้อมูล");
 
                 // Check print is online?
-                if (!func_print.SetPrinter(printDocument1, tbWeightDetail.PO))
+                if (!func_print.SetPrinter(printDocument1, "PO"))
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
