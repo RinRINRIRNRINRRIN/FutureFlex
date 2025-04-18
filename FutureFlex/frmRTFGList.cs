@@ -1,5 +1,5 @@
 ﻿using FutureFlex.API;
-using System;
+using Guna.UI2.WinForms;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,8 +31,8 @@ namespace FutureFlex
 
             if (await RTFG.PO.Return_list(txtPO.Text))
             {
-            dgvDetail.DataSource = RTFG.Mrp_list_return;
-        }
+                dgvDetail.DataSource = RTFG.Mrp_list_return;
+            }
             else
             {
                 msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
@@ -55,14 +55,14 @@ namespace FutureFlex
             {
 
                 dgvDetail.DataSource = RTFG.Mrp_list_return;
-                }
-                else
-                {
-                    msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
-                    msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            }
+            else
+            {
+                msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.Warning;
+                msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
                 msg.Show($"Not found {txtRTFG.Text}", "Not found RTFG Number");
                 return false;
-                }
+            }
             return true;
 
         }
@@ -76,7 +76,7 @@ namespace FutureFlex
                 case "JIT":
                     if (!await GetJit($"RTFG{txtRTFG.Text}"))
                     {
-                gbLoadData.Visible = false;
+                        gbLoadData.Visible = false;
                         gbWeightPoOrJit.Visible = true;
                         return;
                     }
@@ -92,8 +92,8 @@ namespace FutureFlex
             }
             gbLoadData.Visible = false;
             gbWeightPoOrJit.Visible = false;
-                panel1.Visible = true;
-            }
+            panel1.Visible = true;
+        }
 
         private void txtJobNo_KeyDown(object sender, KeyEventArgs e)
         {
@@ -101,7 +101,7 @@ namespace FutureFlex
             {
                 Guna2TextBox btn = sender as Guna2TextBox;
                 Check(btn.Tag.ToString());
-        }
+            }
         }
 
         private void frmRTFGList_Load(object sender, System.EventArgs e)
@@ -179,7 +179,7 @@ namespace FutureFlex
             }
 
             Check(weightTyep);
-            }
+        }
 
         private void guna2RadioButton2_CheckedChanged(object sender, System.EventArgs e)
         {

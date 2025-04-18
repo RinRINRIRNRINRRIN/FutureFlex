@@ -29,55 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRTFGList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRTFGList));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.txtJobNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.gbData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblRetrunQtyWeight = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblReturnQtyPch = new System.Windows.Forms.Label();
-            this.lblDeliveryOrder = new System.Windows.Forms.Label();
-            this.lblPurchaseOrder = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cl_rtfg = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_partner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.cl_rtfg = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_date_delivery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_film = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_file_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_work = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_partner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_mo_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_uom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbWeightPoOrJit = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtPO = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtRTFG = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnCheck = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.gbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
-            this.guna2GroupBox1.SuspendLayout();
-            this.guna2GroupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbLoadData.SuspendLayout();
+            this.gbWeightPoOrJit.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -106,9 +92,9 @@
             this.label43.ForeColor = System.Drawing.Color.Navy;
             this.label43.Location = new System.Drawing.Point(7, 41);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(327, 25);
+            this.label43.Size = new System.Drawing.Size(244, 50);
             this.label43.TabIndex = 65;
-            this.label43.Text = "ชั่งสินค้าที่ต้องการคืนการคืนจะเปลี่ยนเป็น JIT ทั้งหมด\r\n";
+            this.label43.Text = "สินค้าที่จะคืน คืนเพื่อขายหรือคืนเพื่อเก็บ\r\n\r\n";
             // 
             // label42
             // 
@@ -122,33 +108,45 @@
             this.label42.TabIndex = 64;
             this.label42.Text = "รายการสินค้าที่จะส่งคืน";
             // 
-            // txtJobNo
+            // gbData
             // 
-            this.txtJobNo.BorderColor = System.Drawing.Color.Navy;
-            this.txtJobNo.BorderRadius = 8;
-            this.txtJobNo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtJobNo.DefaultText = "";
-            this.txtJobNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtJobNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtJobNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtJobNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtJobNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJobNo.Font = new System.Drawing.Font("Athiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobNo.ForeColor = System.Drawing.Color.Black;
-            this.txtJobNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtJobNo.IconRight = ((System.Drawing.Image)(resources.GetObject("txtJobNo.IconRight")));
-            this.txtJobNo.IconRightSize = new System.Drawing.Size(30, 30);
-            this.txtJobNo.Location = new System.Drawing.Point(6, 19);
-            this.txtJobNo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtJobNo.Name = "txtJobNo";
-            this.txtJobNo.PasswordChar = '\0';
-            this.txtJobNo.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.txtJobNo.PlaceholderText = "EX. (6701-0001)";
-            this.txtJobNo.SelectedText = "";
-            this.txtJobNo.Size = new System.Drawing.Size(262, 49);
-            this.txtJobNo.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-            this.txtJobNo.TabIndex = 66;
-            this.txtJobNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
+            this.gbData.BorderColor = System.Drawing.Color.SteelBlue;
+            this.gbData.Controls.Add(this.guna2GradientButton1);
+            this.gbData.Controls.Add(this.dgvDetail);
+            this.gbData.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(76)))), ((int)(((byte)(183)))));
+            this.gbData.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbData.ForeColor = System.Drawing.Color.White;
+            this.gbData.Location = new System.Drawing.Point(3, 7);
+            this.gbData.Name = "gbData";
+            this.gbData.Padding = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.gbData.Size = new System.Drawing.Size(1057, 521);
+            this.gbData.TabIndex = 68;
+            this.gbData.Text = "รายการ RTFG";
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton1.BorderRadius = 6;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.MidnightBlue;
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2GradientButton1.Location = new System.Drawing.Point(937, 4);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(115, 30);
+            this.guna2GradientButton1.TabIndex = 72;
+            this.guna2GradientButton1.Text = "ย้อนกลับ";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // dgvDetail
             // 
@@ -162,6 +160,7 @@
             this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetail.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDetail.CausesValidation = false;
             this.dgvDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -178,14 +177,8 @@
             this.cl_rtfg,
             this.cl_id,
             this.cl_name,
-            this.cl_mo_date,
-            this.cl_mo_date_delivery,
-            this.cl_mo_film,
-            this.cl_mo_file_total,
-            this.cl_mo_work,
             this.cl_partner,
             this.cl_product,
-            this.cl_mo_type,
             this.cl_uom});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -218,226 +211,82 @@
             this.dgvDetail.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvDetail.RowTemplate.Height = 45;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(1053, 309);
-            this.dgvDetail.TabIndex = 67;
+            this.dgvDetail.Size = new System.Drawing.Size(1053, 479);
+            this.dgvDetail.TabIndex = 68;
             this.dgvDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellContentClick);
             // 
-            // guna2GroupBox1
+            // cl_rtfg
             // 
-            this.guna2GroupBox1.BorderColor = System.Drawing.Color.SteelBlue;
-            this.guna2GroupBox1.Controls.Add(this.dgvDetail);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(76)))), ((int)(((byte)(183)))));
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 254);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Padding = new System.Windows.Forms.Padding(2, 0, 2, 2);
-            this.guna2GroupBox1.Size = new System.Drawing.Size(1057, 351);
-            this.guna2GroupBox1.TabIndex = 68;
-            this.guna2GroupBox1.Text = "รายการ RTFG";
+            this.cl_rtfg.HeaderText = "";
+            this.cl_rtfg.Image = ((System.Drawing.Image)(resources.GetObject("cl_rtfg.Image")));
+            this.cl_rtfg.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.cl_rtfg.Name = "cl_rtfg";
+            this.cl_rtfg.ReadOnly = true;
+            this.cl_rtfg.Width = 50;
             // 
-            // label1
+            // cl_id
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(8, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 25);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "เลขที่สินค้าส่งคืน";
+            this.cl_id.DataPropertyName = "id";
+            this.cl_id.HeaderText = "ID";
+            this.cl_id.Name = "cl_id";
+            this.cl_id.ReadOnly = true;
+            this.cl_id.Visible = false;
             // 
-            // guna2GroupBox2
+            // cl_name
             // 
-            this.guna2GroupBox2.BorderColor = System.Drawing.Color.SteelBlue;
-            this.guna2GroupBox2.Controls.Add(this.lblDate);
-            this.guna2GroupBox2.Controls.Add(this.label11);
-            this.guna2GroupBox2.Controls.Add(this.lblRetrunQtyWeight);
-            this.guna2GroupBox2.Controls.Add(this.label10);
-            this.guna2GroupBox2.Controls.Add(this.lblReturnQtyPch);
-            this.guna2GroupBox2.Controls.Add(this.lblDeliveryOrder);
-            this.guna2GroupBox2.Controls.Add(this.lblPurchaseOrder);
-            this.guna2GroupBox2.Controls.Add(this.lblName);
-            this.guna2GroupBox2.Controls.Add(this.label9);
-            this.guna2GroupBox2.Controls.Add(this.label8);
-            this.guna2GroupBox2.Controls.Add(this.label5);
-            this.guna2GroupBox2.Controls.Add(this.label2);
-            this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(76)))), ((int)(((byte)(183)))));
-            this.guna2GroupBox2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox2.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox2.Location = new System.Drawing.Point(3, 83);
-            this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.Size = new System.Drawing.Size(1057, 165);
-            this.guna2GroupBox2.TabIndex = 69;
-            this.guna2GroupBox2.Text = "RTFT Information";
+            this.cl_name.DataPropertyName = "name";
+            this.cl_name.HeaderText = "GV Name";
+            this.cl_name.Name = "cl_name";
+            this.cl_name.ReadOnly = true;
+            this.cl_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_name.Width = 200;
             // 
-            // lblDate
+            // cl_partner
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.BackColor = System.Drawing.Color.White;
-            this.lblDate.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblDate.ForeColor = System.Drawing.Color.Navy;
-            this.lblDate.Location = new System.Drawing.Point(735, 50);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(40, 25);
-            this.lblDate.TabIndex = 81;
-            this.lblDate.Text = ".......";
+            this.cl_partner.DataPropertyName = "partner_name";
+            this.cl_partner.HeaderText = "Partner";
+            this.cl_partner.Name = "cl_partner";
+            this.cl_partner.ReadOnly = true;
+            this.cl_partner.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_partner.Width = 350;
             // 
-            // label11
+            // cl_product
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label11.ForeColor = System.Drawing.Color.Navy;
-            this.label11.Location = new System.Drawing.Point(669, 50);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 25);
-            this.label11.TabIndex = 80;
-            this.label11.Text = "วันที่ : ";
+            this.cl_product.DataPropertyName = "product_name";
+            this.cl_product.HeaderText = "Product Name";
+            this.cl_product.Name = "cl_product";
+            this.cl_product.ReadOnly = true;
+            this.cl_product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_product.Width = 350;
             // 
-            // lblRetrunQtyWeight
+            // cl_uom
             // 
-            this.lblRetrunQtyWeight.AutoSize = true;
-            this.lblRetrunQtyWeight.BackColor = System.Drawing.Color.White;
-            this.lblRetrunQtyWeight.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblRetrunQtyWeight.ForeColor = System.Drawing.Color.Navy;
-            this.lblRetrunQtyWeight.Location = new System.Drawing.Point(733, 124);
-            this.lblRetrunQtyWeight.Name = "lblRetrunQtyWeight";
-            this.lblRetrunQtyWeight.Size = new System.Drawing.Size(40, 25);
-            this.lblRetrunQtyWeight.TabIndex = 78;
-            this.lblRetrunQtyWeight.Text = ".......";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label10.ForeColor = System.Drawing.Color.Navy;
-            this.label10.Location = new System.Drawing.Point(582, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 25);
-            this.label10.TabIndex = 79;
-            this.label10.Text = "จำนวนรับคืน(Kg) :";
-            // 
-            // lblReturnQtyPch
-            // 
-            this.lblReturnQtyPch.AutoSize = true;
-            this.lblReturnQtyPch.BackColor = System.Drawing.Color.White;
-            this.lblReturnQtyPch.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblReturnQtyPch.ForeColor = System.Drawing.Color.Navy;
-            this.lblReturnQtyPch.Location = new System.Drawing.Point(258, 124);
-            this.lblReturnQtyPch.Name = "lblReturnQtyPch";
-            this.lblReturnQtyPch.Size = new System.Drawing.Size(40, 25);
-            this.lblReturnQtyPch.TabIndex = 70;
-            this.lblReturnQtyPch.Text = ".......";
-            // 
-            // lblDeliveryOrder
-            // 
-            this.lblDeliveryOrder.AutoSize = true;
-            this.lblDeliveryOrder.BackColor = System.Drawing.Color.White;
-            this.lblDeliveryOrder.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblDeliveryOrder.ForeColor = System.Drawing.Color.Navy;
-            this.lblDeliveryOrder.Location = new System.Drawing.Point(733, 85);
-            this.lblDeliveryOrder.Name = "lblDeliveryOrder";
-            this.lblDeliveryOrder.Size = new System.Drawing.Size(40, 25);
-            this.lblDeliveryOrder.TabIndex = 70;
-            this.lblDeliveryOrder.Text = ".......";
-            // 
-            // lblPurchaseOrder
-            // 
-            this.lblPurchaseOrder.AutoSize = true;
-            this.lblPurchaseOrder.BackColor = System.Drawing.Color.White;
-            this.lblPurchaseOrder.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblPurchaseOrder.ForeColor = System.Drawing.Color.Navy;
-            this.lblPurchaseOrder.Location = new System.Drawing.Point(258, 85);
-            this.lblPurchaseOrder.Name = "lblPurchaseOrder";
-            this.lblPurchaseOrder.Size = new System.Drawing.Size(40, 25);
-            this.lblPurchaseOrder.TabIndex = 70;
-            this.lblPurchaseOrder.Text = ".......";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.White;
-            this.lblName.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblName.ForeColor = System.Drawing.Color.Navy;
-            this.lblName.Location = new System.Drawing.Point(260, 50);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(40, 25);
-            this.lblName.TabIndex = 70;
-            this.lblName.Text = ".......";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(110, 124);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 25);
-            this.label9.TabIndex = 77;
-            this.label9.Text = "จำนวนรับคืน(ใบ) :";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(106, 85);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 25);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "Purchase Order : ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(586, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 25);
-            this.label5.TabIndex = 73;
-            this.label5.Text = "Delivery Order : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(118, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 25);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "RTFG Number :";
+            this.cl_uom.DataPropertyName = "uom";
+            this.cl_uom.HeaderText = "UOM";
+            this.cl_uom.Name = "cl_uom";
+            this.cl_uom.ReadOnly = true;
+            this.cl_uom.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.guna2GroupBox2);
-            this.panel1.Controls.Add(this.txtJobNo);
-            this.panel1.Controls.Add(this.guna2GroupBox1);
+            this.panel1.Controls.Add(this.gbData);
             this.panel1.Location = new System.Drawing.Point(8, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 610);
+            this.panel1.Size = new System.Drawing.Size(1064, 535);
             this.panel1.TabIndex = 70;
+            this.panel1.Visible = false;
             // 
             // gbLoadData
             // 
             this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
-            this.gbLoadData.BorderRadius = 6;
+            this.gbLoadData.BorderRadius = 4;
             this.gbLoadData.Controls.Add(this.label4);
             this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
             this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
             this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
             this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLoadData.ForeColor = System.Drawing.Color.White;
-            this.gbLoadData.Location = new System.Drawing.Point(576, 25);
+            this.gbLoadData.Location = new System.Drawing.Point(755, 23);
             this.gbLoadData.Name = "gbLoadData";
             this.gbLoadData.Size = new System.Drawing.Size(406, 96);
             this.gbLoadData.TabIndex = 71;
@@ -448,7 +297,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(105, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(261, 39);
@@ -485,113 +334,160 @@
             this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
             this.msg.Text = null;
             // 
-            // cl_rtfg
+            // gbWeightPoOrJit
             // 
-            this.cl_rtfg.HeaderText = "";
-            this.cl_rtfg.Image = ((System.Drawing.Image)(resources.GetObject("cl_rtfg.Image")));
-            this.cl_rtfg.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.cl_rtfg.Name = "cl_rtfg";
-            this.cl_rtfg.ReadOnly = true;
-            this.cl_rtfg.Width = 50;
+            this.gbWeightPoOrJit.BorderColor = System.Drawing.Color.SteelBlue;
+            this.gbWeightPoOrJit.BorderRadius = 4;
+            this.gbWeightPoOrJit.Controls.Add(this.txtPO);
+            this.gbWeightPoOrJit.Controls.Add(this.txtRTFG);
+            this.gbWeightPoOrJit.Controls.Add(this.btnCheck);
+            this.gbWeightPoOrJit.Controls.Add(this.guna2RadioButton2);
+            this.gbWeightPoOrJit.Controls.Add(this.guna2RadioButton1);
+            this.gbWeightPoOrJit.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(76)))), ((int)(((byte)(183)))));
+            this.gbWeightPoOrJit.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbWeightPoOrJit.ForeColor = System.Drawing.Color.White;
+            this.gbWeightPoOrJit.Location = new System.Drawing.Point(425, 12);
+            this.gbWeightPoOrJit.Name = "gbWeightPoOrJit";
+            this.gbWeightPoOrJit.Size = new System.Drawing.Size(279, 267);
+            this.gbWeightPoOrJit.TabIndex = 82;
+            this.gbWeightPoOrJit.Text = "ชั่งคืนเพื่อเก็บ หรือ ชั่งเพื่อขาย";
+            this.gbWeightPoOrJit.Visible = false;
             // 
-            // cl_id
+            // txtPO
             // 
-            this.cl_id.DataPropertyName = "id";
-            this.cl_id.HeaderText = "ID";
-            this.cl_id.Name = "cl_id";
-            this.cl_id.ReadOnly = true;
-            this.cl_id.Visible = false;
+            this.txtPO.BorderColor = System.Drawing.Color.Navy;
+            this.txtPO.BorderRadius = 8;
+            this.txtPO.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPO.DefaultText = "";
+            this.txtPO.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPO.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPO.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPO.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPO.Enabled = false;
+            this.txtPO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPO.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPO.ForeColor = System.Drawing.Color.Black;
+            this.txtPO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPO.IconRightSize = new System.Drawing.Size(30, 30);
+            this.txtPO.Location = new System.Drawing.Point(54, 72);
+            this.txtPO.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtPO.Name = "txtPO";
+            this.txtPO.PasswordChar = '\0';
+            this.txtPO.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtPO.PlaceholderText = "เลขที่ PO";
+            this.txtPO.SelectedText = "";
+            this.txtPO.Size = new System.Drawing.Size(195, 40);
+            this.txtPO.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtPO.TabIndex = 71;
+            this.txtPO.Tag = "PO";
+            this.txtPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
             // 
-            // cl_name
+            // txtRTFG
             // 
-            this.cl_name.DataPropertyName = "name";
-            this.cl_name.HeaderText = "GV Name";
-            this.cl_name.Name = "cl_name";
-            this.cl_name.ReadOnly = true;
-            this.cl_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_name.Width = 200;
+            this.txtRTFG.BorderColor = System.Drawing.Color.Navy;
+            this.txtRTFG.BorderRadius = 8;
+            this.txtRTFG.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRTFG.DefaultText = "";
+            this.txtRTFG.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtRTFG.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtRTFG.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRTFG.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRTFG.Enabled = false;
+            this.txtRTFG.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRTFG.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRTFG.ForeColor = System.Drawing.Color.Black;
+            this.txtRTFG.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRTFG.IconRightSize = new System.Drawing.Size(30, 30);
+            this.txtRTFG.Location = new System.Drawing.Point(52, 168);
+            this.txtRTFG.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtRTFG.Name = "txtRTFG";
+            this.txtRTFG.PasswordChar = '\0';
+            this.txtRTFG.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.txtRTFG.PlaceholderText = "เลขที่ RTFG";
+            this.txtRTFG.SelectedText = "";
+            this.txtRTFG.Size = new System.Drawing.Size(195, 40);
+            this.txtRTFG.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
+            this.txtRTFG.TabIndex = 70;
+            this.txtRTFG.Tag = "JIT";
+            this.txtRTFG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRTFG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtJobNo_KeyDown);
             // 
-            // cl_mo_date
+            // btnCheck
             // 
-            this.cl_mo_date.DataPropertyName = "mo_date";
-            this.cl_mo_date.HeaderText = "mo_date";
-            this.cl_mo_date.Name = "cl_mo_date";
-            this.cl_mo_date.ReadOnly = true;
-            this.cl_mo_date.Visible = false;
+            this.btnCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheck.Animated = true;
+            this.btnCheck.BorderRadius = 6;
+            this.btnCheck.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCheck.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCheck.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCheck.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCheck.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCheck.FillColor2 = System.Drawing.Color.MidnightBlue;
+            this.btnCheck.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.ForeColor = System.Drawing.Color.White;
+            this.btnCheck.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
+            this.btnCheck.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnCheck.Location = new System.Drawing.Point(6, 224);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(267, 35);
+            this.btnCheck.TabIndex = 2;
+            this.btnCheck.Text = "คืนสินค้า";
+            this.btnCheck.Click += new System.EventHandler(this.btnWeight_Click);
             // 
-            // cl_mo_date_delivery
+            // guna2RadioButton2
             // 
-            this.cl_mo_date_delivery.DataPropertyName = "mo_date_delivery";
-            this.cl_mo_date_delivery.HeaderText = "mo_date_delivery";
-            this.cl_mo_date_delivery.Name = "cl_mo_date_delivery";
-            this.cl_mo_date_delivery.ReadOnly = true;
-            this.cl_mo_date_delivery.Visible = false;
+            this.guna2RadioButton2.AutoSize = true;
+            this.guna2RadioButton2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton2.CheckedState.BorderThickness = 0;
+            this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2RadioButton2.CheckedState.InnerOffset = -4;
+            this.guna2RadioButton2.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2RadioButton2.ForeColor = System.Drawing.Color.Black;
+            this.guna2RadioButton2.Location = new System.Drawing.Point(28, 132);
+            this.guna2RadioButton2.Name = "guna2RadioButton2";
+            this.guna2RadioButton2.Size = new System.Drawing.Size(160, 29);
+            this.guna2RadioButton2.TabIndex = 1;
+            this.guna2RadioButton2.Tag = "JIT";
+            this.guna2RadioButton2.Text = "ชั่งสินค้าเพื่อเก็บ (JIT)";
+            this.guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2RadioButton2.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton2.CheckedChanged += new System.EventHandler(this.guna2RadioButton2_CheckedChanged);
             // 
-            // cl_mo_film
+            // guna2RadioButton1
             // 
-            this.cl_mo_film.DataPropertyName = "mo_film";
-            this.cl_mo_film.HeaderText = "mo_file";
-            this.cl_mo_film.Name = "cl_mo_film";
-            this.cl_mo_film.ReadOnly = true;
-            this.cl_mo_film.Visible = false;
-            // 
-            // cl_mo_file_total
-            // 
-            this.cl_mo_file_total.DataPropertyName = "mo_film_total";
-            this.cl_mo_file_total.HeaderText = "mo_file_total";
-            this.cl_mo_file_total.Name = "cl_mo_file_total";
-            this.cl_mo_file_total.ReadOnly = true;
-            this.cl_mo_file_total.Visible = false;
-            // 
-            // cl_mo_work
-            // 
-            this.cl_mo_work.DataPropertyName = "mo_work";
-            this.cl_mo_work.HeaderText = "mo_work";
-            this.cl_mo_work.Name = "cl_mo_work";
-            this.cl_mo_work.ReadOnly = true;
-            this.cl_mo_work.Visible = false;
-            // 
-            // cl_partner
-            // 
-            this.cl_partner.DataPropertyName = "partner_name";
-            this.cl_partner.HeaderText = "Partner";
-            this.cl_partner.Name = "cl_partner";
-            this.cl_partner.ReadOnly = true;
-            this.cl_partner.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_partner.Width = 350;
-            // 
-            // cl_product
-            // 
-            this.cl_product.DataPropertyName = "product_name";
-            this.cl_product.HeaderText = "Product Name";
-            this.cl_product.Name = "cl_product";
-            this.cl_product.ReadOnly = true;
-            this.cl_product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.cl_product.Width = 350;
-            // 
-            // cl_mo_type
-            // 
-            this.cl_mo_type.DataPropertyName = "mo_type";
-            this.cl_mo_type.HeaderText = "mo_type";
-            this.cl_mo_type.Name = "cl_mo_type";
-            this.cl_mo_type.ReadOnly = true;
-            this.cl_mo_type.Visible = false;
-            // 
-            // cl_uom
-            // 
-            this.cl_uom.DataPropertyName = "uom";
-            this.cl_uom.HeaderText = "UOM";
-            this.cl_uom.Name = "cl_uom";
-            this.cl_uom.ReadOnly = true;
-            this.cl_uom.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.guna2RadioButton1.AutoSize = true;
+            this.guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton1.CheckedState.BorderThickness = 0;
+            this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2RadioButton1.CheckedState.InnerOffset = -4;
+            this.guna2RadioButton1.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2RadioButton1.ForeColor = System.Drawing.Color.Black;
+            this.guna2RadioButton1.Location = new System.Drawing.Point(30, 44);
+            this.guna2RadioButton1.Name = "guna2RadioButton1";
+            this.guna2RadioButton1.Size = new System.Drawing.Size(158, 29);
+            this.guna2RadioButton1.TabIndex = 0;
+            this.guna2RadioButton1.Tag = "PO";
+            this.guna2RadioButton1.Text = "ชั่งสินค้าเพื่อขาย (PO)";
+            this.guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton1.CheckedChanged += new System.EventHandler(this.guna2RadioButton2_CheckedChanged);
             // 
             // frmRTFGList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1077, 694);
+            this.ClientSize = new System.Drawing.Size(1077, 618);
             this.Controls.Add(this.gbLoadData);
+            this.Controls.Add(this.gbWeightPoOrJit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.label42);
@@ -603,14 +499,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRTFGList";
             this.Load += new System.EventHandler(this.frmRTFGList_Load);
+            this.gbData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
-            this.guna2GroupBox1.ResumeLayout(false);
-            this.guna2GroupBox2.ResumeLayout(false);
-            this.guna2GroupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.gbLoadData.ResumeLayout(false);
             this.gbLoadData.PerformLayout();
+            this.gbWeightPoOrJit.ResumeLayout(false);
+            this.gbWeightPoOrJit.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,39 +517,25 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
-        private Guna.UI2.WinForms.Guna2TextBox txtJobNo;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private System.Windows.Forms.DataGridView dgvDetail;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblReturnQtyPch;
-        private System.Windows.Forms.Label lblDeliveryOrder;
-        private System.Windows.Forms.Label lblPurchaseOrder;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblRetrunQtyWeight;
-        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2GroupBox gbData;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2GroupBox gbLoadData;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblDate;
         private Guna.UI2.WinForms.Guna2MessageDialog msg;
+        private System.Windows.Forms.DataGridView dgvDetail;
+        private Guna.UI2.WinForms.Guna2GroupBox gbWeightPoOrJit;
+        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
+        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnCheck;
+        private Guna.UI2.WinForms.Guna2TextBox txtPO;
+        private Guna.UI2.WinForms.Guna2TextBox txtRTFG;
         private System.Windows.Forms.DataGridViewImageColumn cl_rtfg;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_date_delivery;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_film;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_file_total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_work;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_partner;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cl_mo_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_uom;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
     }
 }
