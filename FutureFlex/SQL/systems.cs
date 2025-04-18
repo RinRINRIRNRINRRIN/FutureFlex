@@ -13,7 +13,7 @@ namespace FutureFlex.SQL
 
         public static string Versoin
         {
-            get { return "1.3.0"; }
+            get { return "1.3.2"; }
         }
 
         public static bool CheckVersion()
