@@ -462,9 +462,19 @@ namespace FutureFlex
                         break;
                     case "cl_print":
                         Log.Information($"== ผู้ใช้เลือกพิมพ์ข้อมูลใหม่");
-                        tbWeightDetail.seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
-                        tbWeightDetail.lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
-                        DefinePrintParameter();
+                        string _seq = dgvDetail.Rows[e.RowIndex].Cells["cl_seq"].Value.ToString();
+                        string _statusType = dgvDetail.Rows[e.RowIndex].Cells["cl_type"].Value.ToString();
+                        string _net = dgvDetail.Rows[e.RowIndex].Cells["cl_net"].Value.ToString();
+                        string _numBox = dgvDetail.Rows[e.RowIndex].Cells["cl_numBox"].Value.ToString();
+                        string _numRoll = dgvDetail.Rows[e.RowIndex].Cells["cl_numRoll"].Value.ToString();
+                        string _numRollAll = dgvDetail.Rows[e.RowIndex].Cells["cl_numrollAll"].Value.ToString();
+                        string _numMeter = dgvDetail.Rows[e.RowIndex].Cells["cl_meter_kg_in_roll"].Value.ToString();
+                        string _pch = dgvDetail.Rows[e.RowIndex].Cells["cl_pch"].Value.ToString();
+                        string _wghPaper = dgvDetail.Rows[e.RowIndex].Cells["cl_wgh_paper_plastic"].Value.ToString();
+                        string _wghCore = dgvDetail.Rows[e.RowIndex].Cells["cl_core"].Value.ToString();
+                        string _operator = dgvDetail.Rows[e.RowIndex].Cells["cl_oparator"].Value.ToString();
+                        string _lot = dgvDetail.Rows[e.RowIndex].Cells["cl_lot"].Value.ToString();
+                        DefinePrintParameter(_seq, _statusType, _net, _numBox, _numRollAll, _numMeter, _pch, _pch, _wghPaper, _wghCore, _operator, _lot, weightType);
                         SetPaperAndPrint();
                         break;
                 }
