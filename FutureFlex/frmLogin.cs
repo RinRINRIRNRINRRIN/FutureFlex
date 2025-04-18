@@ -40,28 +40,16 @@ namespace FutureFlex
                 Log.Information("เข้าสู่ระบบสำเร็จ");
                 txtUsername.Clear();
                 txtPassword.Clear();
-                md.Icon = MessageDialogIcon.Information;
-                md.Buttons = MessageDialogButtons.OK;
-                md.Show("Log on success", "Log on");
-                //MessageBox.Show("เข้าสู่ระบบสำเร็จ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 frmMain frm = new frmMain();
-                for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+                if (EmployeeModel.emp_username == "sa")
                 {
-                    Log.Information($"== เมนูที่เปิด {tbPrivilage.menuPrivilage[i]}");
-                    string menu = tbPrivilage.menuPrivilage[i];
-
                     foreach (var btn in frm.Controls.OfType<Guna2Button>())
                     {
-                        if (menu == btn.Tag)
-                        {
                             btn.Enabled = true;
                             Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
                         }
                     }
                 }
-
-
                 frm.Show();
                 this.Hide();
             }
