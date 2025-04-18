@@ -579,11 +579,9 @@ namespace FutureFlex
                         double c = double.Parse(a) / 1000;
                         double d = double.Parse(txtNunMeter.Text) / c;
 
-                        double total = Math.Round(d);
+                        double total = Math.Truncate(d);
                         txtPchRoll.Text = total.ToString();
                     }
-
-
 
                     // ถ้าจะนวนความยาวม้วนเต็มทั้งหมด เป็น 0 ไม่ต้องคำนวนต่อ
                     if (MRP.product_roll_length != 0)
@@ -616,7 +614,8 @@ namespace FutureFlex
                     txtNumMetOrBoxPch.Text = SLP.total_meter.ToString();
                     label15.Text = "จำนวนแมตรตั้งต้น";
                     label8.Text = "จำนวนเมตรที่ต้องการใช้";
-
+                    //txtNumRollAll.Enabled = false;
+                    //txtNunMeter.Enabled = false;
                     break;
                 case "rdTypeBox":
                     btnReprint.Text = "น้ำหนักสุทธิ - น้ำหนักแกน";
@@ -628,6 +627,8 @@ namespace FutureFlex
                     txtNumMetOrBoxPch.Text = SLP.total_pch.ToString();
                     label15.Text = "จำนวนใบตั้งต้น";
                     label8.Text = "จำนวนเมตรที่ต้องการใช้";
+                    //txtNumBox.Enabled = false;
+                    //txtPchBox.Enabled = false;
                     break;
 
             }
