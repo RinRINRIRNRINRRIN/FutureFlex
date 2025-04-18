@@ -302,6 +302,76 @@ namespace FutureFlex
             }));
         }
 
+
+        /// <summary>
+        /// กำหนดข้อมูลก่อนการชั่ง
+        /// </summary>
+        void DefineParameterBeforeWeight()
+        {
+            // แสดงข้อมูลจาก Property
+            lblName.Text = RTFG.Name;
+            lblDate.Text = MRP.mo_date;
+            lblDateDelivery.Text = MRP.mo_date_delivery;
+            lblMoFilm.Text = MRP.mo_film;
+            lblMoBlock.Text = MRP.mo_block;
+            lblMoWork.Text = MRP.mo_work;
+            lblPartner.Text = MRP.partner_name;
+            lblProduct.Text = MRP.product_name;
+            lblProductUomName.Text = MRP.product_uom_name;
+            lblMoType.Text = MRP.mo_type;
+            lblRetrunQtyPch.Text = RTFG.Return_qty_pch.ToString();
+            lblReturnQtyWeight.Text = RTFG.Return_qty_weight.ToString();
+            label41.Text = MRP.mo_po_qty.ToString();
+            label21.Text = MRP.mo_station_name;
+            label8.Text = MRP.product_roll_length + " เมตร";
+            lblReturnQtyWeight.Text = RTFG.Return_qty_weight.ToString() + " Kg";
+            lblNewSaleOrder.Text = RTFG.new_sale_name;
+        }
+
+        /// <summary>
+        /// สำหรับกำหนดค่า comport 
+        /// </summary>
+        bool DefineComport()
+        {
+            try
+            {
+                if (spScale.IsOpen)
+                {
+                    spScale.Close();
+                }
+                spScale.PortName = func_serialport.COM_SCALE;
+                spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
+                spScale.Open();
+
+                Log.Information($"== Serial port open");
+                Log.Information($"-- COM SCALE : {spScale.PortName}");
+                Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
+                Log.Information($"Scale is connected");
+            }
+            catch (Exception ex)
+            {
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show(ex.Message, "Error");
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// สำหรับกำหนดสิทธิ์การใช้งานโปรแกรม
+        /// </summary>
+        void DefinePrivilage()
+        {
+            if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; }
+            if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
+
+            Log.Information($"== Get privilage");
+            Log.Information($"-- DEL : {tbPrivilage.weight.del} ");
+            Log.Information($"-- EDIT : {tbPrivilage.weight.edit} ");
+        }
+
         private async void frmRTFG_Load(object sender, EventArgs e)
         {
             Log.Information($"==================================================   frmWeightNew is open");
