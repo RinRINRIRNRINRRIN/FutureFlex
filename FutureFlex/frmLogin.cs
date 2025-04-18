@@ -185,5 +185,14 @@ namespace FutureFlex
         {
             Login();
         }
+
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F9)
+            {
+                frmConnect frmConnect = new frmConnect();
+                frmConnect.ShowDialog();
+            }
+        }
     }
 }
