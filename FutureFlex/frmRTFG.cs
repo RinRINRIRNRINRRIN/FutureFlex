@@ -798,7 +798,10 @@ namespace FutureFlex
             }
 
             #region Print Data
-            //DefinePrintParameter();
+            _ = Task.Run(async () =>
+            {
+                await func_tcpClient.SendDataAsync("GET_DATA");
+            });
             // Print Sticker
             SetPaperAndPrint();
 
