@@ -90,18 +90,18 @@ namespace FutureFlex
             try
             {
                 if (saScale.IsOpen)
-        {
+                {
                     saScale.Close();
                 }
-            saScale.PortName = func_serialport.COM_SCALE;
-            saScale.BaudRate = func_serialport.BAUDRATE_SCALE;
-            saScale.Open();
+                saScale.PortName = func_serialport.COM_SCALE;
+                saScale.BaudRate = func_serialport.BAUDRATE_SCALE;
+                saScale.Open();
 
-            Log.Information($"== Serial port open");
-            Log.Information($"-- COM SCALE : {saScale.PortName}");
-            Log.Information($"-- COM BAUDRATE : {saScale.BaudRate}");
-            Log.Information($"Scale is connected");
-        }
+                Log.Information($"== Serial port open");
+                Log.Information($"-- COM SCALE : {saScale.PortName}");
+                Log.Information($"-- COM BAUDRATE : {saScale.BaudRate}");
+                Log.Information($"Scale is connected");
+            }
             catch (Exception ex)
             {
                 msg.Icon = MessageDialogIcon.Error;
