@@ -557,6 +557,8 @@ namespace FutureFlex
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            try
+            {
             Guna2GradientButton btn = sender as Guna2GradientButton;
             switch (btn.Text)
             {
@@ -580,7 +582,7 @@ namespace FutureFlex
                         return;
                     }
 
-                    // เช็คว่าวันที่เป็น False หรือไม่
+                        //เช็คว่าวันที่เป็น False หรือไม่
                     if (MRP.mo_date == "False")
                     {
                         msg.Icon = MessageDialogIcon.Warning;
@@ -588,9 +590,6 @@ namespace FutureFlex
                         msg.Show("Can't start because not have Production Date", "Date is incorrect format");
                         return;
                     }
-
-
-
 
                     // นำ GV ไปหาในระบบก่อน
                     DataTable tb = tbWeight.SELECT_SEARCH();
@@ -635,6 +634,14 @@ namespace FutureFlex
                     Log.Information($"== หยุดชั่งสินค้า");
                     break;
             }
+
+            }
+            catch (Exception ex)
+            {
+                msg.Icon = MessageDialogIcon.Error;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show(ex.Message, "Error");
+        }
         }
 
         private void SelectCountry(object sender, EventArgs e)
