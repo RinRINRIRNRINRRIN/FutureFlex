@@ -47,10 +47,10 @@ namespace FutureFlex
                 {
                     foreach (var btn in frm.Controls.OfType<Guna2Button>())
                     {
-                            btn.Enabled = true;
-                            Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
-                        }
+                        btn.Enabled = true;
+                        Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
                     }
+                }
                 else
                 {
                     //for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
