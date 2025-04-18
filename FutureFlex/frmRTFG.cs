@@ -662,17 +662,23 @@ namespace FutureFlex
             if (isEdit) // UDPATE
             {
                 #region UPDATE
-                tb = tbWeightDetail.UPDATE(_id.ToString(), decimal.Parse(net), decimal.Parse(tare), decimal.Parse(gross));
+                tb = tbWeightDetail.UPDATE(_id.ToString(), double.Parse(net), double.Parse(tare), double.Parse(gross));
                 if (tb.Rows.Count != 0)
                 {
                     isEdit = false;
                     _id = 0;
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        dgvDetail.Enabled = true;
+                    }));
                 }
                 else
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
-                        sb.Show(this, $"UPDATE {tbWeightDetail.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                        msg.Icon = MessageDialogIcon.Error;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show($"Error update weight \nError {tbWeightDetail.ERR}", "Update error");
                     }));
                     return;
                 }
