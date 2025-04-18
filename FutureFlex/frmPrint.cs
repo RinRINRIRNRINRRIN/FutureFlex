@@ -14,8 +14,17 @@ namespace FutureFlex
         }
 
         public string PO { get; set; }
-        public string GvOrRTFG { get; set; }
+        /// <summary>
+        /// สำหรับบอกว่าการพิมพ์รายงานก่อนส่งหา odoo นั้นเป็นรายงานแบไหน SPL,GV,RTFG เพื่อไปกำหนดค่าที่ RDLC
+        /// </summary>
+        public string type { get; set; }
+        /// <summary>
+        /// สำหรับกำหนดค่าให้กับ GV หากการพิมพ์ข้อมูลก่อนส่งหา odoo นั้นเป้นการพิมพ์แบบ Gv
+        /// </summary>
+        public string GV_name { get; set; }
 
+        DataTable tbBox { get; set; } = new DataTable();
+        DataTable tbRoll { get; set; } = new DataTable();
 
         private void frmPrint_Load(object sender, EventArgs e)
         {
