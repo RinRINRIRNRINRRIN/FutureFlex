@@ -80,12 +80,7 @@ namespace FutureFlex
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F9 && tbEmployeeSQL.emp_username == "sa")
-            {
-                frmConnect frmConnect = new frmConnect();
-                frmConnect.ShowDialog();
-            }
-            else if (e.KeyCode == Keys.F8)
+            if (e.KeyCode == Keys.F8)
             {
                 frmTcpClientServer frmTcpClientServer = new frmTcpClientServer();
                 frmTcpClientServer.ShowDialog();
