@@ -687,22 +687,23 @@ namespace FutureFlex
             else // INSERT
             {
                 // เช็คว่าจำนวนเกิน หรือไม่ แต่ต้องเช็คว่าเป็นเป็น ใบ หรือ KG 
-                if (lblProductUomName.Text == "ใบ(s)")
+                if (MRP.product_uom_name == "ใบ(s)")
                 {
-                    Console.WriteLine(txtPchBox.Text);
                     // เช็คว่าจำนวนใบว่าครบหรือไม่
-                    double _pch = 0;
+                    double pch = 0;
                     for (int i = 0; i < dgvDetail.Rows.Count; i++)
                     {
-                        _pch += double.Parse(dgvDetail.Rows[i].Cells["cl_pch"].Value.ToString());
+                        pch += double.Parse(dgvDetail.Rows[i].Cells["cl_pch"].Value.ToString());
                     }
-                    _pch += int.Parse(txtPchBox.Text);
+                    pch += int.Parse(txtPchBox.Text);
 
-                    if (_pch > RTFG.Return_qty_pch)
+                    if (pch > RTFG.Return_qty_pch)
                     {
                         BeginInvoke(new MethodInvoker(delegate ()
                         {
-                            sb.Show(this, "จำนวนใบสินค้าครบแล้ว", BunifuSnackbar.MessageTypes.Warning, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                            msg.Icon = MessageDialogIcon.Error;
+                            msg.Buttons = MessageDialogButtons.OK;
+                            msg.Show($"Product is full", "Product is full");
                         }));
                         return;
                     }
