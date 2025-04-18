@@ -26,6 +26,18 @@ namespace FutureFlex
         DataTable tbBox { get; set; } = new DataTable();
         DataTable tbRoll { get; set; } = new DataTable();
 
+        void CreateColumne(DataTable tb)
+        {
+            tb.Columns.Add("gv_name");
+            tb.Columns.Add("po");
+            tb.Columns.Add("seq");
+            tb.Columns.Add("net");
+            tb.Columns.Add("numPch");
+            tb.Columns.Add("lot");
+            tb.Columns.Add("employee");
+        }
+
+
         private void frmPrint_Load(object sender, EventArgs e)
         {
             // กำหนด PO
