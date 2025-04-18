@@ -247,12 +247,12 @@ namespace FutureFlex
                 pnMain.Visible = false;
                 gbLoadData.Visible = true;
                 label1.Text = "กำลังเชื่อมต่อ server futureflex ..";
-                // เชื่อมต่อ TcpServer ก่อน
+                //// เชื่อมต่อ TcpServer ก่อน
                 if (!await func_tcpClient.Connect())
                 {
                     msg.Icon = MessageDialogIcon.Error;
                     msg.Buttons = MessageDialogButtons.OK;
-                    msg.Show("Can't connect to server futureflex", "Fails to connect server");
+                    msg.Show("Can't connect to server futureflex", "TCP Server Error");
                     gbLoadData.Visible = false;
                     this.Close();
                     return;
