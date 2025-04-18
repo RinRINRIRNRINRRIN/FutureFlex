@@ -165,7 +165,20 @@ namespace FutureFlex
             catch
             {
 
+            }
+        }
 
+        private void btnWeight_Click(object sender, System.EventArgs e)
+        {
+            if (txtPO.Text == "" && txtRTFG.Text == "")
+            {
+                msg.Icon = MessageDialogIcon.Warning;
+                msg.Buttons = MessageDialogButtons.OK;
+                msg.Show("Please fill the data", "Empty data");
+                return;
+            }
+
+            Check(weightTyep);
             }
         }
     }
