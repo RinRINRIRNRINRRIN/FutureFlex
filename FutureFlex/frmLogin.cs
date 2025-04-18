@@ -35,6 +35,8 @@ namespace FutureFlex
                 return;
             }
 
+
+
             if (tbEmployeeSQL.LOGIN(txtUsername.Text, txtPassword.Text))
             {
                 Log.Information("เข้าสู่ระบบสำเร็จ");
@@ -49,6 +51,21 @@ namespace FutureFlex
                             Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
                         }
                     }
+                else
+                {
+                    //for (int i = 0; i < tbPrivilage.menuPrivilage.Count; i++)
+                    //{
+                    //    Log.Information($"== เมนูที่เปิด {tbPrivilage.menuPrivilage[i]}");
+                    //    string menu = tbPrivilage.menuPrivilage[i];
+                    //    foreach (var btn in frm.Controls.OfType<Guna2Button>())
+                    //    {
+                    //        if (menu == btn.Tag)
+                    //        {
+                    //            btn.Enabled = true;
+                    //            Log.Information($"- ฟังชั่นที่เปิด {btn.Text}");
+                    //        }
+                    //    }
+                    //}
                 }
                 frm.Show();
                 this.Hide();
