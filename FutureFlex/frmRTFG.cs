@@ -389,55 +389,25 @@ namespace FutureFlex
             }
 
             await Task.Delay(1000);
-            gbLoadData.Visible = false;
-            panel1.Visible = true;
-            sb.Show(this, "เชื่อมต่อ server futureflex สำเร็จ", BunifuSnackbar.MessageTypes.Success, 2000, "", BunifuSnackbar.Positions.TopCenter);
+
             // เปิดการอ่านค่าจาก Server
             _ = Task.Run(() =>
             {
                 GetMessage();
             });
 
-
-
-            // แสดงข้อมูลจาก Property
-            lblRtfg.Text = Rtfg_name;
-            lblGv.Text = Gv_id;
-            lblDate.Text = mo_date;
-            lblDateDelivery.Text = mo_date_delivery;
-            lblMoFilm.Text = mo_file;
-            lblMoWork.Text = mo_work;
-            lblPartner.Text = partner_name;
-            lblProduct.Text = product_name;
-            lblProductUomName.Text = product_uom_name;
-            lblMoType.Text = mo_type;
-            lblRetrunQtyPch.Text = ReturnQtyPch;
-            lblReturnQtyWeight.Text = ReturnQtyWeight;
-            label8.Text = RTFG.product_roll_length.ToString();
-
-            // กำหนดค่าให้กับ serialport
-            spScale.PortName = func_serialport.COM_SCALE;
-            spScale.BaudRate = func_serialport.BAUDRATE_SCALE;
-            spScale.Open();
-
-            Log.Information($"== Serial port open");
-            Log.Information($"-- COM SCALE : {spScale.PortName}");
-            Log.Information($"-- COM BAUDRATE : {spScale.BaudRate}");
-            Log.Information($"Scale is connected");
-
-            //spScanner.Open();
+            await Task.Delay(500);
+            label7.Text = "กำลังกำหนดค่าสิทธิ์การใช้งาน";
             // เช็คสิทธื ว่าลบหรือแก้ไขได้หรือไม่
-            if (tbPrivilage.weight.del == "True") { dgvDetail.Columns["cl_del"].Visible = true; }
-            if (tbPrivilage.weight.edit == "True") { dgvDetail.Columns["cl_edit"].Visible = true; }
+            DefinePrivilage();
 
-            Log.Information($"== Get privilage");
-            Log.Information($"-- DEL : {tbPrivilage.weight.del} ");
-            Log.Information($"-- EDIT : {tbPrivilage.weight.edit} ");
-
-            // ดึงข้อมูลจาก GV
-            await MRP.GET_MRP(lblGv.Text);
+            await Task.Delay(500);
+            label7.Text = "กำลังแสดงข้อมูล";
             // แสดงข้อมูลจาก datagridview
             ShowDataGridAndCountPchOrWeight();
+
+            gbLoadData.Visible = false;
+            pnMain.Visible = true;
         }
 
         private async void dgvDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
