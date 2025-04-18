@@ -777,7 +777,9 @@ namespace FutureFlex
                 {
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
-                        sb.Show(this, $"บันทึกข้อมูลผิดผลาด {tbWeightDetail.ERR}", BunifuSnackbar.MessageTypes.Error, 3000, "", BunifuSnackbar.Positions.TopCenter);
+                        msg.Icon = MessageDialogIcon.Error;
+                        msg.Buttons = MessageDialogButtons.OK;
+                        msg.Show($"Save weight error \nError : {tbWeightDetail.ERR}", "Save Error");
                     }));
                     return;
                 }
