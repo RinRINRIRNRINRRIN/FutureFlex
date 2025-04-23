@@ -153,10 +153,10 @@ namespace FutureFlex.Function
                             Log.Information($"Net : {_net} (double)");
                             Log.Information($"MFG : {DateTime.Now.ToString("dd/MM/yyyy")}");
                             e.Graphics.DrawString($"NO :  {_seq}", fontDetail, Brushes.Black, new System.Drawing.Point(135, 3));
-                            e.Graphics.DrawString($"[จำนวน]________ใบ.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
+                            e.Graphics.DrawString($"[จำนวน]_______ใบ.", fontHead, Brushes.Black, new System.Drawing.Point(0, 110));
                             e.Graphics.DrawString($"{int.Parse(_pchBox).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 110));
                             e.Graphics.DrawString($"____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 130));
-                            e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
+                            e.Graphics.DrawString($"{_net}", fontDetail, Brushes.Black, new System.Drawing.Point(10, 130));
                             e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
                             break;   //กรณีเลือกกล่อง
@@ -171,7 +171,7 @@ namespace FutureFlex.Function
                             e.Graphics.DrawString($"_____________ใบ", fontHead, Brushes.Black, new System.Drawing.Point(0, 125));
                             e.Graphics.DrawString($"{int.Parse(_pchRoll).ToString("#,###")}", fontDetail, Brushes.Black, new System.Drawing.Point(30, 125));
                             e.Graphics.DrawString($"_____________kg.", fontHead, Brushes.Black, new System.Drawing.Point(0, 140));
-                            e.Graphics.DrawString($"{double.Parse(_net).ToString("#,###.00")} ", fontDetail, Brushes.Black, new System.Drawing.Point(30, 140));
+                            e.Graphics.DrawString($"{_net} ", fontDetail, Brushes.Black, new System.Drawing.Point(30, 140));
                             e.Graphics.DrawString($"[MFG] : ______________________", fontHead, Brushes.Black, new System.Drawing.Point(0, 160));
                             e.Graphics.DrawString($"{DateTime.Now.ToString("dd/MM/yyyy")}", fontDetail, Brushes.Black, new System.Drawing.Point(50, 160));
                             break;  //กรณีเลือกม้วน  
