@@ -99,13 +99,26 @@ namespace FutureFlex.SQL
             return tb;
         }
 
-        public static DataTable SELECT_JIT_AND_PO_NOT_SEND_ODOO()
+        /// <summary>
+        /// สำหรับแสดง JIT ที่ยังไม่ได้ส่งหา odoo
+        /// </summary>
+        /// <param name="gvOrRTFG">GV,RTFG,SPL</param>
+        /// <returns></returns>
+        public static DataTable SELECT_SPL_NOT_SEND_ODOO(string gvOrRTFG, string so, string weightType)
         {
             try
             {
                 Log.Information($"== แสดงข้อมูลรายการที่ยังไม่ส่งหา odoo");
-                //sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_GVID ='{MRP.name}' and wdt_statusOdoo = 'NOT SEND'";
-                sql = $"SELECT * FROM {tbName}  WHERE wdt_po = '{PO}' and wdt_statusOdoo = 'NOT SEND' and wdt_gv_name = '{MRP.name}' and wdt_rtfg_name = ''";
+                if (weightType == "JIT")
+                {
+                    sql = $"SELECT * FROM {tbName}  WHERE wdt_gv_name = '{MRP.name}' and  wdt_weightType = 'SPL' and wdt_type = '{type}' and wdt_statusOdoo = 'NOT SEND' ";
+                }
+                else
+                {
+                    sql = $"SELECT * FROM {tbName}  WHERE wdt_gv_name = '{MRP.name}' and  wdt_po = '{MRP.mo_pono}' and wdt_so = '{so}' and wdt_type = '{type}' and wdt_statusOdoo = 'NOT SEND' ";
+
+                }
+
                 da = new SqlDataAdapter(sql, con);
                 tb = new DataTable();
                 da.Fill(tb);
