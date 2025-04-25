@@ -1,4 +1,5 @@
 ﻿using Bunifu.UI.WinForms;
+using FutureFlex.Models;
 using FutureFlex.SQL;
 using Guna.UI2.WinForms;
 using System;
@@ -35,9 +36,9 @@ namespace FutureFlex
                 btnAddEmployee.Enabled = false;
             }
 
-            txtFullName.Text = tbEmployeeSQL.emp_name;
-            txtUsername.Text = tbEmployeeSQL.emp_username;
-            txtPassword.Text = tbEmployeeSQL.emp_password;
+            txtFullName.Text = EmployeeModel.emp_name;
+            txtUsername.Text = EmployeeModel.emp_username;
+            txtPassword.Text = EmployeeModel.emp_password;
         }
 
 
@@ -62,7 +63,7 @@ namespace FutureFlex
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (tbEmployeeSQL.emp_username == "sa")
+            if (EmployeeModel.emp_username == "sa")
             {
                 MessageBox.Show("ไม่สามารถแก้ไขสิทธิ์ข้อมูลผู้ใช้ได้", "Warnning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -111,7 +112,7 @@ namespace FutureFlex
             }
 
             //บันทึก
-            if (tbEmployeeSQL.UPDATE(txtFullName.Text, txtUsername.Text, txtCMPassword.Text, tbEmployeeSQL.emp_username))
+            if (tbEmployeeSQL.UPDATE(txtFullName.Text, txtUsername.Text, txtCMPassword.Text, EmployeeModel.emp_username))
             {
                 MessageBox.Show("แก้ไชข้อมูลผู้ใชงานสำเร็จ ระบบจะปิดโปรแกรมเพื่อให้ login เข้าใช้งานใหม่อีกครั้ง", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Application.Exit();
