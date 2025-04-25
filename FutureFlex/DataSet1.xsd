@@ -21,7 +21,14 @@
               <xs:element name="wdt_net" msprop:Generator_ColumnPropNameInTable="wdt_netColumn" msprop:Generator_ColumnPropNameInRow="wdt_net" msprop:Generator_UserColumnName="wdt_net" msprop:Generator_ColumnVarNameInTable="columnwdt_net" type="xs:string" minOccurs="0" />
               <xs:element name="wdt_numPch" msprop:Generator_ColumnPropNameInTable="wdt_numPchColumn" msprop:Generator_ColumnPropNameInRow="wdt_numPch" msprop:Generator_UserColumnName="wdt_numPch" msprop:Generator_ColumnVarNameInTable="columnwdt_numPch" type="xs:string" minOccurs="0" />
               <xs:element name="wdt_lot" msprop:Generator_ColumnPropNameInTable="wdt_lotColumn" msprop:Generator_ColumnPropNameInRow="wdt_lot" msprop:Generator_UserColumnName="wdt_lot" msprop:Generator_ColumnVarNameInTable="columnwdt_lot" type="xs:string" minOccurs="0" />
-              <xs:element name="wdt_employee" msprop:Generator_UserColumnName="wdt_employee" msprop:Generator_ColumnPropNameInTable="wdt_employeeColumn" msprop:Generator_ColumnPropNameInRow="wdt_employee" msprop:Generator_ColumnVarNameInTable="columnwdt_employee" type="xs:string" minOccurs="0" />
+              <xs:element name="wdt_employee" msprop:Generator_ColumnPropNameInTable="wdt_employeeColumn" msprop:Generator_ColumnPropNameInRow="wdt_employee" msprop:Generator_UserColumnName="wdt_employee" msprop:Generator_ColumnVarNameInTable="columnwdt_employee" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="image" msprop:Generator_RowEvHandlerName="imageRowChangeEventHandler" msprop:Generator_RowDeletedName="imageRowDeleted" msprop:Generator_RowDeletingName="imageRowDeleting" msprop:Generator_RowEvArgName="imageRowChangeEvent" msprop:Generator_TablePropName="image" msprop:Generator_RowChangedName="imageRowChanged" msprop:Generator_RowChangingName="imageRowChanging" msprop:Generator_TableClassName="imageDataTable" msprop:Generator_RowClassName="imageRow" msprop:Generator_TableVarName="tableimage" msprop:Generator_UserTableName="image">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="img" msprop:Generator_ColumnPropNameInRow="img" msprop:Generator_ColumnPropNameInTable="imgColumn" msprop:Generator_ColumnVarNameInTable="columnimg" msprop:Generator_UserColumnName="img" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
