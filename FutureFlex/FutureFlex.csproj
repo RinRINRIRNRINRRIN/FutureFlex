@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <Deterministic>false</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -91,6 +91,10 @@
     <Reference Include="ClosedXML, Version=0.102.3.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.102.3\lib\netstandard2.0\ClosedXML.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.16.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
@@ -229,6 +233,7 @@
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -256,6 +261,7 @@
     <Compile Include="API\Authentication.cs" />
     <Compile Include="API\MRP.cs" />
     <Compile Include="API\RTFG.cs" />
+    <Compile Include="API\SLP.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -309,6 +315,18 @@
     <Compile Include="frmRTFGList.Designer.cs">
       <DependentUpon>frmRTFGList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSplit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplit.Designer.cs">
+      <DependentUpon>frmSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSPLList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSPLList.Designer.cs">
+      <DependentUpon>frmSPLList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTcpClientServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,12 +339,20 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWeightPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWeightPO.Designer.cs">
+      <DependentUpon>frmWeightPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function\func_print.cs" />
     <Compile Include="Function\func_serialport.cs" />
     <Compile Include="Function\func_tcpClient.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\PrintModels.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="SQL\systems.cs" />
     <Compile Include="SQL\tbEmployeeSQL.cs" />
-    <Compile Include="SQL\tbForSendSQL.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,19 +383,12 @@
     <Compile Include="frmSetting.Designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWeightDetail.cs">
+    <Compile Include="frmWeightJIT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWeightDetail.Designer.cs">
-      <DependentUpon>frmWeightDetail.cs</DependentUpon>
+    <Compile Include="frmWeightJIT.Designer.cs">
+      <DependentUpon>frmWeightJIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWeightNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWeightNew.Designer.cs">
-      <DependentUpon>frmWeightNew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Function\Function.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\server.cs" />
@@ -412,6 +431,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRTFG.resx">
       <DependentUpon>frmRTFG.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRTFGList.resx">
       <DependentUpon>frmRTFGList.cs</DependentUpon>
@@ -420,17 +440,23 @@
       <DependentUpon>frmSetting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSplit.resx">
+      <DependentUpon>frmSplit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSPLList.resx">
+      <DependentUpon>frmSPLList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTcpClientServer.resx">
       <DependentUpon>frmTcpClientServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWeightDetail.resx">
-      <DependentUpon>frmWeightDetail.cs</DependentUpon>
+    <EmbeddedResource Include="frmWeightJIT.resx">
+      <DependentUpon>frmWeightJIT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWeightNew.resx">
-      <DependentUpon>frmWeightNew.cs</DependentUpon>
+    <EmbeddedResource Include="frmWeightPO.resx">
+      <DependentUpon>frmWeightPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -505,6 +531,9 @@
     </Content>
     <None Include="Resources\right-chevron.png" />
     <None Include="Resources\left-chevron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

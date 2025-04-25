@@ -1432,7 +1432,12 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=IIf(Parameters!GvOrRTFG.Value  ,"ใบสั่งผลิต","ใบคืนสินค้า")</Value>
+                      <Value>=Switch(
+    Parameters!GvOrRTFG.Value = "GV", "ใบสั่งผลิต",
+    Parameters!GvOrRTFG.Value = "RTFG", "ใบคืนสินค้า",
+    Parameters!GvOrRTFG.Value = "SPL", "ใบแบ่งม้วนผลิต",
+    True, "ค่าอื่น ๆ"
+)</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1572,7 +1577,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="GvOrRTFG">
-      <DataType>Boolean</DataType>
+      <DataType>String</DataType>
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

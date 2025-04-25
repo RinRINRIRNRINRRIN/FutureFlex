@@ -47,6 +47,8 @@ namespace FutureFlex
             this.cl_gv_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_rtfg_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_rtfg_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_spl_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_spl_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_seq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_seqNew = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_po = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +72,7 @@ namespace FutureFlex
             this.cl_wdt_numbox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_numrollAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_wdt_numroll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_weightType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,9 +82,17 @@ namespace FutureFlex
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2RadioButton3 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.cbbJIT = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.msg = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.gbLoadData = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
             this.panel1.SuspendLayout();
+            this.gbLoadData.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,7 +100,7 @@ namespace FutureFlex
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Athiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 49);
+            this.label1.Location = new System.Drawing.Point(21, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 21);
             this.label1.TabIndex = 14;
@@ -107,9 +118,9 @@ namespace FutureFlex
             this.cbbPO.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPO.ForeColor = System.Drawing.Color.Black;
             this.cbbPO.ItemHeight = 30;
-            this.cbbPO.Location = new System.Drawing.Point(19, 73);
+            this.cbbPO.Location = new System.Drawing.Point(11, 144);
             this.cbbPO.Name = "cbbPO";
-            this.cbbPO.Size = new System.Drawing.Size(272, 36);
+            this.cbbPO.Size = new System.Drawing.Size(232, 36);
             this.cbbPO.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbbPO.TabIndex = 13;
             this.cbbPO.DropDown += new System.EventHandler(this.guna2ComboBox1_DropDown);
@@ -120,7 +131,7 @@ namespace FutureFlex
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1158, 3);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1110, 3);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 12;
@@ -156,6 +167,8 @@ namespace FutureFlex
             this.cl_gv_id,
             this.cl_rtfg_name,
             this.cl_rtfg_id,
+            this.cl_spl_name,
+            this.cl_spl_id,
             this.cl_seq,
             this.cl_wdt_seqNew,
             this.cl_po,
@@ -178,7 +191,8 @@ namespace FutureFlex
             this.cl_pch,
             this.cl_wdt_numbox,
             this.cl_wdt_numrollAll,
-            this.cl_wdt_numroll});
+            this.cl_wdt_numroll,
+            this.cl_weightType});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -189,7 +203,7 @@ namespace FutureFlex
             this.dgvDetail.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetail.EnableHeadersVisualStyles = false;
             this.dgvDetail.GridColor = System.Drawing.Color.White;
-            this.dgvDetail.Location = new System.Drawing.Point(309, 90);
+            this.dgvDetail.Location = new System.Drawing.Point(264, 3);
             this.dgvDetail.Name = "dgvDetail";
             this.dgvDetail.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -211,7 +225,7 @@ namespace FutureFlex
             this.dgvDetail.RowTemplate.Height = 30;
             this.dgvDetail.RowTemplate.ReadOnly = true;
             this.dgvDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDetail.Size = new System.Drawing.Size(894, 526);
+            this.dgvDetail.Size = new System.Drawing.Size(869, 526);
             this.dgvDetail.TabIndex = 9;
             // 
             // cl_del
@@ -267,6 +281,7 @@ namespace FutureFlex
             this.cl_rtfg_name.HeaderText = "RTFG Name";
             this.cl_rtfg_name.Name = "cl_rtfg_name";
             this.cl_rtfg_name.ReadOnly = true;
+            this.cl_rtfg_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.cl_rtfg_name.Width = 150;
             // 
             // cl_rtfg_id
@@ -277,6 +292,23 @@ namespace FutureFlex
             this.cl_rtfg_id.ReadOnly = true;
             this.cl_rtfg_id.Visible = false;
             this.cl_rtfg_id.Width = 150;
+            // 
+            // cl_spl_name
+            // 
+            this.cl_spl_name.DataPropertyName = "wdt_spl_name";
+            this.cl_spl_name.HeaderText = "SPL Name";
+            this.cl_spl_name.Name = "cl_spl_name";
+            this.cl_spl_name.ReadOnly = true;
+            this.cl_spl_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cl_spl_name.Width = 150;
+            // 
+            // cl_spl_id
+            // 
+            this.cl_spl_id.DataPropertyName = "wdt_spl_id";
+            this.cl_spl_id.HeaderText = "SPL ID";
+            this.cl_spl_id.Name = "cl_spl_id";
+            this.cl_spl_id.ReadOnly = true;
+            this.cl_spl_id.Visible = false;
             // 
             // cl_seq
             // 
@@ -468,6 +500,14 @@ namespace FutureFlex
             this.cl_wdt_numroll.ReadOnly = true;
             this.cl_wdt_numroll.Visible = false;
             // 
+            // cl_weightType
+            // 
+            this.cl_weightType.DataPropertyName = "wdt_weightType";
+            this.cl_weightType.HeaderText = "WeightType";
+            this.cl_weightType.Name = "cl_weightType";
+            this.cl_weightType.ReadOnly = true;
+            this.cl_weightType.Visible = false;
+            // 
             // guna2BorderlessForm1
             // 
             this.guna2BorderlessForm1.ContainerControl = this;
@@ -516,11 +556,11 @@ namespace FutureFlex
             this.btnSearch.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.btnSearch.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
             this.btnSearch.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnSearch.Location = new System.Drawing.Point(12, 467);
+            this.btnSearch.Location = new System.Drawing.Point(3, 385);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(280, 43);
+            this.btnSearch.Size = new System.Drawing.Size(255, 43);
             this.btnSearch.TabIndex = 25;
-            this.btnSearch.Text = "ค้นหารายการ";
+            this.btnSearch.Text = "ค้นหารายการเพิ่มเติม";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnPrint
@@ -538,9 +578,9 @@ namespace FutureFlex
             this.btnPrint.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.btnPrint.HoverState.FillColor = System.Drawing.Color.MidnightBlue;
             this.btnPrint.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.btnPrint.Location = new System.Drawing.Point(12, 516);
+            this.btnPrint.Location = new System.Drawing.Point(3, 434);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(280, 43);
+            this.btnPrint.Size = new System.Drawing.Size(255, 43);
             this.btnPrint.TabIndex = 26;
             this.btnPrint.Text = "พิมพ์ข้อมูลก่อนส่ง ODOO";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -561,9 +601,9 @@ namespace FutureFlex
             this.btnSend.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.btnSend.HoverState.FillColor = System.Drawing.Color.SteelBlue;
             this.btnSend.HoverState.FillColor2 = System.Drawing.Color.ForestGreen;
-            this.btnSend.Location = new System.Drawing.Point(12, 565);
+            this.btnSend.Location = new System.Drawing.Point(3, 483);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(280, 43);
+            this.btnSend.Size = new System.Drawing.Size(255, 43);
             this.btnSend.TabIndex = 27;
             this.btnSend.Text = "ส่งข้อมูลหา ODOO";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -577,7 +617,7 @@ namespace FutureFlex
             this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton1.CheckedState.InnerOffset = -4;
             this.guna2RadioButton1.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.guna2RadioButton1.Location = new System.Drawing.Point(13, 17);
+            this.guna2RadioButton1.Location = new System.Drawing.Point(13, 9);
             this.guna2RadioButton1.Name = "guna2RadioButton1";
             this.guna2RadioButton1.Size = new System.Drawing.Size(113, 29);
             this.guna2RadioButton1.TabIndex = 28;
@@ -598,7 +638,7 @@ namespace FutureFlex
             this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
             this.guna2RadioButton2.CheckedState.InnerOffset = -4;
             this.guna2RadioButton2.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.guna2RadioButton2.Location = new System.Drawing.Point(153, 17);
+            this.guna2RadioButton2.Location = new System.Drawing.Point(12, 44);
             this.guna2RadioButton2.Name = "guna2RadioButton2";
             this.guna2RadioButton2.Size = new System.Drawing.Size(132, 29);
             this.guna2RadioButton2.TabIndex = 29;
@@ -612,15 +652,37 @@ namespace FutureFlex
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2RadioButton3);
             this.panel1.Controls.Add(this.cbbJIT);
             this.panel1.Controls.Add(this.guna2RadioButton2);
             this.panel1.Controls.Add(this.guna2RadioButton1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbbPO);
-            this.panel1.Location = new System.Drawing.Point(4, 85);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(302, 182);
+            this.panel1.Size = new System.Drawing.Size(255, 247);
             this.panel1.TabIndex = 30;
+            // 
+            // guna2RadioButton3
+            // 
+            this.guna2RadioButton3.AutoSize = true;
+            this.guna2RadioButton3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton3.CheckedState.BorderThickness = 0;
+            this.guna2RadioButton3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2RadioButton3.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2RadioButton3.CheckedState.InnerOffset = -4;
+            this.guna2RadioButton3.Font = new System.Drawing.Font("Athiti Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.guna2RadioButton3.Location = new System.Drawing.Point(13, 79);
+            this.guna2RadioButton3.Name = "guna2RadioButton3";
+            this.guna2RadioButton3.Size = new System.Drawing.Size(133, 29);
+            this.guna2RadioButton3.TabIndex = 31;
+            this.guna2RadioButton3.Tag = "SPL";
+            this.guna2RadioButton3.Text = "ส่งข้อมูล SPLIT";
+            this.guna2RadioButton3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2RadioButton3.UncheckedState.BorderThickness = 2;
+            this.guna2RadioButton3.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton3.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton3.CheckedChanged += new System.EventHandler(this.SelectGVorRTFG);
             // 
             // cbbJIT
             // 
@@ -633,28 +695,95 @@ namespace FutureFlex
             this.cbbJIT.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbJIT.ForeColor = System.Drawing.Color.Black;
             this.cbbJIT.ItemHeight = 30;
-            this.cbbJIT.Location = new System.Drawing.Point(17, 115);
+            this.cbbJIT.Location = new System.Drawing.Point(11, 186);
             this.cbbJIT.Name = "cbbJIT";
-            this.cbbJIT.Size = new System.Drawing.Size(274, 36);
+            this.cbbJIT.Size = new System.Drawing.Size(234, 36);
             this.cbbJIT.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbbJIT.TabIndex = 30;
             this.cbbJIT.Visible = false;
             this.cbbJIT.SelectedIndexChanged += new System.EventHandler(this.cbbJIT_SelectedIndexChanged);
+            // 
+            // msg
+            // 
+            this.msg.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.msg.Caption = null;
+            this.msg.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
+            this.msg.Parent = this;
+            this.msg.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.msg.Text = null;
+            // 
+            // gbLoadData
+            // 
+            this.gbLoadData.BorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.BorderRadius = 4;
+            this.gbLoadData.Controls.Add(this.label2);
+            this.gbLoadData.Controls.Add(this.guna2CircleProgressBar1);
+            this.gbLoadData.CustomBorderColor = System.Drawing.Color.Navy;
+            this.gbLoadData.CustomBorderThickness = new System.Windows.Forms.Padding(0);
+            this.gbLoadData.Font = new System.Drawing.Font("Athiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLoadData.ForeColor = System.Drawing.Color.White;
+            this.gbLoadData.Location = new System.Drawing.Point(711, 3);
+            this.gbLoadData.Name = "gbLoadData";
+            this.gbLoadData.Size = new System.Drawing.Size(406, 96);
+            this.gbLoadData.TabIndex = 86;
+            this.gbLoadData.Text = "กำลังโหลดข้อมูล";
+            this.gbLoadData.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Athiti Medium", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(105, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(241, 39);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "กำลังส่งข้อมูลหา Odoo";
+            // 
+            // guna2CircleProgressBar1
+            // 
+            this.guna2CircleProgressBar1.Animated = true;
+            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.guna2CircleProgressBar1.FillThickness = 15;
+            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(14, 12);
+            this.guna2CircleProgressBar1.Minimum = 0;
+            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2CircleProgressBar1.ProgressColor2 = System.Drawing.Color.Navy;
+            this.guna2CircleProgressBar1.ProgressEndCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressStartCap = System.Drawing.Drawing2D.LineCap.Round;
+            this.guna2CircleProgressBar1.ProgressThickness = 15;
+            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(71, 71);
+            this.guna2CircleProgressBar1.TabIndex = 0;
+            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.Value = 50;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.dgvDetail);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.btnSend);
+            this.panel2.Controls.Add(this.btnPrint);
+            this.panel2.Location = new System.Drawing.Point(10, 79);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1138, 537);
+            this.panel2.TabIndex = 87;
             // 
             // frmHistoryWeight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1206, 619);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnSearch);
+            this.ClientSize = new System.Drawing.Size(1158, 619);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.gbLoadData);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.dgvDetail);
             this.Font = new System.Drawing.Font("Athiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -666,6 +795,9 @@ namespace FutureFlex
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gbLoadData.ResumeLayout(false);
+            this.gbLoadData.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,6 +818,8 @@ namespace FutureFlex
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbJIT;
+        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton3;
+        private Guna.UI2.WinForms.Guna2MessageDialog msg;
         private System.Windows.Forms.DataGridViewButtonColumn cl_del;
         private System.Windows.Forms.DataGridViewButtonColumn cl_edit;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_id;
@@ -693,6 +827,8 @@ namespace FutureFlex
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_gv_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_rtfg_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_spl_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_spl_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_seq;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_seqNew;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_po;
@@ -716,5 +852,10 @@ namespace FutureFlex
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numrollAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_wdt_numroll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_weightType;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2GroupBox gbLoadData;
+        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
     }
 }
