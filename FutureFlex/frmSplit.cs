@@ -402,7 +402,7 @@ namespace FutureFlex
                     case "roll":
                         double cors = Convert.ToDouble(txtWghCors.Text);
                         double _nett = double.Parse(net) - cors;
-                        net = _nett.ToString("#,###.00");
+                        net = _nett.ToString();
                         BeginInvoke(new MethodInvoker(delegate ()
                         {
                             lbNetWgh.Text = net;
