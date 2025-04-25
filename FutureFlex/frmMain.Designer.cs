@@ -293,7 +293,7 @@ namespace FutureFlex
             this.btnHistory.Size = new System.Drawing.Size(202, 39);
             this.btnHistory.TabIndex = 12;
             this.btnHistory.Tag = "history";
-            this.btnHistory.Text = "รายการที่ชัง/คืนสินค้า";
+            this.btnHistory.Text = "รายการที่ชั่ง/คืนสินค้า";
             this.btnHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnHistory.Click += new System.EventHandler(this.MenuSelect);
             // 
