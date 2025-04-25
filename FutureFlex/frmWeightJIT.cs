@@ -854,7 +854,7 @@ namespace FutureFlex
                 {
                     double cors = Convert.ToDouble(txtWghCors.Text);
                     double _net = double.Parse(net) - cors;
-                    net = _net.ToString("#,###.00");
+                    net = _net.ToString();
                     BeginInvoke(new MethodInvoker(delegate ()
                     {
                         lbNetWgh.Text = net;
