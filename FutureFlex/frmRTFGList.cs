@@ -120,7 +120,7 @@ namespace FutureFlex
                         if (value.Contains("GV"))
                         {
                             // ลองดึงข้อมูลเพื่อไปกำหนดหน้าชั่งหากพบข้อมูล
-                            if (!await MRP.GET_MRP($"{value}"))
+                            if (!await MRP.GET_MRP($"{value}", ""))
                             {
                                 msg.Buttons = MessageDialogButtons.OK;
                                 msg.Icon = MessageDialogIcon.Warning;
