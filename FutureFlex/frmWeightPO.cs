@@ -339,7 +339,7 @@ namespace FutureFlex
                 gbLoadData.Visible = true;
                 label1.Text = "กำลังดึงข้อมูล.....";
 
-                if (!await MRP.GET_MRP($"GV-{_gv}"))
+                if (!await MRP.GET_MRP($"GV-{_gv}", txtPo.Text))
                 {
                     pnMain.Visible = true;
                     gbLoadData.Visible = false;
