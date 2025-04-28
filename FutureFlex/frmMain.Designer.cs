@@ -75,7 +75,7 @@ namespace FutureFlex
             this.statusStrip1.Location = new System.Drawing.Point(0, 679);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1240, 34);
+            this.statusStrip1.Size = new System.Drawing.Size(1586, 34);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -159,7 +159,7 @@ namespace FutureFlex
             this.guna2ControlBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1202, 7);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1548, 7);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(26, 29);
             this.guna2ControlBox1.TabIndex = 0;
@@ -173,7 +173,7 @@ namespace FutureFlex
             this.guna2ControlBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1171, 7);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1517, 7);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(26, 29);
             this.guna2ControlBox2.TabIndex = 0;
@@ -187,7 +187,7 @@ namespace FutureFlex
             this.guna2ControlBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.White;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Navy;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1141, 7);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1487, 7);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(26, 29);
             this.guna2ControlBox3.TabIndex = 0;
@@ -215,7 +215,7 @@ namespace FutureFlex
             this.btnAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnAccount.Image")));
             this.btnAccount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAccount.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnAccount.Location = new System.Drawing.Point(1110, 57);
+            this.btnAccount.Location = new System.Drawing.Point(1456, 57);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(55, 39);
             this.btnAccount.TabIndex = 5;
@@ -240,7 +240,7 @@ namespace FutureFlex
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnSetting.Location = new System.Drawing.Point(1171, 57);
+            this.btnSetting.Location = new System.Drawing.Point(1517, 57);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(55, 39);
             this.btnSetting.TabIndex = 4;
@@ -261,7 +261,7 @@ namespace FutureFlex
             this.panel1.Location = new System.Drawing.Point(12, 106);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1216, 567);
+            this.panel1.Size = new System.Drawing.Size(1562, 567);
             this.panel1.TabIndex = 0;
             // 
             // splitter1
@@ -457,7 +457,7 @@ namespace FutureFlex
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1240, 713);
+            this.ClientSize = new System.Drawing.Size(1586, 713);
             this.Controls.Add(this.btnJIT);
             this.Controls.Add(this.btnPO);
             this.Controls.Add(this.btnSplit);

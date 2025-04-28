@@ -3,6 +3,7 @@ using FutureFlex.SQL;
 using Guna.UI2.WinForms;
 using Serilog;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 
@@ -23,6 +24,18 @@ namespace FutureFlex
         {
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
+            // แสดงประเภทโปรแกรม
+            string statusType = ConfigurationManager.AppSettings["DB_LOCAL"];
+            switch (statusType)
+            {
+                case "FutureflexUAT":
+                    lblStatusProductOrUAT.Text = "Program status : UAT";
+                    break;
+                case "FutureFlex":
+                    lblStatusProductOrUAT.Text = "Program status : Production";
+                    break;
+            }
+
             // นำชื่อผู้ใช้มาแสดงที่โปรแกรม
             tsShowEmp_name.Text = EmployeeModel.emp_name;
             tShowServerName.Text = server.serverLocal;
