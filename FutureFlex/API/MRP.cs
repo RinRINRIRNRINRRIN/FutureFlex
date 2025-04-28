@@ -170,7 +170,7 @@ namespace FutureFlex.API
             return true;
         }
 
-        public async static Task<bool> GET_MRP(string gv)
+        public async static Task<bool> GET_MRP(string gv, string po_num)
         {
             Log.Information($"== ดึงข้อมูลจาก odoo ค้นหาจาก {gv}");
 
@@ -184,6 +184,7 @@ namespace FutureFlex.API
                 var request = new RestRequest("/api/gv_num", Method.Get);
                 request.AddHeader("key", tbOdoo.key);
                 request.AddHeader("gv_num", gv);
+                request.AddHeader("po_num", po_num);
                 RestResponse response = await client.ExecuteAsync(request);
                 Log.Information($"- response \n {response.Content}");
 
