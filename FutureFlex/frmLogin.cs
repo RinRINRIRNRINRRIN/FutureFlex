@@ -20,7 +20,9 @@ namespace FutureFlex
 .WriteTo.File(Application.StartupPath + "\\Logs\\log-.txt", rollingInterval: RollingInterval.Day)
 .WriteTo.Console(Serilog.Events.LogEventLevel.Debug)
 .CreateLogger();
-            label5.Text = $"Version {systems.Versoin}";
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            string versions = $"{version.Major}.{version.Minor}.{version.Build}";
+            label5.Text = $"Version {versions}";
         }
 
         void Login()
