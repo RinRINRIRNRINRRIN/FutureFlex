@@ -110,5 +110,10 @@ namespace FutureFlex
             frmWeightJIT frmWeightJIT = new frmWeightJIT();
             frmWeightJIT.ShowDialog();
         }
+
+        private void toolStripStatusLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
