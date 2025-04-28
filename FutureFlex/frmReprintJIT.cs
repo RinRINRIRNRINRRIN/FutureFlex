@@ -74,7 +74,7 @@ namespace FutureFlex
 
                         if (gv_name != gv_old)
                         {
-                            await MRP.GET_MRP($"{gv_name}");
+                            await MRP.GET_MRP($"{gv_name}", MRP.mo_pono);
                             gv_old = gv_name;
                         }
 
