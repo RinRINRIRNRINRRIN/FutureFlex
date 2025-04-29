@@ -26,21 +26,33 @@ namespace FutureFlex
             this.FormBorderStyle = FormBorderStyle.None;
             // แสดงประเภทโปรแกรม
             string statusType = ConfigurationManager.AppSettings["DB_LOCAL"];
+            string a = "";
             switch (statusType)
             {
                 case "FutureflexUAT":
-                    lblStatusProductOrUAT.Text = "Program status : UAT";
+                    a = "UAT";
                     break;
                 case "FutureFlex":
-                    lblStatusProductOrUAT.Text = "Program status : Production";
+                    a = "Production";
+                    break;
+            }
+
+            string status_odoo = ConfigurationManager.AppSettings["ODOO_STATUS"];
+            switch (status_odoo)
+            {
+                case "UAT":
+                    label4.Text = "ODOO : UAT";
+                    break;
+                case "PRODUCTION":
+                    label4.Text = "ODOO : PRODUCTION";
                     break;
             }
 
             // นำชื่อผู้ใช้มาแสดงที่โปรแกรม
-            tsShowEmp_name.Text = EmployeeModel.emp_name;
-            tShowServerName.Text = server.serverLocal;
-            Log.Information($"server name : {tShowServerName.Text}");
-            Log.Information($"employee name : {tsShowEmp_name.Text}");
+            label6.Text = EmployeeModel.emp_name;
+            label5.Text = $"{server.serverLocal} : {a}";
+            Log.Information($"server name : {label5.Text}");
+            Log.Information($"employee name : {label6.Text}");
             tbOdoo.defineServerOdoo();
         }
 
@@ -122,11 +134,6 @@ namespace FutureFlex
         {
             frmWeightJIT frmWeightJIT = new frmWeightJIT();
             frmWeightJIT.ShowDialog();
-        }
-
-        private void toolStripStatusLabel4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
