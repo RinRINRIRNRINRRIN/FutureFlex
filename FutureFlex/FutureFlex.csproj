@@ -258,7 +258,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\Authentication.cs" />
     <Compile Include="API\MRP.cs" />
     <Compile Include="API\RTFG.cs" />
     <Compile Include="API\SLP.cs" />
@@ -349,6 +348,7 @@
     <Compile Include="Function\func_serialport.cs" />
     <Compile Include="Function\func_tcpClient.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\OdooModel.cs" />
     <Compile Include="Models\PrintModels.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="SQL\systems.cs" />
