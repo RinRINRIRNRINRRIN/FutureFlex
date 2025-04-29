@@ -1,4 +1,4 @@
-﻿using FutureFlex.SQL;
+﻿using FutureFlex.Models;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Serilog;
@@ -91,14 +91,14 @@ namespace FutureFlex.API
                     JObject keys = new JObject();
                     JArray jArray = new JArray();
 
-                    var options = new RestClientOptions(tbOdoo.server)
+                    var options = new RestClientOptions(OdooModel.Server)
                     {
                         MaxTimeout = 3000,
                     };
                     var client = new RestClient(options);
                     var request = new RestRequest("/api/return_list", Method.Get);
-                    request.AddHeader("key", tbOdoo.key);
-                    request.AddHeader("po_num", po_num);
+                    request.AddHeader("key", OdooModel.Key);
+                    request.AddHeader("po-num", po_num);
                     RestResponse response = await client.ExecuteAsync(request);
                     Console.WriteLine(response.Content);
 
@@ -166,14 +166,14 @@ namespace FutureFlex.API
                 try
                 {
                     CreateDataTable();
-                    var options = new RestClientOptions(tbOdoo.server)
+                    var options = new RestClientOptions(OdooModel.Server)
                     {
                         MaxTimeout = 3000,
                     };
                     var client = new RestClient(options);
                     var request = new RestRequest("/api/return_num", Method.Get);
-                    request.AddHeader("key", tbOdoo.key);
-                    request.AddHeader("return_num", rtfg_num);
+                    request.AddHeader("key", OdooModel.Key);
+                    request.AddHeader("return-num", rtfg_num);
                     RestResponse response = await client.ExecuteAsync(request);
                     Console.WriteLine(response.Content);
 
@@ -300,13 +300,13 @@ namespace FutureFlex.API
                     po = "JIT";
                 }
 
-                var options = new RestClientOptions(tbOdoo.server)
+                var options = new RestClientOptions(OdooModel.Server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
                 var request = new RestRequest("/api/return_num", Method.Post);
-                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("key", OdooModel.Key);
                 request.AddHeader("return_num", rtfg_id);
                 request.AddHeader("Content-Type", "text/plain");
                 var body = "{\n" +
