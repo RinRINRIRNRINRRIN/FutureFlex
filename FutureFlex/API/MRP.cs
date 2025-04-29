@@ -384,46 +384,5 @@ namespace FutureFlex.API
             Log.Information($"SEND SUCCESS RTFG NAME : {id}");
             return true;
         }
-
-        public async static Task<bool> DELETE(int weigh_in_line_id)
-        {
-            try
-            {
-                var options = new RestClientOptions(tbOdoo.server)
-                {
-                    MaxTimeout = -1,
-                };
-                var client = new RestClient(options);
-                var request = new RestRequest("/api/unlinke/weighin", Method.Delete);
-                request.AddHeader("token", Authentication.access_token);
-                request.AddHeader("Content-Type", "text/plain");
-                var body = "{\n" +
-                    "     |weigh_in_line_id|:|" + weigh_in_line_id + "|\n" +
-                    "}";
-                request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
-                RestResponse response = await client.ExecuteAsync(request);
-                Console.WriteLine(response.Content);
-
-
-                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    await Authentication.take_token_key();
-                    request.AddHeader("token", Authentication.access_token);
-                    request.AddHeader("Content-Type", "text/plain");
-                    request.AddParameter("text/plain", body.Replace('|', '"'), ParameterType.RequestBody);
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Accepted)
-                {
-                    return false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                err = $"เกิดข้อผิดผลาด {ex.Message}";
-                return false;
-            }
-            return true;
-        }
     }
 }
