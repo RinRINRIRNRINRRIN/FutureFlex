@@ -1,4 +1,4 @@
-﻿using FutureFlex.SQL;
+﻿using FutureFlex.Models;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Serilog;
@@ -15,14 +15,14 @@ namespace FutureFlex.API
             try
             {
                 Log.Information($"=================================================================  เช็ค token");
-                var options = new RestClientOptions(tbOdoo.server)
+                var options = new RestClientOptions(OdooModel.Server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
                 var request = new RestRequest("/api/login/token_api_key", Method.Get);
-                request.AddHeader("db", tbOdoo.db);
-                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("db", OdooModel.Database);
+                request.AddHeader("key", OdooModel.Key);
                 RestResponse response = await client.ExecuteAsync(request);
                 Console.WriteLine(response.Content);
                 Log.Information($"- response \n {response.Content}");
@@ -45,24 +45,5 @@ namespace FutureFlex.API
             return true;
         }
 
-
-        public static async Task<bool> CHECK_TOKEN()
-        {
-            try
-            {
-                if (access_token == null)
-                {
-                    if (!await take_token_key())
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            return true;
-        }
     }
 }
