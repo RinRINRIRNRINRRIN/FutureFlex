@@ -1,4 +1,4 @@
-﻿using FutureFlex.SQL;
+﻿using FutureFlex.Models;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Serilog;
