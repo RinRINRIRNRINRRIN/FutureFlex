@@ -1,3 +1,4 @@
+﻿using FutureFlex.Models;
 ﻿using Serilog;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,10 +8,9 @@ namespace FutureFlex.SQL
     public class tbOdoo
     {
 
-        public static string key { get; set; }
-        public static string server { get; set; }
-        public static string db { get; set; }
-
+        /// <summary>
+        /// ดึงข้อมูลจากฐาน เพื่อเรียกใช้ odoo
+        /// </summary>
         public static void defineServerOdoo()
         {
             try
