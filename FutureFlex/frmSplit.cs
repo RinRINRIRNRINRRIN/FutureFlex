@@ -568,7 +568,6 @@ namespace FutureFlex
             {
                 if (txtNunMeter.Text != "")
                 {
-
                     if (txtNunMeter.Text != "0")
                     {
                         string a = MRP.pch_length.ToString();
@@ -597,6 +596,7 @@ namespace FutureFlex
                     }
                     txtNumWant.Text = txtNunMeter.Text;
                 }
+                else { txtNumWant.Text = "0"; }
             }
             catch (Exception)
             {
@@ -664,6 +664,15 @@ namespace FutureFlex
             {
                 statusCounty = rdb.Tag.ToString();
             }
+        }
+
+        private void txtPchBox_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPchBox.Text != "")
+            {
+                txtNumWant.Text = txtPchBox.Text;
+            }
+            else { txtNumWant.Text = "0"; }
         }
     }
 }
