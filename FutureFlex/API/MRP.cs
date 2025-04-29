@@ -117,14 +117,14 @@ namespace FutureFlex.API
 
             try
             {
-                var options = new RestClientOptions(tbOdoo.server)
+                var options = new RestClientOptions(OdooModel.Server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
                 var request = new RestRequest("/api/gv_list", Method.Get);
-                request.AddHeader("key", tbOdoo.key);
-                request.AddHeader("po_num", po);
+                request.AddHeader("key", OdooModel.Key);
+                request.AddHeader("po-num", po);
                 RestResponse response = await client.ExecuteAsync(request);
                 Log.Information($"response \n {response.Content}");
                 if (response.Content == "[]")
@@ -176,15 +176,15 @@ namespace FutureFlex.API
 
             try
             {
-                var options = new RestClientOptions(tbOdoo.server)
+                var options = new RestClientOptions(OdooModel.Server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
                 var request = new RestRequest("/api/gv_num", Method.Get);
-                request.AddHeader("key", tbOdoo.key);
-                request.AddHeader("gv_num", gv);
-                request.AddHeader("po_num", po_num);
+                request.AddHeader("key", OdooModel.Key);
+                request.AddHeader("gv-num", gv);
+                request.AddHeader("po-num", po_num);
                 RestResponse response = await client.ExecuteAsync(request);
                 Log.Information($"- response \n {response.Content}");
 
@@ -321,13 +321,13 @@ namespace FutureFlex.API
                 Log.Information($"weight_seq : {seq}");
                 Log.Information($"count_total : {count_total}");
                 Log.Information($"qty_roll : {qty_roll}");
-                var options = new RestClientOptions(tbOdoo.server)
+                var options = new RestClientOptions(OdooModel.Server)
                 {
                     MaxTimeout = -1,
                 };
                 var client = new RestClient(options);
                 var request = new RestRequest("/api/gv_num", Method.Post);
-                request.AddHeader("key", tbOdoo.key);
+                request.AddHeader("key", OdooModel.Key);
                 request.AddHeader("Content-Type", "text/plain");
 
                 if (qty_roll == 0 && type == "roll")
