@@ -142,7 +142,7 @@ namespace FutureFlex
                                 txtURL.Text = _server;
                                 txtKey.Text = _key;
                                 label12.Text = _id;
-                        break;
+                                break;
                             case "PRODUCTION":
                                 textBox2.Text = _server;
                                 textBox3.Text = _key;
