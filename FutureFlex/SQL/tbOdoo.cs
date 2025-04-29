@@ -1,5 +1,5 @@
 ﻿using FutureFlex.Models;
-﻿using Serilog;
+using Serilog;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -17,7 +17,7 @@ namespace FutureFlex.SQL
             {
                 Log.Information($"==== GET CONFIG ODOO API");
                 SqlConnection con = SQL.server.con;
-                string sql = "SELECT * FROM tbOdoo";
+                string sql = $"SELECT * FROM tbOdoo WHERE od_status = '{OdooModel.Status}'";
 
                 SqlDataAdapter da = new SqlDataAdapter(sql, con);
                 DataTable tb = new DataTable();
@@ -25,12 +25,12 @@ namespace FutureFlex.SQL
 
                 foreach (DataRow rw in tb.Rows)
                 {
-                    key = rw["od_key"].ToString();
-                    server = rw["od_server"].ToString();
-                    db = rw["od_database"].ToString();
-                    Log.Information($"-- key : {key}");
-                    Log.Information($"-- server : {server}");
-                    Log.Information($"-- db : {db}");
+                    OdooModel.Key = rw["od_key"].ToString();
+                    OdooModel.Server = rw["od_server"].ToString();
+                    OdooModel.Database = rw["od_database"].ToString();
+                    Log.Information($"-- key : {OdooModel.Key}");
+                    Log.Information($"-- server : {OdooModel.Server}");
+                    Log.Information($"-- db : {OdooModel.Database}");
                     break;
                 }
             }
